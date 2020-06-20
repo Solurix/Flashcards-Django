@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<h1>Choose languages you wish to use in your study:</h1>
+
+
+<form action="/change_langs" method="post">
+{% for key, value in langs.items() %}
+<div class="custom-control custom-checkbox custom-control-inline">
+  <input class="form-check-input" type="checkbox" value={{value}} id={{a~loop.index}} name="selected">
+  <label class="form-check-label" for={{a~loop.index}}>
+      {{ key|capitalize }}
+  </label>
+</div>
+{% endfor %}
+
+<div>
+    <input class="btn btn-secondary btn-lg" type="submit" value="Save">
+</div>
+</form>
+
+
+{% endblock body %}

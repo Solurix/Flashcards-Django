@@ -1,0 +1,15 @@
+  <form action="/saved" method="post">
+        <input name="card" placeholder="English" type="text">
+        <select name="language1">
+            {% for lang in langs %}
+                <option value={{ lang }}>{{ langs[lang] }}</option>
+            {% endfor %}
+        </select>
+        <input name="translation" placeholder="Translate" type="text">
+        <select name="language2">
+            {% for lang in langs %}
+                <option value={{ lang }}>{{ langs[lang] }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Save">
+    </form>

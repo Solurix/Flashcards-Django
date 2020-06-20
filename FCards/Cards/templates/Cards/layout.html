@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    </head>
+<body>
+
+    <a href="/dashboard"><button type="button" class="btn btn-success btn-sm btn-block">Return to main page</button></a>
+
+    {% block body %}
+    {% endblock %}
+
+
+    {% block form %}
+    <form action="/saved" method="post">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <select class="custom-select" name="language1">
+                    {% for lang in langs %}
+                        <option class="dropdown-item" value={{ lang }}>{{ langs[lang] }}</option>
+                    {% endfor %}
+                 </select>
+            </div>
+        <input type="text" class="form-control" autofocus placeholder="Word to be translated" name="card">
+        </div>
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Translation" name="translation">
+            <div class="input-group-append">
+                <select class="custom-select" name="language2">
+                    {% for lang in langs %}
+                        <option class="dropdown-item" value={{ lang }}>{{ langs[lang] }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+        </div>
+        <div>
+            <input class="btn btn-secondary btn-lg btn-block" type="submit" value="Save">
+        </div>
+    </form>
+
+    {% endblock form %}
+
+
+    <form action="/delete_all" method="post">
+        <button type="submit" class="btn btn-danger btn-sm">Delete all cards</button>
+    </form>
+
+    <form action="/languages" method="post">
+        <button class="btn btn-primary btn-sm">Languages</button>
+    </form>
+
+
+<h3>Your multi-cards:</h3>
+<table class="table table-hover table-dark">
+    <thead>
+        <tr>
+            <th>#</th>
+                {% for lang in langs %}
+                    <th>{{ lang }}</th>
+                {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+        {% for card in cards %}
+            <tr>
+                <th>
+                    {% set id = "a"~loop.index|string %}
+                    <button class="btn btn-dark" type="button" data-toggle="collapse" data-target={{"#"~id}} aria-expanded="false" aria-controls={{id}}>
+                        {{loop.index}}
+                    </button>
+                    <div class="collapse" id={{id}}>
+                        <form action="/delete_card" method="post">
+                             <button type="submit" class="btn btn-danger btn-sm" name="del_card" value={{loop.index}}>Delete card</button>
+                        </form>
+                    </div>
+                </th>
+                {% for language in langs %}
+                    <th>
+                        {% set x = card.lang[language] %}
+                        {% if x[0] %}
+                            <button class="btn btn-dark" data-toggle="collapse" data-target={{"#"~id}}>
+                                {% if x[0].startswith('*a') %}
+                                <p class="font-italic">{{ x[0][2:]|capitalize }}: {{ x[1] }} %</p>
+                                {% else %}
+                                <p>{{ x[0]|capitalize }}: {{ x[1] }} %</p>
+                                {% endif %}
+                            </button>
+                        {% endif %}
+                        {% if x[2] %}
+                            <div class="collapse" id={{id}}>
+                                ({{ x[2]|join(', ') }})
+                            </div>
+                        {% endif %}
+                    </th>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+</body>
+</html>

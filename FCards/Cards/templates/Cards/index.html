@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome {{ user }}
+{% endblock %}
+
+{% block styles %}
+<style>
+.hiddenRow {
+    padding: 0 !important;
+}
+</style>
+<script>
+$('.collapse').on('show.bs.collapse', function () {
+    $('.collapse.in').collapse('hide');
+});
+</script>
+{% endblock %}
+
+{% block body %}
+
+  <h1> Here are your sets to study, {{ user }}.</h1>
+  <h2> Your sets: </h2>
+  <hr/>
+  {% for folder in user.cardfolder_set.all %}
+    <table class="table table-hover table-dark" style="border-collapse:collapse;">
+      <thead>
+        <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
+          <th colspan="{{folder.langs_no}}">
+            <h3>
+              {{ forloop.counter }}. {{ folder.name }}
+            </h3>
+          </th>
+        </tr>
+      </thead>
+        <tr>
+          {% for k, v in folder.get_langs %}
+            <td class="hiddenRow">
+              <div id="b{{folder.id}}" class="collapse">
+                <h5><b>{{ v|upper }}</b></h5>
+              </div>
+            </td>
+          {% endfor %}
+
+        </tr>
+      {% if folder.multicard_set.all %}
+        {% for multicard in folder.multicard_set.all %}
+        <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed">
+          {% for card in multicard.card_set.all %}
+            <td class="hiddenRow">
+              <div id="b{{folder.id}}" class="collapse">
+              {{ card.main }}
+              </div>
+            </td>
+          {% endfor %}
+        </tr>
+        <tr>
+          {% for card in multicard.card_set.all %}
+          <td class="hiddenRow">
+              <div id="b{{folder.id}}" class="collapse">
+                <div id="a{{multicard.id}}" class="collapse">
+                  <p>Score: {{ card.score }} %</p>
+                  {% if card.pronunciation %}
+                    <p>Pronunciation: {{ card.pronunciation }}</p>
+                  {% endif %}
+                  {% if card.synonyms %}
+                    <p>Synonym: {{ card.synonyms }}</p>
+                  {% endif %}
+                  {% if card.definition %}
+                    <p>Definition: {{ card.definition }}</p>
+                  {% endif %}
+                  {% if card.comment %}
+                    <p>Comment: {{ card.comment }}</p>
+                  {% endif %}
+                </div>
+              </div>
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+      {% else %}
+        <th>
+          <td colspan="{{folder.langs_no}}">The are no cards for this set.</td>
+        </th>
+      {% endif %}
+    </table>
+  <hr/>
+  {% endfor %}
+
+{% endblock %}

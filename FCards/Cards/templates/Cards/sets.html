@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block body %}
+
+<p>Set name: {{ set.name }}</p>
+<p>Set comment: {{ set.comment }}</p>
+
+<p>MULTICARDS:</p>
+
+{% for multicard in multicards %}
+
+<p>{{ multicard.id }} : {{ multicard.comment }}</p>
+<table>
+    <tr>
+        {% for card in multicard.card_set.all %}
+        <th>
+            {{ card.main }}
+        </th>
+        {% endfor %}
+    </tr>
+</table>
+{% endfor %}
+
+
+{% endblock %}
