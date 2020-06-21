@@ -38,6 +38,7 @@ class MultiCard(models.Model):
     cards_folder = models.ForeignKey(CardFolder, on_delete=models.CASCADE)
     score = models.PositiveSmallIntegerField(default=0)
     comment = models.CharField(max_length=400, blank=True)
+    definition = models.CharField(max_length=400, blank=True)
     rates = models.IntegerField(default=0)
     rating = models.IntegerField(default=0)
     mastered = models.BooleanField(default=False)
@@ -55,7 +56,6 @@ class MultiCard(models.Model):
             mains.append(card.language + ": " + card.main)
         return mains
 
-
     # image = models.ImageField(upload_to='uploads/')
     # choice_text = models.CharField(max_length=200)
     # votes = models.IntegerField(default=0)
@@ -69,10 +69,8 @@ class Card(models.Model):
     score = models.PositiveSmallIntegerField(default=0)
     pronunciation = models.CharField(max_length=200, blank=True)
     synonyms = models.CharField(max_length=50, blank=True)
-    definition = models.CharField(max_length=500, blank=True)
     comment = models.CharField(max_length=400, blank=True)
     rating = models.SmallIntegerField(default=0)
-
 
     def __str__(self):
         return self.main

@@ -11,5 +11,6 @@ urlpatterns = [
     path('<int:set_id>/results/', views.results, name='results'),
     path('add_set/', views.add_folder, name='add_folder'),
     path('home/', views.home, name='home'),
-    path('delete_set/<int:set_id>/', views.delete_folder, name='delete_folder')
+    path('delete_set/<int:set_id>/', views.delete_folder, name='delete_folder'),
+    path('edit_set/<int:set_id>/', views.edit_folder, name='edit_folder'),
 ]

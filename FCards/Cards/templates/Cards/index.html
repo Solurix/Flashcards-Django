@@ -32,11 +32,19 @@ $('.collapse').on('show.bs.collapse', function () {
     <table class="table table-hover table-dark" style="border-collapse:collapse;">
       <thead>
         <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
-          <th colspan="{{folder.langs_no}}">
+          <th colspan="{{folder.langs_no|add:'-1'}}">
             <h3>
               {{ forloop.counter }}. {{ folder.name }}
             </h3>
 
+          </th>
+          <th class="hiddenRow">
+              <div id="b{{folder.id}}" class="collapse">
+                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete</button>
+                <form method="GET" action="/cards/edit_set/{{folder.id}}/">{% csrf_token %}
+                  <input type="submit" class="btn btn-sm btn-outline-warning" value="Edit"/>
+                </form>
+              </div>
           </th>
         </tr>
       </thead>
@@ -48,9 +56,7 @@ $('.collapse').on('show.bs.collapse', function () {
               </div>
             </td>
           {% endfor %}
-          <td class="hiddenRow">
-              <div id="b{{folder.id}}" class="collapse float-right">
-                <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete</button>
+
                 <div class="text-dark">
                   <div class="modal fade" id="c{{folder.id}}" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">
                     <div class="modal-dialog" role="document">
@@ -76,7 +82,7 @@ $('.collapse').on('show.bs.collapse', function () {
                   </div>
                 </div>
                </div>
-            </td>
+
 
         </tr>
       {% if folder.multicard_set.all %}

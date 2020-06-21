@@ -1,11 +1,10 @@
 from django.shortcuts import render, get_object_or_404
-from .forms import FolderForm
-
-# Create your views here.
-
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 from django.template import loader
+
 from .models import CardFolder, MultiCard, Card
+from .forms import FolderForm
 
 
 # def index(request):
@@ -28,7 +27,7 @@ def results(request, set_id):
     response = "You're looking at the results of question %s."
     return HttpResponse(response % set_id)
 
-
+@login_required
 def add_folder(request):
     form = FolderForm(request.POST or None)
     if form.is_valid():
@@ -41,11 +40,11 @@ def add_folder(request):
     }
     return render(request, 'Cards/add_set.html', context)
 
-
+@login_required
 def home(request):
     return render(request, 'Cards/index.html')
 
-
+@login_required
 def delete_folder(request, set_id):
     if request.method == 'POST':
         Folder = CardFolder.objects.get(id=set_id)
@@ -54,3 +53,19 @@ def delete_folder(request, set_id):
     else:
         print('else')
         return render(request, 'Cards/index.html')
+
+@login_required
+def edit_folder(request, set_id):
+    Folder = CardFolder.objects.get(id=set_id)
+    form = FolderForm(request.POST or None, instance=Folder)
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            # if request.method == "POST":
+            #     CardFolder.objects.create(user=request.user, **form.cleaned_data)
+        return render(request, 'Cards/index.html')
+
+    context = {
+        "form": form
+    }
+    return render(request, 'Cards/edit_set.html', context)
