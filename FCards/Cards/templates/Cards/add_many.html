@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block title %}
+New set
+{% endblock title %}
+
+{% block styles %}
+
+{% endblock styles %}
+
+{% block body %}
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="text-dark">
+    <h1 class="display-4">Create many MultiCards at once</h1>
+    <p class="lead">Here you can create new MultiCards for {{folder.name}}.</p>
+    <p class="lead">Insert words or sentences and divide them by character of your choice.</p>
+    </div>
+  </div>
+</div>
+<div class="jumbotron jumbotron-fluid">
+    <div class="text-dark">
+    <form method="POST" action=".">{% csrf_token %}
+        <div class="table-responsive-xl">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <select class="custom-select" name="language">
+                    {% for k, v in langs %}
+                        <option class="dropdown-item" value={{ k }}>{{ v|title }}</option>
+                    {% endfor %}
+                 </select>
+            </div>
+        <input type="text" name="separator" required class="form-control" maxlength="10" placeholder="Insert separator for text here. For example: *">
+        </div>
+
+            <textarea name="for_translate" cols="40" rows="10" class="form-control" maxlength="400"
+            required placeholder="Write or paste words/sentences from which you want to create cards.
+Divide them by separator of your choice.
+Example: dad*mom*I like bananas*monday"></textarea>
+    <button class="btn btn-success">Create</button>
+    </form>
+    </div>
+</div>
+
+
+
+{% endblock body %}

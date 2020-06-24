@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block title %}
+New set
+{% endblock title %}
+
+{% block styles %}
+
+{% endblock styles %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+
+    <div class="text-dark">
+      <form method="POST" action=".">{% csrf_token %}
+        {{ formset.management_form }}
+        <div class="table-responsive-xl">
+    <table class="table-sm">
+      <tr>
+          <th><p><b>Language</b></p></th>
+        {% for k, v in folder.get_langs %}
+        <th><h5><b>{{ v|upper }}</b></h5></th>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td><b>Word</b></td>
+        {% for form in formset %}
+        <td>
+          {{ form.main }}
+        </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td><b>Pronunciation</b></td>
+        {% for form in formset %}
+        <td>
+          {{ form.pronunciation }}
+        </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td><b>Synonym</b></td>
+        {% for form in formset %}
+        <td>
+          {{ form.synonyms }}
+        </td>
+        {% endfor %}
+      </tr>
+      <tr>
+        <td><b>Comment</b></td>
+        {% for form in formset %}
+        <td>
+          {{ form.comment }}
+        </td>
+        {% endfor %}
+      </tr>
+      </table>
+        </div>
+      <button class="btn btn-success">Create</button>
+      </form>
+    </div>
+</div>
+
+
+
+{% endblock body %}

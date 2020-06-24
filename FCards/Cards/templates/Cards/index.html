@@ -15,6 +15,9 @@ $('.collapse').on('show.bs.collapse', function () {
     $('.collapse.in').collapse('hide');
 });
 </script>
+
+{% load get_obj %}
+
 {% endblock %}
 
 {% block body %}
@@ -32,22 +35,30 @@ $('.collapse').on('show.bs.collapse', function () {
     <table class="table table-hover table-dark" style="border-collapse:collapse;">
       <thead>
         <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
-          <th colspan="{{folder.langs_no|add:'-1'}}">
+          <th colspan="{{folder.langs_no|add:'-2'}}">
             <h3>
               {{ forloop.counter }}. {{ folder.name }}
             </h3>
 
           </th>
-          <th class="hiddenRow">
+          <th class="hiddenRow" colspan=2>
               <div id="b{{folder.id}}" class="collapse">
-                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete</button>
-                <form method="GET" action="/cards/edit_set/{{folder.id}}/">{% csrf_token %}
-                  <input type="submit" class="btn btn-sm btn-outline-warning" value="Edit"/>
-                </form>
+                <a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+                <a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
+                <a class="btn btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
               </div>
           </th>
         </tr>
-      </thead>
+
+        <tr>
+          <th class="hiddenRow" colspan="{{folder.langs_no}}">
+              <div id="b{{folder.id}}" class="collapse">
+                <h6>{{ folder.comment }}</h6>
+              </div>
+            </th>
+        </tr>
+
         <tr>
           {% for k, v in folder.get_langs %}
             <td class="hiddenRow">
@@ -85,10 +96,13 @@ $('.collapse').on('show.bs.collapse', function () {
 
 
         </tr>
+        </thead>
       {% if folder.multicard_set.all %}
         {% for multicard in folder.multicard_set.all %}
         <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed">
-          {% for card in multicard.card_set.all %}
+          {% for lang in folder.langs_keys %}
+          {% get_card lang multicard as card %}
+
             <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
                 <b>{{ card.main }}</b>
@@ -97,11 +111,15 @@ $('.collapse').on('show.bs.collapse', function () {
           {% endfor %}
         </tr>
         <tr>
-          {% for card in multicard.card_set.all %}
+          {% for lang in folder.langs_keys %}
+          {% get_card lang multicard as card %}
           <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
                 <div id="a{{multicard.id}}" class="collapse">
 
+                  {% if card.automated %}
+                    <p>Auto-translated</p>
+                  {% endif %}
                   <p>Score: {{ card.score }} %</p>
                   {% if card.pronunciation %}
                     <p>Pronunciation: {{ card.pronunciation }}</p>

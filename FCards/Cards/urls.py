@@ -13,4 +13,7 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('delete_set/<int:set_id>/', views.delete_folder, name='delete_folder'),
     path('edit_set/<int:set_id>/', views.edit_folder, name='edit_folder'),
+    path('add_multicard/<int:set_id>/', views.add_multicard, name='add_multicard'),
+    path('add_many/<int:set_id>/', views.add_many, name='add_many'),
+    path('edit_multicards/<int:set_id>/', views.edit_multicards, name='edit_multicards'),
 ]

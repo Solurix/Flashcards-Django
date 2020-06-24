@@ -1,16 +1,40 @@
 from django.forms import ModelForm
-from .models import CardFolder, Card
+from .models import CardFolder, Card, MultiCard
 from django import forms
 from . import langcodes
 from django.core.exceptions import ValidationError
+from django.utils.translation import ugettext_lazy as _
 
+
+# class MultiCardForm(ModelForm):
+#     class Meta:
+#         model = MultiCard
+#         fields = ['comment', 'definition']
 
 class FolderForm(ModelForm):
-    # name = forms.CharField(max_length=200, label="Set name:", widget=forms.TextInput(attrs={
-    #     "placeholder": "Name for this set"}))
+    # create_date = forms.DateField()
+    # edit_date = forms.DateField()
     class Meta:
         model = CardFolder
         fields = ['name', 'lang1', 'lang2', 'lang3', 'lang4', 'lang5', 'comment']
+        widgets = {
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name for the set'}),
+            'lang1': forms.Select(attrs={'class': 'form-control'}),
+            'lang2': forms.Select(attrs={'class': 'form-control'}),
+            'lang3': forms.Select(attrs={'class': 'form-control'}),
+            'lang4': forms.Select(attrs={'class': 'form-control'}),
+            'lang5': forms.Select(attrs={'class': 'form-control'}),
+            'comment': forms.Textarea(attrs={'class': 'form-control', 'rows': 2}),
+        }
+        labels = {
+            'name': _('Set name'),
+            'lang1': _('1st language'),
+            'lang2': _('2nd language'),
+            'lang3': _('3rd language'),
+            'lang4': _('4th language'),
+            'lang5': _('5th language'),
+            'comment': _('Your comment'),
+        }
 
     def clean_name(self, *args, **kwargs):
         name = self.cleaned_data.get("name")
@@ -26,9 +50,24 @@ class FolderForm(ModelForm):
         lang4 = cleaned_data.get("lang4")
         lang5 = cleaned_data.get("lang5")
 
-        if lang1 == lang2 or (lang3 and (lang3 in (lang1, lang2))) or (lang4 and (lang4 in (lang1, lang2, lang3))) or \
-                (lang5 and (lang5 in (lang1, lang2, lang3, lang4))):
+        langs = []
+        for lang in (lang1, lang2, lang3, lang4, lang5):
+            if lang:
+                langs.append(lang)
+
+        def check_if_duplicates(listOfElems):
+            ''' Check if given list contains any duplicates '''
+            if len(listOfElems) == len(set(listOfElems)):
+                return False
+            else:
+                return True
+        result = check_if_duplicates(langs)
+        if result:
+            print('Yes, list contains duplicates')
             raise ValidationError("Every language must be different.")
+        else:
+            print('No duplicates found in list')
+
 
 
 
@@ -47,20 +86,33 @@ class FolderForm(ModelForm):
 #     comment = forms.CharField(max_length=400, required=False, widget=forms.TextInput(attrs={
 #         "placeholder": "You note (optional)"}))
 
-# class RawCardForm(forms.ModelForm):
-#     class Meta:
-#         model = Card
-#     multi_card = forms.ForeignKey(MultiCard, on_delete=models.CASCADE)
-#     language = forms.CharField(max_length=5, choices=langcodes.LangCodes, default="en")
-#     main = forms.CharField(max_length=50)
-#     automated = forms.BooleanField(default=False)
-#     score = forms.PositiveSmallIntegerField(default=0)
-#     pronunciation = forms.CharField(max_length=200, blank=True)
-#     synonyms = forms.CharField(max_length=50, blank=True)
-#     comment = forms.CharField(max_length=400, blank=True)
-#     rating = forms.SmallIntegerField(default=0)
-#
-#     def __init__(self, *args, **kwargs):
-#         super(RawCardForm, self).__init__(*args, **kwargs)
-#         self.fields['language'] = forms.ChoiceField(
-#             choices=get_my_choices() )
+class CardsForm(forms.Form):
+    # MultiCard
+    # multi_comment = forms.CharField(max_length=400, required=False, widget=forms.TextInput(attrs={'class': 'form'
+    #                                                                                                        '-control'}))
+    # multi_definition = forms.CharField(max_length=400, required=False, widget=forms.TextInput(attrs={'class': 'form'
+    #                                                                                                           '-control'}))
+
+    # Card
+    language = forms.CharField(max_length=5)
+    main = forms.CharField(max_length=50, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    automated = forms.BooleanField(initial=False)
+    pronunciation = forms.CharField(max_length=200, required=False, widget=forms.TextInput(attrs={'class': 'form'
+                                                                                                           '-control'}))
+    synonyms = forms.CharField(max_length=50, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    comment = forms.CharField(max_length=400, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+
+    # class Meta:
+    #     widgets = {
+    #         'automated': forms.HiddenInput(),
+    #         'language': forms.HiddenInput(),
+    #         'main': forms.CharField(attrs={'class': 'form-control'}),
+    #         'pronunciation': forms.CharField(attrs={'class': 'form-control'}),
+    #         'synonyms': forms.CharField(attrs={'class': 'form-control'}),
+    #         'comment': forms.CharField(attrs={'class': 'form-control'}),}
+
+
+    # def __init__(self, *args, **kwargs):
+    #     super(RawCardForm, self).__init__(*args, **kwargs)
+    #     self.fields['language'] = forms.ChoiceField(
+    #         choices=get_my_choices() )

@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+Welcome {{ user }}
+{% endblock %}
+
+{% block styles %}
+<style>
+.hiddenRow {
+    padding: 0 !important;
+}
+</style>
+<script>
+$('.collapse').on('show.bs.collapse', function () {
+    $('.collapse.in').collapse('hide');
+});
+</script>
+
+{% load get_obj %}
+
+{% endblock %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="text-dark">
+    <h1 class="display-5">Here are your MultiCards in {{folder.name}}.</h1>
+    <p class="lead">{{ folder.comment }}</p>
+    </div>
+  </div>
+</div>
+
+
+        <table class="table table-hover table-dark" style="border-collapse:collapse;">
+
+
+            <thead>
+              {% for k, v in folder.get_langs %}
+                <th>
+                    <h5><b>{{ v|upper }}</b></h5>
+                </th>
+              {% endfor %}
+            </thead>
+
+        {% for multicard in folder.multicard_set.all %}
+          {% for lang in folder.langs_keys %}
+          {% get_card lang multicard as card %}
+        <tr>
+            <td>
+              <div>
+                <b>{{ card.main }}</b>
+              </div>
+            </td>
+          {% endfor %}
+        </tr>
+        <tr>
+          {% for lang in folder.langs_keys %}
+          {% get_card lang multicard as card %}
+          <td>
+                  {% if card.automated %}
+                    <p>Auto-translated</p>
+                  {% endif %}
+                  <p>Score: {{ card.score }} %</p>
+                  {% if card.pronunciation %}
+                    <p>Pronunciation: {{ card.pronunciation }}</p>
+                  {% endif %}
+                  {% if card.synonyms %}
+                    <p>Synonym: {{ card.synonyms }}</p>
+                  {% endif %}
+                  {% if card.definition %}
+                    <p>Definition: {{ card.definition }}</p>
+                  {% endif %}
+                  {% if card.comment %}
+                    <p>Comment: {{ card.comment }}</p>
+                  {% endif %}
+
+          </td>
+          {% endfor %}
+        </tr>
+        {% endfor %}
+
+    </table>
+
+
+
+{% endblock %}

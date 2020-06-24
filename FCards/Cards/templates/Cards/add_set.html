@@ -14,8 +14,8 @@ New set
   <div class="container">
     <div class="text-dark">
     <form method="POST" action="{% url 'add_folder' %}">{% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Create">
+    {{ form }}
+      <button class="btn btn-success">Create</button>
     </form>
     </div>
   </div>

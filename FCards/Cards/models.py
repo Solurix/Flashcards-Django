@@ -1,6 +1,7 @@
 from django.db import models
 from . import langcodes
 from django.contrib.auth.models import User
+from googletrans import Translator
 
 
 # Create your models here.
@@ -25,6 +26,14 @@ class CardFolder(models.Model):
             if i != "":
                 lang_choices.append((i, langcodes.LangCodesDict[i]))
         return lang_choices
+
+    def langs_keys(self):
+        langs = [self.lang1, self.lang2, self.lang3, self.lang4, self.lang5]
+        true_langs = []
+        for i in langs:
+            if i != "":
+                true_langs.append(i)
+        return true_langs
 
     def langs_no(self):
         return len(self.get_langs())
@@ -67,7 +76,7 @@ class Card(models.Model):
     main = models.CharField(max_length=50)
     automated = models.BooleanField(default=False)
     score = models.PositiveSmallIntegerField(default=0)
-    pronunciation = models.CharField(max_length=200, blank=True)
+    pronunciation = models.CharField(max_length=200, blank=True, default=False, null=True)
     synonyms = models.CharField(max_length=50, blank=True)
     comment = models.CharField(max_length=400, blank=True)
     rating = models.SmallIntegerField(default=0)
