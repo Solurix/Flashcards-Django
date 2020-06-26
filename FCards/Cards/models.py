@@ -72,6 +72,7 @@ class MultiCard(models.Model):
 
 class Card(models.Model):
     multi_card = models.ForeignKey(MultiCard, on_delete=models.CASCADE)
+    cards_folder = models.ForeignKey(CardFolder, on_delete=models.CASCADE)
     language = models.CharField(max_length=5, choices=langcodes.LangCodes, default="en")
     main = models.CharField(max_length=50)
     automated = models.BooleanField(default=False)

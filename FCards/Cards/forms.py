@@ -1,7 +1,6 @@
 from django.forms import ModelForm
-from .models import CardFolder, Card, MultiCard
+from .models import CardFolder
 from django import forms
-from . import langcodes
 from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
@@ -36,11 +35,11 @@ class FolderForm(ModelForm):
             'comment': _('Your comment'),
         }
 
-    def clean_name(self, *args, **kwargs):
-        name = self.cleaned_data.get("name")
-        if 'test' not in name:
-            raise forms.ValidationError("must include 'test'")
-        return name
+    # def clean_name(self, *args, **kwargs):
+    #     name = self.cleaned_data.get("name")
+    #     if 'test' not in name:
+    #         raise forms.ValidationError("must include 'test'")
+    #     return name
 
     def clean(self):
         cleaned_data = super().clean()

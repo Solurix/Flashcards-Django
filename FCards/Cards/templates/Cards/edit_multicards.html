@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Welcome {{ user }}
+Edit MultiCards
 {% endblock %}
 
 {% block styles %}
@@ -32,10 +32,11 @@ $('.collapse').on('show.bs.collapse', function () {
 </div>
 
 
-        <table class="table table-hover table-dark" style="border-collapse:collapse;">
+        <table class="table table-hover table-secondary" style="border-collapse:collapse;">
 
 
             <thead>
+            <th></th>
               {% for k, v in folder.get_langs %}
                 <th>
                     <h5><b>{{ v|upper }}</b></h5>
@@ -44,40 +45,73 @@ $('.collapse').on('show.bs.collapse', function () {
             </thead>
 
         {% for multicard in folder.multicard_set.all %}
-          {% for lang in folder.langs_keys %}
-          {% get_card lang multicard as card %}
-        <tr>
-            <td>
-              <div>
-                <b>{{ card.main }}</b>
-              </div>
-            </td>
-          {% endfor %}
-        </tr>
-        <tr>
-          {% for lang in folder.langs_keys %}
-          {% get_card lang multicard as card %}
-          <td>
-                  {% if card.automated %}
-                    <p>Auto-translated</p>
-                  {% endif %}
-                  <p>Score: {{ card.score }} %</p>
-                  {% if card.pronunciation %}
-                    <p>Pronunciation: {{ card.pronunciation }}</p>
-                  {% endif %}
-                  {% if card.synonyms %}
-                    <p>Synonym: {{ card.synonyms }}</p>
-                  {% endif %}
-                  {% if card.definition %}
-                    <p>Definition: {{ card.definition }}</p>
-                  {% endif %}
-                  {% if card.comment %}
-                    <p>Comment: {{ card.comment }}</p>
-                  {% endif %}
+            <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed table-light">
+                <td>
+                    <b>{{ forloop.counter }}.</b>
+                </td>
+              {% for lang in folder.langs_keys %}
+                {% get_card lang multicard as card %}
+                <td>
+                  <div>
+                    <b>{{ card.main }}</b>
+                  </div>
+                </td>
+              {% endfor %}
+            </tr>
+            <tr class="table-active">
+                <td class="hiddenRow"><div id="a{{multicard.id}}" class="collapse">
+                    <br/>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Word</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Pronunc.</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Synonym</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span></p>
 
-          </td>
-          {% endfor %}
-        </tr>
+
+                </div></td>
+              {% for k, v in langs %}
+              {% get_card k multicard as card %}
+              <td class="hiddenRow">
+              <div id="a{{multicard.id}}" class="collapse">
+                  <br/>
+                  <p>
+                    {% if forloop.counter == 1 %}
+                      <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
+                    {% else %}
+                      <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="Word" value="{{card.main}}">
+                    {% endif %}
+                  </p>
+                  <p>
+                    <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">
+                  </p>
+                  <p>
+                    <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="Synonym" value="{{card.synonyms}}">
+                  </p>
+                  <p>
+                    <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="Comment" value="{{card.comment}}">
+                  </p>
+              </div>
+              </td>
+              {% endfor %}
+            </tr>
+            <tr class="table-active">
+                <td class="hiddenRow" colspan="{{length|add:'1'}}">
+                    <div id="a{{multicard.id}}" class="collapse">
+                        <nav class="navbar">
+                            <p class="font-weight-bold"><span class="form-control-plaintext">Definition</span>
+                              <input type="text" name="comment" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                            </p>
+                            <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span>
+                                <input type="text" name="definition" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
+                            </p>
+                            <a class="btn btn-warning" href="{% url 'add_multicard' set_id=folder.id %}">Save changes</a>
+                            <form method="POST" action="{% url 'delete_multicards' set_id=folder.id m_card_id=multicard.id %}">{% csrf_token %}
+                                <br/>
+                                <input type="submit" class="btn btn-danger" value="Delete this MultiCard">
+                            </form>
+                        </nav>
+                    </div>
+                </td>
+            </tr>
         {% endfor %}
 
     </table>

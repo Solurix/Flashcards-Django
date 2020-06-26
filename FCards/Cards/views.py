@@ -1,28 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
-from django.template import loader
-from django.forms import formset_factory
 from .models import CardFolder, MultiCard, Card
 from .forms import FolderForm, CardsForm
 from googletrans import Translator
 
-
-def detail(request, set_id):
-    this_set = CardFolder.objects.get(pk=set_id)  # Current set
-    multicards = this_set.multicard_set.all()  # All multicards in the set
-
-    print(multicards)
-    context = {
-        "set": this_set,
-        "multicards": multicards,
-    }
-    return render(request, 'Cards/sets.html', context)
-
-
-def results(request, set_id):
-    response = "You're looking at the results of question %s."
-    return HttpResponse(response % set_id)
+# from django.http import HttpResponse
+# from django.template import loader
+# from django.forms import formset_factory
 
 
 @login_required
@@ -71,15 +55,14 @@ def edit_folder(request, set_id):
                     for card in cards:
                         created_langs.append(card.language)
                     for lang in folder.langs_keys():
-                        if not lang in created_langs:
+                        if lang not in created_langs:
                             first = cards.first()
                             translation = Translator().translate(text=first.main, src=first.language, dest=lang)
-                            data = {}
-                            data['main'] = translation.text
+                            data = {'main': translation.text}
                             if translation.pronunciation != first.main:
                                 data['pronunciation'] = translation.pronunciation
                                 data['automated'] = True
-                            Card.objects.create(multi_card=multicard, language=lang, **data)
+                            Card.objects.create(multi_card=multicard, cards_folder=folder, language=lang, **data)
                 return render(request, 'Cards/index.html')
 
         else:
@@ -131,8 +114,9 @@ def add_multicard(request, set_id):
     if folder in user_folders:
         if request.method == "POST":
             if request.POST['main' + langs[0][0]]:
-                MCard = MultiCard.objects.create(cards_folder=folder)
-                MCard.save()
+                m_card = MultiCard.objects.create(cards_folder=folder, comment=request.POST['comment'],
+                                                  definition=request.POST['definition'])
+                m_card.save()
                 for k, v in langs:
                     data[k] = {'main': request.POST['main' + k].capitalize(),
                                'pronunciation': request.POST['pronunciation' + k].capitalize(),
@@ -144,7 +128,7 @@ def add_multicard(request, set_id):
                         if translation.pronunciation != data[langs[0][0]]["main"]:
                             data[k]['pronunciation'] = translation.pronunciation
                         data[k]['automated'] = True
-                    Card.objects.create(multi_card=MCard, language=k, **data[k])
+                    Card.objects.create(multi_card=m_card, language=k, cards_folder=folder, **data[k])
             return render(request, 'Cards/index.html')
         context = {
             "form": form,
@@ -171,31 +155,29 @@ def add_many(request, set_id):
             language = str(request.POST['language'])
             for_translate = request.POST['for_translate']
             if not separator or not language or not for_translate:
-                return render(request, 'Cards/no_access.html')  # TODO easter egg
+                return render(request, 'Cards/no_access.html')
             new_cards = for_translate.split(separator)
             new_langs = folder.langs_keys()
-            print(new_langs)
             new_langs.remove(language)
-            print(new_langs)
             for word in new_cards:
-                MCard = MultiCard.objects.create(cards_folder=folder)
-                MCard.save()
-                Card.objects.create(multi_card=MCard, language=language, main=word)
+                m_card = MultiCard.objects.create(cards_folder=folder)
+                m_card.save()
+                word = word.capitalize()
+                Card.objects.create(multi_card=m_card, cards_folder=folder, language=language, main=word, synonyms="",
+                                    comment="", pronunciation="")
                 for lang in new_langs:
                     translation = Translator().translate(text=word, src=language, dest=lang)
-                    data = {}
-                    data['main'] = translation.text.capitalize
-                    data['language'] = lang
-                    data['synonyms'] = ""
-                    data['comment'] = ""
-                    data['pronunciation'] = ""
-                    if translation.pronunciation != word:
-                        data['pronunciation'] = translation.pronunciation.capitalize
-                        data['automated'] = True
+                    data = {'main': translation.text.capitalize(),
+                            'language': lang,
+                            'synonyms': "",
+                            'comment': "",
+                            'pronunciation': "",
+                            'automated': True}
+                    if translation.pronunciation and translation.pronunciation != word:
+                        data['pronunciation'] = translation.pronunciation.capitalize()
                     else:
                         data['pronunciation'] = ""
-                        data['automated'] = False
-                    Card.objects.create(multi_card=MCard, **data)
+                    Card.objects.create(multi_card=m_card, cards_folder=folder, **data)
 
             return render(request, 'Cards/index.html')
         context = {
@@ -208,10 +190,10 @@ def add_many(request, set_id):
     else:
         return render(request, 'Cards/no_access.html')
 
+
 @login_required
 def edit_multicards(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
-    user_folders = request.user.cardfolder_set.all()
     langs = folder.get_langs()
     length = len(langs)
     context = {
@@ -221,3 +203,22 @@ def edit_multicards(request, set_id):
         "langs": langs,
     }
     return render(request, 'Cards/edit_multicards.html', context)
+
+
+@login_required
+def delete_multicards(request, set_id, m_card_id):
+    if request.method == "POST":
+        m_card = get_object_or_404(MultiCard, id=m_card_id)
+        m_card.delete()
+        folder = get_object_or_404(CardFolder, id=set_id)
+        langs = folder.get_langs()
+        length = len(langs)
+        context = {
+            # "form": form,
+            'folder': folder,
+            "length": length,
+            "langs": langs,
+        }
+        return render(request, 'Cards/edit_multicards.html', context)
+
+# return HttpResponse(status=204)

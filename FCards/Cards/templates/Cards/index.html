@@ -110,12 +110,14 @@ $('.collapse').on('show.bs.collapse', function () {
             </td>
           {% endfor %}
         </tr>
-        <tr>
+        <tr class="table-secondary">
+
           {% for lang in folder.langs_keys %}
           {% get_card lang multicard as card %}
           <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
                 <div id="a{{multicard.id}}" class="collapse">
+                  <div class="text-dark">
 
                   {% if card.automated %}
                     <p>Auto-translated</p>
@@ -138,6 +140,7 @@ $('.collapse').on('show.bs.collapse', function () {
               </div>
           </td>
           {% endfor %}
+          </div>
         </tr>
         {% endfor %}
       {% else %}
