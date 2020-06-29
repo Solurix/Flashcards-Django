@@ -15,6 +15,8 @@ New set
     <h1 class="display-4">Create many MultiCards at once</h1>
     <p class="lead">Here you can create new MultiCards for {{folder.name}}.</p>
     <p class="lead">Insert words or sentences and divide them by character of your choice.</p>
+  <a class="btn btn-outline-dark" href="{% url 'add_multicard' set_id=folder.id %}">You can add multicard with all details here.</a>
+
     </div>
   </div>
 </div>
@@ -37,7 +39,7 @@ New set
             required placeholder="Write or paste words/sentences from which you want to create cards.
 Divide them by separator of your choice.
 Example: dad*mom*I like bananas*monday"></textarea>
-    <button class="btn btn-success">Create</button>
+    <button class="btn btn-success btn-block">Create</button>
     </form>
     </div>
 </div>

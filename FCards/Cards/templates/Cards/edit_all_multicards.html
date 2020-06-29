@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+
+{% block title %}
+Edit MultiCards
+{% endblock %}
+
+{% block styles %}
+<style>
+.hiddenRow {
+    padding: 0 !important;
+}
+</style>
+<script>
+$('.collapse').on('show.bs.collapse', function () {
+    $('.collapse.in').collapse('hide');
+});
+</script>
+
+{% load get_obj %}
+
+{% endblock %}
+
+{% block nav_buttons %}
+<button type="submit" form="form" class="btn btn-outline-success">Save changes</button>
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
+
+{% endblock nav_buttons %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="text-dark">
+        <h1 class="display-5">Here are your MultiCards in {{folder.name}}.</h1>
+        <p class="lead">{{ folder.comment }}</p>
+        <p>Use CTRL+F to quickly find your cards.</p>
+        <a class="btn btn-outline-dark" href="{% url 'edit_multicards' set_id=folder.id %}">You can change the view back to single edit here.</a>
+    </div>
+  </div>
+</div>
+
+<form method="POST" id="form" action=".">{% csrf_token %}
+ <table class="table table-sm table-light">
+    <thead class="thead-dark">
+        <th style="width: 5%"><h5><b>
+            #
+        </b></h5></th>
+          {% for k, v in folder.get_langs %}
+          <th style="width: {{width}}%">
+              <h5><b>
+                  {{ v|upper }}
+              </b></h5>
+          </th>
+          {% endfor %}
+    </thead>
+     {% for multicard in folder.multicard_set.all %}
+        <tr>
+            <td>
+                <b><br/>{{ forloop.counter }}.</b>
+            </td>
+            {% for lang in folder.langs_keys %}
+                {% get_card lang multicard as card %}
+                    <td style="width: {{width}}%">
+                        <b><br/>{{ card.main }}</b>
+                    </td>
+            {% endfor %}
+        </tr>
+        <tr class="table-active">
+            <td>
+                <br/>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Word</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Pronunc.</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Synonym</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span></p>
+            </td>
+            {% for k, v in langs %}
+             {% get_card k multicard as card %}
+              <td>
+                  <br/>
+                  <p>
+                    {% if forloop.counter == 1 %}
+                      <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
+                    {% else %}
+                      <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Word" value="{{card.main}}">
+                    {% endif %}
+                  </p>
+                  <p>
+                      <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">
+                  </p>
+                  <p>
+                      <input type="text" name="synonyms{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Synonym" value="{{card.synonyms}}">
+                  </p>
+                  <p>
+                      <input type="text" name="comment{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Comment" value="{{card.comment}}">
+                  </p>
+              </td>
+            {% endfor %}
+        </tr>
+        <tr>
+            {% if length < 4 %}
+                <td>
+                    <br/>
+                    <input type="checkbox" class="btn btn-outline-danger" value=1 name="delete{{multicard.id}}" id="d{{multicard.id}}">
+                    <label style="color:#d51e25" for="d{{multicard.id}}"><b>Delete</b></label>
+                </td>
+                <td>
+                    <p class="font-weight-bold">
+                        <span class="form-control-plaintext">MultiCard Comment</span>
+                    </p>
+                    <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
+                </td>
+                <td>
+                    <p class="font-weight-bold">
+                        <span class="form-control-plaintext">MultiCard Definition</span>
+                    </p>
+                    <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                </td>
+            {% else %}
+                <td>
+                    <br/>
+                    <input type="checkbox" class="btn btn-outline-danger" value=1 name="delete{{multicard.id}}" id="d{{multicard.id}}">
+                    <label style="color:#d51e25" for="d{{multicard.id}}"><b>Delete</b></label>
+                </td>
+                <td class="text-right">
+                    <p class="font-weight-bold">
+                        <span class="form-control-plaintext">MultiCard Comment</span>
+                    </p>
+                </td>
+                <td>
+                    <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
+                </td>
+                <td class="text-right">
+                    <p class="font-weight-bold">
+                        <span class="form-control-plaintext">MultiCard Definition</span>
+                    </p>
+                </td>
+                <td>
+                    <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                </td>
+            {% endif %}
+        </tr>
+     <tr style="background-color:#292b2c">
+        <td colspan="{{length|add:'1'}}"><br/></td>
+     </tr>
+        {% endfor %}
+ </table>
+ <button class="btn btn-success btn-block"><b>Save changes</b></button>
+</form>
+
+{% include 'Cards/add_mcards_modal.html' %}
+{% endblock %}

@@ -62,10 +62,7 @@ class FolderForm(ModelForm):
                 return True
         result = check_if_duplicates(langs)
         if result:
-            print('Yes, list contains duplicates')
             raise ValidationError("Every language must be different.")
-        else:
-            print('No duplicates found in list')
 
 
 

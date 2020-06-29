@@ -11,4 +11,7 @@ urlpatterns = [
     path('add_many/<int:set_id>/', views.add_many, name='add_many'),
     path('edit_multicards/<int:set_id>/', views.edit_multicards, name='edit_multicards'),
     path('delete_multicards/<int:set_id>/<int:m_card_id>/', views.delete_multicards, name='delete_multicards'),
+    path('edit_multicards_save/<int:set_id>/<int:m_card_id>/', views.edit_multicards_save, name='edit_multicards_save'),
+    path('edit_all_multicards/<int:set_id>/', views.edit_all_multicards, name='edit_all_multicards'),
+    path('play/<int:set_id>/', views.play, name='play'),
 ]

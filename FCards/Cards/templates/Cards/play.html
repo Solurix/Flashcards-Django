@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% block title %}
+Learn
+{% endblock %}
+
+{% block styles %}
+{% load get_obj %}
+{% endblock %}
+
+{% block nav_buttons %}
+
+{% endblock nav_buttons %}
+
+{% block body %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="text-dark">
+            <div class="row justify-content-center">
+                <div class="col-auto">
+                    <div class="container">
+                      <h1>Write translations</h1>
+                      {% if previous %}
+                      <div class="row">
+                        <div class="col-xs-6">
+                          <div class="table-responsive">
+                                <table class="table table-responsive">
+                                    <tr><th colspan="2">
+                                        <h1 class="sub-header">{{ previous_show }}</h1>
+                                    </th></tr>
+                                    {% for card, true_false, answer, values in previous_cards %}
+                                    <tr>
+                                        <td>
+                                            {{ values|title }}
+                                        </td>
+                                        <td>
+                                            {% if true_false %}
+                                            <p style="color:#009900">{{answer}}</p>
+                                            {% else %}
+                                            <p style="color:#ff0000">{{answer}}</p>
+                                        </td><td>
+                                            <p style="color:#009900">{{card.main}}</p>
+
+                                            {% endif %}
+                                        </td>
+                                        <td width="20"></td>
+                                    </tr>
+                                    {% endfor %}
+                                </table>
+                          </div>
+                        </div>
+                       {% endif %}
+                        <div class="col-xs-6">
+                          <div class="table-responsive">
+                            <form method="POST">{% csrf_token %}
+                                 <input type="hidden" name="show_language" value="{{show_card.language}}"/>
+                                 <input type="hidden" name="multicard_id" value="{{m_card.id}}"/>
+                                 <table class="table table-responsive">
+                                    <tr><th colspan="2">
+                                        <h1 class="sub-header">{{ show_card.main }}</h1>
+                                        <input type="hidden" name="show_card" value="{{show_card.main}}"/>
+                                    </th></tr>
+                                    {% for card in hidden_cards %}
+                                    <tr>
+                                        <td>
+                                            {{ card.language|get_lang|title }}
+                                        </td>
+                                        <td>
+                                          <input type="text" name="answer{{card.language}}" autocomplete="off" class="form-control" maxlength="200">
+                                          <input type="hidden" name="id{{card.language}}" value="{{card.id}}"/>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                    <tr><th colspan="2">
+                                        <button class="btn btn-primary btn-block"><b>Check</b></button>
+                                    </th></tr>
+                                </table>
+                                </form>
+                            </div>
+                        </div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock body %}

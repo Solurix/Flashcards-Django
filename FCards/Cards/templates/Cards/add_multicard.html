@@ -15,7 +15,7 @@ New set
     <h1 class="display-4">Create new MultiCard</h1>
     <p class="lead">Here you can create new MultiCard for {{folder.name}}.</p>
     <p class="lead">Only one word of the first language is required. The rest is optional.</p>
-      <a class="btn btn-sm btn-outline-success" href="{% url 'add_many' set_id=folder.id %}">You can add many words at once here.</a>
+      <a class="btn btn-outline-dark" href="{% url 'add_many' set_id=folder.id %}">You can add many words at once here.</a>
     </div>
   </div>
 </div>
@@ -82,8 +82,8 @@ New set
       </tr>
       </table>
         </div>
-
-    <button class="btn btn-success">Create</button>
+  <br/>
+    <button class="btn btn-success btn-block"><b>Create</b></button>
     </form>
     </div>
 </div>

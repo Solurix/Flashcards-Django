@@ -20,6 +20,11 @@ $('.collapse').on('show.bs.collapse', function () {
 
 {% endblock %}
 
+{% block nav_buttons %}
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
+
+{% endblock nav_buttons %}
+
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid">
@@ -27,6 +32,7 @@ $('.collapse').on('show.bs.collapse', function () {
     <div class="text-dark">
     <h1 class="display-5">Here are your MultiCards in {{folder.name}}.</h1>
     <p class="lead">{{ folder.comment }}</p>
+    <a class="btn btn-outline-dark" href="{% url 'edit_all_multicards' set_id=folder.id %}">You can change view to edit all you cards at once here.</a>
     </div>
   </div>
 </div>
@@ -36,25 +42,28 @@ $('.collapse').on('show.bs.collapse', function () {
 
 
             <thead>
-            <th></th>
+            <th style="width: 5%"><h5><b>#</b></h5></th>
               {% for k, v in folder.get_langs %}
-                <th>
+                <th style="width: {{width}}%">
                     <h5><b>{{ v|upper }}</b></h5>
                 </th>
               {% endfor %}
             </thead>
+        </table>
 
         {% for multicard in folder.multicard_set.all %}
+        <form method="POST" action="{% url 'edit_multicards_save' set_id=folder.id m_card_id=multicard.id %}">{% csrf_token %}
+        <table class="table table-hover table-sm table-secondary" style="border-collapse:collapse;">
             <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed table-light">
                 <td>
                     <b>{{ forloop.counter }}.</b>
                 </td>
               {% for lang in folder.langs_keys %}
                 {% get_card lang multicard as card %}
-                <td>
-                  <div>
+                <td style="width: {{width}}%">
+
                     <b>{{ card.main }}</b>
-                  </div>
+
                 </td>
               {% endfor %}
             </tr>
@@ -75,19 +84,19 @@ $('.collapse').on('show.bs.collapse', function () {
                   <br/>
                   <p>
                     {% if forloop.counter == 1 %}
-                      <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
+                      <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
                     {% else %}
-                      <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="Word" value="{{card.main}}">
+                      <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Word" value="{{card.main}}">
                     {% endif %}
                   </p>
                   <p>
-                    <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">
+                    <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">
                   </p>
                   <p>
-                    <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="Synonym" value="{{card.synonyms}}">
+                    <input type="text" name="synonyms{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Synonym" value="{{card.synonyms}}">
                   </p>
                   <p>
-                    <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="Comment" value="{{card.comment}}">
+                    <input type="text" name="comment{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Comment" value="{{card.comment}}">
                   </p>
               </div>
               </td>
@@ -96,18 +105,22 @@ $('.collapse').on('show.bs.collapse', function () {
             <tr class="table-active">
                 <td class="hiddenRow" colspan="{{length|add:'1'}}">
                     <div id="a{{multicard.id}}" class="collapse">
-                        <nav class="navbar">
-                            <p class="font-weight-bold"><span class="form-control-plaintext">Definition</span>
-                              <input type="text" name="comment" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                        <nav class="navbar bg-dark">
+                            <p class="font-weight-bold"><span class="form-control-plaintext text-white">Comment</span>
+                              <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
                             </p>
-                            <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span>
-                                <input type="text" name="definition" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
+                            <p class="font-weight-bold"><span class="form-control-plaintext text-white">Definition</span>
+                                <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
                             </p>
-                            <a class="btn btn-warning" href="{% url 'add_multicard' set_id=folder.id %}">Save changes</a>
+                                <input type="submit" class="btn btn-outline-warning" value="Save changes" data-toggle="tooltip" data-placement="bottom" title="To see changes refresh the page.">
+
+                            <form></form>
+                            <a href="."><button type="button" class="btn btn-outline-info">Refresh</button></a>
                             <form method="POST" action="{% url 'delete_multicards' set_id=folder.id m_card_id=multicard.id %}">{% csrf_token %}
                                 <br/>
-                                <input type="submit" class="btn btn-danger" value="Delete this MultiCard">
+                                <input type="submit" class="btn btn-outline-danger" value="Delete this MultiCard">
                             </form>
+
                         </nav>
                     </div>
                 </td>
@@ -115,7 +128,8 @@ $('.collapse').on('show.bs.collapse', function () {
         {% endfor %}
 
     </table>
+    </form>
 
 
-
+{% include 'Cards/add_mcards_modal.html' %}
 {% endblock %}

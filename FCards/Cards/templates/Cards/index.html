@@ -20,6 +20,10 @@ $('.collapse').on('show.bs.collapse', function () {
 
 {% endblock %}
 
+{% block nav_buttons %}
+<a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">New set</button></a>
+{% endblock nav_buttons %}
+
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid">
@@ -43,6 +47,7 @@ $('.collapse').on('show.bs.collapse', function () {
           </th>
           <th class="hiddenRow" colspan=2>
               <div id="b{{folder.id}}" class="collapse">
+                <a class="btn btn-sm btn-outline-info" href="{% url 'play' set_id=folder.id %}">Learn</a>
                 <a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
                 <a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
                 <a class="btn btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
@@ -67,34 +72,6 @@ $('.collapse').on('show.bs.collapse', function () {
               </div>
             </td>
           {% endfor %}
-
-                <div class="text-dark">
-                  <div class="modal fade" id="c{{folder.id}}" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="c{{folder.id}}Label">Delete {{folder.name}}?</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body">
-                          <p>Are you sure you want to delete set "{{folder.name}}"?</p>
-                          <p>This set consists of {{folder.multicard_set.all|length}} MultiCards.</p>
-                        </div>
-                        <div class="modal-footer">
-                          <form method="POST" action="/cards/delete_set/{{folder.id}}/">{% csrf_token %}
-                            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
-                          </form>
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-               </div>
-
-
         </tr>
         </thead>
       {% if folder.multicard_set.all %}
@@ -118,11 +95,10 @@ $('.collapse').on('show.bs.collapse', function () {
               <div id="b{{folder.id}}" class="collapse">
                 <div id="a{{multicard.id}}" class="collapse">
                   <div class="text-dark">
-
+                  <p>Score: {{ card.score }} %</p>
                   {% if card.automated %}
                     <p>Auto-translated</p>
                   {% endif %}
-                  <p>Score: {{ card.score }} %</p>
                   {% if card.pronunciation %}
                     <p>Pronunciation: {{ card.pronunciation }}</p>
                   {% endif %}
@@ -135,25 +111,46 @@ $('.collapse').on('show.bs.collapse', function () {
                   {% if card.comment %}
                     <p>Comment: {{ card.comment }}</p>
                   {% endif %}
-                    </i>
                 </div>
               </div>
+            </div>
           </td>
           {% endfor %}
-          </div>
+
         </tr>
         {% endfor %}
       {% else %}
-        <th>
-          <td colspan="{{folder.langs_no}}">There are no cards for this set.</td>
+        <th colspan="{{folder.langs_no}}">
+          There are no cards for this set.
         </th>
       {% endif %}
     </table>
   <hr/>
+
+<div class="text-dark">
+  <div class="modal fade" id="c{{folder.id}}" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="c{{folder.id}}Label">Delete {{folder.name}}?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete set "{{folder.name}}"?</p>
+          <p>This set consists of {{folder.multicard_set.all|length}} MultiCards.</p>
+        </div>
+        <div class="modal-footer">
+          <form method="POST" action="/cards/delete_set/{{folder.id}}/">{% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
   {% endfor %}
 
-<nav class="navbar fixed-bottom navbar-dark bg-dark">
-
-    <a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">New set</button></a>
-</nav>
 {% endblock %}

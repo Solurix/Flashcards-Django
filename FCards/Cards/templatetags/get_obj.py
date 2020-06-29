@@ -1,7 +1,8 @@
+from ..models import Card
 from django import template
+from ..langcodes import LangCodesDict
 
 register = template.Library()
-from ..models import Card
 
 
 @register.simple_tag
@@ -11,3 +12,8 @@ def get_card(lang, multicard):
     except Card.DoesNotExist:
         mcard = None
     return mcard
+
+
+@register.filter
+def get_lang(key):
+    return LangCodesDict.get(key)
