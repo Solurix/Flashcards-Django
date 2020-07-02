@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .models import CardFolder, MultiCard, Card
 from .forms import FolderForm, CardsForm
 from googletrans import Translator
-import random as rd
 
 
 # from django.http import HttpResponse
@@ -259,62 +258,3 @@ def delete_multicards(request, set_id, m_card_id):
         return render(request, 'Cards/no_access.html')
 
 
-@login_required
-def play(request, set_id):
-    folder = get_object_or_404(CardFolder, id=set_id)
-    user_folders = request.user.cardfolder_set.all()
-    if folder not in user_folders:
-        return render(request, 'Cards/no_access.html')
-    langs = folder.get_langs()
-    lang_keys = folder.langs_keys
-    length = len(langs)
-    context = {
-        'previous': False,
-        'folder': folder,
-        "length": length,
-        "langs": langs,
-        'width': 94 / length,
-    }
-
-    if request.method == "POST":
-        previous_cards = []
-        for lang, values in langs:
-            if lang == request.POST['show_language']:
-                pass
-            else:
-                card_id = request.POST['id'+lang]
-                answer = request.POST['answer'+lang]
-                card = Card.objects.get(id=card_id)
-                points = card.check_multi_input(answer)
-                if not answer:
-                    answer = 'No answer'
-                if points > 0:
-                    true_false = True
-                else:
-                    true_false = False
-                previous_cards.append([card, true_false, answer, values])
-
-        multicard_id = int(request.POST['multicard_id'])
-        context['previous'] = MultiCard.objects.get(id=multicard_id)
-        context['previous_show'] = request.POST['show_card']
-        context['previous_cards'] = previous_cards
-
-    m_card = MultiCard.objects.filter(cards_folder=folder, mastered=False).order_by('priority', 'score')
-        # TODO add that there are no cards in the set or all cards are mastered.
-        # TODO remove card that just has been studied
-    m_card = m_card.first()
-    if m_card is None:
-        return render(request, 'Cards/index.html', context)
-
-    cards = []
-    for key in lang_keys():
-        cards.append(Card.objects.get(multi_card=m_card, language=key))
-    show_card = rd.choice(cards)
-    hidden_cards = cards
-    hidden_cards.remove(show_card)
-    context['m_card'] = m_card
-    context['show_card'] = show_card
-    context['cards'] = cards
-    context['hidden_cards'] = hidden_cards
-
-    return render(request, 'Cards/play.html', context)

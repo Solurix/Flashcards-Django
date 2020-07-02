@@ -2,6 +2,7 @@ from django.db import models
 from . import langcodes
 from django.contrib.auth.models import User
 from googletrans import Translator
+from django.db.models import F
 
 
 # Create your models here.
@@ -108,6 +109,9 @@ class Card(models.Model):
             self.multi_card.priority -= 1
         if self.priority < 2:
             self.priority = 2
+        MultiCard.objects.filter(cards_folder=self.cards_folder).update(priority=F('priority') - 1)
+        if self.multi_card.priority < 2:
+            self.multi_card.priority = 2
         self.multi_card.save()
         self.save()
         return points

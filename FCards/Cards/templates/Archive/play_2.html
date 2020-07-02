@@ -28,20 +28,19 @@ Learn
                                     <tr><th colspan="2">
                                         <h1 class="sub-header">{{ previous_show }}</h1>
                                     </th></tr>
-                                    {% for previous_card in previous_cards %}
+                                    {% for card, true_false, answer, values in previous_cards %}
                                     <tr>
                                         <td>
-                                            {% if previous_card.answer %}
-                                                {% if previous_card.correct %}
-                                            <p style="color:#009900">{{previous_card.answer}}</p>
-                                                {% else %}
-                                            <p style="color:#ff0000">{{previous_card.answer}}</p>
+                                            {{ values|title }}
                                         </td>
                                         <td>
-                                            <p style="color:#009900">{{previous_card.main}}</p>
-                                                {% endif %}
+                                            {% if true_false %}
+                                            <p style="color:#009900">{{answer}}</p>
                                             {% else %}
-                                            <p>{{previous_card.main}}</p>
+                                            <p style="color:#ff0000">{{answer}}</p>
+                                        </td><td>
+                                            <p style="color:#009900">{{card.main}}</p>
+
                                             {% endif %}
                                         </td>
                                         <td width="20"></td>
