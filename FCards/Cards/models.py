@@ -1,7 +1,7 @@
 from django.db import models
 from . import langcodes
 from django.contrib.auth.models import User
-from googletrans import Translator
+# from googletrans import Translator
 from django.db.models import F
 
 
@@ -17,16 +17,26 @@ class CardFolder(models.Model):
     lang3 = models.CharField(max_length=5, choices=langcodes.LangCodes, default="ja", blank=True)
     lang4 = models.CharField(max_length=5, choices=langcodes.LangCodes, default="es", blank=True)
     lang5 = models.CharField(max_length=5, choices=langcodes.LangCodes, default="de", blank=True)
-    score = models.IntegerField(default=0)
+    score = models.SmallIntegerField(default=0)
     comment = models.CharField(max_length=400, blank=True)
 
-    def get_langs(self):
+    def get_langs(self, item=False):
         langs = (self.lang1, self.lang2, self.lang3, self.lang4, self.lang5)
         lang_choices = []
+        lang_values = []
+        lang_keys = []
         for i in langs:
             if i != "":
-                lang_choices.append((i, langcodes.LangCodesDict[i]))
-        return lang_choices
+                value = langcodes.LangCodesDict[i].capitalize()
+                lang_choices.append((i, value))
+                lang_values.append(value)
+                lang_keys.append(i)
+        if item == 'value':
+            return lang_values
+        if item == 'key':
+            return lang_keys
+        else:
+            return lang_choices
 
     def langs_keys(self):
         langs = [self.lang1, self.lang2, self.lang3, self.lang4, self.lang5]
@@ -50,10 +60,10 @@ class MultiCard(models.Model):
     score = models.SmallIntegerField(default=0)
     comment = models.CharField(max_length=400, blank=True)
     definition = models.CharField(max_length=400, blank=True)
-    rates = models.IntegerField(default=0)
-    rating = models.IntegerField(default=0)
+    rates = models.SmallIntegerField(default=0)
+    rating = models.SmallIntegerField(default=0)
     mastered = models.BooleanField(default=False)
-    priority = models.IntegerField(default=0)
+    priority = models.SmallIntegerField(default=0)
 
     def __str__(self):
         return str(self.id)
@@ -85,11 +95,22 @@ class Card(models.Model):
     comment = models.CharField(max_length=400, blank=True)
     rating = models.SmallIntegerField(default=0)
     mastered = models.BooleanField(default=False)
-    priority = models.IntegerField(default=0)
+    priority = models.SmallIntegerField(default=0)
+    show_answer = models.BooleanField(default=True)
 
-    def check_multi_input(self, word_to_check):
+    def check_show(self):
+        # If card has been showed only for the game or if it is it's first appearance it will by un-showed.
+        # If card is mastered, nothing changes.
+        if not self.mastered:
+            if self.score < 10:
+                self.score = 10
+            self.show_answer = False
+            self.save()
+
+    def check_answer(self, word_to_check):
         word_to_check = word_to_check.capitalize()
-        if word_to_check == self.main:
+        # If answer is correct
+        if word_to_check and (word_to_check == self.main or word_to_check == self.synonyms):
             points = 20
             self.score += 20
             self.multi_card.score += 20
@@ -97,19 +118,27 @@ class Card(models.Model):
             if self.score > 100:
                 self.score = 100
                 self.mastered = True
+                self.show_answer = True
             self.priority += 1
+
+        # If answer is incorrect
         else:
             points = -15
             self.score -= 15
             if self.score < 85:
-                self.score = 0
                 self.mastered = False
+                if self.score < 10:
+                    self.show_answer = True
+                    if self.score < 0:
+                        self.score = 0
             self.priority -= 1
             self.multi_card.score -= 15
             self.multi_card.priority -= 1
+
         if self.priority < 2:
             self.priority = 2
         MultiCard.objects.filter(cards_folder=self.cards_folder).update(priority=F('priority') - 1)
+
         if self.multi_card.priority < 2:
             self.multi_card.priority = 2
         self.multi_card.save()

@@ -17,3 +17,15 @@ def get_card(lang, multicard):
 @register.filter
 def get_lang(key):
     return LangCodesDict.get(key)
+
+
+@register.filter
+def index(sequence, position):
+    return sequence[position]
+
+
+@register.filter
+def width(languages):
+    length = len(languages)
+    return 94 / length
+

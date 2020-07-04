@@ -83,11 +83,7 @@ $('.collapse').on('show.bs.collapse', function () {
               <div id="a{{multicard.id}}" class="collapse">
                   <br/>
                   <p>
-                    {% if forloop.counter == 1 %}
-                      <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
-                    {% else %}
-                      <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Word" value="{{card.main}}">
-                    {% endif %}
+                    <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
                   </p>
                   <p>
                     <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">

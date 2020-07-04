@@ -15,74 +15,87 @@ Learn
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid">
-    <div class="text-dark">
-            <div class="row justify-content-center">
-                <div class="col-auto">
-                    <div class="container">
-                      <h1>Write translations</h1>
-                      {% if previous %}
-                      <div class="row">
-                        <div class="col-xs-6">
-                          <div class="table-responsive">
-                                <table class="table table-responsive">
-                                    <tr><th colspan="2">
-                                        <h1 class="sub-header">{{ previous_show }}</h1>
-                                    </th></tr>
-                                    {% for previous_card in previous_cards %}
-                                    <tr>
-                                        <td>
-                                            {% if previous_card.answer %}
-                                                {% if previous_card.correct %}
-                                            <p style="color:#009900">{{previous_card.answer}}</p>
-                                                {% else %}
-                                            <p style="color:#ff0000">{{previous_card.answer}}</p>
-                                        </td>
-                                        <td>
-                                            <p style="color:#009900">{{previous_card.main}}</p>
-                                                {% endif %}
-                                            {% else %}
-                                            <p>{{previous_card.main}}</p>
-                                            {% endif %}
-                                        </td>
-                                        <td width="20"></td>
-                                    </tr>
-                                    {% endfor %}
-                                </table>
-                          </div>
-                        </div>
-                       {% endif %}
-                        <div class="col-xs-6">
-                          <div class="table-responsive">
-                            <form method="POST">{% csrf_token %}
-                                 <input type="hidden" name="show_language" value="{{show_card.language}}"/>
-                                 <input type="hidden" name="multicard_id" value="{{m_card.id}}"/>
-                                 <table class="table table-responsive">
-                                    <tr><th colspan="2">
-                                        <h1 class="sub-header">{{ show_card.main }}</h1>
-                                        <input type="hidden" name="show_card" value="{{show_card.main}}"/>
-                                    </th></tr>
-                                    {% for card in hidden_cards %}
-                                    <tr>
-                                        <td>
-                                            {{ card.language|get_lang|title }}
-                                        </td>
-                                        <td>
-                                          <input type="text" name="answer{{card.language}}" autocomplete="off" class="form-control" maxlength="200">
-                                          <input type="hidden" name="id{{card.language}}" value="{{card.id}}"/>
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                    <tr><th colspan="2">
-                                        <button class="btn btn-primary btn-block"><b>Check</b></button>
-                                    </th></tr>
-                                </table>
-                                </form>
-                            </div>
-                        </div>
-                      </div>
-                    </div>
+  <div class="text-dark">
+    <div class="row justify-content-center">
+      <div class="col-auto">
+        <div class="container">
+          <h1>Write translations</h1>
+          <div class="row">
+
+            {% if previous %}
+              <div class="col-xs-6">
+                <div class="table-responsive">
+                  <table class="table table-responsive">
+
+                    {% for previous_card in previous_cards %}
+                      <tr>
+                        <td class="align-middle">
+                          <p class="font-weight-bold"><span class="form-control-plaintext">{{previous_card.language}}</span></p>
+                        </td>
+                        {% if previous_card.answer %}
+                          {% if previous_card.correct %}
+                            <td colspan="1" class="align-middle">
+                              <p style="color:#009900">{{previous_card.answer}}</p>
+                            </td>
+                          {% else %}
+                            <td class="align-middle">
+                              <p style="color:#ff0000">{{previous_card.answer}}</p>
+                            </td>
+                          {% endif %}
+                            <td class="align-middle">
+                              <p style="color:#009900">{{previous_card.card.main}}</p>
+                            </td>
+                        {% else %}
+                          <td colspan="2" class="align-middle">
+                            <p>{{previous_card.card.main}}</p>
+                          </td>
+                        {% endif %}
+                        <td class="align-middle">
+                          {{ previous_card.card.score }} %
+                        </td>
+                      </tr>
+                    {% endfor %}
+
+                  </table>
                 </div>
+              </div>
+            {% endif %}
+
+            <div class="col-xs-6">
+              <div class="table-responsive">
+                <form method="POST" action=".">{% csrf_token %}
+                  <input type="hidden" name="multicard_id" value="{{multicard_id}}"/>
+                  <table class="table table-responsive">
+                    {% for card in current_cards %}
+                      <tr>
+                        <td>
+                          <p class="font-weight-bold"><span class="form-control-plaintext">{{lang_full|index:forloop.counter0}}</span></p>
+                        </td>
+                        <td class="align-middle">
+                          {% if card.show_answer %}
+                            <p>{{ card.main }}</p>
+                          {% else %}
+                            <input type="text" name="answer{{card.language}}" autocomplete="off" class="form-control" maxlength="50">
+                          {% endif %}
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  </table>
+                  <button class="btn btn-primary btn-block"><b>Next</b></button>
+                </form>
+              </div>
             </div>
+
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock body %}
+
+<!--for delete-->
+<!--              <div class="row">-->
+<!--                                 <input type="hidden" name="show_language" value="{{show_card.language}}"/>-->
+<!--                                    <h1 class="sub-header">{{ show_card.main }}</h1>-->
+<!--                                    <input type="hidden" name="show_card" value="{{show_card.main}}"/>-->

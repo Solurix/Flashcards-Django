@@ -66,7 +66,7 @@ $('.collapse').on('show.bs.collapse', function () {
 
         <tr>
           {% for k, v in folder.get_langs %}
-            <td class="hiddenRow">
+            <td class="hiddenRow" style="width: {{folder.get_langs|width}}%">
               <div id="b{{folder.id}}" class="collapse">
                 <h5><b>{{ v|upper }}</b></h5>
               </div>
@@ -82,7 +82,11 @@ $('.collapse').on('show.bs.collapse', function () {
 
             <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
-                <b>{{ card.main }}</b>
+                {% if not card.main %}
+                <b>loading...</b>
+                {% else %}
+                  <b>{{ card.main }}</b>
+                {% endif %}
               </div>
             </td>
           {% endfor %}
