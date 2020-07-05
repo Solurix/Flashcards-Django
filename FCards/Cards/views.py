@@ -62,6 +62,14 @@ def edit_folder(request, set_id):
 
 
 @login_required
+def view_folder(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    return render(request, 'Cards/view_set.html', {'folder': folder})
+
+
+@login_required
 def add_multicard(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:

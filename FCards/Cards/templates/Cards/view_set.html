@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Welcome {{ user }}
+{{folder.name}}
 {% endblock %}
 
 {% block styles %}
@@ -21,7 +21,11 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">New set</button></a>
+<a class="btn btn-sm btn-outline-info" href="{% url 'play' set_id=folder.id %}">Learn</a>
+<a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+<a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
+<a class="btn btn-sm btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+<button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -29,68 +33,67 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1 class="display-4">Here are your sets to study, {{ user }}.</h1>
-    <p class="lead">Click on the set name to view its details.</p>
+    <h1 class="display-4">{{ folder.name }}</h1>
+    <p class="lead">{{ folder.comment }}</p>
     </div>
   </div>
 </div>
 
-  {% for folder in user.cardfolder_set.all %}
-    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse;">
+    <table class="table table-hover table-dark" style="border-collapse:collapse;">
       <thead>
-        <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
-          <th colspan="{{folder.langs_no|add:'-3'}}">
-            <h3>
-              {{ forloop.counter }}. {{ folder.name }}
-            </h3>
-
-          </th>
-          <th class="hiddenRow" colspan=3>
-              <div id="b{{folder.id}}" class="collapse">
-                <a class="btn btn-sm btn-outline-light" href="{% url 'play' set_id=folder.id %}">Learn</a>
-                <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-                <a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
-                <a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-                <a class="btn btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
-                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
-              </div>
-          </th>
-        </tr>
-
-        <tr>
-          <th class="hiddenRow" colspan="{{folder.langs_no}}">
-              <div id="b{{folder.id}}" class="collapse">
-                <h6>{{ folder.comment }}</h6>
-              </div>
-            </th>
-        </tr>
-
-        <tr>
+        <tr class="table-light text-dark">
+          <td><h5><b>#</b></h5></td>
           {% for k, v in folder.get_langs %}
-            <td class="hiddenRow" style="width: {{folder.get_langs|width}}%">
-              <div id="b{{folder.id}}" class="collapse">
+            <td style="width: {{folder.get_langs|width}}%">
                 <h5><b>{{ v|upper }}</b></h5>
-              </div>
             </td>
           {% endfor %}
         </tr>
         </thead>
       {% if folder.multicard_set.all %}
         {% for multicard in folder.multicard_set.all %}
-        <tr class="table-secondary text-dark">
+        <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed">
+          <td><b>{{forloop.counter}}</b></td>
           {% for lang in folder.langs_keys %}
           {% get_card lang multicard as card %}
 
-            <td class="hiddenRow">
-              <div id="b{{folder.id}}" class="collapse">
+            <td>
                 {% if not card.main %}
                 <b>loading...</b>
                 {% else %}
                   <b>{{ card.main }}</b>
                 {% endif %}
-              </div>
             </td>
           {% endfor %}
+        </tr>
+        <tr class="table-secondary">
+        <td class="hiddenRow"></td>
+          {% for lang in folder.langs_keys %}
+          {% get_card lang multicard as card %}
+          <td class="hiddenRow">
+                <div id="a{{multicard.id}}" class="collapse">
+                  <div class="text-dark">
+                  <p>Score: {{ card.score }} %</p>
+                  {% if card.automated %}
+                    <p>Auto-translated</p>
+                  {% endif %}
+                  {% if card.pronunciation %}
+                    <p>Pronunciation: {{ card.pronunciation }}</p>
+                  {% endif %}
+                  {% if card.synonyms %}
+                    <p>Synonym: {{ card.synonyms }}</p>
+                  {% endif %}
+                  {% if card.definition %}
+                    <p>Definition: {{ card.definition }}</p>
+                  {% endif %}
+                  {% if card.comment %}
+                    <p>Comment: {{ card.comment }}</p>
+                  {% endif %}
+                </div>
+              </div>
+          </td>
+          {% endfor %}
+
         </tr>
         {% endfor %}
       {% else %}
@@ -125,6 +128,5 @@ $('.collapse').on('show.bs.collapse', function () {
     </div>
   </div>
 </div>
-  {% endfor %}
 
 {% endblock %}
