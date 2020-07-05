@@ -260,5 +260,5 @@ def test(request, set_id):
 # TODO If words are too long they need to be wrapped. Otherwise they are breaking the tables.
 # TODO count folders by occurrence in that user folders
 # TODO [play.html] add auto-focus and ability to go next on enter even if no input required
-# TODO [play.html] add comments, hints
-# TODO footer
+# TODO [play.html] add comments, hints, message-at least 2 cards are required
+# TODO

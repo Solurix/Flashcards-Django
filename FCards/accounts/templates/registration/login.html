@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-</head>
-<body>
+{% extends "base2.html" %}
 
-<form method="post">{% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Login">
-</form>
+{% block title %}
+New set
+{% endblock title %}
 
-</body>
-</html>
+{% block styles %}
+
+{% endblock styles %}
+
+{% block body %}
+
+<div class="d-flex justify-content-center" id="login" style="width: 100%;">
+    <form class="form-horizontal form" name="LoginForm"  method="post">
+    {% csrf_token %}
+    {% if next %}
+        <input type="hidden" name="next" value="{{ next }}" />
+    {% endif %}
+    <div class="control-group">
+        <label class="control-label" for="username">Username</label>
+        <div class="controls">
+            <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
+        </div>
+    </div>
+    <div class="control-group">
+        <label class="control-label" for="password">Password</label>
+        <div class="controls">
+            <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+        </div>
+  </div><br>
+  <div class="control-group">
+        <div class="controls">
+            <button type="submit" class="btn btn-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-dark"> or sign up</a>
+        </div>
+    </div>
+    </form>
+</div>
+{% endblock body %}

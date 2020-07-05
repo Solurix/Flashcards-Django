@@ -184,3 +184,7 @@ def flashcard(request, set_id):
     context['current_cards'] = current_cards
 
     return render(request, 'Cards/flip_test.html', context)
+
+# https://3dtransforms.desandro.com/3d-transform-functions
+# TODO add buttons to score
+# TODO modify model function for scoring

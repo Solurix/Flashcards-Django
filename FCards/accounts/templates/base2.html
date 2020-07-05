@@ -21,28 +21,8 @@
     {% endblock styles %}
 
 </head>
-<div class="p-3 mb-2 bg-secondary text-white">
+<div class="p-3 mb-2 bg-secondary">
 <body>
-
-<div class="fixed-top">
-  <div class="collapse" id="navbarToggleExternalContent">
-    <div class="bg-dark p-4">
-      <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
-    </div>
-  </div>
-<nav class="navbar navbar-dark bg-dark">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-success">Home</button></a>
-
-    {% block nav_buttons %}
-    {% endblock nav_buttons %}
-
-    <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">Log out</button></a>
-</nav>
-</div>
 
     {% block body %}
     {% endblock body %}
