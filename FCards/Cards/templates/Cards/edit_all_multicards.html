@@ -65,29 +65,29 @@ $('.collapse').on('show.bs.collapse', function () {
                     </td>
             {% endfor %}
         </tr>
-        <tr class="table-active">
+        <tr class="table-active table-borderless">
             <td>
                 <br/>
-                <p class="font-weight-bold"><span class="form-control-plaintext">Word</span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext">Pronunc.</span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext">Synonym</span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Word</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Pronunc.</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Synonym</span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Comment</span></p>
             </td>
             {% for k, v in langs %}
              {% get_card k multicard as card %}
               <td>
                   <br/>
                   <p>
-                    <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
+                    <input type="text" name="main{{k}}{{multicard.id}}" class="form-control form-control-sm" maxlength="50" required value="{{card.main}}">
                   </p>
                   <p>
-                    <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">
+                    <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control form-control-sm" maxlength="50" value="{{card.pronunciation}}">
                   </p>
                   <p>
-                    <input type="text" name="synonyms{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Synonym" value="{{card.synonyms}}">
+                    <input type="text" name="synonyms{{k}}{{multicard.id}}" class="form-control form-control-sm" maxlength="50" value="{{card.synonyms}}">
                   </p>
                   <p>
-                    <input type="text" name="comment{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Comment" value="{{card.comment}}">
+                    <input type="text" name="comment{{k}}{{multicard.id}}" class="form-control form-control-sm" maxlength="50" value="{{card.comment}}">
                   </p>
               </td>
             {% endfor %}
