@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{folder.name}}
+{% endblock %}
+
+{% block styles %}
+<style>
+body { font-family: sans-serif; }
+
+.scene {
+  width: 100%;
+  height: 260px;
+  border: 0px solid #CCC;
+  margin: 40px 0;
+  perspective: 600px;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.card.is-flipped {
+  transform: rotateX(180deg);
+
+}
+
+.card__face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-weight: bold;
+  font-size: 40px;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: gray;
+}
+
+.card__face--back {
+  background: gray;
+  transform: rotateX(180deg);
+}
+
+</style>
+{% endblock %}
+{% block nav_buttons %}
+
+{% endblock nav_buttons %}
+
+{% block body %}
+
+<body>
+
+<div class="scene scene--card">
+  <div class="card">
+    <div class="card__face card__face--front"><p>{{current_cards.0.main}}</p></div>
+    <div class="card__face card__face--back"><p>{{current_cards.1.main}}</p></div>
+  </div>
+</div>
+
+<div id="welcomeDiv"  style="display:none;" class="answer_list" >
+  <form method="POST" action=".">{% csrf_token %}
+    <input type="hidden" name="card_id" value="{{current_cards.1.score}}"/>
+    <label>Did you get that?</label><br/>
+    <div class="btn-group btn-group-lg d-flex" role="group" aria-label="...">
+
+      <input type="submit" class="btn btn-success w-100" name="progress" value="Easily!">
+      <input type="submit" class="btn btn-primary w-100" name="progress" value="Yes">
+      <input type="submit" class="btn btn-info w-100" name="progress" value="Barely">
+      <input type="submit" class="btn btn-warning w-100" name="progress" value="Almost">
+      <input type="submit" class="btn btn-danger w-100" name="progress" value="Nope">
+
+      <button id="btnGroupDrop1" type="button" class="btn btn-dark w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Other:
+      </button>
+      <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <input type="submit" class="dropdown-item" name="progress" value="I have already mastered it!">
+        <div class="dropdown-divider"></div>
+        <input type="submit" class="dropdown-item" name="progress" value="Reset my progress on this.">
+        <div class="dropdown-divider"></div>
+        <input type="submit" class="dropdown-item" name="progress" value="Delete this MultiCard">
+
+      </div>
+    </div>
+  </form>
+</div>
+
+
+
+
+
+<script>
+var card = document.querySelector('.card');
+card.addEventListener( 'click', function() {
+  card.classList.toggle('is-flipped');
+  document.getElementById('welcomeDiv').style.display = "block";
+});
+</script>
+{% endblock %}

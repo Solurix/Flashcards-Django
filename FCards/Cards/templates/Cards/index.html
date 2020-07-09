@@ -47,7 +47,7 @@ $('.collapse').on('show.bs.collapse', function () {
           </th>
           <th class="hiddenRow" colspan=3>
               <div id="b{{folder.id}}" class="collapse">
-                <a class="btn btn-sm btn-outline-light" href="{% url 'play' set_id=folder.id %}">Learn</a>
+                <a class="btn btn-sm btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
                 <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
                 <a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
                 <a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>

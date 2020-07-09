@@ -1,6 +1,6 @@
 from django.urls import path
 
-from . import views, play
+from . import views, learn
 
 urlpatterns = [
     path('add_set/', views.add_folder, name='add_folder'),
@@ -14,6 +14,8 @@ urlpatterns = [
     path('delete_multicards/<int:set_id>/<int:m_card_id>/', views.delete_multicards, name='delete_multicards'),
     path('edit_multicards_save/<int:set_id>/<int:m_card_id>/', views.edit_multicards_save, name='edit_multicards_save'),
     path('edit_all_multicards/<int:set_id>/', views.edit_all_multicards, name='edit_all_multicards'),
-    path('play/<int:set_id>/', play.play, name='play'),
+    path('learn/learn/<int:set_id>/', learn.learn, name='learn'),
+    path('learn/write/<int:set_id>/', learn.write, name='write'),
+    path('learn/flashcards/<int:set_id>/', learn.flashcards, name='flashcards'),
     path('test/<int:set_id>/', views.test, name='test'),
 ]

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}
+Learn
+{% endblock %}
+
+{% block styles %}
+{% load get_obj %}
+{% endblock %}
+
+{% block nav_buttons %}
+
+{% endblock nav_buttons %}
+
+{% block body %}
+
+{% if enough %}
+  <h2>Choose how would you like to learn:</h2>
+    <a class="btn btn-sm btn-outline-light" href="{% url 'write' set_id=folder.id %}">Write</a>
+    <a class="btn btn-sm btn-outline-light" href="{% url 'flashcards' set_id=folder.id %}">Flashcards</a>
+{% else %}
+  <h2>You do not have enough MultiCards in this set to start learning.</h2>
+  <h3>Please create at least three MultiCards.</h3>
+  <a class="btn btn-sm btn-success btn-block" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+
+{% endif %}
+
+
+{% endblock body %}
