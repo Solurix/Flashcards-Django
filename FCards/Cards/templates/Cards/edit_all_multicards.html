@@ -23,7 +23,7 @@ $('.collapse').on('show.bs.collapse', function () {
 {% block nav_buttons %}
 <button type="submit" form="form" class="btn btn-outline-success">Save changes</button>
 <button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
-
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
 {% endblock nav_buttons %}
 
 {% block body %}

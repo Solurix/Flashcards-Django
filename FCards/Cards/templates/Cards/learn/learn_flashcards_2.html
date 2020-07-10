@@ -46,17 +46,18 @@ body { font-family: sans-serif; }
 }
 
 .card__face--front {
-  background: gray;
+  background: {{front_color}};
 }
 
 .card__face--back {
-  background: gray;
+  background: {{back_color}};
   transform: rotateX(180deg);
 }
 
 </style>
 {% endblock %}
 {% block nav_buttons %}
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
 
 {% endblock nav_buttons %}
 
@@ -64,16 +65,21 @@ body { font-family: sans-serif; }
 
 <body>
 
+<div class="progress">
+  <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{back.score}}%;" aria-valuenow="{{back.score}}" aria-valuemin="0" aria-valuemax="100"><b>{{back.score}}%</b></div>
+</div>
+
 <div class="scene scene--card">
   <div class="card">
-    <div class="card__face card__face--front"><p>{{current_cards.0.main}}</p></div>
-    <div class="card__face card__face--back"><p>{{current_cards.1.main}}</p></div>
+    <div class="card__face card__face--front"><p>{{front.main}}</p></div>
+    <div class="card__face card__face--back"><p>{{back.main}}</p></div>
   </div>
 </div>
 
 <div id="welcomeDiv"  style="display:none;" class="answer_list" >
   <form method="POST" action=".">{% csrf_token %}
-    <input type="hidden" name="card_id" value="{{current_cards.1.score}}"/>
+    <input type="hidden" name="card_id" value="{{back.id}}"/>
+    <input type="hidden" name="multicard_id" value="{{multicard_id}}"/>
     <label>Did you get that?</label><br/>
     <div class="btn-group btn-group-lg d-flex" role="group" aria-label="...">
 

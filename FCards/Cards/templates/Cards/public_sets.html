@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Welcome {{ user }}
+Public sets
 {% endblock %}
 
 {% block styles %}
@@ -21,8 +21,7 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">Public sets</button></a>
-<a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">New set</button></a>
+
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -30,13 +29,13 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1 class="display-4">Here are your sets to study, {{ user }}.</h1>
-    <p class="lead">Click on the set name to view its details.</p>
+    <h1 class="display-4">Here are public sets.</h1>
+    <p class="lead">Click on the set name to view its details and copy it.</p>
     </div>
   </div>
 </div>
 
-  {% for folder in user.cardfolder_set.all %}
+  {% for folder in folders %}
     <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse;">
       <thead>
         <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
@@ -48,13 +47,8 @@ $('.collapse').on('show.bs.collapse', function () {
           </th>
           <th class="hiddenRow" colspan=3>
               <div id="b{{folder.id}}" class="collapse">
-                <a class="btn btn-sm btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-                <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-                <a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
-                <a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-                <a class="btn btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+                <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder_public' set_id=folder.id %}">View</a>
                 <a class="btn btn-sm btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">Copy Set</a>
-                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
               </div>
           </th>
         </tr>
@@ -102,31 +96,6 @@ $('.collapse').on('show.bs.collapse', function () {
       {% endif %}
     </table>
   <hr/>
-
-<div class="text-dark">
-  <div class="modal fade" id="c{{folder.id}}" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="c{{folder.id}}Label">Delete {{folder.name}}?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to delete set "{{folder.name}}"?</p>
-          <p>This set consists of {{folder.multicard_set.all|length}} MultiCards.</p>
-        </div>
-        <div class="modal-footer">
-          <form method="POST" action="/cards/delete_set/{{folder.id}}/">{% csrf_token %}
-            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
-          </form>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
   {% endfor %}
 
 {% endblock %}

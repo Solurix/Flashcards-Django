@@ -7,7 +7,9 @@ urlpatterns = [
     path('home/', views.home, name='home'),
     path('delete_set/<int:set_id>/', views.delete_folder, name='delete_folder'),
     path('edit_set/<int:set_id>/', views.edit_folder, name='edit_folder'),
+    path('copy_set/<int:set_id>/', views.copy_folder, name='copy_folder'),
     path('view_set/<int:set_id>/', views.view_folder, name='view_folder'),
+    path('view_set_public/<int:set_id>/', views.view_folder_public, name='view_folder_public'),
     path('add_multicard/<int:set_id>/', views.add_multicard, name='add_multicard'),
     path('add_many/<int:set_id>/', views.add_many, name='add_many'),
     path('edit_multicards/<int:set_id>/', views.edit_multicards, name='edit_multicards'),
@@ -18,4 +20,7 @@ urlpatterns = [
     path('learn/write/<int:set_id>/', learn.write, name='write'),
     path('learn/flashcards/<int:set_id>/', learn.flashcards, name='flashcards'),
     path('test/<int:set_id>/', views.test, name='test'),
+    path('reset_progress/<int:set_id>/', views.reset_progress, name='reset_progress'),
+    path('make_public/<int:set_id>/', views.make_public, name='make_public'),
+    path('public_sets/', views.public_sets, name='public_sets'),
 ]

@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import FolderForm, CardsForm
 from .multithreads import *
 from threading import Thread
+from .models import CardFolder
 
 
 # from django.http import HttpResponse
@@ -62,12 +63,92 @@ def edit_folder(request, set_id):
 
 
 @login_required
+def reset_progress(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    MultiCard.objects.filter(cards_folder=folder).update(priority=10, score=0)
+    Card.objects.filter(cards_folder=folder).update(priority=1, score=0)
+    return redirect(request.META['HTTP_REFERER'])
+
+@login_required
+def make_public(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    if folder.public:
+        folder.public = False
+    else:
+        folder.public = True
+    folder.save()
+    return redirect(request.META['HTTP_REFERER'])
+
+
+@login_required
+def copy_folder(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+
+    if request.method == 'POST':
+        form = FolderForm(request.POST or None, instance=folder)
+        if form.is_valid():
+            new_folder = CardFolder.objects.get(id=set_id)
+            new_folder.pk = None
+            new_folder.id = None
+            new_folder.save()
+            for multicard in folder.multicard_set.all():
+                new_multicard = MultiCard.objects.get(id=multicard.id)
+                new_multicard.id = None
+                new_multicard.pk = None
+                new_multicard.mastered = False
+                new_multicard.score = 0
+                new_multicard.priority = 0
+                new_multicard.cards_folder = new_folder
+                new_multicard.save()
+                for card in multicard.card_set.all():
+                    new_card = card
+                    new_card.pk = None
+                    new_card.id = None
+                    new_card.mastered = False
+                    new_card.score = 0
+                    new_card.priority = 0
+                    new_card.multi_card = new_multicard
+                    new_card.cards_folder = new_folder
+                    new_card.save()
+            form = FolderForm(request.POST or None, instance=new_folder)
+            new_folder = form.save(commit=False)
+            new_folder.save()
+            t = Thread(target=edit_folder_translate, args=[new_folder])
+            t.setDaemon(False)
+            t.start()
+            return render(request, 'Cards/index.html')
+
+    else:
+        form = FolderForm(instance=folder)
+    return render(request, 'Cards/copy_set.html', {'form': form})
+
+
+@login_required
 def view_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
+    for card in folder.card_set.all():
+        if card.pronunciation == 'False' or (card.pronunciation == card.main):
+            card.pronunciation = ''
+            card.save()
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
     return render(request, 'Cards/view_set.html', {'folder': folder})
 
+@login_required
+def view_folder_public(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    return render(request, 'Cards/view_set_public.html', {'folder': folder})
+
+@login_required
+def public_sets(request):
+    folders = CardFolder.objects.filter(public=True)
+    return render(request, 'Cards/public_sets.html', {'folders': folders})
 
 @login_required
 def add_multicard(request, set_id):
@@ -235,9 +316,6 @@ def delete_multicards(request, set_id, m_card_id):
         return render(request, 'Cards/edit_multicards.html', context)
     else:
         return render(request, 'Cards/no_access.html')
-
-
-
 
 
 def test(request, set_id):

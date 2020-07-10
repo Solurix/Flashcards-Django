@@ -2,7 +2,7 @@ from django.db import models
 from . import langcodes
 from django.contrib.auth.models import User
 # from googletrans import Translator
-from django.db.models import F
+# from django.db.models import F
 
 
 # Create your models here.
@@ -19,6 +19,7 @@ class CardFolder(models.Model):
     lang5 = models.CharField(max_length=5, choices=langcodes.LangCodes, default="de", blank=True)
     score = models.SmallIntegerField(default=0)
     comment = models.CharField(max_length=400, blank=True)
+    public = models.BooleanField(default=False)
 
     def get_langs(self, item=False):
         langs = (self.lang1, self.lang2, self.lang3, self.lang4, self.lang5)
@@ -63,7 +64,7 @@ class MultiCard(models.Model):
     rates = models.SmallIntegerField(default=0)
     rating = models.SmallIntegerField(default=0)
     mastered = models.BooleanField(default=False)
-    priority = models.SmallIntegerField(default=0)
+    priority = models.SmallIntegerField(default=10)
 
     def __str__(self):
         return str(self.id)
@@ -77,6 +78,15 @@ class MultiCard(models.Model):
         for card in cards:
             mains.append(card.language + ": " + card.main)
         return mains
+
+    def check_if_mastered(self):
+        langs = self.cards_folder.get_langs(item='key')
+        mastered = True
+        for lang in langs:
+            if not Card.objects.get(multi_card=self, language=lang).mastered:
+                mastered = False
+        self.mastered = mastered
+        self.save()
 
     # image = models.ImageField(upload_to='uploads/')
     # choice_text = models.CharField(max_length=200)
@@ -115,35 +125,43 @@ class Card(models.Model):
             self.score += 20
             self.multi_card.score += 20
             self.multi_card.priority += 1
-            if self.score > 100:
-                self.score = 100
-                self.mastered = True
-                self.show_answer = True
             self.priority += 1
-
         # If answer is incorrect
         else:
             points = -15
             self.score -= 15
-            if self.score < 85:
-                self.mastered = False
-                if self.score < 10:
-                    self.show_answer = True
-                    if self.score < 0:
-                        self.score = 0
-            self.priority -= 1
-            self.multi_card.score -= 15
-            self.multi_card.priority -= 1
 
+        self.update_numbers()
+
+        return points
+
+    def update_numbers(self):
+        if self.score > 100:
+            self.score = 100
+            self.mastered = True
+            self.show_answer = True
+            self.multi_card.check_if_mastered()
+        elif self.score < 85:
+            self.mastered = False
+            if self.score < 10:
+                self.show_answer = True
+                if self.score < 0:
+                    self.score = 0
         if self.priority < 2:
             self.priority = 2
-        MultiCard.objects.filter(cards_folder=self.cards_folder).update(priority=F('priority') - 1)
-
+        # MultiCard.objects.filter(cards_folder=self.cards_folder).update(priority=F('priority') - 1)
         if self.multi_card.priority < 2:
             self.multi_card.priority = 2
         self.multi_card.save()
         self.save()
-        return points
+
+    def add_score_flashcards(self, score_priority):
+        self.score += score_priority[0]
+        self.multi_card.score += score_priority[0]
+        self.multi_card.priority = score_priority[1]
+        self.priority = score_priority[1]
+
+        self.update_numbers()
 
     def __str__(self):
         return self.main

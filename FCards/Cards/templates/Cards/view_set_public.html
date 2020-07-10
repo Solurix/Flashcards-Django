@@ -21,11 +21,8 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-sm btn-outline-info" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
-<a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-<a class="btn btn-sm btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
-<button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
+<a class="btn btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">Copy Set</a>
+<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">Public sets</button></a>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -73,7 +70,6 @@ $('.collapse').on('show.bs.collapse', function () {
           <td class="hiddenRow">
                 <div id="a{{multicard.id}}" class="collapse">
                   <div class="text-dark">
-                  <p>Progress: {{ card.score }} %</p>
                   {% if card.automated %}
                     <p>Auto-translated</p>
                   {% endif %}
@@ -103,37 +99,5 @@ $('.collapse').on('show.bs.collapse', function () {
       {% endif %}
     </table>
   <hr/>
-
-<a class="btn btn-danger" href="{% url 'reset_progress' set_id=folder.id %}">Reset Progress</a>
-{% if folder.public %}
-<a class="btn btn-primary" href="{% url 'make_public' set_id=folder.id %}">Make private</a>
-{% else %}
-<a class="btn btn-primary" href="{% url 'make_public' set_id=folder.id %}">Make public</a>
-{% endif %}
-
-<div class="text-dark">
-  <div class="modal fade" id="c{{folder.id}}" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="c{{folder.id}}Label">Delete {{folder.name}}?</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Are you sure you want to delete set "{{folder.name}}"?</p>
-          <p>This set consists of {{folder.multicard_set.all|length}} MultiCards.</p>
-        </div>
-        <div class="modal-footer">
-          <form method="POST" action="/cards/delete_set/{{folder.id}}/">{% csrf_token %}
-            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
-          </form>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 
 {% endblock %}

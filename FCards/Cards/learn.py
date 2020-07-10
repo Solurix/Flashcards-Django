@@ -22,7 +22,6 @@ def write(request, set_id):
     langs = folder.get_langs()
     lang_keys = folder.get_langs(item='key')
     lang_full = folder.get_langs(item='value')
-    print(lang_full)
     length = len(langs)
     context = {
         'previous': False,
@@ -82,8 +81,8 @@ def write(request, set_id):
     # Take first multicard from the ordered set and create a form from it.
     m_card = m_cards.first()
     if m_card is None:
-        return render(request, 'Cards/index.html', context)
-        # TODO add template that there are no cards in the set or all cards are mastered.
+        return render(request, 'Cards/learn/no_cards_to_learn.html', context)
+        # TODO improve this template.
 
     # Create a list of cards in the order their language appear in the folder.
     current_cards = []
@@ -111,35 +110,75 @@ def flashcards(request, set_id):
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
     length = len(folder.get_langs())
-    if length == 2:
-        flashcards_2(request, folder)
-    elif length == 3:
-        flashcards_3(request, folder)
-    else:
-        flashcards_4(request, folder)
-
-
-def flashcards_2(request, folder):
-    langs = folder.get_langs()
     lang_keys = folder.get_langs(item='key')
     lang_full = folder.get_langs(item='value')
-    print(lang_full)
-    length = len(langs)
+
+    if length == 2:
+        return flashcards_2(request, folder, lang_keys, lang_full)
+    elif length == 3:
+        flashcards_3(request, folder, lang_keys, lang_full)
+    else:
+        flashcards_4(request, folder, lang_keys, lang_full)
+
+
+def flashcards_2(request, folder, lang_keys, lang_full):
+
     context = {
         'previous': False,
         'folder': folder,
-        "langs": langs,
+        "lang_keys": lang_keys,
+        'lang_full': lang_full,
+        'reverse': False,
+        'back_color': 'blue',
+        'front_color': 'green',
+        # front, back, mcard_id,
     }
 
     if request.method == "POST":
-        pass
+        previous_back = Card.objects.get(id=request.POST['card_id'])
+        context['previous'] = previous_back
+        progress = request.POST['progress']
+        if progress == 'Delete this MultiCard':
+            multicard = MultiCard.objects.get(id=request.POST['multicard_id'])
+            multicard.delete()
+        else:
+            choices = {
+                'Easily!': (40, 20),
+                'Yes': (25, 12),
+                'Barely': (8, 9),
+                'Almost': (1, 6),
+                'Nope': (-30, 2),
+                'I have already mastered it!': (100, 100),
+                'Reset my progress on this.': (-100, 1),
+            }
+            score_priority = choices[progress]
+            previous_back.add_score_flashcards(score_priority)
+
+    multicards = MultiCard.objects.filter(cards_folder=folder, mastered=False).order_by('priority', 'score')
+    if context['previous']:
+        multicards = multicards.exclude(id=request.POST['multicard_id'])
+    multicard = multicards.first()
+    if multicard is None:
+        return render(request, 'Cards/learn/no_cards_to_learn.html', context)
+    front = Card.objects.get(multi_card=multicard, language=lang_keys[0])
+    back = Card.objects.get(multi_card=multicard, language=lang_keys[1])
+    if front.score < back.score:
+        front, back = back, front
+        context["reverse"] = True
+        context['back_color'] = 'green'
+        context['front_color'] = 'blue'
+    context['front'] = front
+    context['back'] = back
+    context['multicard_id'] = multicard.id
+    return render(request, 'Cards/learn/learn_flashcards_2.html', context)
 
 
-def flashcards_3(request, folder):
+
+def flashcards_3(request, folder, lang_keys, lang_full):
     return render(request, 'Cards/learn/learn_flashcards_3.html', 'context')
 
 
-def flashcards_4(request, folder):
+def flashcards_4(request, folder, lang_keys, lang_full):
     return render(request, 'Cards/learn/learn_flashcards_4.html', 'context')
 
 # https://3dtransforms.desandro.com/3d-transform-functions

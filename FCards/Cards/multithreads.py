@@ -17,6 +17,12 @@ def edit_folder_translate(folder):
                     data['pronunciation'] = translation.pronunciation
                     data['automated'] = True
                 Card.objects.create(multi_card=multicard, cards_folder=folder, language=lang, **data)
+            # else:
+            #     multicard.check_if_mastered()
+            # got error when it was on this level
+        else:
+            multicard.check_if_mastered()
+            # TODO it could probably be improved
 
 
 def add_multicard_translate(langs, request, m_card, folder):
