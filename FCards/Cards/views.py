@@ -87,8 +87,6 @@ def make_public(request, set_id):
 @login_required
 def copy_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
-    if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
 
     if request.method == 'POST':
         form = FolderForm(request.POST or None, instance=folder)
@@ -96,6 +94,8 @@ def copy_folder(request, set_id):
             new_folder = CardFolder.objects.get(id=set_id)
             new_folder.pk = None
             new_folder.id = None
+            new_folder.user = request.user
+            new_folder.public = False
             new_folder.save()
             for multicard in folder.multicard_set.all():
                 new_multicard = MultiCard.objects.get(id=multicard.id)

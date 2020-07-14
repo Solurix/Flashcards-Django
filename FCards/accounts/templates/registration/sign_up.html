@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 
 {% block title %}
-New set
+Sign Up
 {% endblock title %}
 
 {% block styles %}
@@ -10,10 +10,51 @@ New set
 
 {% block body %}
 
-<form method="post">
+<div class="p-3 mb-2 bg-dark text-white">
+  <div class="mx-auto">
+    <h2>Sign up</h2><br/>
+  <form method="post">
     {% csrf_token %}
-    {{form.as_p}}
-    <input type="submit" value="Sign up">
-</form>
+
+      <div class="form-group row">
+        <label for="id_username" class="col-sm-2 col-form-label">Username: <small style="color: grey"> Required</small></label>
+        <div class="col">
+          <input type="text" name="username" class="form-control" maxlength="150" autofocus required id="id_username" placeholder="Username">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="id_first_name" class="col-sm-2 col-form-label">Name: <small style="color: grey"> Optional</small></label>
+        <div class="col">
+          <input type="text" class="form-control" name="first_name" maxlength="30" id="id_first_name" placeholder="First Name">
+        </div>
+        <div class="col">
+          <input type="text" class="form-control" name="last_name" maxlength="30" id="id_last_name" placeholder="Last Name">
+        </div>
+      </div>
+
+
+      <div class="form-group row">
+        <label for="id_email" class="col-sm-2 col-form-label" >Email: <small style="color: grey"> Required</small></label>
+        <div class="col">
+          <input type="email" name="email" class="form-control" maxlength="254" required id="id_email" placeholder="Your email address">
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="id_password1" class="col-sm-2 col-form-label">Password: <small style="color: grey"> Required</small></label>
+        <div class="col">
+          <input type="password" name="password1" class="form-control" autocomplete="new-password" placeholder="Password" required id="id_password1">
+        </div>
+        <div class="col">
+        <input type="password" class="form-control" name="password2" autocomplete="new-password" placeholder="Password confirmation" required id="id_password2">
+        </div>
+      </div>
+          <small style="color: grey"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></small>
+
+    <button type="submit" class="btn btn-outline-success btn-block">Sign Up</button>
+  </form>
+  </div>
+</div>
 
 {% endblock body %}

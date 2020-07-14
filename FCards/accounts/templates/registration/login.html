@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 
 {% block title %}
-New set
+Log In
 {% endblock title %}
 
 {% block styles %}
@@ -10,29 +10,31 @@ New set
 
 {% block body %}
 
-<div class="d-flex justify-content-center" id="login" style="width: 100%;">
+<div class="p-3 mb-2 bg-dark text-white">
+  <div class="mx-auto" style="width: 200px;">
     <form class="form-horizontal form" name="LoginForm"  method="post">
-    {% csrf_token %}
-    {% if next %}
+      {% csrf_token %}
+      {% if next %}
         <input type="hidden" name="next" value="{{ next }}" />
-    {% endif %}
-    <div class="control-group">
-        <label class="control-label" for="username">Username</label>
+      {% endif %}
+      <div class="control-group">
+        <label class="control-label" for="username"><b>Username</b></label>
         <div class="controls">
-            <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
+          <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
         </div>
-    </div>
-    <div class="control-group">
-        <label class="control-label" for="password">Password</label>
+      </div><br/>
+      <div class="control-group">
+        <label class="control-label" for="password"><b>Password</b></label>
         <div class="controls">
-            <input class="form-control" type="password" name="password" id="password" placeholder="Password">
+          <input class="form-control" type="password" name="password" id="password" placeholder="Password">
         </div>
-  </div><br>
-  <div class="control-group">
+      </div><br>
+      <div class="control-group">
         <div class="controls">
-            <button type="submit" class="btn btn-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-dark"> or sign up</a>
+          <button type="submit" class="btn btn-outline-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary"> or sign up</a>
         </div>
-    </div>
+      </div>
     </form>
+  </div>
 </div>
 {% endblock body %}

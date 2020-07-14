@@ -1,14 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>logged out</title>
-</head>
-<body>
+{% extends "base2.html" %}
 
-<h1> You are now logged out.</h1>
+{% block title %}
+Logget out
+{% endblock title %}
 
-<h2><a href="/accounts/login/">Log in</a></h2>
+{% block styles %}
 
-</body>
-</html>
+{% endblock styles %}
+
+{% block body %}
+
+<div class="p-3 mb-2 bg-light text-dark">
+    <div class="mx-auto" style="width: 200px;">
+        <p class="font-weight-bold">You have been logged out.</p><br/>
+        <p class="font-weight-bold"><a href="/accounts/login/?next=/">Click here to log in again.</a></p>
+    </div>
+</div>
+{% endblock body %}

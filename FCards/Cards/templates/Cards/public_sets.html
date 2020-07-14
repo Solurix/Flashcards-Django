@@ -56,6 +56,7 @@ $('.collapse').on('show.bs.collapse', function () {
         <tr>
           <th class="hiddenRow" colspan="{{folder.langs_no}}">
               <div id="b{{folder.id}}" class="collapse">
+                <p>Author: {{ folder.user }}</p>
                 <h6>{{ folder.comment }}</h6>
               </div>
             </th>
