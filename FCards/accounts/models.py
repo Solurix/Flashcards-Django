@@ -7,7 +7,7 @@ from django.dispatch import receiver
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
-    testtext = models.TextField(max_length=500, blank=True, default="Test")
+    opinion = models.TextField(max_length=5000, blank=True)
     confirmed = models.BooleanField(default=False)
 
 

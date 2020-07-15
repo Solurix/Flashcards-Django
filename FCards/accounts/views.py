@@ -1,18 +1,16 @@
 from django.contrib.auth.models import User
 from django.contrib.sites.shortcuts import get_current_site
 from django.http import HttpResponse
+from django.contrib import messages
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
 from django.shortcuts import render, redirect
-
-# Create your views here.
-
-from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
 from django.template.loader import render_to_string
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.core.mail import EmailMessage
-
 from .forms import SignUpForm
 from .tokens import account_activation_token
 
@@ -24,7 +22,11 @@ def index(request):
 
 @login_required
 def overview(request):
-    return render(request, 'accounts/overview.html')
+    details = {
+        'password_form': PasswordChangeForm(request.user),
+    }
+    return render(request, 'accounts/overview.html', details)
+
 
 @login_required
 def delete_account(request):
@@ -78,3 +80,80 @@ def activate(request, uidb64, token):
         return redirect('home')
     else:
         return HttpResponse('Activation link is invalid!')
+
+
+def send_confirmation(request, response=True):
+    user = request.user
+    current_site = get_current_site(request)
+    mail_subject = 'Confirm your email.'
+    message = render_to_string('acc_active_email.html', {
+        'user': user,
+        'domain': current_site.domain,
+        'uid': urlsafe_base64_encode(force_bytes(user.pk)),
+        'token': account_activation_token.make_token(user),
+    })
+    to_email = user.email
+    email = EmailMessage(
+        mail_subject, message, to=[to_email]
+    )
+    email.send()
+    if response:
+        return HttpResponse(status=204)
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(request.user, request.POST)
+        details = {
+            'password_form': form,
+            'email_fail': True,
+        }
+        if form.is_valid():
+            user = form.save()
+            update_session_auth_hash(request, user)  # Important!
+            messages.success(request, 'Your password was successfully updated!')
+            return redirect('account_overview')
+        else:
+            messages.error(request, 'Please correct the error below.')
+        return render(request, 'accounts/overview.html', details)
+
+
+def change_email(request):
+    if request.method == 'POST':
+        new_email = request.POST['new_email']
+        user = request.user
+        user.email = new_email
+        user.profile.confirmed = False
+        user.save()
+        user.profile.save()
+        send_confirmation(request, response=False)
+        details = {
+            'password_form': PasswordChangeForm(request.user),
+        }
+
+        return render(request, 'accounts/overview.html', details)
+    # return HttpResponse(status=204)
+
+
+def change_name(request):
+    if request.method == 'POST':
+        new_first = request.POST['new_first']
+        new_last = request.POST['new_last']
+        user = request.user
+        user.first_name = new_first
+        user.new_last = new_last
+        user.save()
+        details = {
+            'password_form': PasswordChangeForm(request.user),
+        }
+
+        return render(request, 'accounts/overview.html', details)
+
+
+def opinion(request):
+    if request.method == 'POST':
+        opinion = request.POST['opinion']
+        profile = request.user.profile
+        profile.opinion += " / " +opinion
+        profile.save()
+        return redirect(request.META['HTTP_REFERER'])

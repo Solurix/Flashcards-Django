@@ -27,13 +27,13 @@
 <div class="fixed-top">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">{{user.username}}</span>
-      {% if user.profile.confirmed %}
-      <span class="text-muted">True</span>
-      {% else %}
-      <span class="text-muted">False</span>
-      {% endif %}
+      <h5 class="text-white h4">Hidden content</h5>
+      <span class="text-muted">Hello, {{user.username}}.</span><br/>
+      <span class="text-muted">Do you have some brilliant idea what could appear here? Do you have some suggestions to change in the website or found a bug? I would be glad to hear from you!</span>
+      <form method="post" action="{% url 'opinion' %}">{% csrf_token %}
+        <br/><input type="text" name="opinion" autocomplete="off" placeholder="Write here and press [Enter]." class="form-control " />
+
+      </form>
     </div>
   </div>
 <nav class="navbar navbar-dark bg-dark">
@@ -58,6 +58,8 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
+    {% block bodyend %}
+    {% endblock bodyend %}
 </body>
 </div>
 <!-- Footer -->
