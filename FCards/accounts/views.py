@@ -22,18 +22,30 @@ def index(request):
     return render(request, 'Cards/index.html')
 
 
+@login_required
+def overview(request):
+    return render(request, 'accounts/overview.html')
+
+@login_required
+def delete_account(request):
+    user = request.user
+    user.delete()
+    return redirect('home')
+
+
 def sign_up(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save(commit=False)
+            user.save()
             username = form.cleaned_data.get('username')
             raw_password = form.cleaned_data.get('password1')
             user = authenticate(username=username, password=raw_password)
             login(request, user)
 
             current_site = get_current_site(request)
-            mail_subject = 'Activate your blog account.'
+            mail_subject = 'Confirm your email.'
             message = render_to_string('acc_active_email.html', {
                 'user': user,
                 'domain': current_site.domain,
@@ -59,10 +71,10 @@ def activate(request, uidb64, token):
     except(TypeError, ValueError, OverflowError, User.DoesNotExist):
         user = None
     if user is not None and account_activation_token.check_token(user, token):
-        user.is_active = True
+        user.profile.confirmed = True
+        user.profile.save()
         user.save()
         login(request, user)
-        # return redirect('home')
-        return HttpResponse('Thank you for your email confirmation. Now you can login your account.')
+        return redirect('home')
     else:
         return HttpResponse('Activation link is invalid!')

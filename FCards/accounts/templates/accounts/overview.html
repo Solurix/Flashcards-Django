@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}
+Your account
+{% endblock title %}
+
+{% block styles %}
+
+{% endblock styles %}
+
+{% block body %}
+<div class="card text-white bg-dark mb-3" style="max-width: 18rem;">
+  <div class="card-header">You profile</div>
+  <div class="card-body">
+    <h5 class="card-title">Username</h5>
+    <p class="card-text">{{ user.username }}</p><br/>
+    <h5 class="card-title">Name</h5>
+    <p class="card-text">{{ user.first_name }} {{ user.last_name }}</p><br/>
+    <h5 class="card-title">Address e-mail</h5>
+    {% if user.profile.confirmed %}
+    <p class="card-text">{{ user.email }} <span class="badge badge-pill badge-success">Confirmed</span></p><br/>
+    {% else %}
+    <p class="card-text">{{ user.email }}</p> <a href="#" class="badge badge-pill badge-warning">Not confirmed</a><br/>
+    {% endif %}
+    <button type="button" class="btn  btn-danger" data-toggle="modal" data-target="#delete_account">Delete account</button>
+    <button type="button" class="btn  btn-warning" data-toggle="modal" data-target="#change_password">Change password</button>
+  </div>
+</div>
+
+
+
+
+<div class="text-dark">
+  <div class="modal fade" id="change_password" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="change_password_label">Delete account?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete your account"?</p>
+        </div>
+        <div class="modal-footer">
+          <form method="POST" action="{% url 'change_password' %}">{% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="text-dark">
+  <div class="modal fade" id="delete_account" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="delete_account_label">Delete account?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Are you sure you want to delete your account"?</p>
+        </div>
+        <div class="modal-footer">
+          <form method="POST" action="{% url 'delete_account' %}">{% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
+          </form>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock body %}

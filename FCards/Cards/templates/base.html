@@ -28,7 +28,12 @@
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <h5 class="text-white h4">Collapsed content</h5>
-      <span class="text-muted">Toggleable via the navbar brand.</span>
+      <span class="text-muted">{{user.username}}</span>
+      {% if user.profile.confirmed %}
+      <span class="text-muted">True</span>
+      {% else %}
+      <span class="text-muted">False</span>
+      {% endif %}
     </div>
   </div>
 <nav class="navbar navbar-dark bg-dark">

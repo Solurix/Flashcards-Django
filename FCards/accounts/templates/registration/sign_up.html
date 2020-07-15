@@ -13,9 +13,22 @@ Sign Up
 <div class="p-3 mb-2 bg-dark text-white">
   <div class="mx-auto">
     <h2>Sign up</h2><br/>
-  <form method="post">
+  <form method="post" action="{% url 'sign-up' %}">
     {% csrf_token %}
-
+      {% if form.errors %}
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                  </div>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+      {% endif %}
       <div class="form-group row">
         <label for="id_username" class="col-sm-2 col-form-label">Username: <small style="color: grey"> Required</small></label>
         <div class="col">
@@ -53,6 +66,7 @@ Sign Up
           <small style="color: grey"><ul><li>Your password can’t be too similar to your other personal information.</li><li>Your password must contain at least 8 characters.</li><li>Your password can’t be a commonly used password.</li><li>Your password can’t be entirely numeric.</li></ul></small>
 
     <button type="submit" class="btn btn-outline-success btn-block">Sign Up</button>
+    <a href="/.">Already have an account? Log in here.</a>
   </form>
   </div>
 </div>

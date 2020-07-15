@@ -11,24 +11,13 @@ Log In
 {% block body %}
 
 <div class="p-3 mb-2 bg-dark text-white">
-  <div class="mx-auto" style="width: 200px;">
+  <div class="mx-auto" style="width: 400px;">
     <form class="form-horizontal form" name="LoginForm"  method="post">
       {% csrf_token %}
       {% if next %}
         <input type="hidden" name="next" value="{{ next }}" />
       {% endif %}
-      <div class="control-group">
-        <label class="control-label" for="username"><b>Username</b></label>
-        <div class="controls">
-          <input class="form-control" type="text" id="username" name="username"  placeholder="Username">
-        </div>
-      </div><br/>
-      <div class="control-group">
-        <label class="control-label" for="password"><b>Password</b></label>
-        <div class="controls">
-          <input class="form-control" type="password" name="password" id="password" placeholder="Password">
-        </div>
-      </div><br>
+      {{ form.as_p }}
       <div class="control-group">
         <div class="controls">
           <button type="submit" class="btn btn-outline-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary"> or sign up</a>
@@ -37,4 +26,6 @@ Log In
     </form>
   </div>
 </div>
+
+
 {% endblock body %}
