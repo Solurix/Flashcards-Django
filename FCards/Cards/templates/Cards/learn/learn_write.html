@@ -9,7 +9,7 @@ Learn by writing
 {% endblock %}
 
 {% block nav_buttons %}
-
+<a class="btn btn-outline-info" href="{% url 'learn' set_id=folder.id %}">Learn</a>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -17,6 +17,8 @@ Learn by writing
 <div class="jumbotron jumbotron-fluid">
   <div class="text-dark">
     <h1 style="text-align:center;">Write translations</h1>
+    <h5 style="text-align:center;">{{ multicard.definition }} </h5>
+    <h5 style="text-align:center;">{{ multicard.comment }} </h5>
     <div class="row justify-content-center">
       <div class="col-auto">
         <div class="container">
@@ -103,9 +105,3 @@ Learn by writing
   </div>
 </div>
 {% endblock body %}
-
-<!--for delete-->
-<!--              <div class="row">-->
-<!--                                 <input type="hidden" name="show_language" value="{{show_card.language}}"/>-->
-<!--                                    <h1 class="sub-header">{{ show_card.main }}</h1>-->
-<!--                                    <input type="hidden" name="show_card" value="{{show_card.main}}"/>-->

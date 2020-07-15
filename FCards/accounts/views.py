@@ -152,8 +152,10 @@ def change_name(request):
 
 def opinion(request):
     if request.method == 'POST':
+        current_site = request.POST['path']
         user_opinion = request.POST['opinion']
+        print(current_site)
         profile = request.user.profile
-        profile.opinion += " / " + user_opinion
+        profile.opinion += " " + str(current_site) + ": " + user_opinion
         profile.save()
         return redirect(request.META['HTTP_REFERER'])

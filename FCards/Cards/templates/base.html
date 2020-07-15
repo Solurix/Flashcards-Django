@@ -31,6 +31,7 @@
       <span class="text-muted">Hello, {{user.username}}.</span><br/>
       <span class="text-muted">Do you have some brilliant idea what could appear here? Do you have some suggestions to change in the website or found a bug? I would be glad to hear from you!</span>
       <form method="post" action="{% url 'opinion' %}">{% csrf_token %}
+        <input type="hidden" name="path" value="{{ request.path }}">
         <br/><input type="text" name="opinion" autocomplete="off" placeholder="Write here and press [Enter]." class="form-control " />
 
       </form>

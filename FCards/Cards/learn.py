@@ -99,6 +99,7 @@ def write(request, set_id):
         show.save()
 
     context['multicard_id'] = m_card.id
+    context['multicard'] = m_card
     context['current_cards'] = current_cards
 
     return render(request, 'Cards/learn/learn_write.html', context)
