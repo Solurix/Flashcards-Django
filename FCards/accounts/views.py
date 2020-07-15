@@ -1,16 +1,16 @@
-from django.contrib.auth.models import User
-from django.contrib.sites.shortcuts import get_current_site
+from django.template.loader import render_to_string
+from django.core.mail import EmailMessage
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib import messages
-from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth import update_session_auth_hash, login, authenticate
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import PasswordChangeForm
-from django.shortcuts import render, redirect
-from django.contrib.auth import login, authenticate
 from django.contrib.auth.decorators import login_required
-from django.template.loader import render_to_string
+from django.contrib.sites.shortcuts import get_current_site
 from django.utils.encoding import force_bytes, force_text
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-from django.core.mail import EmailMessage
+
 from .forms import SignUpForm
 from .tokens import account_activation_token
 
@@ -152,8 +152,8 @@ def change_name(request):
 
 def opinion(request):
     if request.method == 'POST':
-        opinion = request.POST['opinion']
+        user_opinion = request.POST['opinion']
         profile = request.user.profile
-        profile.opinion += " / " +opinion
+        profile.opinion += " / " + user_opinion
         profile.save()
         return redirect(request.META['HTTP_REFERER'])

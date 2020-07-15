@@ -19,7 +19,6 @@ urlpatterns = [
     path('learn/learn/<int:set_id>/', learn.learn, name='learn'),
     path('learn/write/<int:set_id>/', learn.write, name='write'),
     path('learn/flashcards/<int:set_id>/', learn.flashcards, name='flashcards'),
-    path('test/<int:set_id>/', views.test, name='test'),
     path('reset_progress/<int:set_id>/', views.reset_progress, name='reset_progress'),
     path('make_public/<int:set_id>/', views.make_public, name='make_public'),
     path('public_sets/', views.public_sets, name='public_sets'),

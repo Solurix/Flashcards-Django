@@ -16,17 +16,22 @@ Learn by writing
 
 <div class="jumbotron jumbotron-fluid">
   <div class="text-dark">
+    <h1 style="text-align:center;">Write translations</h1>
     <div class="row justify-content-center">
       <div class="col-auto">
         <div class="container">
-          <h1>Write translations</h1>
           <div class="row">
 
             {% if previous %}
               <div class="col-xs-6">
                 <div class="table-responsive">
                   <table class="table table-responsive">
-
+                    <tr>
+                      <td></td>
+                      <td>Your answer</td>
+                      <td>Correct answer</td>
+                      <td>Progress</td>
+                    </tr>
                     {% for previous_card in previous_cards %}
                       <tr>
                         <td class="align-middle">
@@ -46,7 +51,8 @@ Learn by writing
                               <p style="color:#009900">{{previous_card.card.main}}</p>
                             </td>
                         {% else %}
-                          <td colspan="2" class="align-middle">
+                          <td></td>
+                          <td class="align-middle">
                             <p>{{previous_card.card.main}}</p>
                           </td>
                         {% endif %}
@@ -66,6 +72,10 @@ Learn by writing
                 <form method="POST" action=".">{% csrf_token %}
                   <input type="hidden" name="multicard_id" value="{{multicard_id}}"/>
                   <table class="table table-responsive">
+                    <tr>
+                      <td></td>
+                      <td>Write translation below</td>
+                    </tr>
                     {% for card in current_cards %}
                       <tr>
                         <td>

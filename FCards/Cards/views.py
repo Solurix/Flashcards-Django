@@ -317,28 +317,7 @@ def delete_multicards(request, set_id, m_card_id):
     else:
         return render(request, 'Cards/no_access.html')
 
-
-def test(request, set_id):
-    folder = get_object_or_404(CardFolder, id=set_id)
-    if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
-    langs = folder.get_langs()
-    lang_keys = folder.get_langs(item='key')
-    lang_full = folder.get_langs(item='value')
-    print(lang_full)
-    length = len(langs)
-    context = {
-        'previous': False,
-        'folder': folder,
-        "length": length,
-        "langs": langs,
-        'width': 94 / length,
-        'lang_full': lang_full,
-    }
-    return render(request, 'Cards/learn_flashcards_2.html', context)
-
 # TODO If words are too long they need to be wrapped. Otherwise they are breaking the tables.
 # TODO count folders by occurrence in that user folders
 # TODO [learn_write.html] add auto-focus and ability to go next on enter even if no input required
 # TODO [learn_write.html] add comments, hints, message-at least 2 cards are required
-# TODO
