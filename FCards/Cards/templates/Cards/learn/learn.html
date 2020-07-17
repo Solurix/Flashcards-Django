@@ -14,10 +14,18 @@ Learn
 
 {% block body %}
 
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <div class="text-dark">
+    <h1 class="display-4">Choose how would you like to learn.</h1>
+    <p class="lead">Flashcards are available only for sets with two languages. Other options are under development.</p>
+    </div>
+  </div>
+</div>
+
 {% if enough %}
-  <h2>Choose how would you like to learn:</h2>
-    <a class="btn btn-sm btn-outline-light" href="{% url 'write' set_id=folder.id %}">Write</a>
-    <a class="btn btn-sm btn-outline-light" href="{% url 'flashcards' set_id=folder.id %}">Flashcards</a>
+    <a class="btn btn-block btn-outline-light" href="{% url 'write' set_id=folder.id %}">Write</a>
+    <a class="btn btn-block btn-outline-light" href="{% url 'flashcards' set_id=folder.id %}">Flashcards</a>
 {% else %}
   <h2>You do not have enough MultiCards in this set to start learning.</h2>
   <h3>Please create at least three MultiCards.</h3>
