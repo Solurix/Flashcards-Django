@@ -21,6 +21,8 @@ class CardFolder(models.Model):
     comment = models.CharField(max_length=400, blank=True)
     public = models.BooleanField(default=False)
     show_multicard_comment = models.BooleanField(default=True)
+    being_edited = models.BooleanField(default=False)
+    being_edited2 = models.BooleanField(default=False)
 
     def get_langs(self, item=False):
         langs = (self.lang1, self.lang2, self.lang3, self.lang4, self.lang5)
