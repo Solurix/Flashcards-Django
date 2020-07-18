@@ -69,11 +69,7 @@ def reset_progress(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    MultiCard.objects.
-    
-    
-    
-    (cards_folder=folder).update(priority=10, score=0)
+    MultiCard.objects.filter(cards_folder=folder).update(priority=10, score=0)
     Card.objects.filter(cards_folder=folder).update(priority=1, score=0)
     return redirect(request.META['HTTP_REFERER'])
 
