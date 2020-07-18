@@ -46,7 +46,7 @@ def edit_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    if MultiCard.objects.filter(being_edited=True, cards_folder=folder)
+    if MultiCard.objects.filter(being_edited=True, cards_folder=folder):
         return render(request, 'Cards/folder_being_updated.html')
         
     if request.method == 'POST':
