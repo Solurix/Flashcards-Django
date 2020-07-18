@@ -16,6 +16,7 @@ $('.collapse').on('show.bs.collapse', function () {
 });
 </script>
 
+
 {% load get_obj %}
 
 {% endblock %}
@@ -31,32 +32,46 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1 class="display-4">Here are your sets to study, {{ user }}.</h1>
-    <p class="lead">Click on the set name to view its details.</p>
+      {% if user.cardfolder_set.all %}
+        <h1>Here are your sets to study, {{ user }}.</h1>
+        <p class="lead">Click on the set name to view its details.</p>
+      {% else %}
+        <h1>Here will appear your CardSets, {{ user }}.</h1>
+        <p class="lead">
+          <a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary my-1">Create a new set</button></a>
+          <a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">or copy from public ones.</button></a>
+        </p>
+      {% endif %}
     </div>
   </div>
 </div>
 
   {% for folder in user.cardfolder_set.all %}
-    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse;">
+  <div>
+    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse; margin-bottom: 0px">
       <thead>
         <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
-          <th colspan="{{folder.langs_no|add:'-3'}}">
-            <h3>
-              {{ forloop.counter }}. {{ folder.name }}
-            </h3>
-
-          </th>
-          <th class="hiddenRow" colspan=3>
-              <div id="b{{folder.id}}" class="collapse">
-                <a class="btn btn-sm btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-                <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-                <a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
-                <a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-                <a class="btn btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
-                <a class="btn btn-sm btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">Copy Set</a>
-                <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
+          <th colspan="{{folder.langs_no|add:'0'}}">
+            <div class="row">
+              <div class="col-4">
+                <h3>
+                 {{ folder.name }}
+                </h3>
               </div>
+              <div class="col-md-8">
+                <div id="b{{folder.id}}" class="collapse">
+                  <div class="text-right">
+                    <a class="btn btn-sm btn-outline-light mb-1" href="{% url 'learn' set_id=folder.id %}">Learn</a>
+                    <a class="btn btn-sm btn-outline-info mb-1" href="{% url 'view_folder' set_id=folder.id %}">View</a>
+                    <a class="btn btn-sm btn-outline-success mb-1" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+                    <a class="btn btn-sm btn-outline-primary mb-1" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
+                    <a class="btn btn-sm btn-outline-warning mb-1" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+                    <a class="btn btn-sm btn-outline-secondary mb-1" href="{% url 'copy_folder' set_id=folder.id %}">Copy</a>
+                    <button type="button" class="btn btn-sm btn-outline-danger mb-1" data-toggle="modal" data-target="#c{{folder.id}}">Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div>
           </th>
         </tr>
 
@@ -67,11 +82,16 @@ $('.collapse').on('show.bs.collapse', function () {
               </div>
             </th>
         </tr>
-
+      </thead>
+    </table>
+  </div>
+  <div class="table-responsive">
+    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse;">
+      <thead>
         <tr>
           {% for k, v in folder.get_langs %}
-            <td class="hiddenRow" style="width: {{folder.get_langs|width}}%">
-              <div id="b{{folder.id}}" class="collapse">
+            <td class="hiddenRow" style="width: {{folder.get_langs|width}}%; min-width:140">
+              <div id="b{{folder.id}}" class="collapse ml-2">
                 <h5><b>{{ v|upper }}</b></h5>
               </div>
             </td>
@@ -87,21 +107,36 @@ $('.collapse').on('show.bs.collapse', function () {
             <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
                 {% if not card.main %}
-                <b>loading...</b>
+                <a data-toggle="tooltip" title="Refresh the page to see changes.">loading...</a>
                 {% else %}
                   <b>{{ card.main }}</b>
                 {% endif %}
               </div>
             </td>
           {% endfor %}
+          <td style="width:0.5%; white-space: nowrap;" class="hiddenRow">
+            <div id="xb{{folder.id}}" class="collapse">
+              .
+            </div>
+          </td>
         </tr>
         {% endfor %}
       {% else %}
-        <th colspan="{{folder.langs_no}}">
-          There are no cards for this set.
-        </th>
+        <tr class="table-secondary text-dark">
+        <td colspan="{{folder.langs_no}}" class="hiddenRow">
+          <div id="b{{folder.id}}" class="collapse">
+            <b> There are no cards in this set.</b>
+          </div>
+        </td>
+          <td style="width:0.5%; white-space: nowrap;" class="hiddenRow">
+            <div id="xb{{folder.id}}" class="collapse">
+              .
+            </div>
+          </td>
+        </tr>
       {% endif %}
     </table>
+  </div>
   <hr/>
 
 <div class="text-dark">
@@ -130,4 +165,7 @@ $('.collapse').on('show.bs.collapse', function () {
 </div>
   {% endfor %}
 
+{% endblock %}
+
+{% block bodyend %}
 {% endblock %}

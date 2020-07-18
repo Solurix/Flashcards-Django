@@ -10,20 +10,40 @@ Log In
 
 {% block body %}
 
+
+
+
 <div class="p-3 mb-2 bg-dark text-white">
-  <div class="mx-auto" style="width: 400px;">
-    <form class="form-horizontal form" name="LoginForm"  method="post">
-      {% csrf_token %}
-      {% if next %}
-        <input type="hidden" name="next" value="{{ next }}" />
-      {% endif %}
-      {{ form.as_p }}
-      <div class="control-group">
-        <div class="controls">
-          <button type="submit" class="btn btn-outline-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary"> or sign up</a>
-        </div>
+  <div class="card-deck">
+    <div class="card text-white bg-dark">
+      <div class="card-header">
+        Multi-FlashCards
       </div>
-    </form>
+      <div class="card-body">
+        Multi-FlashCards is a place for those who learn few languages at once.
+        <br/>It helps to create multi-language cards and provides ways to efficiently memorize them.
+        <br/>Create your own sets or copy some from others, adjust your languages and start learning!
+      </div>
+    </div>
+    <div class="card text-white bg-dark">
+      <div class="card-header">
+      Login
+      </div>
+      <div class="card-body">
+        <form class="form-horizontal form" name="LoginForm"  method="post">
+          {% csrf_token %}
+          {% if next %}
+            <input type="hidden" name="next" value="{{ next }}" />
+          {% endif %}
+          {{ form.as_p }}
+          <div class="control-group">
+            <div class="controls">
+              <button type="submit" class="btn btn-outline-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary"> or sign up</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
 

@@ -12,7 +12,7 @@ New set
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1 class="display-4">Create new MultiCard</h1>
+    <h1>Create new MultiCard</h1>
     <p class="lead">Here you can create new MultiCard for {{folder.name}}.</p>
     <p class="lead">Only one word of the first language is required. The rest is optional.</p>
       <a class="btn btn-outline-dark" href="{% url 'add_many' set_id=folder.id %}">You can add many words at once here.</a>
@@ -22,7 +22,7 @@ New set
 <div class="jumbotron jumbotron-fluid">
     <div class="text-dark">
     <form method="POST" action=".">{% csrf_token %}
-        <div class="table-responsive-xl">
+  <div class="table-responsive">
     <table class="table-sm">
       <tr>
         <td>
@@ -42,16 +42,16 @@ New set
         </tr>
           <th><p><b>Language</b></p></th>
         {% for k, v in langs %}
-        <th><h5><b>{{ v|upper }}</b></h5></th>
+        <th style="min-width:140"><h5><b>{{ v|upper }}</b></h5></th>
         {% endfor %}
       <tr>
         <td><b>Word</b></td>
         {% for k, v in langs %}
         <td>
           {% if forloop.counter == 1 %}
-          <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="{{v|title}} word">
+          <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="{{k|upper}} word">
           {% else %}
-          <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="{{v|title}} word">
+          <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} word">
           {% endif %}
         </td>
         {% endfor %}
@@ -60,7 +60,7 @@ New set
         <td><b>Pronunciation</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="{{v|title}} pronunciation">
+          <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} pronunciation">
         </td>
         {% endfor %}
       </tr>
@@ -68,7 +68,7 @@ New set
         <td><b>Synonym</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="{{v|title}} synonym">
+          <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} synonym">
         </td>
         {% endfor %}
       </tr>
@@ -76,7 +76,7 @@ New set
         <td><b>Comment</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="{{v|title}} comment">
+          <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} comment">
         </td>
         {% endfor %}
       </tr>

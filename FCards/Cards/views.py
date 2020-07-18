@@ -197,9 +197,11 @@ def add_many(request, set_id):
         for_translate = request.POST['for_translate']
 
         # If user messes with the validations (all below three are required).
-        if not separator or not language or not for_translate:
+        if not language or not for_translate:
             return render(request, 'Cards/no_access.html')
 
+        if not separator:
+            separator = " "
         new_cards = for_translate.split(separator)
         new_langs = folder.get_langs(item='key')
 
@@ -207,6 +209,8 @@ def add_many(request, set_id):
         new_langs.remove(language)
 
         for word in new_cards:
+            if word[-1] == ",":
+                word = word[:-1]
             m_card = MultiCard.objects.create(cards_folder=folder)
             m_card.save()
             word = word.capitalize()

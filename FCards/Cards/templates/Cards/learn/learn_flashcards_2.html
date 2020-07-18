@@ -81,16 +81,18 @@ body { font-family: sans-serif; }
     <input type="hidden" name="card_id" value="{{back.id}}"/>
     <input type="hidden" name="multicard_id" value="{{multicard_id}}"/>
     <label>Did you get that?</label><br/>
-    <div class="btn-group btn-group-lg d-flex" role="group" aria-label="...">
+    <div class="row-md btn-group btn-group-lg d-flex" role="group" aria-label="...">
 
       <input type="submit" class="btn btn-success w-100" name="progress" value="Easily!">
       <input type="submit" class="btn btn-primary w-100" name="progress" value="Yes">
       <input type="submit" class="btn btn-info w-100" name="progress" value="Barely">
+    </div>
+    <div class="row-md btn-group btn-group-lg d-flex pt-2" role="group" aria-label="...">
       <input type="submit" class="btn btn-warning w-100" name="progress" value="Almost">
       <input type="submit" class="btn btn-danger w-100" name="progress" value="Nope">
 
       <button id="btnGroupDrop1" type="button" class="btn btn-dark w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Other:
+        Other
       </button>
       <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
         <input type="submit" class="dropdown-item" name="progress" value="I have already mastered it!">

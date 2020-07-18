@@ -35,13 +35,13 @@ $('.collapse').on('show.bs.collapse', function () {
     </div>
   </div>
 </div>
-
+  <div class="table-responsive">
     <table class="table table-hover table-dark" style="border-collapse:collapse;">
       <thead>
         <tr class="table-light text-dark">
           <td><h5><b>#</b></h5></td>
           {% for k, v in folder.get_langs %}
-            <td style="width: {{folder.get_langs|width}}%">
+            <td style="width: {{folder.get_langs|width}}%; ; min-width:140">
                 <h5><b>{{ v|upper }}</b></h5>
             </td>
           {% endfor %}
@@ -98,6 +98,7 @@ $('.collapse').on('show.bs.collapse', function () {
         </th>
       {% endif %}
     </table>
+  </div>
   <hr/>
 
 {% endblock %}

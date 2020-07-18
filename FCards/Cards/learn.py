@@ -117,7 +117,7 @@ def flashcards(request, set_id):
     if length == 2:
         return flashcards_2(request, folder, lang_keys, lang_full)
     else:
-        return render(request, 'Cards/index.html')
+        return render(request, 'Cards/learn/under_production.html')
     # elif length == 3:
     #     flashcards_3(request, folder, lang_keys, lang_full)
     # else:

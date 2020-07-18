@@ -29,14 +29,14 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1 class="display-4">Here are public sets.</h1>
+    <h1>Here are public sets.</h1>
     <p class="lead">Click on the set name to view its details and copy it.</p>
     </div>
   </div>
 </div>
 
   {% for folder in folders %}
-    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse;">
+    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse; margin-bottom: 0px">
       <thead>
         <tr data-toggle="collapse" data-target="#b{{folder.id}}" class="clickable collapse-row collapsed">
           <th colspan="{{folder.langs_no|add:'-3'}}">
@@ -61,10 +61,14 @@ $('.collapse').on('show.bs.collapse', function () {
               </div>
             </th>
         </tr>
-
+      </thead>
+    </table>
+<div class="table-responsive">
+    <table class="table table-hover table-dark table-borderless" style="border-collapse:collapse;">
+      <thead>
         <tr>
           {% for k, v in folder.get_langs %}
-            <td class="hiddenRow" style="width: {{folder.get_langs|width}}%">
+            <td class="hiddenRow" style="width: {{folder.get_langs|width}}%; min-width:140">
               <div id="b{{folder.id}}" class="collapse">
                 <h5><b>{{ v|upper }}</b></h5>
               </div>
@@ -96,6 +100,7 @@ $('.collapse').on('show.bs.collapse', function () {
         </th>
       {% endif %}
     </table>
+</div>
   <hr/>
   {% endfor %}
 

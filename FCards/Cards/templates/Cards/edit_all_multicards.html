@@ -40,13 +40,14 @@ $('.collapse').on('show.bs.collapse', function () {
 </div>
 
 <form method="POST" id="form" action=".">{% csrf_token %}
+<div class="table-responsive">
  <table class="table table-sm table-light">
     <thead class="thead-dark">
-        <th style="width: 5%"><h5><b>
+        <th style="width: 1%"><h5><b>
             #
         </b></h5></th>
           {% for k, v in folder.get_langs %}
-          <th style="width: {{width}}%">
+          <th style="min-width:140">
               <h5><b>
                   {{ v|upper }}
               </b></h5>
@@ -55,28 +56,27 @@ $('.collapse').on('show.bs.collapse', function () {
     </thead>
      {% for multicard in folder.multicard_set.all %}
         <tr>
-            <td>
+            <td style="width:1%">
                 <b><br/>{{ forloop.counter }}.</b>
             </td>
             {% for lang in folder.langs_keys %}
                 {% get_card lang multicard as card %}
                     <td style="width: {{width}}%">
-                        <b><br/>{{ card.main }}</b>
+                        <div class="text-center"><b><br/>{{ card.main }}</b></div>
                     </td>
             {% endfor %}
         </tr>
         <tr class="table-active table-borderless">
-            <td>
-                <br/>
-                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Word</span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Pronunc.</span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Synonym</span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext form-control-sm">Comment</span></p>
+            <td style="width:1%">
+
+                <span class="form-control-plaintext text-center font-weight-bold pt-0"><a data-toggle="tooltip" title="Word">W</a></span>
+                <span class="form-control-plaintext text-center font-weight-bold pt-3"><a data-toggle="tooltip" title="Pronunciation">P</a></span>
+                <span class="form-control-plaintext text-center font-weight-bold pt-3"><a data-toggle="tooltip" title="Synonym">S</a></span>
+                <span class="form-control-plaintext text-center font-weight-bold pt-3"><a data-toggle="tooltip" title="Comment">C</a></span>
             </td>
             {% for k, v in langs %}
              {% get_card k multicard as card %}
               <td>
-                  <br/>
                   <p>
                     <input type="text" name="main{{k}}{{multicard.id}}" class="form-control form-control-sm" maxlength="50" required value="{{card.main}}">
                   </p>
@@ -93,47 +93,25 @@ $('.collapse').on('show.bs.collapse', function () {
             {% endfor %}
         </tr>
         <tr>
-            {% if length < 4 %}
-                <td>
-                    <br/>
-                    <input type="checkbox" class="btn btn-outline-danger" value=1 name="delete{{multicard.id}}" id="d{{multicard.id}}">
-                    <label style="color:#d51e25" for="d{{multicard.id}}"><b>Delete</b></label>
-                </td>
-                <td>
-                    <p class="font-weight-bold">
-                        <span class="form-control-plaintext">MultiCard Comment</span>
-                    </p>
+          <td colspan="{{length|add:'1'}}">
+            <div class="row" style="width:99%">
+              <div class="col-auto">
+                <input type="checkbox" class="btn btn-outline-danger" value=1 name="delete{{multicard.id}}" id="d{{multicard.id}}">
+                  <label style="color:#d51e25" for="d{{multicard.id}}"><b>Delete</b></label>
+                </div>
+                  <div class="col-sm">
+                    <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span>
                     <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
-                </td>
-                <td>
-                    <p class="font-weight-bold">
-                        <span class="form-control-plaintext">MultiCard Definition</span>
-                    </p>
-                    <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
-                </td>
-            {% else %}
-                <td>
-                    <br/>
-                    <input type="checkbox" class="btn btn-outline-danger" value=1 name="delete{{multicard.id}}" id="d{{multicard.id}}">
-                    <label style="color:#d51e25" for="d{{multicard.id}}"><b>Delete</b></label>
-                </td>
-                <td class="text-right">
-                    <p class="font-weight-bold">
-                        <span class="form-control-plaintext">MultiCard Comment</span>
-                    </p>
-                </td>
-                <td>
-                    <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
-                </td>
-                <td class="text-right">
-                    <p class="font-weight-bold">
-                        <span class="form-control-plaintext">MultiCard Definition</span>
-                    </p>
-                </td>
-                <td>
-                    <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
-                </td>
-            {% endif %}
+                  </p>
+                  </div>
+                  <div class="col-sm">
+                    <p class="font-weight-bold"><span class="form-control-plaintext">Definition</span>
+                      <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                  </p>
+                  </div>
+
+              </div>
+          </td>
         </tr>
      <tr style="background-color:#292b2c">
         <td colspan="{{length|add:'1'}}"><br/></td>
@@ -141,6 +119,7 @@ $('.collapse').on('show.bs.collapse', function () {
         {% endfor %}
  </table>
  <button class="btn btn-success btn-block"><b>Save changes</b></button>
+</div>
 </form>
 
 {% include 'Cards/add_mcards_modal.html' %}

@@ -1,34 +1,33 @@
 <div class="text-dark">
-    <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><b>Add Multicards</b></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-                <form method="POST" action="{% url 'add_many' set_id=folder.id %}">{% csrf_token %}
-                    <div class="table-responsive-xl">
-                      <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <select class="custom-select" name="language">
-                                {% for k, v in langs %}
-                                    <option class="dropdown-item" value={{ k }}>{{ v|title }}</option>
-                                {% endfor %}
-                             </select>
-                        </div>
-                    <input type="text" name="separator" required class="form-control" maxlength="10" placeholder="Insert separator for text here. For example: *">
-                    </div>
-
-                        <textarea name="for_translate" cols="40" rows="10" class="form-control" maxlength="400"
-                        required placeholder="Write or paste words/sentences from which you want to create cards.
-            Divide them by separator of your choice.
-            Example: dad*mom*I like bananas*monday"></textarea>
-                <button class="btn btn-success btn-block">Create</button>
-                </div>
-            </form>
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel"><b>Add Multicards</b></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <form method="POST" action="{% url 'add_many' set_id=folder.id %}">{% csrf_token %}
+          <div class="table-responsive-xl">
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <select class="custom-select" name="language">
+                  {% for k, v in langs %}
+                    <option class="dropdown-item" value={{ k }}>{{ v|title }}</option>
+                  {% endfor %}
+                </select>
+              </div>
+              <input type="text" name="separator" class="form-control" maxlength="10" placeholder="Text separator">
+            </div>
+            <textarea name="for_translate" cols="40" rows="10" class="form-control" maxlength="400"
+    required placeholder="Write or paste words/sentences from which you want to create cards.
+Divide them by separator of your choice (if you won't provide separator, words will be divided by spaces).
+Example: dad*mom*I like bananas*monday"></textarea>
+            <button class="btn btn-success btn-block">Create</button>
+          </div>
+        </form>
       </div>
     </div>
+  </div>
 </div>
