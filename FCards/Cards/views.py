@@ -4,7 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import FolderForm, CardsForm
 from .multithreads import *
 from threading import Thread
-from .models import CardFolder
+from .models import CardFolder, MultiCard
 
 
 # from django.http import HttpResponse
@@ -46,7 +46,7 @@ def edit_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    if folder.being_edited or folder.being_edited2:
+    if MultiCard.objects.filter(being_edited=True, cards_folder=folder)
         return render(request, 'Cards/folder_being_updated.html')
         
     if request.method == 'POST':
@@ -69,7 +69,11 @@ def reset_progress(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    MultiCard.objects.filter(cards_folder=folder).update(priority=10, score=0)
+    MultiCard.objects.
+    
+    
+    
+    (cards_folder=folder).update(priority=10, score=0)
     Card.objects.filter(cards_folder=folder).update(priority=1, score=0)
     return redirect(request.META['HTTP_REFERER'])
 
