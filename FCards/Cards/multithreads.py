@@ -26,6 +26,12 @@ def edit_folder_translate(folder):
 
 
 def add_multicard_translate(langs, request, m_card, folder):
+    if folder.being_edited == False:
+        folder.being_edited = True
+        folder.save()
+    else:
+        folder.being_edited2 = True
+        folder.save()
     origin = request.POST['main' + langs[0]].capitalize()
     for key in langs:
         data = {'main': request.POST['main' + key].capitalize(),
@@ -39,9 +45,21 @@ def add_multicard_translate(langs, request, m_card, folder):
                 data['pronunciation'] = translation.pronunciation
             data['automated'] = True
         Card.objects.create(multi_card=m_card, language=key, cards_folder=folder, **data)
+    if folder.being_edited2 == True:
+        folder.being_edited2 = False
+        folder.save()
+    else:
+        folder.being_edited = False
+        folder.save()
 
 
 def add_many_translate(new_langs, word, language, m_card, folder):
+    if folder.being_edited == False:
+        folder.being_edited = True
+        folder.save()
+    else:
+        folder.being_edited2 = True
+        folder.save()
     for lang in new_langs:
         translation = Translator().translate(text=word, src=language, dest=lang)
         data = {'main': translation.text.capitalize(),
@@ -55,4 +73,10 @@ def add_many_translate(new_langs, word, language, m_card, folder):
         else:
             data['pronunciation'] = ""
         Card.objects.create(multi_card=m_card, cards_folder=folder, **data)
+    if folder.being_edited2 == True:
+        folder.being_edited2 = False
+        folder.save()
+    else:
+        folder.being_edited = False
+        folder.save()
         # TODO Because of multi-threading user data may be overwritten. Especially in edit_many view.
