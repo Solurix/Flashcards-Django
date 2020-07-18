@@ -46,7 +46,9 @@ def edit_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-
+    if folder.being_translated or folder.being_translated2:
+        return render(request, 'Cards/folder_being_updated.html')
+        
     if request.method == 'POST':
         form = FolderForm(request.POST or None, instance=folder)
         if form.is_valid():
