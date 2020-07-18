@@ -4,6 +4,8 @@ from .models import CardFolder, MultiCard, Card
 
 def edit_folder_translate(folder):
     for multicard in folder.multicard_set.all():
+        m_card.being_edited = True
+        m_card.save()
         cards = multicard.card_set.all()
         created_langs = []
         for card in cards:
@@ -23,6 +25,8 @@ def edit_folder_translate(folder):
         else:
             multicard.check_if_mastered()
             # TODO it could probably be improved
+        m_card.being_edited = False
+        m_card.save()
 
 
 def add_multicard_translate(langs, request, m_card, folder):
