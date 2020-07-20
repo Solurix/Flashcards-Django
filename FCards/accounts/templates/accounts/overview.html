@@ -5,6 +5,25 @@ Your account
 {% endblock title %}
 
 {% block styles %}
+{% load tz %}
+
+<style>
+.feedback {
+  height: 300px;
+  overflow-y: scroll; /* Add the ability to scroll */
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.feedback::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.feedback {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+</style>
 {% endblock styles %}
 
 {% block body %}
@@ -53,7 +72,15 @@ Your account
       Your suggestions:
     </div>
     <div class="card-body">
-      {{ user.profile.opinion }}
+      <div class="feedback" style="max-height: 400px;" -webkit-scrollbar="{display: none;}">
+      {% for feedback in feedbacks %}
+        <a data-toggle="tooltip" title="{{ feedback.created|localtime }}">
+          <span class="text-warning">{{ feedback.page }} : </span>
+        </a>
+      {{ feedback.text }}
+      <br>
+      {% endfor %}
+      </div>
     </div>
     <div class="card-footer">
 

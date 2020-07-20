@@ -13,6 +13,7 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
 from .forms import SignUpForm
 from .tokens import account_activation_token
+from .models import Feedback
 
 
 @login_required
@@ -24,6 +25,7 @@ def index(request):
 def overview(request):
     details = {
         'password_form': PasswordChangeForm(request.user),
+        'feedbacks': Feedback.objects.filter(user=request.user).order_by('-created')
     }
     return render(request, 'accounts/overview.html', details)
 
@@ -31,7 +33,8 @@ def overview(request):
 @login_required
 def delete_account(request):
     user = request.user
-    user.delete()
+    user.is_active = False
+    user.save()
     return redirect('home')
 
 
@@ -152,10 +155,8 @@ def change_name(request):
 
 def opinion(request):
     if request.method == 'POST':
-        current_site = request.POST['path']
+        user = request.user
+        current_site = request.POST['path'][1:-1]
         user_opinion = request.POST['opinion']
-        print(current_site)
-        profile = request.user.profile
-        profile.opinion += " " + str(current_site) + ": " + user_opinion
-        profile.save()
+        feedback = Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
         return redirect(request.META['HTTP_REFERER'])
