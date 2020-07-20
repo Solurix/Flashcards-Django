@@ -8,6 +8,14 @@ New set
 
 {% endblock styles %}
 
+{% block nav_buttons %}
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
+<a class="btn btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
+
+{% endblock nav_buttons %}
+
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid">
