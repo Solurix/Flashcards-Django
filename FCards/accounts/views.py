@@ -157,6 +157,8 @@ def opinion(request):
     if request.method == 'POST':
         user = request.user
         current_site = request.POST['path'][1:-1]
+        if current_site == ":":
+            current_site = 'home'
         user_opinion = request.POST['opinion']
         feedback = Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
         return redirect(request.META['HTTP_REFERER'])
