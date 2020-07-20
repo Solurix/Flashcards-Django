@@ -60,7 +60,7 @@ def edit_folder(request, set_id):
 
     else:
         form = FolderForm(instance=folder)
-    return render(request, 'Cards/edit_set.html', {'form': form})
+    return render(request, 'Cards/edit_set.html', {'form': form, 'folder': folder})
 
 
 @login_required

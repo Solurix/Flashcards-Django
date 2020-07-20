@@ -7,9 +7,12 @@ def capitalize_strip_all_words():
     for card in Card.objects.all():
         try:
             card.main = card.main.strip().capitalize()
-            card.pronunciation = card.strip().pronunciation.capitalize()
-            card.synonyms = card.synonyms.strip().capitalize()
-            card.comment = card.comment.strip().capitalize()
+            if card.pronunciation:
+                card.pronunciation = card.strip().pronunciation.capitalize()
+            if card.synonyms:
+                card.synonyms = card.synonyms.strip().capitalize()
+            if card.comment:
+                card.comment = card.comment.strip().capitalize()
             card.save()
             x += 1
         except AttributeError:

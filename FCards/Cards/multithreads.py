@@ -29,9 +29,11 @@ def edit_folder_translate(folder):
                 # If still failed
                 if not data['main']:
                     data['main'] = 'Translation error'
-                if translation.pronunciation != first.main:
-                    data['pronunciation'] = translation.pronunciation
+                else:
                     data['automated'] = True
+                if translation.pronunciation != first.main and translation.pronunciation != "None":
+                    data['pronunciation'] = translation.pronunciation
+
                 Card.objects.create(multi_card=multicard, cards_folder=folder, language=lang, **data)
             # else:
             #     multicard.check_if_mastered()
