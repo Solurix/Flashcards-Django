@@ -103,7 +103,7 @@ class Card(models.Model):
     main = models.CharField(max_length=50)
     automated = models.BooleanField(default=False)
     score = models.SmallIntegerField(default=0)
-    pronunciation = models.CharField(max_length=200, blank=True, default=False, null=True)
+    pronunciation = models.CharField(max_length=200, blank=True, null=True)
     synonyms = models.CharField(max_length=50, blank=True)
     comment = models.CharField(max_length=400, blank=True)
     rating = models.SmallIntegerField(default=0)

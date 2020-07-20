@@ -15,6 +15,7 @@ New set
     <div class="text-dark">
     <form method="POST" action=".">{% csrf_token %}
     {{form.as_p}}
+      <p>Folder's main language cannot be changed.</p>
     <button class="btn btn-success">Save changes</button>
     </form>
     </div>

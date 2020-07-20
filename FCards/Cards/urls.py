@@ -21,5 +21,7 @@ urlpatterns = [
     path('learn/flashcards/<int:set_id>/', learn.flashcards, name='flashcards'),
     path('reset_progress/<int:set_id>/', views.reset_progress, name='reset_progress'),
     path('make_public/<int:set_id>/', views.make_public, name='make_public'),
+    path('refresh_update/<int:set_id>/', views.refresh_update, name='refresh_update'),
+    path('repair_translations/<int:set_id>/', views.repair_translations, name='repair_translations'),
     path('public_sets/', views.public_sets, name='public_sets'),
 ]

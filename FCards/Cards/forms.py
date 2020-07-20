@@ -15,10 +15,9 @@ class FolderForm(ModelForm):
     # edit_date = forms.DateField()
     class Meta:
         model = CardFolder
-        fields = ['name', 'lang1', 'lang2', 'lang3', 'lang4', 'lang5', 'comment']
+        fields = ['name', 'lang2', 'lang3', 'lang4', 'lang5', 'comment']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name for the set'}),
-            'lang1': forms.Select(attrs={'class': 'form-control'}),
             'lang2': forms.Select(attrs={'class': 'form-control'}),
             'lang3': forms.Select(attrs={'class': 'form-control'}),
             'lang4': forms.Select(attrs={'class': 'form-control'}),
@@ -27,7 +26,6 @@ class FolderForm(ModelForm):
         }
         labels = {
             'name': _('Set name'),
-            'lang1': _('1st language'),
             'lang2': _('2nd language'),
             'lang3': _('3rd language'),
             'lang4': _('4th language'),

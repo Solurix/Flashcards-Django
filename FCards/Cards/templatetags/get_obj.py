@@ -1,6 +1,7 @@
 from ..models import Card
 from django import template
 from ..langcodes import LangCodesDict
+from ..multithreads import _clean_doubles
 
 register = template.Library()
 
@@ -11,6 +12,9 @@ def get_card(lang, multicard):
         mcard = Card.objects.get(language=lang, multi_card=multicard)
     except Card.DoesNotExist:
         mcard = None
+    except Card.MultipleObjectsReturned:
+        _clean_doubles(multicard.cards_folder)
+        mcard = Card.objects.get(language=lang, multi_card=multicard)
     return mcard
 
 

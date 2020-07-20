@@ -7,15 +7,12 @@ from threading import Thread
 from .models import CardFolder, MultiCard
 
 
-# from django.http import HttpResponse
-# from django.template import loader
-# from django.forms import formset_factory
-
-
 @login_required
 def home(request):
     return render(request, 'Cards/index.html')
 
+
+# region Folder
 
 @login_required
 def delete_folder(request, set_id):
@@ -46,13 +43,15 @@ def edit_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    if MultiCard.objects.filter(being_edited=True, cards_folder=folder):
-        return render(request, 'Cards/folder_being_updated.html')
-        
+    print(folder.being_edited)
+    if folder.being_edited:
+        return render(request, 'Cards/folder_being_updated.html', {'folder': folder})
+
     if request.method == 'POST':
         form = FolderForm(request.POST or None, instance=folder)
         if form.is_valid():
             folder = form.save(commit=False)
+            folder.being_edited = True
             folder.save()
             t = Thread(target=edit_folder_translate, args=[folder])
             t.setDaemon(False)
@@ -62,28 +61,6 @@ def edit_folder(request, set_id):
     else:
         form = FolderForm(instance=folder)
     return render(request, 'Cards/edit_set.html', {'form': form})
-
-
-@login_required
-def reset_progress(request, set_id):
-    folder = get_object_or_404(CardFolder, id=set_id)
-    if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
-    MultiCard.objects.filter(cards_folder=folder).update(priority=10, score=0)
-    Card.objects.filter(cards_folder=folder).update(priority=1, score=0)
-    return redirect(request.META['HTTP_REFERER'])
-
-@login_required
-def make_public(request, set_id):
-    folder = get_object_or_404(CardFolder, id=set_id)
-    if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
-    if folder.public:
-        folder.public = False
-    else:
-        folder.public = True
-    folder.save()
-    return redirect(request.META['HTTP_REFERER'])
 
 
 @login_required
@@ -120,6 +97,7 @@ def copy_folder(request, set_id):
                     new_card.save()
             form = FolderForm(request.POST or None, instance=new_folder)
             new_folder = form.save(commit=False)
+            new_folder.being_edited = True
             new_folder.save()
             t = Thread(target=edit_folder_translate, args=[new_folder])
             t.setDaemon(False)
@@ -143,14 +121,17 @@ def view_folder(request, set_id):
     return render(request, 'Cards/view_set.html', {'folder': folder})
 
 @login_required
-def view_folder_public(request, set_id):
+def reset_progress(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
-    return render(request, 'Cards/view_set_public.html', {'folder': folder})
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    MultiCard.objects.filter(cards_folder=folder).update(priority=10, score=0)
+    Card.objects.filter(cards_folder=folder).update(priority=1, score=0)
+    return redirect(request.META['HTTP_REFERER'])
 
-@login_required
-def public_sets(request):
-    folders = CardFolder.objects.filter(public=True)
-    return render(request, 'Cards/public_sets.html', {'folders': folders})
+# endregion
+
+# region MultiCards
 
 @login_required
 def add_multicard(request, set_id):
@@ -211,8 +192,7 @@ def add_many(request, set_id):
         new_langs.remove(language)
 
         for word in new_cards:
-            if word[-1] == ",":
-                word = word[:-1]
+            word = word.strip(" ,")
             m_card = MultiCard.objects.create(cards_folder=folder)
             m_card.save()
             word = word.capitalize()
@@ -322,6 +302,64 @@ def delete_multicards(request, set_id, m_card_id):
         return render(request, 'Cards/edit_multicards.html', context)
     else:
         return render(request, 'Cards/no_access.html')
+
+# endregion
+
+# region Public
+
+@login_required
+def make_public(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    if folder.public:
+        folder.public = False
+    else:
+        folder.public = True
+    folder.save()
+    return redirect(request.META['HTTP_REFERER'])
+
+@login_required
+def view_folder_public(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    return render(request, 'Cards/view_set_public.html', {'folder': folder})
+
+
+@login_required
+def public_sets(request):
+    folders = CardFolder.objects.filter(public=True)
+    return render(request, 'Cards/public_sets.html', {'folders': folders})
+
+
+# endregion
+
+# region Other
+
+@login_required
+def refresh_update(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    clean_errors(folder)
+    updates = MultiCard.objects.filter(being_edited=True, cards_folder=folder)
+    if updates or folder.being_edited:
+        return render(request, 'Cards/folder_being_updated.html', {'folder': folder})
+    else:
+        return edit_folder(request, folder.id)
+
+@login_required
+def repair_translations(request, set_id):
+    folder = get_object_or_404(CardFolder, id=set_id)
+    if folder.user != request.user:
+        return render(request, 'Cards/no_access.html')
+    clean_errors(folder)
+    t = Thread(target=repair_translations_thread, args=[folder])
+    t.setDaemon(False)
+    t.start()
+    # TODO add message that translations are in work
+    return redirect(request.META['HTTP_REFERER'])
+
+# endregion
 
 # TODO If words are too long they need to be wrapped. Otherwise they are breaking the tables.
 # TODO count folders by occurrence in that user folders
