@@ -24,7 +24,7 @@ def edit_folder_translate(folder):
                 # Repeat if failed
                 if not translation.text:
                     translation = Translator().translate(text=first.main, src=first.language, dest=lang)
-                data = {'main': translation.text}
+                data = {'main': translation.text.capitalize()}
 
                 # If still failed
                 if not data['main']:
@@ -61,7 +61,7 @@ def add_multicard_translate(langs, request, m_card, folder):
             # Repeat if failed
             if not translation.text:
                 translation = Translator().translate(text=origin, src=langs[0], dest=key)
-            data['main'] = translation.text
+            data['main'] = translation.text.capitalize()
 
             # If still failed
             if not data['main']:
