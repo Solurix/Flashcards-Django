@@ -21,11 +21,10 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-sm btn-outline-info" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-sm btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
-<a class="btn btn-sm btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-<a class="btn btn-sm btn-sm btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
-<button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
+<a class="btn btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -38,79 +37,108 @@ $('.collapse').on('show.bs.collapse', function () {
     </div>
   </div>
 </div>
-  <div class="table-responsive">
-    <table class="table table-hover table-dark" style="border-collapse:collapse;">
-      <thead>
-        <tr class="table-light text-dark">
-          <td><h5><b>#</b></h5></td>
-          {% for k, v in folder.get_langs %}
-            <td style="width: {{folder.get_langs|width}}%; ; min-width:140">
-                <h5><b>{{ v|upper }}</b></h5>
-            </td>
-          {% endfor %}
-        </tr>
-        </thead>
-      {% if folder.multicard_set.all %}
-        {% for multicard in folder.multicard_set.all %}
-        <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed">
-          <td><b>{{forloop.counter}}</b></td>
-          {% for lang in folder.langs_keys %}
-          {% get_card lang multicard as card %}
 
-            <td>
-                {% if not card.main %}
-                <b>loading...</b>
-                {% else %}
-                  <b>{{ card.main }}</b>
-                {% endif %}
-            </td>
-          {% endfor %}
-        </tr>
-        <tr class="table-secondary">
-        <td class="hiddenRow"></td>
-          {% for lang in folder.langs_keys %}
-          {% get_card lang multicard as card %}
-          <td class="hiddenRow">
-                <div id="a{{multicard.id}}" class="collapse">
-                  <div class="text-dark">
-                  <p>Progress: {{ card.score }} %</p>
-                  {% if card.automated %}
-                    <p>Auto-translated</p>
-                  {% endif %}
-                  {% if card.pronunciation %}
-                    <p>Pronunciation: {{ card.pronunciation }}</p>
-                  {% endif %}
-                  {% if card.synonyms %}
-                    <p>Synonym: {{ card.synonyms }}</p>
-                  {% endif %}
-                  {% if card.definition %}
-                    <p>Definition: {{ card.definition }}</p>
-                  {% endif %}
-                  {% if card.comment %}
-                    <p>Comment: {{ card.comment }}</p>
-                  {% endif %}
-                </div>
-              </div>
-          </td>
-          {% endfor %}
-
-        </tr>
-        {% endfor %}
-      {% else %}
-        <th colspan="{{folder.langs_no}}">
-          There are no cards for this set.
-        </th>
-      {% endif %}
-    </table>
+{% if enough %}
+<div class="text-center">
+  <h3>Learn</h3>
+</div>
+<div class="row">
+  <div class="col">
+    <a class="btn btn-block btn-outline-light" href="{% url 'write' set_id=folder.id %}">Write</a>
   </div>
-  <hr/>
-
-<a class="btn btn-danger" href="{% url 'reset_progress' set_id=folder.id %}">Reset Progress</a>
-{% if folder.public %}
-<a class="btn btn-primary" href="{% url 'make_public' set_id=folder.id %}">Make private</a>
+  <div class="col">
+    <a class="btn btn-block btn-outline-light" href="{% url 'flashcards' set_id=folder.id %}">Flashcards</a>
+  </div>
+</div>
 {% else %}
-<a class="btn btn-primary" href="{% url 'make_public' set_id=folder.id %}">Make public</a>
+  <h2>You do not have enough MultiCards in this set to start learning.</h2>
+  <h3>Please create at least three MultiCards.</h3>
+  <a class="btn btn-sm btn-success btn-block" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
 {% endif %}
+<br/>
+<div class="table-responsive">
+  <table class="table table-hover table-dark" style="border-collapse:collapse;">
+    <thead>
+      <tr class="table-light text-dark">
+        <td><h5><b>#</b></h5></td>
+        {% for k, v in folder.get_langs %}
+          <td style="width: {{folder.get_langs|width}}%; ; min-width:140">
+              <h5><b>{{ v|upper }}</b></h5>
+          </td>
+        {% endfor %}
+      </tr>
+      </thead>
+    {% if folder.multicard_set.all %}
+      {% for multicard in folder.multicard_set.all %}
+      <tr data-toggle="collapse" data-target="#a{{multicard.id}}" class="clickable collapse-row collapsed">
+        <td><b>{{forloop.counter}}</b></td>
+        {% for lang in folder.langs_keys %}
+        {% get_card lang multicard as card %}
+
+          <td>
+              {% if not card.main %}
+              <b>loading...</b>
+              {% else %}
+                <b>{{ card.main }}</b>
+              {% endif %}
+          </td>
+        {% endfor %}
+      </tr>
+      <tr class="table-secondary">
+      <td class="hiddenRow"></td>
+        {% for lang in folder.langs_keys %}
+        {% get_card lang multicard as card %}
+        <td class="hiddenRow">
+              <div id="a{{multicard.id}}" class="collapse">
+                <div class="text-dark">
+                <p>Progress: {{ card.score }} %</p>
+                {% if card.automated %}
+                  <p>Auto-translated</p>
+                {% endif %}
+                {% if card.pronunciation %}
+                  <p>Pronunciation: {{ card.pronunciation }}</p>
+                {% endif %}
+                {% if card.synonyms %}
+                  <p>Synonym: {{ card.synonyms }}</p>
+                {% endif %}
+                {% if card.definition %}
+                  <p>Definition: {{ card.definition }}</p>
+                {% endif %}
+                {% if card.comment %}
+                  <p>Comment: {{ card.comment }}</p>
+                {% endif %}
+              </div>
+            </div>
+        </td>
+        {% endfor %}
+
+      </tr>
+      {% endfor %}
+    {% else %}
+      <th colspan="{{folder.langs_no}}">
+        There are no cards for this set.
+      </th>
+    {% endif %}
+  </table>
+  <div class="p-3 mb-2 bg-dark text-white">
+    <div class="row text-center">
+      <div class="col">
+        <a class="btn btn-outline-warning" href="{% url 'reset_progress' set_id=folder.id %}">Reset Progress</a>
+      </div>
+      <div class="col">
+        {% if folder.public %}
+          <a class="btn btn-outline-primary" href="{% url 'make_public' set_id=folder.id %}">Make private</a>
+        {% else %}
+          <a class="btn btn-outline-primary" href="{% url 'make_public' set_id=folder.id %}">Make public</a>
+        {% endif %}
+      </div>
+      <div class="col">
+        <button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#c{{folder.id}}">Delete set</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="text-dark">
   <div class="modal fade" id="c{{folder.id}}" tabindex="-1" role="dialog" aria-labelledby="c{{folder.id}}Label">

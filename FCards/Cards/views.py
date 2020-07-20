@@ -112,13 +112,14 @@ def copy_folder(request, set_id):
 @login_required
 def view_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
+    enough = len(folder.multicard_set.all()) > 2
     for card in folder.card_set.all():
         if card.pronunciation == 'False' or (card.pronunciation == card.main):
             card.pronunciation = ''
             card.save()
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    return render(request, 'Cards/view_set.html', {'folder': folder})
+    return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
 
 @login_required
 def reset_progress(request, set_id):

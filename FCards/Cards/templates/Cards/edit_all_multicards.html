@@ -21,9 +21,11 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<button type="submit" form="form" class="btn btn-outline-success">Save changes</button>
-<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
 <a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
+<button type="submit" form="form" class="btn btn-outline-success">Save changes</button>
 {% endblock nav_buttons %}
 
 {% block body %}

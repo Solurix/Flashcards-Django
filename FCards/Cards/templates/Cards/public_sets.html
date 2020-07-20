@@ -21,11 +21,17 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-
+<a href="{% url 'account_overview' %}"><button type="button" class="btn btn-outline-warning">Account</button></a>
+<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">Public sets</button></a>
+<a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">New set</button></a>
 {% endblock nav_buttons %}
 
-{% block body %}
+{% block background %}
+  "p-3 mb-2 bg-success text-white"
+{% endblock background %}
+<div class="bg-secondary">
 
+{% block body %}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
@@ -100,8 +106,9 @@ $('.collapse').on('show.bs.collapse', function () {
         </th>
       {% endif %}
     </table>
-</div>
+
+    </div>
   <hr/>
   {% endfor %}
-
+</div>
 {% endblock %}
