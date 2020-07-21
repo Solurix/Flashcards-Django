@@ -1,6 +1,7 @@
 {% load static %}
+{% load i18n %}
 
-<html lang="en">
+<html>
 <head>
     <!-- Meta tags -->
     <meta charset="utf-8">
@@ -21,8 +22,29 @@
     {% endblock styles %}
 
 </head>
-<div class="p-3 mb-2 bg-secondary">
+
 <body>
+<div class="p-3 mb-2 bg-secondary">
+<div class="ml-auto" style="max-width: 300px;">
+  <form action="{% url 'change_language' %}" method="post">
+    {% csrf_token %}
+    <div class="input-group">
+        <select class="form-control bg-dark text-white border-0" name="language">
+            {% get_available_languages as LANGUAGES %}
+            {% for language in LANGUAGES %}
+            <option value="{{ language.0 }}" {% if language.0 == LANGUAGE_CODE %} selected{% endif %}>
+                {{ language.0|language_name_local }} ({{ language.0 }})
+            </option>
+            {% endfor %}
+        </select>
+      <div class="input-group-append">
+        <input hidden name="url" value="{{ request.path }}"/>
+    <input type="submit" class="form-control bg-dark text-white border-0" value="Change language">
+      </div>
+    </div>
+
+  </form>
+</div>
 
     {% block body %}
     {% endblock body %}
@@ -37,37 +59,28 @@
 </div>
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
-
   <!-- Footer Links -->
   <div class="container-fluid text-center text-md-center">
 
-    <!-- Grid row -->
     <div class="row">
-
-      <!-- Grid column -->
-      <div class="col-md-6 mt-md-0 mt-3">
-
+      <div class="col-md">
         <h5>GitHub</h5>
-
-            <a href="https://github.com/Solurix/Flashcards-Django"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="100" height="100"></a>
-
-
+        <a href="https://github.com/Solurix/Flashcards-Django"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="100" height="100"></a>
       </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none pb-3">
-
-      <!-- Grid column -->
-      <div class="col-md-3 mb-md-0 mb-3">
-<div class="footer-copyright text-center py-3">© 2020 Copyright:<br/>
-    Website: Bartosz Lulka<br/>
-    Auto translations: Google Translate<br/>
-    Style: Bootstrap<br/>
-    Run on Django<br/>
-  </div>
-
-
+      <div class="col-md">
+        <div class="footer-copyright text-center py-3">{% blocktrans %}© 2020 Copyright:<br/>
+            Website: Bartosz Lulka<br/>
+            Auto translations: Google Translate<br/>
+            Style: Bootstrap<br/>
+            Run on Django<br/><br/>
+            Contact: bartosz.adam.lulka@gmail.com{% endblocktrans %}
+        </div>
       </div>
+
+
+
+
+
 
     </div>
     <!-- Grid row -->

@@ -1,7 +1,7 @@
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from django.contrib.auth.models import User
@@ -160,5 +160,27 @@ def opinion(request):
         if current_site == ":":
             current_site = 'home'
         user_opinion = request.POST['opinion']
-        feedback = Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
+        Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
         return redirect(request.META['HTTP_REFERER'])
+
+
+def change_language(request):
+    from django.conf import settings
+    response = HttpResponseRedirect('/')
+    if request.method == 'POST':
+        language = request.POST.get('language')
+        current_site = request.POST.get('url')
+        if 'pl' in current_site:
+            current_site = current_site[3:]
+        if language:
+            if language != settings.LANGUAGE_CODE and [lang for lang in settings.LANGUAGES if lang[0] == language]:
+                redirect_path = f'/{language}' + current_site
+            elif language == settings.LANGUAGE_CODE:
+                redirect_path = current_site
+            else:
+                return response
+            from django.utils import translation
+            translation.activate(language)
+            response = HttpResponseRedirect(redirect_path)
+            response.set_cookie(settings.LANGUAGE_COOKIE_NAME, language)
+    return response

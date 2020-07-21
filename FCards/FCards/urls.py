@@ -15,10 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
+from django.conf.urls.i18n import i18n_patterns
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('cards/', include('Cards.urls')),
     path('', include('accounts.urls')),
-    path('accounts/', include('django.contrib.auth.urls'))
-    ]
+    path('accounts/', include('django.contrib.auth.urls')),
+    prefix_default_language=False
+    )

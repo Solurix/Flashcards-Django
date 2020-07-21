@@ -1,6 +1,7 @@
+{% load i18n %}
 {% load static %}
 
-<html lang="en">
+<html>
 <head>
     <!-- Meta tags -->
     <meta charset="utf-8">
@@ -30,23 +31,47 @@
 <div class="fixed-top">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
-      <h5 class="text-white h4">Feedback</h5>
-      <span class="text-muted">Hello, {{user.username}}.</span><br/>
-      <span class="text-muted">Do you have some brilliant idea what could appear here? Do you have some suggestions to change in the website or found a bug? I would be glad to hear from you!</span>
+      <div class="row">
+        <div class="col">
+          <h5 class="text-white h4">Feedback</h5>
+        </div>
+        <div class="ml-auto" style="max-width: 300px;">
+          <form action="{% url 'change_language' %}" method="post">
+            {% csrf_token %}
+            <div class="input-group">
+                <select class="form-control bg-dark text-white border-0" name="language">
+                    {% get_available_languages as LANGUAGES %}
+                    {% for language in LANGUAGES %}
+                    <option value="{{ language.0 }}" {% if language.0 == LANGUAGE_CODE %} selected{% endif %}>
+                        {{ language.0|language_name_local }} ({{ language.0 }})
+                    </option>
+                    {% endfor %}
+                </select>
+              <div class="input-group-append">
+                <input hidden name="url" value="{{ request.path }}"/>
+            <input type="submit" class="form-control bg-dark text-white border-0" value="Change language">
+              </div>
+            </div>
+
+          </form>
+        </div>
+        </div>
+      <span class="text-muted">{% trans "Hello," %}{{user.username}}.</span><br/>
+      <span class="text-muted">{% trans "Do you have some brilliant idea what could appear here? Do you have some suggestions to change in the website or found a bug? I would be glad to hear from you!" %}</span>
       <form method="post" action="{% url 'opinion' %}">{% csrf_token %}
         <input type="hidden" name="path" value="{{ request.path }}">
-        <br/><input type="text" name="opinion" autocomplete="off" placeholder="Write here and press [Enter]." class="form-control " />
+        <br/><input type="text" name="opinion" autocomplete="off" placeholder="{% trans 'Write here and press [Enter].' %}" class="form-control " />
 
       </form>
     </div>
   </div>
 <nav class="navbar navbar-dark bg-dark">
-    <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-success my-1">Home</button></a>
+    <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-success my-1">{% trans 'Home' %}</button></a>
 
     {% block nav_buttons %}
     {% endblock nav_buttons %}
 
-    <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">Log out</button></a>
+    <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">{% trans 'Log out' %}</button></a>
     <button class="navbar-toggler my-1" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -60,10 +85,10 @@
     
     <!-- START Bootstrap-Cookie-Alert -->
     <div class="alert text-center cookiealert" role="alert">
-        <b>Do you like cookies?</b> We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>
+        {% blocktrans %}<b>Do you like cookies?</b> We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>{% endblocktrans %}
 
         <button type="button" class="btn btn-primary btn-sm acceptcookies">
-            I agree
+            {% trans 'I agree' %}
         </button>
     </div>
     <!-- END Bootstrap-Cookie-Alert -->
@@ -107,11 +132,13 @@
 
       <!-- Grid column -->
       <div class="col-md-3 mb-md-0 mb-3">
-<div class="footer-copyright text-center py-3">© 2020 Copyright:<br/>
+<div class="footer-copyright text-center py-3">{% blocktrans %}© 2020 Copyright:<br/>
     Website: Bartosz Lulka<br/>
     Auto translations: Google Translate<br/>
     Style: Bootstrap<br/>
     Run on Django<br/>
+  <br/>
+  Contact: bartosz.adam.lulka@gmail.com{% endblocktrans %}
 </div>
 
 

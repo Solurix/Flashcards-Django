@@ -1,0 +1,231 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-21 19:48+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
+
+#: Cards/forms.py:28
+msgid "Set name"
+msgstr "Nazwa zestawu"
+
+#: Cards/forms.py:29
+msgid "2nd language"
+msgstr "2. jezyk"
+
+#: Cards/forms.py:30
+msgid "3rd language"
+msgstr ""
+
+#: Cards/forms.py:31
+msgid "4th language"
+msgstr ""
+
+#: Cards/forms.py:32
+msgid "5th language"
+msgstr ""
+
+#: Cards/forms.py:33
+msgid "Your comment"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:5
+#, python-format
+msgid " Welcome %(user)s "
+msgstr "Witaj %(user)s "
+
+#: Cards/templates/Cards/index.html:24
+msgid "Account"
+msgstr "Konto"
+
+#: Cards/templates/Cards/index.html:25
+msgid "Public sets"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:26
+msgid "New set"
+msgstr "Nowy zestaw"
+
+#: Cards/templates/Cards/index.html:35
+msgid "Here are your sets to study, "
+msgstr "Tutaj są twoje zestawy do nauki, "
+
+#: Cards/templates/Cards/index.html:36
+msgid "Click on the set name to view its details."
+msgstr "Kliknij na zestaw by zobaczyc szczegoly."
+
+#: Cards/templates/Cards/index.html:38
+msgid "Here will appear your CardSets, "
+msgstr ""
+
+#: Cards/templates/Cards/index.html:40
+msgid "Create a new set"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:41
+msgid "or copy from public ones."
+msgstr ""
+
+#: Cards/templates/Cards/index.html:63
+msgid "Learn"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:64 templates/admin/index.html:38
+msgid "View"
+msgstr "Otworz"
+
+#: Cards/templates/Cards/index.html:65
+msgid "Add MultiCard"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:66
+msgid "Edit MultiCards"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:67
+msgid "Edit"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:68
+msgid "Copy"
+msgstr "Skopiuj"
+
+#: Cards/templates/Cards/index.html:69 Cards/templates/Cards/index.html:150
+msgid "Delete"
+msgstr ""
+
+#: Cards/templates/Cards/index.html:131
+msgid "There are no cards in this set."
+msgstr ""
+
+#: Cards/templates/Cards/index.html:156
+msgid "Are you sure you want to delete set "
+msgstr ""
+
+#: Cards/templates/Cards/index.html:158
+#, python-format
+msgid "This set consists of %(length)s MultiCards."
+msgstr "Ten zestaw zawiera %(length)s MultiKart."
+
+#: Cards/templates/Cards/index.html:165
+msgid "Abort"
+msgstr "Anuluj"
+
+#: Cards/templates/base.html:54
+msgid "Hello,"
+msgstr ""
+
+#: Cards/templates/base.html:55
+msgid ""
+"Do you have some brilliant idea what could appear here? Do you have some "
+"suggestions to change in the website or found a bug? I would be glad to hear "
+"from you!"
+msgstr ""
+
+#: Cards/templates/base.html:58
+msgid "Write here and press [Enter]."
+msgstr "Napisz tutaj i kliknij [Enter]."
+
+#: Cards/templates/base.html:64
+msgid "Home"
+msgstr ""
+
+#: Cards/templates/base.html:69
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: Cards/templates/base.html:83
+msgid ""
+"<b>Do you like cookies?</b> We use cookies to ensure you get the best "
+"experience on our website. <a href=\"https://cookiesandyou.com/\" target="
+"\"_blank\">Learn more</a>"
+msgstr ""
+
+#: Cards/templates/base.html:86
+msgid "I agree"
+msgstr ""
+
+#: Cards/templates/base.html:130 accounts/templates/base2.html:80
+msgid ""
+"© 2020 Copyright:<br/>\n"
+"    Website: Bartosz Lulka<br/>\n"
+"    Auto translations: Google Translate<br/>\n"
+"    Style: Bootstrap<br/>\n"
+"    Run on Django<br/>\n"
+"  <br/>\n"
+"  Contact: bartosz.adam.lulka@gmail.com"
+msgstr ""
+
+#: accounts/templates/registration/sign_up.html:5
+msgid "Sign Up"
+msgstr ""
+
+#: accounts/templates/registration/sign_up.html:34
+#, fuzzy
+#| msgid "Set name"
+msgid "Username"
+msgstr "Nazwa zestawu"
+
+#: accounts/templates/registration/sign_up.html:34
+msgid "Required"
+msgstr "Wymagane"
+
+#: accounts/templates/registration/sign_up.html:41
+msgid "Name"
+msgstr ""
+
+#: accounts/templates/registration/sign_up.html:41
+msgid "Optional"
+msgstr "Opcjonalne"
+
+#: templates/admin/base_site.html:3
+msgid "Django site admin"
+msgstr ""
+
+#: templates/admin/index.html:20
+#, python-format
+msgid "Models in the %(name)s application"
+msgstr ""
+
+#: templates/admin/index.html:31
+msgid "Add"
+msgstr ""
+
+#: templates/admin/index.html:40
+msgid "Change"
+msgstr ""
+
+#: templates/admin/index.html:51
+msgid "You don’t have permission to view or edit anything."
+msgstr ""
+
+#: templates/admin/index.html:59
+msgid "Recent actions"
+msgstr ""
+
+#: templates/admin/index.html:60
+msgid "My actions"
+msgstr ""
+
+#: templates/admin/index.html:64
+msgid "None available"
+msgstr ""
+
+#: templates/admin/index.html:78
+msgid "Unknown content"
+msgstr ""
