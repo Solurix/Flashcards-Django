@@ -29,16 +29,16 @@ msgid "2nd language"
 msgstr "2. język"
 
 #: Cards/forms.py:30
-msgid "3. język"
-msgstr ""
+msgid "3rd language"
+msgstr "3. język"
 
 #: Cards/forms.py:31
-msgid "4. język"
-msgstr ""
+msgid "4th language"
+msgstr "4. język"
 
 #: Cards/forms.py:32
-msgid "5. język"
-msgstr ""
+msgid "5th language"
+msgstr "5. język"
 
 #: Cards/forms.py:33
 msgid "Your comment"
@@ -162,7 +162,7 @@ msgstr ""
 
 #: Cards/templates/base.html:86
 msgid "I agree"
-msgstr ""
+msgstr "Wyrażam zgodę"
 
 #: Cards/templates/base.html:130 accounts/templates/base2.html:80
 msgid ""
@@ -177,7 +177,7 @@ msgstr ""
 
 #: accounts/templates/registration/sign_up.html:5
 msgid "Sign Up"
-msgstr ""
+msgstr "Rejestracja"
 
 #: accounts/templates/registration/sign_up.html:34
 #, fuzzy
@@ -191,7 +191,7 @@ msgstr "Wymagane"
 
 #: accounts/templates/registration/sign_up.html:41
 msgid "Name"
-msgstr ""
+msgstr "Imię"
 
 #: accounts/templates/registration/sign_up.html:41
 msgid "Optional"
