@@ -17,17 +17,17 @@ Log In
   <div class="card-deck">
     <div class="card text-white bg-dark">
       <div class="card-header">
-        Multi-FlashCards
+        {% trans "Multi-FlashCards" %}
       </div>
       <div class="card-body">
-        Multi-FlashCards is a place for those who learn few languages at once.
+        {% blocktrans %}Multi-FlashCards is a place for those who learn few languages at once.
         <br/>It helps to create multi-language cards and provides ways to efficiently memorize them.
-        <br/>Create your own sets or copy some from others, adjust your languages and start learning!
+        <br/>Create your own sets or copy some from others, adjust your languages and start learning!{% endblocktrans %}
       </div>
     </div>
     <div class="card text-white bg-dark">
       <div class="card-header">
-      Login
+      {% trans "Login" %}
       </div>
       <div class="card-body">
         <form class="form-horizontal form" name="LoginForm"  method="post">
@@ -38,7 +38,9 @@ Log In
           {{ form|crispy }}
           <div class="control-group">
             <div class="controls">
-              <button type="submit" class="btn btn-outline-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary"> or sign up</a>
+              <button type="submit" class="btn btn-outline-success">{% trans "Login" %}</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary">{% trans " or sign up" %}</a>
+              <br><br><a href="{% url 'password_reset' %}">{% trans "Forgot you password? Click here." %}</a>
+
             </div>
           </div>
         </form>

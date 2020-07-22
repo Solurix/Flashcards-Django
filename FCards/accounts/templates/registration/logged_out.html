@@ -1,7 +1,8 @@
 {% extends "base2.html" %}
+{% load i18n %}
 
 {% block title %}
-Logged out
+{% trans "Logged out" %}
 {% endblock title %}
 
 {% block styles %}
@@ -12,8 +13,8 @@ Logged out
 
 <div class="p-3 mb-2 bg-light text-dark">
     <div class="mx-auto" style="width: 200px;">
-        <p class="font-weight-bold">You have been logged out.</p><br/>
-        <p class="font-weight-bold"><a href="{% url 'login' %}">Click here to log in again.</a></p>
+        <p class="font-weight-bold">{% trans "You have been logged out." %}</p><br/>
+        <p class="font-weight-bold"><a href="{% url 'login' %}">{% trans "Click here to log in again." %}</a></p>
     </div>
 </div>
 {% endblock body %}

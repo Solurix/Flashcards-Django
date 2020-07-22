@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-Your account
+{% trans 'Your account' %}
 {% endblock title %}
 
 {% block styles %}
@@ -33,35 +34,35 @@ Your account
       Your account
     </div>
     <div class="card-body">
-      <h5 class="card-title">Username</h5>
+      <h5 class="card-title">{% trans 'Username' %}</h5>
       <p class="card-text">{{ user.username }}</p><br/>
-      <h5 class="card-title">Name <small><a href="{% url 'change_name' %}" data-toggle="modal" data-target="#change_name" class="badge badge-pill badge-secondary">Change</a></small></h5>
+      <h5 class="card-title">Name <small><a href="{% url 'change_name' %}" data-toggle="modal" data-target="#change_name" class="badge badge-pill badge-secondary">{% trans 'Change' %}</a></small></h5>
       <p class="card-text">{{ user.first_name }} {{ user.last_name }}</p><br/>
-      <h5 class="card-title">Address e-mail <small><a href="{% url 'change_email' %}" data-toggle="modal" data-target="#change_email" class="badge badge-pill badge-secondary">Change</a></small></h5>
+      <h5 class="card-title">{% trans 'Address e-mail' %} <small><a href="{% url 'change_email' %}" data-toggle="modal" data-target="#change_email" class="badge badge-pill badge-secondary">{% trans 'Change' %}</a></small></h5>
       {% if user.profile.confirmed %}
-      <p class="card-text">{{ user.email }} <span class="badge badge-pill badge-success">Confirmed</span></p><br/>
+      <p class="card-text">{{ user.email }} <span class="badge badge-pill badge-success">{% trans 'Confirmed' %}</span></p><br/>
       {% else %}
-      <p class="card-text">{{ user.email }}<a href="{% url 'send_confirmation' %}" onclick="sent()" class="badge badge-pill badge-warning"> Not confirmed</a></p><br/>
+      <p class="card-text">{{ user.email }}<a href="{% url 'send_confirmation' %}" onclick="sent()" class="badge badge-pill badge-warning"> {% trans 'Not confirmed' %}</a></p><br/>
       {% endif %}
       <small style="color: grey" id="sent"></small>
     </div>
     <div class="card-footer">
       <div class="row">
         <div class="col">
-          <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete_account">Delete account</button>
+          <button type="button" class="btn btn-sm btn-outline-danger" data-toggle="modal" data-target="#delete_account">{% trans 'Delete account' %}</button>
         </div>
         <div class="col">
-          <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#change_password">Change password</button>
+          <button type="button" class="btn btn-sm btn-outline-warning" data-toggle="modal" data-target="#change_password">{% trans 'Change password' %}</button>
         </div>
       </div>
     </div>
   </div>
   <div class="card text-white bg-dark">
     <div class="card-header">
-      About you
+      {% trans 'About you' %}
     </div>
     <div class="card-body">
-      Under development
+      {% trans 'Under development' %}
     </div>
     <div class="card-footer">
 
@@ -69,7 +70,7 @@ Your account
   </div>
   <div class="card text-white bg-dark">
     <div class="card-header">
-      Your suggestions:
+      {% trans 'Your suggestions:' %}
     </div>
     <div class="card-body">
       <div class="feedback" style="max-height: 400px;" -webkit-scrollbar="{display: none;}">
@@ -94,19 +95,19 @@ Your account
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="delete_account_label">Delete account?</h5>
+          <h5 class="modal-title" id="delete_account_label">{% trans 'Delete account?' %}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>Are you sure you want to delete your account?</p>
+          <p>{% trans 'Are you sure you want to delete your account?' %}</p>
         </div>
         <div class="modal-footer">
           <form method="POST" action="{% url 'delete_account' %}">{% csrf_token %}
             <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
           </form>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
         </div>
       </div>
     </div>
@@ -118,7 +119,7 @@ Your account
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="change_password_label">Change password</h5>
+          <h5 class="modal-title" id="change_password_label">{% trans 'Change password' %}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -128,7 +129,7 @@ Your account
             {% csrf_token %}
 
             {{ password_form.as_p }}
-            <button type="submit" class="btn btn-secondary">Save changes</button>
+            <button type="submit" class="btn btn-secondary">{% trans 'Save changes' %}</button>
           </form>
         </div>
       </div>
@@ -141,7 +142,7 @@ Your account
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="change_email_label">Change email address</h5>
+          <h5 class="modal-title" id="change_email_label">{% trans 'Change email address' %}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -150,11 +151,11 @@ Your account
           <form method="post" action="{% url 'change_email' %}">
             {% csrf_token %}
             <input class="form-control" type="email" name="new_email" size="30" placeholder="New e-mail address" required><br/>
-            <button type="submit" class="btn btn-block btn-secondary">Change</button>
+            <button type="submit" class="btn btn-block btn-secondary">{% trans 'Change' %}</button>
           </form>
         </div>
         <div class="modal-footer">
-          <p>Confirmation e-mail will be sent to you.</p>
+          <p>{% trans 'Confirmation e-mail will be sent to you.' %}</p>
         </div>
       </div>
     </div>
@@ -166,7 +167,7 @@ Your account
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="change_name_label">Change your name</h5>
+          <h5 class="modal-title" id="change_name_label">{% trans 'Change your name' %}</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -182,7 +183,7 @@ Your account
                 <input type="text" class="form-control" placeholder="Last Name" value="{{ user.last_name }}" name="new_last" size="30">
               </div>
             </div><br/>
-            <button type="submit" class="btn btn-block btn-secondary">Change</button>
+            <button type="submit" class="btn btn-block btn-secondary">{% trans 'Change' %}</button>
           </form>
         </div>
       </div>
@@ -207,7 +208,7 @@ Your account
 {% endif %}
 <script>
 function sent() {
-  document.getElementById("sent").innerHTML = "Confirmation email sent.";
+  document.getElementById("sent").innerHTML = "{% trans 'Confirmation email sent.' %}";
 }
 </script>
 {% endblock bodyend %}
