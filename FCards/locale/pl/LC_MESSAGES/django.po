@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-22 19:27+0900\n"
+"POT-Creation-Date: 2020-07-22 20:37+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -217,8 +217,8 @@ msgstr "Usuń"
 
 #: accounts/templates/accounts/overview.html:55
 #: accounts/templates/accounts/overview.html:122
-#: accounts/templates/registration/password_reset_confirm.html:8
-#: accounts/templates/registration/password_reset_confirm.html:12
+#: accounts/templates/registration/password_reset_confirm.html:9
+#: accounts/templates/registration/password_reset_confirm.html:13
 msgid "Change password"
 msgstr ""
 
@@ -326,6 +326,13 @@ msgstr ""
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "log in"
+msgstr ""
+
+#: accounts/templates/registration/password_reset_confirm.html:17
+msgid ""
+"The password reset link was invalid, possibly because it has already been "
+"used.\n"
+"      Please request a new password reset."
 msgstr ""
 
 #: accounts/templates/registration/password_reset_done.html:7
