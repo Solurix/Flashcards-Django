@@ -20,7 +20,6 @@ from .models import Feedback
 def index(request):
     return render(request, 'Cards/index.html')
 
-
 @login_required
 def overview(request):
     details = {

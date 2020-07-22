@@ -5,7 +5,7 @@ Log In
 {% endblock title %}
 
 {% block styles %}
-
+{% load crispy_forms_tags %}
 {% endblock styles %}
 
 {% block body %}
@@ -35,7 +35,7 @@ Log In
           {% if next %}
             <input type="hidden" name="next" value="{{ next }}" />
           {% endif %}
-          {{ form.as_p }}
+          {{ form|crispy }}
           <div class="control-group">
             <div class="controls">
               <button type="submit" class="btn btn-outline-success">Login</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary"> or sign up</a>
