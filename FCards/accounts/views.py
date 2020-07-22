@@ -170,7 +170,10 @@ def change_language(request):
     if request.method == 'POST':
         language = request.POST.get('language')
         current_site = request.POST.get('url')
-        if 'pl' in current_site:
+        languages = ("pl",) # add codes for new translations here
+        # as long as there won't be language codes longer than 
+        # two letters, it will work 
+        if current_site[1:3] in languages:
             current_site = current_site[3:]
         if language:
             if language != settings.LANGUAGE_CODE and [lang for lang in settings.LANGUAGES if lang[0] == language]:
