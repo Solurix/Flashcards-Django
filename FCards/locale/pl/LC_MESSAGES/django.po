@@ -195,32 +195,32 @@ msgstr "Nazwa zestawu"
 #: accounts/templates/accounts/overview.html:154
 #: accounts/templates/accounts/overview.html:186 templates/admin/index.html:40
 msgid "Change"
-msgstr ""
+msgstr "Zmień"
 
 #: accounts/templates/accounts/overview.html:41
 msgid "Address e-mail"
-msgstr ""
+msgstr "Adres e-mail"
 
 #: accounts/templates/accounts/overview.html:43
 msgid "Confirmed"
-msgstr ""
+msgstr "Potwierdzony"
 
 #: accounts/templates/accounts/overview.html:45
 msgid "Not confirmed"
-msgstr ""
+msgstr "Nie potwierdzony"
 
 #: accounts/templates/accounts/overview.html:52
 #, fuzzy
 #| msgid "Delete"
 msgid "Delete account"
-msgstr "Usuń"
+msgstr "Usuń konto"
 
 #: accounts/templates/accounts/overview.html:55
 #: accounts/templates/accounts/overview.html:122
 #: accounts/templates/registration/password_reset_confirm.html:9
 #: accounts/templates/registration/password_reset_confirm.html:13
 msgid "Change password"
-msgstr ""
+msgstr "Zmień hasło"
 
 #: accounts/templates/accounts/overview.html:62
 msgid "About you"
@@ -228,45 +228,45 @@ msgstr ""
 
 #: accounts/templates/accounts/overview.html:65
 msgid "Under development"
-msgstr ""
+msgstr "W produkcji"
 
 #: accounts/templates/accounts/overview.html:73
 msgid "Your suggestions:"
-msgstr ""
+msgstr "Twoje sugestie:"
 
 #: accounts/templates/accounts/overview.html:98
 msgid "Delete account?"
-msgstr ""
+msgstr "Usunąć konto?"
 
 #: accounts/templates/accounts/overview.html:104
 #, fuzzy
 #| msgid "Are you sure you want to delete set "
 msgid "Are you sure you want to delete your account?"
-msgstr "Czy na pewno chcesz usunąć ten zestaw?"
+msgstr "Czy na pewno chcesz usunąć swoje konto?"
 
 #: accounts/templates/accounts/overview.html:110
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: accounts/templates/accounts/overview.html:132
 msgid "Save changes"
-msgstr ""
+msgstr "Zapisz zmiany"
 
 #: accounts/templates/accounts/overview.html:145
 msgid "Change email address"
-msgstr ""
+msgstr "Zmień adres e-mail"
 
 #: accounts/templates/accounts/overview.html:158
 msgid "Confirmation e-mail will be sent to you."
-msgstr ""
+msgstr "Wiadomość potwierdzająca zostanie wysłana do Ciebie."
 
 #: accounts/templates/accounts/overview.html:170
 msgid "Change your name"
-msgstr ""
+msgstr "Zmień swoje imię"
 
 #: accounts/templates/accounts/overview.html:211
 msgid "Confirmation email sent."
-msgstr ""
+msgstr "Wiadomość wysłana."
 
 #: accounts/templates/base2.html:83
 msgid ""
@@ -286,11 +286,11 @@ msgstr "Wyloguj"
 
 #: accounts/templates/registration/logged_out.html:16
 msgid "You have been logged out."
-msgstr ""
+msgstr "Zostałeś wylogowany."
 
 #: accounts/templates/registration/logged_out.html:17
 msgid "Click here to log in again."
-msgstr ""
+msgstr "Kliknij tutaj by zalogować się ponownie."
 
 #: accounts/templates/registration/login.html:20
 #, fuzzy
