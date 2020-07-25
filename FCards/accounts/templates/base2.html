@@ -30,21 +30,17 @@
 <div class="ml-auto" style="max-width: 300px;">
   <form action="{% url 'change_language' %}" method="post">
     {% csrf_token %}
-    <div class="input-group">
-        <select class="form-control bg-dark text-white border-0" name="language">
-            {% get_available_languages as LANGUAGES %}
-            {% for language in LANGUAGES %}
-            <option value="{{ language.0 }}" {% if language.0 == LANGUAGE_CODE %} selected{% endif %}>
-                {{ language.0|language_name_local }} ({{ language.0 }})
-            </option>
-            {% endfor %}
-        </select>
-      <div class="input-group-append">
-        <input hidden name="url" value="{{ request.path }}"/>
-    <input type="submit" class="form-control bg-dark text-white border-0" value="Change language">
-      </div>
+    <input hidden name="url" value="{{ request.path }}"/>
+    <button id="btnGroupDrop1" type="button" class="form-control bg-dark text-white border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Language　・　言語　・　Język
+    </button>
+    <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+        <input type="submit" class="dropdown-item" name="language" value="English">
+        <div class="dropdown-divider"></div>
+        <input type="submit" class="dropdown-item" name="language" value="Polski">
+        <div class="dropdown-divider"></div>
+        <input type="submit" disabled class="dropdown-item" name="language" value="日本語">
     </div>
-
   </form>
 </div>
 

@@ -38,6 +38,7 @@ Log In
           {{ form|crispy }}
           <div class="control-group">
             <div class="controls">
+              <br>
               <button type="submit" class="btn btn-outline-success">{% trans "Login" %}</button> <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary">{% trans " or sign up" %}</a>
               <br><br><a href="{% url 'password_reset' %}">{% trans "Forgot you password? Click here." %}</a>
 

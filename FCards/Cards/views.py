@@ -9,7 +9,7 @@ from .models import CardFolder, MultiCard
 
 @login_required
 def home(request):
-    return render(request, 'Cards/index.html')
+    return redirect('/')
 
 
 # region Folder
@@ -19,9 +19,9 @@ def delete_folder(request, set_id):
     if request.method == 'POST':
         folder = CardFolder.objects.get(id=set_id)
         folder.delete()
-        return render(request, 'Cards/index.html')
+        return redirect('/')
     else:
-        return render(request, 'Cards/index.html')
+        return redirect('/')
 
 
 @login_required
@@ -30,7 +30,7 @@ def add_folder(request):
     if form.is_valid():
         if request.method == "POST":
             CardFolder.objects.create(user=request.user, **form.cleaned_data)
-            return render(request, 'Cards/index.html')
+            return redirect('/')
 
     context = {
         "form": form
@@ -42,7 +42,7 @@ def add_folder(request):
 def edit_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     print(folder.being_edited)
     if folder.being_edited:
         return render(request, 'Cards/folder_being_updated.html', {'folder': folder})
@@ -56,7 +56,7 @@ def edit_folder(request, set_id):
             t = Thread(target=edit_folder_translate, args=[folder])
             t.setDaemon(False)
             t.start()
-            return render(request, 'Cards/index.html')
+            return redirect('/')
 
     else:
         form = FolderForm(instance=folder)
@@ -102,7 +102,7 @@ def copy_folder(request, set_id):
             t = Thread(target=edit_folder_translate, args=[new_folder])
             t.setDaemon(False)
             t.start()
-            return render(request, 'Cards/index.html')
+            return redirect('/')
 
     else:
         form = FolderForm(instance=folder)
@@ -118,17 +118,19 @@ def view_folder(request, set_id):
             card.pronunciation = ''
             card.save()
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
+
 
 @login_required
 def reset_progress(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     MultiCard.objects.filter(cards_folder=folder).update(priority=10, score=0)
     Card.objects.filter(cards_folder=folder).update(priority=1, score=0)
     return redirect(request.META['HTTP_REFERER'])
+
 
 # endregion
 
@@ -138,7 +140,7 @@ def reset_progress(request, set_id):
 def add_multicard(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
 
     langs = folder.get_langs(item='key')
     form = CardsForm(request.POST or None)
@@ -165,7 +167,7 @@ def add_multicard(request, set_id):
 def add_many(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     langs = folder.get_langs()
     length = len(langs)
     form = CardsForm(request.POST or None)
@@ -182,7 +184,7 @@ def add_many(request, set_id):
 
         # If user messes with the validations (all below three are required).
         if not language or not for_translate:
-            return render(request, 'Cards/no_access.html')
+            return redirect('/no_access/')
 
         if not separator:
             separator = " "
@@ -244,7 +246,7 @@ def edit_multicards_save(request, set_id, m_card_id):
             card.save()
         return HttpResponse(status=204)
     else:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
 
 
 @login_required
@@ -281,7 +283,7 @@ def edit_all_multicards(request, set_id):
         return render(request, 'Cards/edit_all_multicards.html', context)
     else:
         if folder not in user_folders:
-            return render(request, 'Cards/no_access.html')
+            return redirect('/no_access/')
         else:
             return render(request, 'Cards/edit_all_multicards.html', context)
 
@@ -302,7 +304,8 @@ def delete_multicards(request, set_id, m_card_id):
         }
         return render(request, 'Cards/edit_multicards.html', context)
     else:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
+
 
 # endregion
 
@@ -312,13 +315,14 @@ def delete_multicards(request, set_id, m_card_id):
 def make_public(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     if folder.public:
         folder.public = False
     else:
         folder.public = True
     folder.save()
     return redirect(request.META['HTTP_REFERER'])
+
 
 @login_required
 def view_folder_public(request, set_id):
@@ -340,7 +344,7 @@ def public_sets(request):
 def refresh_update(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     clean_errors(folder)
     updates = MultiCard.objects.filter(being_edited=True, cards_folder=folder)
     if updates or folder.being_edited:
@@ -348,11 +352,12 @@ def refresh_update(request, set_id):
     else:
         return edit_folder(request, folder.id)
 
+
 @login_required
 def repair_translations(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
-        return render(request, 'Cards/no_access.html')
+        return redirect('/no_access/')
     clean_errors(folder)
     t = Thread(target=repair_translations_thread, args=[folder])
     t.setDaemon(False)

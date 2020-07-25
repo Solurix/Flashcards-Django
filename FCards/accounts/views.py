@@ -20,6 +20,10 @@ from .models import Feedback
 def index(request):
     return render(request, 'Cards/index.html')
 
+
+def no_access(request):
+    return render(request, 'accounts/no_access.html')
+
 @login_required
 def overview(request):
     details = {
@@ -156,7 +160,8 @@ def opinion(request):
     if request.method == 'POST':
         user = request.user
         current_site = request.POST['path'][1:-1]
-        if current_site == ":":
+        print(current_site)
+        if current_site == "":
             current_site = 'home'
         user_opinion = request.POST['opinion']
         Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
@@ -167,11 +172,12 @@ def change_language(request):
     from django.conf import settings
     response = HttpResponseRedirect('/')
     if request.method == 'POST':
-        language = request.POST.get('language')
+        langs = {'English': "en-us", "Polski": "pl", "日本語": "jp"}
+        language = langs[request.POST.get('language')]
+        print(language)
         current_site = request.POST.get('url')
-        languages = ("pl",) # add codes for new translations here
-        # as long as there won't be language codes longer than 
-        # two letters, it will work 
+        languages = ("pl", "jp")  # add codes for new translations here
+        # as long as there won't be language codes longer than two letters, it will work
         if current_site[1:3] in languages:
             current_site = current_site[3:]
         if language:

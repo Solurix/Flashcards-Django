@@ -106,11 +106,11 @@ $('.collapse').on('show.bs.collapse', function () {
             <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
                 {% if not card.main %}
-                <a href="{% url 'repair_translations' set_id=folder.id %}" data-toggle="tooltip" title="{% trans 'Page needs to be refreshed to see the changes.
-                If new translations doesn't seem to appear, Click me.' %}">loading...</a>
+                <a href="{% url 'repair_translations' set_id=folder.id %}" data-toggle="tooltip" title="{% blocktrans %}Page needs to be refreshed to see the changes.
+                If new translations doesn't seem to appear, Click me.{% endblocktrans %}">loading...</a>
                 {% elif card.main == 'Translation error' %}
-                <a href="{% url 'repair_translations' set_id=folder.id %}" data-toggle="tooltip" title="{% trans 'Look like a translation error have occurred.
-                Click me to repeat translation process.' %}">Translation error</a>
+                <a href="{% url 'repair_translations' set_id=folder.id %}" data-toggle="tooltip" title="{% blocktrans %}Looks like a translation error have occurred.
+                Click me to repeat translation process.{% endblocktrans %}">Translation error</a>
                 {% else %}
                   <b>{{ card.main }}</b>
                 {% endif %}
