@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-Edit MultiCards
+{% trans 'Edit MultiCards' %}
 {% endblock %}
 
 {% block styles %}
@@ -21,11 +22,11 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
-<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
-<button type="submit" form="form" class="btn btn-outline-success">Save changes</button>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">{% trans 'Learn' %}</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">{% trans 'Edit Set' %}</a>
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">{% trans 'Add MultiCard' %}</button>
+<button type="submit" form="form" class="btn btn-outline-success">{% trans 'Save changes' %}</button>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -33,10 +34,10 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-        <h1 class="display-5">Here are your MultiCards in {{folder.name}}.</h1>
+        <h1 class="display-5">{% blocktrans with name=folder.name %}Here are your MultiCards in {{name}}.{% endblocktrans %}</h1>
         <p class="lead">{{ folder.comment }}</p>
-        <p>Use CTRL+F to quickly find your cards.</p>
-        <a class="btn btn-outline-dark" href="{% url 'edit_multicards' set_id=folder.id %}">You can change the view back to single edit here.</a>
+        <p>{% trans 'Use CTRL+F to quickly find your cards.' %}</p>
+        <a class="btn btn-outline-dark" href="{% url 'edit_multicards' set_id=folder.id %}">{% trans 'You can change the view back to single edit here.' %}</a>
     </div>
   </div>
 </div>
@@ -49,7 +50,7 @@ $('.collapse').on('show.bs.collapse', function () {
             #
         </b></h5></th>
           {% for k, v in folder.get_langs %}
-          <th style="min-width:140">
+          <th class="text-center" style="min-width:140">
               <h5><b>
                   {{ v|upper }}
               </b></h5>

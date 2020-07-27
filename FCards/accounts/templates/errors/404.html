@@ -1,0 +1,23 @@
+{% extends 'base2.html' %}
+{% load i18n %}
+{% block title %}
+Page not found
+{% endblock title %}
+
+{% block styles %}
+
+{% endblock styles %}
+
+{% block body %}
+
+  <div class="card text-white bg-dark">
+      <div class="card-header text-center">
+            <h1>{% trans "Error 404: Page not found." %}</h1>
+      </div>
+      <div class="card-body text-center">
+      <h3>{% trans "How did you get here, huh?" %}</h3>
+      </div>
+  </div>
+
+
+{% endblock body %}

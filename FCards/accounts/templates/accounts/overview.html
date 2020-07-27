@@ -36,7 +36,7 @@
     <div class="card-body">
       <h5 class="card-title">{% trans 'Username' %}</h5>
       <p class="card-text">{{ user.username }}</p><br/>
-      <h5 class="card-title">Name <small><a href="{% url 'change_name' %}" data-toggle="modal" data-target="#change_name" class="badge badge-pill badge-secondary">{% trans 'Change' %}</a></small></h5>
+      <h5 class="card-title">{% trans 'Name' %}<small><a href="{% url 'change_name' %}" data-toggle="modal" data-target="#change_name" class="badge badge-pill badge-secondary">{% trans 'Change' %}</a></small></h5>
       <p class="card-text">{{ user.first_name }} {{ user.last_name }}</p><br/>
       <h5 class="card-title">{% trans 'Address e-mail' %} <small><a href="{% url 'change_email' %}" data-toggle="modal" data-target="#change_email" class="badge badge-pill badge-secondary">{% trans 'Change' %}</a></small></h5>
       {% if user.profile.confirmed %}

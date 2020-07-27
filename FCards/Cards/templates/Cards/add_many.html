@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load i18n %}
 {% block title %}
 New set
 {% endblock title %}
@@ -9,20 +9,20 @@ New set
 {% endblock styles %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">{% trans 'Learn' %}</a>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
+<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">{% trans 'Edit MultiCards' %}</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">{% trans 'Edit Set' %}</a>
 {% endblock nav_buttons %}
 
 {% block body %}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1>Create many MultiCards at once</h1>
-    <p class="lead">Here you can create new MultiCards for {{folder.name}}.</p>
-    <p class="lead">Insert words or sentences and divide them by character of your choice.</p>
-  <a class="btn btn-outline-dark" href="{% url 'add_multicard' set_id=folder.id %}">You can add multicard with all details here.</a>
+    <h1>{% trans 'Create many MultiCards at once' %}</h1>
+    <p class="lead">{% blocktrans with name=folder.name %}Here you can create new MultiCards for {{name}}.{% endblocktrans %}</p>
+    <p class="lead">{% trans 'Insert words or sentences and divide them by character of your choice.' %}</p>
+  <a class="btn btn-outline-dark" href="{% url 'add_multicard' set_id=folder.id %}">{% trans 'You can add multicard with all details here.' %}</a>
 
     </div>
   </div>
@@ -39,14 +39,14 @@ New set
                     {% endfor %}
                  </select>
             </div>
-        <input type="text" name="separator" class="form-control" maxlength="10" placeholder="Text separator">
+        <input type="text" name="separator" class="form-control" maxlength="10" placeholder="{% trans 'Text separator' %}">
         </div>
 
             <textarea name="for_translate" cols="40" rows="10" class="form-control" maxlength="400"
-            required placeholder="Write or paste words/sentences from which you want to create cards.
+            required placeholder="{% blocktrans %}Write or paste words/sentences from which you want to create cards.
 Divide them by separator of your choice (if you won't provide separator, words will be divided by spaces).
-Example: dad*mom*I like bananas*monday"></textarea>
-    <button class="btn btn-success btn-block">Create</button>
+Example: dad*mom*I like bananas*monday{% endblocktrans %}"></textarea>
+    <button class="btn btn-success btn-block">{% trans 'Create' %}</button>
         </div>
     </form>
     </div>

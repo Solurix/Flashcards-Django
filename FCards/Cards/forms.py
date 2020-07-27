@@ -5,19 +5,13 @@ from django.core.exceptions import ValidationError
 from django.utils.translation import ugettext_lazy as _
 
 
-# class MultiCardForm(ModelForm):
-#     class Meta:
-#         model = MultiCard
-#         fields = ['comment', 'definition']
-
 class FolderForm(ModelForm):
-    # create_date = forms.DateField()
-    # edit_date = forms.DateField()
     class Meta:
         model = CardFolder
-        fields = ['name', 'lang2', 'lang3', 'lang4', 'lang5', 'comment']
+        fields = ['name', 'lang1', 'lang2', 'lang3', 'lang4', 'lang5', 'comment']
         widgets = {
-            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Name for the set'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', 'placeholder': _('Name for the set')}),
+            'lang1': forms.Select(attrs={'class': 'form-control'}),
             'lang2': forms.Select(attrs={'class': 'form-control'}),
             'lang3': forms.Select(attrs={'class': 'form-control'}),
             'lang4': forms.Select(attrs={'class': 'form-control'}),
@@ -26,18 +20,13 @@ class FolderForm(ModelForm):
         }
         labels = {
             'name': _('Set name'),
+            'lang1': _('1st language'),
             'lang2': _('2nd language'),
             'lang3': _('3rd language'),
             'lang4': _('4th language'),
             'lang5': _('5th language'),
             'comment': _('Your comment'),
         }
-
-    # def clean_name(self, *args, **kwargs):
-    #     name = self.cleaned_data.get("name")
-    #     if 'test' not in name:
-    #         raise forms.ValidationError("must include 'test'")
-    #     return name
 
     def clean(self):
         cleaned_data = super().clean()
@@ -58,27 +47,11 @@ class FolderForm(ModelForm):
                 return False
             else:
                 return True
+
         result = check_if_duplicates(langs)
         if result:
-            raise ValidationError("Every language must be different.")
+            raise ValidationError(_("Every language must be different."))
 
-
-
-
-# class RawFolderForm(forms.Form):
-#     name = forms.CharField(max_length=200, label="Set name:", widget=forms.TextInput(attrs={
-#         "placeholder": "Name for this set"}))
-#     lang1 = forms.ChoiceField(label="Language 1", choices=langcodes.LangCodes, initial='en')
-#     lang2 = forms.CharField(max_length=5, label="Language 2", widget=forms.TextInput(attrs={
-#         "placeholder": "Language you want to learn"}))
-#     lang3 = forms.CharField(max_length=5, label="Language 3", required=False, widget=forms.TextInput(attrs={
-#         "placeholder": "Another language (optional)"}))
-#     lang4 = forms.CharField(max_length=5, label="Language 4", required=False, widget=forms.TextInput(attrs={
-#         "placeholder": "Another language (optional)"}))
-#     lang5 = forms.CharField(max_length=5, label="Language 5", required=False, widget=forms.TextInput(attrs={
-#         "placeholder": "Another language (optional)"}))
-#     comment = forms.CharField(max_length=400, required=False, widget=forms.TextInput(attrs={
-#         "placeholder": "You note (optional)"}))
 
 class CardsForm(forms.Form):
     # MultiCard
@@ -104,7 +77,6 @@ class CardsForm(forms.Form):
     #         'pronunciation': forms.CharField(attrs={'class': 'form-control'}),
     #         'synonyms': forms.CharField(attrs={'class': 'form-control'}),
     #         'comment': forms.CharField(attrs={'class': 'form-control'}),}
-
 
     # def __init__(self, *args, **kwargs):
     #     super(RawCardForm, self).__init__(*args, **kwargs)

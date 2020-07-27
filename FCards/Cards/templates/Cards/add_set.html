@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-New set
+{% trans 'New set' %}
 {% endblock title %}
 
 {% block styles %}
@@ -14,9 +15,33 @@ New set
   <div class="container">
     <div class="text-dark">
     <form method="POST" action="{% url 'add_folder' %}">{% csrf_token %}
-    {{ form }}
-    <br/>
-      <button class="btn btn-success btn-block">Create</button>
+    {% if form.errors %}
+          {% for field in form %}
+              {% for error in field.errors %}
+                  <div class="alert alert-danger">
+                      <strong>{{ error|escape }}</strong>
+                  </div>
+              {% endfor %}
+          {% endfor %}
+          {% for error in form.non_field_errors %}
+              <div class="alert alert-danger">
+                  <strong>{{ error|escape }}</strong>
+              </div>
+          {% endfor %}
+      {% endif %}
+    {% for field in form %}
+        <div class="fieldWrapper">
+                      {{ field.errors }}
+          <b>{{ field.label_tag }}</b> {{ field }}
+            {% if field.help_text %}
+            <p class="help">{{ field.help_text|safe }}</p>
+            {% endif %}
+          <br>
+        </div>
+    {% endfor %}
+      {% block button %}
+      <button class="btn btn-success btn-block">{% trans 'Create' %}</button>
+      {% endblock button %}
     </form>
     </div>
   </div>

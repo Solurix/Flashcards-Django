@@ -1,29 +1,10 @@
-{% extends "base.html" %}
+{% extends "Cards/add_set.html" %}
+{% load i18n %}
 
 {% block title %}
-New set
+{% trans 'Copy set' %}
 {% endblock title %}
 
-{% block styles %}
-
-{% endblock styles %}
-
-{% block body %}
-
-<div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <div class="text-dark">
-    <form method="POST" action=".">{% csrf_token %}
-    {{form.as_p}}
-    <button class="btn btn-success">Copy set</button>
-    </form>
-    </div>
-  </div>
-</div>
-
-
-
-
-
-
-{% endblock body %}
+{% block button %}
+      <button class="btn btn-success btn-block">{% trans 'Copy' %}</button>
+{% endblock button %}

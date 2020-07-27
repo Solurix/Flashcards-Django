@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-07-22 20:37+0900\n"
+"POT-Creation-Date: 2020-07-27 19:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,29 +20,660 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: Cards/forms.py:28
+#: Cards/forms.py:13
+msgid "Name for the set"
+msgstr "Nazwa dla zestawu"
+
+#: Cards/forms.py:22
 msgid "Set name"
 msgstr "Nazwa zestawu"
 
-#: Cards/forms.py:29
+#: Cards/forms.py:23
+msgid "1st language"
+msgstr "1. język"
+
+#: Cards/forms.py:24
 msgid "2nd language"
 msgstr "2. język"
 
-#: Cards/forms.py:30
+#: Cards/forms.py:25
 msgid "3rd language"
 msgstr "3. język"
 
-#: Cards/forms.py:31
+#: Cards/forms.py:26
 msgid "4th language"
 msgstr "4. język"
 
-#: Cards/forms.py:32
+#: Cards/forms.py:27
 msgid "5th language"
 msgstr "5. język"
 
-#: Cards/forms.py:33
+#: Cards/forms.py:28
 msgid "Your comment"
 msgstr "Twój komentarz"
+
+#: Cards/forms.py:53
+msgid "Every language must be different."
+msgstr ""
+
+#: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+msgid "Afrikaans"
+msgstr ""
+
+#: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+msgid "Albanian"
+msgstr ""
+
+#: Cards/langcodes.py:4
+msgid "Amharic"
+msgstr ""
+
+#: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+msgid "Arabic"
+msgstr ""
+
+#: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+msgid "Armenian"
+msgstr ""
+
+#: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+msgid "Azerbaijani"
+msgstr ""
+
+#: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+msgid "Basque"
+msgstr ""
+
+#: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+msgid "Belarusian"
+msgstr ""
+
+#: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+msgid "Bengali"
+msgstr ""
+
+#: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+msgid "Bosnian"
+msgstr ""
+
+#: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
+msgid "Bulgarian"
+msgstr ""
+
+#: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
+msgid "Catalan"
+msgstr ""
+
+#: Cards/langcodes.py:6 Cards/langcodes.py:29
+msgid "Cebuano"
+msgstr ""
+
+#: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
+msgid "Chichewa"
+msgstr "cziczewa"
+
+#: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
+msgid "Chinese (simplified)"
+msgstr "chiński (uproszczony)"
+
+#: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
+msgid "Chinese (traditional)"
+msgstr "chiński (tradycyjny)"
+
+#: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
+msgid "Corsican"
+msgstr "korsykański"
+
+#: Cards/langcodes.py:7 Cards/langcodes.py:31 Cards/langcodes.py:54
+msgid "Croatian"
+msgstr ""
+
+#: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+msgid "Czech"
+msgstr ""
+
+#: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+msgid "Danish"
+msgstr ""
+
+#: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+msgid "Dutch"
+msgstr ""
+
+#: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+msgid "English"
+msgstr ""
+
+#: Cards/langcodes.py:8 Cards/langcodes.py:32 Cards/langcodes.py:55
+msgid "Esperanto"
+msgstr ""
+
+#: Cards/langcodes.py:8 Cards/langcodes.py:32 Cards/langcodes.py:55
+msgid "Estonian"
+msgstr ""
+
+#: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
+msgid "Filipino"
+msgstr "filipiński"
+
+#: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
+msgid "Finnish"
+msgstr ""
+
+#: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
+msgid "French"
+msgstr ""
+
+#: Cards/langcodes.py:9
+msgid "Frisian"
+msgstr ""
+
+#: Cards/langcodes.py:9 Cards/langcodes.py:33 Cards/langcodes.py:56
+msgid "Galician"
+msgstr ""
+
+#: Cards/langcodes.py:9 Cards/langcodes.py:33 Cards/langcodes.py:56
+msgid "Georgian"
+msgstr ""
+
+#: Cards/langcodes.py:10 Cards/langcodes.py:33 Cards/langcodes.py:56
+msgid "German"
+msgstr ""
+
+#: Cards/langcodes.py:10 Cards/langcodes.py:33 Cards/langcodes.py:56
+msgid "Greek"
+msgstr ""
+
+#: Cards/langcodes.py:10 Cards/langcodes.py:34 Cards/langcodes.py:57
+msgid "Gujarati"
+msgstr "gudżarati"
+
+#: Cards/langcodes.py:10 Cards/langcodes.py:34 Cards/langcodes.py:57
+msgid "Haitian creole"
+msgstr "kreolski haitański"
+
+#: Cards/langcodes.py:10
+msgid "Hausa"
+msgstr ""
+
+#: Cards/langcodes.py:11 Cards/langcodes.py:34 Cards/langcodes.py:57
+msgid "Hawaiian"
+msgstr "hawajski"
+
+#: Cards/langcodes.py:11 Cards/langcodes.py:34 Cards/langcodes.py:57
+msgid "Hebrew"
+msgstr ""
+
+#: Cards/langcodes.py:11 Cards/langcodes.py:35 Cards/langcodes.py:58
+msgid "Hindi"
+msgstr ""
+
+#: Cards/langcodes.py:11
+msgid "Hmong"
+msgstr ""
+
+#: Cards/langcodes.py:11 Cards/langcodes.py:35 Cards/langcodes.py:58
+msgid "Hungarian"
+msgstr ""
+
+#: Cards/langcodes.py:11 Cards/langcodes.py:35 Cards/langcodes.py:58
+msgid "Icelandic"
+msgstr ""
+
+#: Cards/langcodes.py:12
+msgid "Igbo"
+msgstr ""
+
+#: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+msgid "Indonesian"
+msgstr ""
+
+#: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+msgid "Irish"
+msgstr ""
+
+#: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+msgid "Italian"
+msgstr ""
+
+#: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+msgid "Japanese"
+msgstr ""
+
+#: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+msgid "Javanese"
+msgstr "jawajski"
+
+#: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+msgid "Kannada"
+msgstr ""
+
+#: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+msgid "Kazakh"
+msgstr ""
+
+#: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+msgid "Khmer"
+msgstr ""
+
+#: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+msgid "Korean"
+msgstr ""
+
+#: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+msgid "Kurdish (kurmanji)"
+msgstr "kurdyjski (kurmandżi)"
+
+#: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+msgid "Kyrgyz"
+msgstr "kirgiski"
+
+#: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+msgid "Lao"
+msgstr "laotański"
+
+#: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+msgid "Latin"
+msgstr "łaciński"
+
+#: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+msgid "Latvian"
+msgstr ""
+
+#: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+msgid "Lithuanian"
+msgstr ""
+
+#: Cards/langcodes.py:14 Cards/langcodes.py:39 Cards/langcodes.py:62
+msgid "Luxembourgish"
+msgstr ""
+
+#: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+msgid "Macedonian"
+msgstr ""
+
+#: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+msgid "Malagasy"
+msgstr "malgaski"
+
+#: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+msgid "Malay"
+msgstr "malajski"
+
+#: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+msgid "Malayalam"
+msgstr ""
+
+#: Cards/langcodes.py:15 Cards/langcodes.py:40 Cards/langcodes.py:63
+msgid "Maltese"
+msgstr "maltański "
+
+#: Cards/langcodes.py:15
+msgid "Maori"
+msgstr ""
+
+#: Cards/langcodes.py:16 Cards/langcodes.py:40 Cards/langcodes.py:63
+msgid "Marathi"
+msgstr ""
+
+#: Cards/langcodes.py:16 Cards/langcodes.py:40 Cards/langcodes.py:63
+msgid "Mongolian"
+msgstr ""
+
+#: Cards/langcodes.py:16 Cards/langcodes.py:40 Cards/langcodes.py:63
+msgid "Myanmar (burmese)"
+msgstr "birmański"
+
+#: Cards/langcodes.py:16 Cards/langcodes.py:41 Cards/langcodes.py:64
+msgid "Nepali"
+msgstr ""
+
+#: Cards/langcodes.py:16 Cards/langcodes.py:41 Cards/langcodes.py:64
+msgid "Norwegian"
+msgstr "norweski"
+
+#: Cards/langcodes.py:17 Cards/langcodes.py:41 Cards/langcodes.py:64
+msgid "Pashto"
+msgstr "pasztuński"
+
+#: Cards/langcodes.py:17 Cards/langcodes.py:41 Cards/langcodes.py:64
+msgid "Persian"
+msgstr ""
+
+#: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
+msgid "Polish"
+msgstr ""
+
+#: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
+msgid "Portuguese"
+msgstr ""
+
+#: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
+msgid "Punjabi"
+msgstr ""
+
+#: Cards/langcodes.py:18 Cards/langcodes.py:42 Cards/langcodes.py:65
+msgid "Romanian"
+msgstr ""
+
+#: Cards/langcodes.py:18 Cards/langcodes.py:42 Cards/langcodes.py:65
+msgid "Russian"
+msgstr ""
+
+#: Cards/langcodes.py:18
+msgid "Samoan"
+msgstr ""
+
+#: Cards/langcodes.py:18 Cards/langcodes.py:43 Cards/langcodes.py:66
+msgid "Scots gaelic"
+msgstr "gaelicki szkocki"
+
+#: Cards/langcodes.py:18 Cards/langcodes.py:43 Cards/langcodes.py:66
+msgid "Serbian"
+msgstr ""
+
+#: Cards/langcodes.py:19 Cards/langcodes.py:43 Cards/langcodes.py:66
+msgid "Sesotho"
+msgstr "sotho"
+
+#: Cards/langcodes.py:19
+msgid "Shona"
+msgstr ""
+
+#: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+msgid "Sindhi"
+msgstr "sindhi"
+
+#: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+msgid "Sinhala"
+msgstr "sinhala"
+
+#: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+msgid "Slovak"
+msgstr ""
+
+#: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+msgid "Slovenian"
+msgstr ""
+
+#: Cards/langcodes.py:20 Cards/langcodes.py:44 Cards/langcodes.py:67
+msgid "Somali"
+msgstr "somali"
+
+#: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+msgid "Spanish"
+msgstr ""
+
+#: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+msgid "Sundanese"
+msgstr "sundajski"
+
+#: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+msgid "Swahili"
+msgstr ""
+
+#: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+msgid "Swedish"
+msgstr ""
+
+#: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+msgid "Tajik"
+msgstr "tadżycki"
+
+#: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+msgid "Tamil"
+msgstr ""
+
+#: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+msgid "Telugu"
+msgstr ""
+
+#: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+msgid "Thai"
+msgstr ""
+
+#: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+msgid "Turkish"
+msgstr ""
+
+#: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+msgid "Ukrainian"
+msgstr ""
+
+#: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+msgid "Urdu"
+msgstr ""
+
+#: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+msgid "Uyghur"
+msgstr "ujgurski"
+
+#: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+msgid "Uzbek"
+msgstr ""
+
+#: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+#, fuzzy
+#| msgid "Set name"
+msgid "Vietnamese"
+msgstr "Nazwa zestawu"
+
+#: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+msgid "Welsh"
+msgstr ""
+
+#: Cards/langcodes.py:22
+msgid "Xhosa"
+msgstr ""
+
+#: Cards/langcodes.py:22
+msgid "Yiddish"
+msgstr ""
+
+#: Cards/langcodes.py:23
+msgid "Yoruba"
+msgstr ""
+
+#: Cards/langcodes.py:23
+msgid "Zulu"
+msgstr ""
+
+#: Cards/langcodes.py:26
+msgid "OFF"
+msgstr " - "
+
+#: Cards/templates/Cards/add_many.html:12
+#: Cards/templates/Cards/add_multicard.html:13
+#: Cards/templates/Cards/edit_all_multicards.html:26
+#: Cards/templates/Cards/edit_set.html:14 Cards/templates/Cards/index.html:63
+msgid "Learn"
+msgstr "Nauka"
+
+#: Cards/templates/Cards/add_many.html:13
+#: Cards/templates/Cards/add_multicard.html:14
+#: Cards/templates/Cards/edit_all_multicards.html:25
+#: Cards/templates/Cards/edit_set.html:15 Cards/templates/Cards/index.html:64
+#: templates/admin/index.html:38
+msgid "View"
+msgstr "Otwórz"
+
+#: Cards/templates/Cards/add_many.html:14
+#: Cards/templates/Cards/add_multicard.html:15
+#: Cards/templates/Cards/edit_all_multicards.html:5
+#: Cards/templates/Cards/edit_set.html:17 Cards/templates/Cards/index.html:66
+msgid "Edit MultiCards"
+msgstr "Edytuj MutliKarty"
+
+#: Cards/templates/Cards/add_many.html:15
+#: Cards/templates/Cards/add_multicard.html:16
+#: Cards/templates/Cards/edit_all_multicards.html:27
+#, fuzzy
+#| msgid "Edit"
+msgid "Edit Set"
+msgstr "Edytuj"
+
+#: Cards/templates/Cards/add_many.html:22
+msgid "Create many MultiCards at once"
+msgstr ""
+
+#: Cards/templates/Cards/add_many.html:23
+#, python-format
+msgid "Here you can create new MultiCards for %(name)s."
+msgstr ""
+
+#: Cards/templates/Cards/add_many.html:24
+msgid "Insert words or sentences and divide them by character of your choice."
+msgstr ""
+
+#: Cards/templates/Cards/add_many.html:25
+msgid "You can add multicard with all details here."
+msgstr ""
+
+#: Cards/templates/Cards/add_many.html:42
+#: Cards/templates/Cards/add_mcards_modal.html:22
+msgid "Text separator"
+msgstr ""
+
+#: Cards/templates/Cards/add_many.html:46
+#: Cards/templates/Cards/add_mcards_modal.html:25
+msgid ""
+"Write or paste words/sentences from which you want to create cards.\n"
+"Divide them by separator of your choice (if you won't provide separator, "
+"words will be divided by spaces).\n"
+"Example: dad*mom*I like bananas*monday"
+msgstr ""
+
+#: Cards/templates/Cards/add_many.html:49
+#: Cards/templates/Cards/add_mcards_modal.html:28
+#: Cards/templates/Cards/add_multicard.html:94
+#: Cards/templates/Cards/add_set.html:43
+msgid "Create"
+msgstr ""
+
+#: Cards/templates/Cards/add_mcards_modal.html:7
+#, fuzzy
+#| msgid "Add MultiCard"
+msgid "Add Multicards"
+msgstr "Dodaj MultiKartę"
+
+#: Cards/templates/Cards/add_multicard.html:5
+#: Cards/templates/Cards/add_set.html:5 Cards/templates/Cards/index.html:26
+msgid "New set"
+msgstr "Nowy zestaw"
+
+#: Cards/templates/Cards/add_multicard.html:23
+#, fuzzy
+#| msgid "Create a new set"
+msgid "Create new MultiCard"
+msgstr "Stwórz nowy zestaw"
+
+#: Cards/templates/Cards/add_multicard.html:24
+#, python-format
+msgid "Here you can create new MultiCard for %(name)s."
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:25
+msgid "Only one word of the first language is required. The rest is optional."
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:26
+msgid "You can add many words at once here."
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:37
+msgid "Definition"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:45
+#: Cards/templates/Cards/add_multicard.html:84
+#, fuzzy
+#| msgid "Your comment"
+msgid "Comment"
+msgstr "Twój komentarz"
+
+#: Cards/templates/Cards/add_multicard.html:51
+#, fuzzy
+#| msgid "1st language"
+msgid "Language"
+msgstr "1. język"
+
+#: Cards/templates/Cards/add_multicard.html:56
+msgid "Word"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:60
+#: Cards/templates/Cards/add_multicard.html:62
+#, python-format
+msgid "%(k|upper)s word"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:68
+msgid "Pronunciation"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:71
+#, python-format
+msgid "%(k|upper)s pronunciation"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:76
+msgid "Synonym"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:79
+#, python-format
+msgid "%(k|upper)s synonym"
+msgstr ""
+
+#: Cards/templates/Cards/add_multicard.html:87
+#, fuzzy, python-format
+#| msgid "Your comment"
+msgid "%(k|upper)s comment"
+msgstr "Twój komentarz"
+
+#: Cards/templates/Cards/copy_set.html:5
+#, fuzzy
+#| msgid "Copy"
+msgid "Copy set"
+msgstr "Skopiuj"
+
+#: Cards/templates/Cards/copy_set.html:9 Cards/templates/Cards/index.html:68
+msgid "Copy"
+msgstr "Skopiuj"
+
+#: Cards/templates/Cards/edit_all_multicards.html:28
+#: Cards/templates/Cards/edit_set.html:16 Cards/templates/Cards/index.html:65
+msgid "Add MultiCard"
+msgstr "Dodaj MultiKartę"
+
+#: Cards/templates/Cards/edit_all_multicards.html:29
+#: Cards/templates/Cards/edit_set.html:59
+#: accounts/templates/accounts/overview.html:132
+msgid "Save changes"
+msgstr "Zapisz zmiany"
+
+#: Cards/templates/Cards/edit_all_multicards.html:37
+#, python-format
+msgid "Here are your MultiCards in %(name)s."
+msgstr ""
+
+#: Cards/templates/Cards/edit_all_multicards.html:39
+msgid "Use CTRL+F to quickly find your cards."
+msgstr ""
+
+#: Cards/templates/Cards/edit_all_multicards.html:40
+msgid "You can change the view back to single edit here."
+msgstr ""
+
+#: Cards/templates/Cards/edit_set.html:6
+#, fuzzy
+#| msgid "Edit"
+msgid "Edit set"
+msgstr "Edytuj"
+
+#: Cards/templates/Cards/edit_set.html:47
+msgid "Folder's first language cannot be changed."
+msgstr ""
 
 #: Cards/templates/Cards/index.html:5
 #, python-format
@@ -56,10 +687,6 @@ msgstr "Konto"
 #: Cards/templates/Cards/index.html:25
 msgid "Public sets"
 msgstr "Zestawy publiczne"
-
-#: Cards/templates/Cards/index.html:26
-msgid "New set"
-msgstr "Nowy zestaw"
 
 #: Cards/templates/Cards/index.html:35
 msgid "Here are your sets to study, "
@@ -81,33 +708,25 @@ msgstr "Stwórz nowy zestaw"
 msgid "or copy from public ones."
 msgstr "lub skopiuj z dostępnych publicznie."
 
-#: Cards/templates/Cards/index.html:63
-msgid "Learn"
-msgstr "Nauka"
-
-#: Cards/templates/Cards/index.html:64 templates/admin/index.html:38
-msgid "View"
-msgstr "Otwórz"
-
-#: Cards/templates/Cards/index.html:65
-msgid "Add MultiCard"
-msgstr "Dodaj MultiKartę"
-
-#: Cards/templates/Cards/index.html:66
-msgid "Edit MultiCards"
-msgstr "Edytuj MutliKarty"
-
 #: Cards/templates/Cards/index.html:67
 msgid "Edit"
 msgstr "Edytuj"
 
-#: Cards/templates/Cards/index.html:68
-msgid "Copy"
-msgstr "Skopiuj"
-
 #: Cards/templates/Cards/index.html:69 Cards/templates/Cards/index.html:150
 msgid "Delete"
 msgstr "Usuń"
+
+#: Cards/templates/Cards/index.html:109
+msgid ""
+"Page needs to be refreshed to see the changes.\n"
+"                If new translations doesn't seem to appear, Click me."
+msgstr ""
+
+#: Cards/templates/Cards/index.html:112
+msgid ""
+"Looks like a translation error have occurred.\n"
+"                Click me to repeat translation process."
+msgstr ""
 
 #: Cards/templates/Cards/index.html:131
 msgid "There are no cards in this set."
@@ -126,11 +745,17 @@ msgstr "Ten zestaw zawiera %(length)s MultiKart."
 msgid "Abort"
 msgstr "Anuluj"
 
-#: Cards/templates/base.html:59
-msgid "Hello,"
+#: Cards/templates/base.html:39
+msgid "Feedback"
+msgstr ""
+
+#: Cards/templates/base.html:58
+#, fuzzy
+#| msgid "Hello,"
+msgid "Hello, "
 msgstr "Cześć,"
 
-#: Cards/templates/base.html:60
+#: Cards/templates/base.html:59
 msgid ""
 "Do you have some brilliant idea what could appear here? Do you have some "
 "suggestions to change in the website or found a bug? I would be glad to hear "
@@ -139,19 +764,27 @@ msgstr ""
 "Masz pomysł, co by można było tutaj umieścić? Znalazłeś błędy? Uważasz, że "
 "lepiej by było coś zmienić? Chętnie o tym usłyszę! Napisz do mnie!"
 
-#: Cards/templates/base.html:63
+#: Cards/templates/base.html:62
 msgid "Write here and press [Enter]."
 msgstr "Napisz tutaj i kliknij [Enter]."
 
-#: Cards/templates/base.html:69
+#: Cards/templates/base.html:73
 msgid "Home"
 msgstr "Strona główna"
 
-#: Cards/templates/base.html:74
+#: Cards/templates/base.html:78
 msgid "Log out"
 msgstr "Wyloguj"
 
-#: Cards/templates/base.html:88 accounts/templates/base2.html:57
+#: Cards/templates/base.html:82
+msgid "↓ Feedback"
+msgstr ""
+
+#: Cards/templates/base.html:84
+msgid "↑ Collapse"
+msgstr ""
+
+#: Cards/templates/base.html:109 accounts/templates/base2.html:61
 msgid ""
 "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
 "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
@@ -161,11 +794,11 @@ msgstr ""
 "użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Dowiedz się więcej</a>"
 
-#: Cards/templates/base.html:91 accounts/templates/base2.html:60
+#: Cards/templates/base.html:112 accounts/templates/base2.html:64
 msgid "I agree"
 msgstr "Wyrażam zgodę"
 
-#: Cards/templates/base.html:135
+#: Cards/templates/base.html:156
 msgid ""
 "© 2020 Copyright:<br/>\n"
 "    Website: Bartosz Lulka<br/>\n"
@@ -189,6 +822,11 @@ msgstr "Twój komentarz"
 #| msgid "Set name"
 msgid "Username"
 msgstr "Nazwa zestawu"
+
+#: accounts/templates/accounts/overview.html:39
+#: accounts/templates/registration/sign_up.html:41
+msgid "Name"
+msgstr "Imię"
 
 #: accounts/templates/accounts/overview.html:39
 #: accounts/templates/accounts/overview.html:41
@@ -248,10 +886,6 @@ msgstr "Czy na pewno chcesz usunąć swoje konto?"
 msgid "Close"
 msgstr "Zamknij"
 
-#: accounts/templates/accounts/overview.html:132
-msgid "Save changes"
-msgstr "Zapisz zmiany"
-
 #: accounts/templates/accounts/overview.html:145
 msgid "Change email address"
 msgstr "Zmień adres e-mail"
@@ -268,7 +902,7 @@ msgstr "Zmień swoje imię"
 msgid "Confirmation email sent."
 msgstr "Wiadomość wysłana."
 
-#: accounts/templates/base2.html:83
+#: accounts/templates/base2.html:87
 msgid ""
 "© 2020 Copyright:<br/>\n"
 "            Website: Bartosz Lulka<br/>\n"
@@ -276,6 +910,14 @@ msgid ""
 "            Style: Bootstrap<br/>\n"
 "            Run on Django<br/><br/>\n"
 "            Contact: bartosz.adam.lulka@gmail.com"
+msgstr ""
+
+#: accounts/templates/errors/404.html:15
+msgid "Error 404: Page not found."
+msgstr ""
+
+#: accounts/templates/errors/404.html:18
+msgid "How did you get here, huh?"
 msgstr ""
 
 #: accounts/templates/registration/logged_out.html:5
@@ -308,15 +950,15 @@ msgid ""
 msgstr ""
 
 #: accounts/templates/registration/login.html:30
-#: accounts/templates/registration/login.html:41
+#: accounts/templates/registration/login.html:42
 msgid "Login"
 msgstr ""
 
-#: accounts/templates/registration/login.html:41
+#: accounts/templates/registration/login.html:42
 msgid " or sign up"
 msgstr ""
 
-#: accounts/templates/registration/login.html:42
+#: accounts/templates/registration/login.html:43
 msgid "Forgot you password? Click here."
 msgstr ""
 
@@ -374,11 +1016,11 @@ msgstr ""
 msgid "Reset password"
 msgstr ""
 
-#: accounts/templates/registration/password_reset_form.html:19
+#: accounts/templates/registration/password_reset_form.html:20
 msgid "Submit"
 msgstr ""
 
-#: accounts/templates/registration/password_reset_form.html:21
+#: accounts/templates/registration/password_reset_form.html:22
 msgid "Return to login page."
 msgstr ""
 
@@ -392,10 +1034,6 @@ msgstr "Rejestracja"
 #: accounts/templates/registration/sign_up.html:59
 msgid "Required"
 msgstr "Wymagane"
-
-#: accounts/templates/registration/sign_up.html:41
-msgid "Name"
-msgstr "Imię"
 
 #: accounts/templates/registration/sign_up.html:41
 msgid "Optional"

@@ -1,7 +1,7 @@
 from django.template.loader import render_to_string
 from django.core.mail import EmailMessage
 from django.shortcuts import render, redirect
-from django.http import HttpResponse, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound
 from django.contrib import messages
 from django.contrib.auth import update_session_auth_hash, login, authenticate
 from django.contrib.auth.models import User
@@ -22,7 +22,13 @@ def index(request):
 
 
 def no_access(request):
-    return render(request, 'accounts/no_access.html')
+    return render(request, 'errors/no_access.html')
+
+
+def error404(request, exception):
+    return render(request, 'errors/404.html', status=404)
+
+
 
 @login_required
 def overview(request):
@@ -161,10 +167,11 @@ def opinion(request):
         user = request.user
         current_site = request.POST['path'][1:-1]
         print(current_site)
-        if current_site == "":
-            current_site = 'home'
+        if current_site in ('pl', 'en', 'jp'):
+            current_site += '/home'
         user_opinion = request.POST['opinion']
-        Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
+        if user_opinion:
+            Feedback.objects.create(user=user, creator=user.username, page=current_site, text=user_opinion)
         return redirect(request.META['HTTP_REFERER'])
 
 
@@ -172,11 +179,11 @@ def change_language(request):
     from django.conf import settings
     response = HttpResponseRedirect('/')
     if request.method == 'POST':
-        langs = {'English': "en-us", "Polski": "pl", "日本語": "jp"}
+        langs = {'English': "en", "Polski": "pl", "日本語": "jp"}
         language = langs[request.POST.get('language')]
         print(language)
         current_site = request.POST.get('url')
-        languages = ("pl", "jp")  # add codes for new translations here
+        languages = ("en", "jp", "pl")  # add codes for new translations here
         # as long as there won't be language codes longer than two letters, it will work
         if current_site[1:3] in languages:
             current_site = current_site[3:]

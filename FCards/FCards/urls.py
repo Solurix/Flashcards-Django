@@ -16,11 +16,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.i18n import i18n_patterns
+from django.conf.urls import handler404
 
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('cards/', include('Cards.urls')),
     path('', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    prefix_default_language=False
-    )
+    prefix_default_language=True
+)
+
+handler404 = 'accounts.views.error404'

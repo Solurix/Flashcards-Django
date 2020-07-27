@@ -20,27 +20,30 @@
     
     <!-- cookiealert styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+
     {% block styles %}
     {% endblock styles %}
 
 </head>
 <body>
+{% block background %}
+  <div class="p-3 mb-2 bg-secondary text-white">
+{% endblock background %}
 
-  <div class={% block background %}"p-3 mb-2 bg-secondary text-white"{% endblock background %}>
 
 <div class="fixed-top">
   <div class="collapse" id="navbarToggleExternalContent">
     <div class="bg-dark p-4">
       <div class="row">
         <div class="col">
-          <h5 class="text-white h4">Feedback</h5>
+          <h5 class="text-white h4">{% trans 'Feedback' %}</h5>
         </div>
         <div class="ml-auto" style="max-width: 300px;">
           <form action="{% url 'change_language' %}" method="post">
             {% csrf_token %}
             <input hidden name="url" value="{{ request.path }}"/>
             <button id="btnGroupDrop1" type="button" class="form-control bg-dark text-white border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Language　・　言語　・　Język
+                Language・言語・Język
             </button>
             <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
                 <input type="submit" class="dropdown-item" name="language" value="English">
@@ -52,28 +55,50 @@
           </form>
         </div>
         </div>
-      <span class="text-muted">{% trans "Hello," %}{{user.username}}.</span><br/>
+      <span class="text-muted">{% trans "Hello, " %}{{user.username}}.</span><br/>
       <span class="text-muted">{% trans "Do you have some brilliant idea what could appear here? Do you have some suggestions to change in the website or found a bug? I would be glad to hear from you!" %}</span>
       <form method="post" action="{% url 'opinion' %}">{% csrf_token %}
         <input type="hidden" name="path" value="{{ request.path }}">
-        <br/><input type="text" name="opinion" autocomplete="off" placeholder="{% trans 'Write here and press [Enter].' %}" class="form-control " />
-
+        <br/><input type="text" name="opinion" autocomplete="off"  required placeholder="{% trans 'Write here and press [Enter].' %}" class="form-control " />
+        <input type="submit" class="btn btn-sm btn-dark btn-block mb-n4" value="Submit">
       </form>
     </div>
+    <button class="btn btn-sm btn-block btn-dark my-n3" data-toggle="collapse" data-target="#navbar,#navbarToggleExternalContent">
+      <b>↑</b>
+    </button>
   </div>
-<nav class="navbar navbar-dark bg-dark">
+<div class="collapse show" id="navbar">
+<nav class="navbar navbar-dark bg-dark ">
+
     <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-success my-1">{% trans 'Home' %}</button></a>
 
     {% block nav_buttons %}
     {% endblock nav_buttons %}
 
     <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">{% trans 'Log out' %}</button></a>
-    <button class="navbar-toggler my-1" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+
+    <div class="btn-group-vertical">
+    <a type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent,#navbar" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <b>{%trans '↓ Feedback' %}</b></a>
+    <a type="button" data-toggle="collapse" data-target="#navbar,#navbar2" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+      <b>{%trans '↑ Collapse' %}</b></a>
+    </div>
 </nav>
+  </div>
 </div>
+<div class="fixed-top">
+  <div class="collapse" id="navbar2">
+    <button class="btn btn-sm btn-block btn-dark my-n2" data-toggle="collapse" data-target="#navbar,#navbar2">
+      <b>↓</b>
+    </button>
+  </div>
+</div>
+
+
+
 <br/><br/><br/>
+
+
     {% block body %}
     {% endblock body %}
    
@@ -99,11 +124,11 @@
         $('[data-toggle="tooltip"]').tooltip()
       })
     </script>
-    
+
     {% block bodyend %}
     {% endblock bodyend %}
-</body>
 </div>
+</body>
 <!-- Footer -->
 <footer class="page-footer font-small blue pt-4">
 

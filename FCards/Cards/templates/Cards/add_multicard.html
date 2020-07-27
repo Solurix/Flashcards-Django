@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-New set
+{% trans 'New set' %}
 {% endblock title %}
 
 {% block styles %}
@@ -9,20 +10,20 @@ New set
 {% endblock styles %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">{% trans 'Learn' %}</a>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
+<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">{% trans 'Edit MultiCards' %}</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">{% trans 'Edit Set' %}</a>
 {% endblock nav_buttons %}
 
 {% block body %}
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1>Create new MultiCard</h1>
-    <p class="lead">Here you can create new MultiCard for {{folder.name}}.</p>
-    <p class="lead">Only one word of the first language is required. The rest is optional.</p>
-      <a class="btn btn-outline-dark" href="{% url 'add_many' set_id=folder.id %}">You can add many words at once here.</a>
+    <h1>{% trans 'Create new MultiCard' %}</h1>
+    <p class="lead">{% blocktrans with name=folder.name %}Here you can create new MultiCard for {{name}}.{% endblocktrans %}</p>
+    <p class="lead">{% trans 'Only one word of the first language is required. The rest is optional.' %}</p>
+      <a class="btn btn-outline-dark" href="{% url 'add_many' set_id=folder.id %}">{% trans 'You can add many words at once here.' %}</a>
     </div>
   </div>
 </div>
@@ -33,7 +34,7 @@ New set
     <table class="table-sm">
       <tr>
         <td>
-          <p><b>Definition</b>
+          <p><b>{% trans 'Definition' %}</b>
         </td>
         <td colspan="{{length}}">
           <input type="text" name="comment" class="form-control" maxlength="400" placeholder="Definition for this MultiCard">
@@ -41,56 +42,56 @@ New set
       </tr>
       <tr>
         <td>
-          <p><b>Comment</b>
+          <p><b>{% trans 'Comment' %}</b>
         </td>
         <td colspan="{{length}}">
           <input type="text" name="definition" class="form-control" maxlength="400" placeholder="Comment for this MultiCard">
         </td>
         </tr>
-          <th><p><b>Language</b></p></th>
+          <th><p><b>{% trans 'Language' %}</b></p></th>
         {% for k, v in langs %}
         <th style="min-width:140"><h5><b>{{ v|upper }}</b></h5></th>
         {% endfor %}
       <tr>
-        <td><b>Word</b></td>
+        <td><b>{% trans 'Word' %}</b></td>
         {% for k, v in langs %}
         <td>
           {% if forloop.counter == 1 %}
-          <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="{{k|upper}} word">
+          <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="{% blocktrans %}{{k|upper}} word{% endblocktrans %}">
           {% else %}
-          <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} word">
+          <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} word{% endblocktrans %}">
           {% endif %}
         </td>
         {% endfor %}
       </tr>
       <tr>
-        <td><b>Pronunciation</b></td>
+        <td><b>{% trans 'Pronunciation' %}</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} pronunciation">
+          <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} pronunciation{% endblocktrans %}">
         </td>
         {% endfor %}
       </tr>
       <tr>
-        <td><b>Synonym</b></td>
+        <td><b>{% trans 'Synonym' %}</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} synonym">
+          <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} synonym{% endblocktrans %}">
         </td>
         {% endfor %}
       </tr>
       <tr>
-        <td><b>Comment</b></td>
+        <td><b>{% trans 'Comment' %}</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="{{k|upper}} comment">
+          <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} comment{% endblocktrans %}">
         </td>
         {% endfor %}
       </tr>
       </table>
         </div>
   <br/>
-    <button class="btn btn-success btn-block"><b>Create</b></button>
+    <button class="btn btn-success btn-block"><b>{% trans 'Create' %}</b></button>
     </form>
     </div>
 </div>
