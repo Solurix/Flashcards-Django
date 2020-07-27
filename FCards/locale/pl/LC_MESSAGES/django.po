@@ -10,9 +10,9 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2020-07-27 19:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"Language: Polish\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -453,10 +453,8 @@ msgid "Uzbek"
 msgstr ""
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
-#, fuzzy
-#| msgid "Set name"
 msgid "Vietnamese"
-msgstr "Nazwa zestawu"
+msgstr "wietnamski"
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
 msgid "Welsh"
@@ -600,37 +598,33 @@ msgstr "Słowo"
 #: Cards/templates/Cards/add_multicard.html:62
 #, python-format
 msgid "%(k|upper)s word"
-msgstr ""
+msgstr "słowo"
 
 #: Cards/templates/Cards/add_multicard.html:68
 msgid "Pronunciation"
-msgstr ""
+msgstr "Wymowa"
 
 #: Cards/templates/Cards/add_multicard.html:71
 #, python-format
 msgid "%(k|upper)s pronunciation"
-msgstr ""
+msgstr "wymowa"
 
 #: Cards/templates/Cards/add_multicard.html:76
 msgid "Synonym"
-msgstr ""
+msgstr "Synonim"
 
 #: Cards/templates/Cards/add_multicard.html:79
 #, python-format
 msgid "%(k|upper)s synonym"
-msgstr ""
+msgstr "synonim"
 
 #: Cards/templates/Cards/add_multicard.html:87
-#, fuzzy, python-format
-#| msgid "Your comment"
 msgid "%(k|upper)s comment"
-msgstr "Twój komentarz"
+msgstr "komentarz"
 
 #: Cards/templates/Cards/copy_set.html:5
-#, fuzzy
-#| msgid "Copy"
 msgid "Copy set"
-msgstr "Skopiuj"
+msgstr "Skopiuj zestaw"
 
 #: Cards/templates/Cards/copy_set.html:9 Cards/templates/Cards/index.html:68
 msgid "Copy"
@@ -650,7 +644,7 @@ msgstr "Zapisz zmiany"
 #: Cards/templates/Cards/edit_all_multicards.html:37
 #, python-format
 msgid "Here are your MultiCards in %(name)s."
-msgstr ""
+msgstr "Tutaj są Twoje MultiKarty w %(name)s."
 
 #: Cards/templates/Cards/edit_all_multicards.html:39
 msgid "Use CTRL+F to quickly find your cards."
