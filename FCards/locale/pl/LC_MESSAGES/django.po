@@ -54,7 +54,7 @@ msgstr "Twój komentarz"
 
 #: Cards/forms.py:53
 msgid "Every language must be different."
-msgstr ""
+msgstr "Każdy język musi być inny."
 
 #: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
 msgid "Afrikaans"
@@ -507,32 +507,30 @@ msgstr "Edytuj MutliKarty"
 #: Cards/templates/Cards/add_many.html:15
 #: Cards/templates/Cards/add_multicard.html:16
 #: Cards/templates/Cards/edit_all_multicards.html:27
-#, fuzzy
-#| msgid "Edit"
 msgid "Edit Set"
-msgstr "Edytuj"
+msgstr "Edytuj Zestaw"
 
 #: Cards/templates/Cards/add_many.html:22
 msgid "Create many MultiCards at once"
-msgstr ""
+msgstr "Stwórz wiele MultiKart jednocześnie."
 
 #: Cards/templates/Cards/add_many.html:23
 #, python-format
 msgid "Here you can create new MultiCards for %(name)s."
-msgstr ""
+msgstr "Tutaj możesz stworzyć MultiKarty dla %(name)s."
 
 #: Cards/templates/Cards/add_many.html:24
 msgid "Insert words or sentences and divide them by character of your choice."
-msgstr ""
+msgstr "Wprowadź słowa bądź zdania i podziel je wybranym symbolem."
 
 #: Cards/templates/Cards/add_many.html:25
 msgid "You can add multicard with all details here."
-msgstr ""
+msgstr "Możesz dodać MultiKartę ze wszystkimi szczegółami tutaj."
 
 #: Cards/templates/Cards/add_many.html:42
 #: Cards/templates/Cards/add_mcards_modal.html:22
 msgid "Text separator"
-msgstr ""
+msgstr "Separator tekstu"
 
 #: Cards/templates/Cards/add_many.html:46
 #: Cards/templates/Cards/add_mcards_modal.html:25
@@ -542,17 +540,20 @@ msgid ""
 "words will be divided by spaces).\n"
 "Example: dad*mom*I like bananas*monday"
 msgstr ""
+"Napisz bądź wklej wyrazy/zdania, z których chcesz stworzyć Karty"
+"i oddziel je wybranym separatorem (w przypadku braku separatora, " 
+"słowa zostaną podzielone odstępami).\n"
+"Przykład: tata*mama*Lubię jabłka*poniedziałek"
+
 
 #: Cards/templates/Cards/add_many.html:49
 #: Cards/templates/Cards/add_mcards_modal.html:28
 #: Cards/templates/Cards/add_multicard.html:94
 #: Cards/templates/Cards/add_set.html:43
 msgid "Create"
-msgstr ""
+msgstr "Stwórz"
 
 #: Cards/templates/Cards/add_mcards_modal.html:7
-#, fuzzy
-#| msgid "Add MultiCard"
 msgid "Add Multicards"
 msgstr "Dodaj MultiKartę"
 
@@ -562,44 +563,38 @@ msgid "New set"
 msgstr "Nowy zestaw"
 
 #: Cards/templates/Cards/add_multicard.html:23
-#, fuzzy
-#| msgid "Create a new set"
 msgid "Create new MultiCard"
 msgstr "Stwórz nowy zestaw"
 
 #: Cards/templates/Cards/add_multicard.html:24
 #, python-format
 msgid "Here you can create new MultiCard for %(name)s."
-msgstr ""
+msgstr "Tutaj możesz stworzyć nową MultiKartę dla %(name)s."
 
 #: Cards/templates/Cards/add_multicard.html:25
 msgid "Only one word of the first language is required. The rest is optional."
-msgstr ""
+msgstr "Tylko wyraz z pierwszego języka wymagana. Pozostałe pola są opcjonalne."
 
 #: Cards/templates/Cards/add_multicard.html:26
 msgid "You can add many words at once here."
-msgstr ""
+msgstr "Możesz wiele słów jednocześnie tutaj."
 
 #: Cards/templates/Cards/add_multicard.html:37
 msgid "Definition"
-msgstr ""
+msgstr "Definicja"
 
 #: Cards/templates/Cards/add_multicard.html:45
 #: Cards/templates/Cards/add_multicard.html:84
-#, fuzzy
-#| msgid "Your comment"
 msgid "Comment"
-msgstr "Twój komentarz"
+msgstr "Komentarz"
 
 #: Cards/templates/Cards/add_multicard.html:51
-#, fuzzy
-#| msgid "1st language"
 msgid "Language"
-msgstr "1. język"
+msgstr "Język"
 
 #: Cards/templates/Cards/add_multicard.html:56
 msgid "Word"
-msgstr ""
+msgstr "Słowo"
 
 #: Cards/templates/Cards/add_multicard.html:60
 #: Cards/templates/Cards/add_multicard.html:62
