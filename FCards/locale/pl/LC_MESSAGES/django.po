@@ -1,7 +1,7 @@
-# SOME DESCRIPTIVE TITLE.
+# Polish translations
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Bartosz Lulka <bartosz.adam.lulka@gmail.com>, 2020.
 #
 #, fuzzy
 msgid ""
@@ -648,21 +648,19 @@ msgstr "Tutaj są Twoje MultiKarty w %(name)s."
 
 #: Cards/templates/Cards/edit_all_multicards.html:39
 msgid "Use CTRL+F to quickly find your cards."
-msgstr ""
+msgstr "Użyj CTRL+F by szybko znaleźć swoje karty."
 
 #: Cards/templates/Cards/edit_all_multicards.html:40
 msgid "You can change the view back to single edit here."
-msgstr ""
+msgstr "Możesz zmienić widok spowrotem do pojedynczych edycji tutaj."
 
 #: Cards/templates/Cards/edit_set.html:6
-#, fuzzy
-#| msgid "Edit"
 msgid "Edit set"
-msgstr "Edytuj"
+msgstr "Edytuj set"
 
 #: Cards/templates/Cards/edit_set.html:47
 msgid "Folder's first language cannot be changed."
-msgstr ""
+msgstr "Pierwszy język zestawu nie może zostać zmieniony."
 
 #: Cards/templates/Cards/index.html:5
 #, python-format
@@ -710,12 +708,16 @@ msgid ""
 "Page needs to be refreshed to see the changes.\n"
 "                If new translations doesn't seem to appear, Click me."
 msgstr ""
+"By zobaczyć zmiany, strona musi zostać odświeżona.\n"
+"                Jeżeli nowe tłumaczenia wydają się nie pojawiać, kliknij tutaj."
 
 #: Cards/templates/Cards/index.html:112
 msgid ""
 "Looks like a translation error have occurred.\n"
 "                Click me to repeat translation process."
 msgstr ""
+"Wygląda na to, że wystąpił błąd podczas tłumaczenia.\n"
+"                Kliknij tutaj by powtórzyć proces."
 
 #: Cards/templates/Cards/index.html:131
 msgid "There are no cards in this set."
@@ -739,8 +741,6 @@ msgid "Feedback"
 msgstr ""
 
 #: Cards/templates/base.html:58
-#, fuzzy
-#| msgid "Hello,"
 msgid "Hello, "
 msgstr "Cześć,"
 
@@ -771,7 +771,7 @@ msgstr ""
 
 #: Cards/templates/base.html:84
 msgid "↑ Collapse"
-msgstr ""
+msgstr "↑ Zwiń"
 
 #: Cards/templates/base.html:109 accounts/templates/base2.html:61
 msgid ""
