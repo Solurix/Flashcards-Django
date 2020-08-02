@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-Learn
+{% trans 'Learn' %}
 {% endblock %}
 
 {% block styles %}
@@ -9,11 +10,11 @@ Learn
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-<a class="btn btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
-<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">Edit MultiCards</a>
-<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">{% trans 'Learn' %}</a>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
+<a class="btn btn-outline-success" href="{% url 'add_multicard' set_id=folder.id %}">{% trans 'Add MultiCard' %}</a>
+<a class="btn btn-outline-primary" href="{% url 'edit_multicards' set_id=folder.id %}">{% trans 'Edit MultiCards' %}</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">{% trans 'Edit Set' %}</a>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -21,19 +22,19 @@ Learn
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1 class="display-4">Choose how would you like to learn.</h1>
-    <p class="lead">Flashcards are available only for sets with two languages. Other options are under development.</p>
+    <h1 class="display-4">{% trans 'Choose how would you like to learn.' %}</h1>
+    <p class="lead">{% trans 'Flashcards are available only for sets with two languages. Other options are under development.' %}</p>
     </div>
   </div>
 </div>
 
 {% if enough %}
-    <a class="btn btn-block btn-outline-light" href="{% url 'write' set_id=folder.id %}">Write</a>
-    <a class="btn btn-block btn-outline-light" href="{% url 'flashcards' set_id=folder.id %}">Flashcards</a>
+    <a class="btn btn-block btn-outline-light" href="{% url 'write' set_id=folder.id %}">{% trans 'Write' %}</a>
+    <a class="btn btn-block btn-outline-light" href="{% url 'flashcards' set_id=folder.id %}">{% trans 'Flashcards' %}</a>
 {% else %}
-  <h2>You do not have enough MultiCards in this set to start learning.</h2>
-  <h3>Please create at least three MultiCards.</h3>
-  <a class="btn btn-sm btn-success btn-block" href="{% url 'add_multicard' set_id=folder.id %}">Add MultiCard</a>
+  <h2>{% trans 'You do not have enough MultiCards in this set to start learning.' %}</h2>
+  <h3>{% trans 'Please create at least three MultiCards.' %}</h3>
+  <a class="btn btn-sm btn-success btn-block" href="{% url 'add_multicard' set_id=folder.id %}">{% trans 'Add MultiCard' %}</a>
 
 {% endif %}
 

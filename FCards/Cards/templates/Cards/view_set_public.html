@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
 {{folder.name}}
@@ -21,8 +22,8 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">Copy Set</a>
-<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">Public sets</button></a>
+<a class="btn btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">{% trans 'Copy Set' %}</a>
+<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">{% trans 'Public sets' %}</button></a>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -56,7 +57,7 @@ $('.collapse').on('show.bs.collapse', function () {
 
             <td>
                 {% if not card.main %}
-                <b>loading...</b>
+                <b>{% trans 'loading...' %}</b>
                 {% else %}
                   <b>{{ card.main }}</b>
                 {% endif %}
@@ -71,19 +72,19 @@ $('.collapse').on('show.bs.collapse', function () {
                 <div id="a{{multicard.id}}" class="collapse">
                   <div class="text-dark">
                   {% if card.automated %}
-                    <p>Auto-translated</p>
+                    <p>{% trans 'Auto-translated' %}</p>
                   {% endif %}
                   {% if card.pronunciation %}
-                    <p>Pronunciation: {{ card.pronunciation }}</p>
+                    <p>{% trans 'Pronunciation' %}: {{ card.pronunciation }}</p>
                   {% endif %}
                   {% if card.synonyms %}
-                    <p>Synonym: {{ card.synonyms }}</p>
+                    <p>{% trans 'Synonym' %}: {{ card.synonyms }}</p>
                   {% endif %}
                   {% if card.definition %}
-                    <p>Definition: {{ card.definition }}</p>
+                    <p>{% trans 'Definition' %}: {{ card.definition }}</p>
                   {% endif %}
                   {% if card.comment %}
-                    <p>Comment: {{ card.comment }}</p>
+                    <p>{% trans 'Comment' %}: {{ card.comment }}</p>
                   {% endif %}
                 </div>
               </div>
@@ -94,7 +95,7 @@ $('.collapse').on('show.bs.collapse', function () {
         {% endfor %}
       {% else %}
         <th colspan="{{folder.langs_no}}">
-          There are no cards for this set.
+          {% trans 'There are no cards for this set.' %}
         </th>
       {% endif %}
     </table>

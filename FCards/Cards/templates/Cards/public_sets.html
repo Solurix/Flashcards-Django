@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block title %}
-Public sets
+{% trans 'Public sets' %}
 {% endblock %}
 
 {% block styles %}
@@ -21,9 +21,9 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a href="{% url 'account_overview' %}"><button type="button" class="btn btn-outline-warning">Account</button></a>
-<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">Public sets</button></a>
-<a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">New set</button></a>
+<a href="{% url 'account_overview' %}"><button type="button" class="btn btn-outline-warning">{% trans 'Account' %}</button></a>
+<a href="{% url 'public_sets' %}"><button type="button" class="btn btn-outline-primary">{% trans 'Public sets' %}</button></a>
+<a href="{% url 'add_folder' %}"><button type="button" class="btn btn-outline-secondary">{% trans 'New set' %}</button></a>
 {% endblock nav_buttons %}
 
 
@@ -33,8 +33,8 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1>Here are public sets.</h1>
-    <p class="lead">Click on the set name to view its details and copy it.</p>
+    <h1>{% trans 'Here are public sets.' %}</h1>
+    <p class="lead">{% trans 'Click on the set name to view its details and copy it.' %}</p>
     </div>
   </div>
 </div>
@@ -51,8 +51,8 @@ $('.collapse').on('show.bs.collapse', function () {
           </th>
           <th class="hiddenRow" colspan=3>
               <div id="b{{folder.id}}" class="collapse">
-                <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder_public' set_id=folder.id %}">View</a>
-                <a class="btn btn-sm btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">Copy Set</a>
+                <a class="btn btn-sm btn-outline-info" href="{% url 'view_folder_public' set_id=folder.id %}">{% trans 'View' %}</a>
+                <a class="btn btn-sm btn-outline-secondary" href="{% url 'copy_folder' set_id=folder.id %}">{% trans 'Copy Set' %}</a>
               </div>
           </th>
         </tr>
@@ -60,7 +60,7 @@ $('.collapse').on('show.bs.collapse', function () {
         <tr>
           <th class="hiddenRow" colspan="{{folder.langs_no}}">
               <div id="b{{folder.id}}" class="collapse">
-                <p>Author: {{ folder.user }}</p>
+                <p>{% trans 'Author:' %} {{ folder.user }}</p>
                 <h6>{{ folder.comment }}</h6>
               </div>
             </th>
@@ -89,7 +89,7 @@ $('.collapse').on('show.bs.collapse', function () {
             <td class="hiddenRow">
               <div id="b{{folder.id}}" class="collapse">
                 {% if not card.main %}
-                <b>loading...</b>
+                <b>{% trans 'loading...' %}</b>
                 {% else %}
                   <b>{{ card.main }}</b>
                 {% endif %}
@@ -100,7 +100,7 @@ $('.collapse').on('show.bs.collapse', function () {
         {% endfor %}
       {% else %}
         <th colspan="{{folder.langs_no}}">
-          There are no cards for this set.
+          {% trans 'There are no cards for this set.' %}
         </th>
       {% endif %}
     </table>

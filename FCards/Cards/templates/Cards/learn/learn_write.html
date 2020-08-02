@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-Learn by writing
+{% trans 'Learn by writing' %}
 {% endblock %}
 
 {% block styles %}
@@ -9,14 +10,14 @@ Learn by writing
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-info" href="{% url 'learn' set_id=folder.id %}">Learn</a>
+<a class="btn btn-outline-info" href="{% url 'learn' set_id=folder.id %}">{% trans 'Learn' %}</a>
 {% endblock nav_buttons %}
 
 {% block body %}
 
 <div class="jumbotron jumbotron-fluid">
   <div class="text-dark">
-    <h1 style="text-align:center;">Write translations</h1>
+    <h1 style="text-align:center;">{% trans 'Write translations' %}</h1>
     <h5 style="text-align:center;">{{ multicard.definition }} </h5>
     <h5 style="text-align:center;">{{ multicard.comment }} </h5>
     <div class="row justify-content-center">
@@ -30,9 +31,9 @@ Learn by writing
                   <table class="table table-responsive">
                     <tr>
                       <td></td>
-                      <td>Your answer</td>
-                      <td>Correct answer</td>
-                      <td>Progress</td>
+                      <td>{% trans 'Your answer' %}</td>
+                      <td>{% trans 'Correct answer' %}</td>
+                      <td>{% trans 'Progress' %}</td>
                     </tr>
                     {% for previous_card in previous_cards %}
                       <tr>
@@ -76,7 +77,7 @@ Learn by writing
                   <table class="table table-responsive">
                     <tr>
                       <td></td>
-                      <td>Write translation below</td>
+                      <td>{% trans 'Write translation below' %}</td>
                     </tr>
                     {% for card in current_cards %}
                       <tr>
@@ -93,7 +94,7 @@ Learn by writing
                       </tr>
                     {% endfor %}
                   </table>
-                  <button class="btn btn-primary btn-block"><b>Next</b></button>
+                  <button class="btn btn-primary btn-block"><b>{% trans 'Next' %}</b></button>
                 </form>
               </div>
             </div>

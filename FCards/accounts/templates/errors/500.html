@@ -1,7 +1,7 @@
 {% extends 'base2.html' %}
 {% load i18n %}
 {% block title %}
-{% trans 'Page not found' %}
+{% trans 'Server error' %}
 {% endblock title %}
 
 {% block styles %}
@@ -12,10 +12,10 @@
 
   <div class="card text-white bg-dark">
       <div class="card-header text-center">
-            <h1>{% trans "Error 404: Page not found." %}</h1>
+            <h1>{% trans "Error 500: Server error" %}</h1>
       </div>
       <div class="card-body text-center">
-      <h3>{% trans "How did you get here, huh?" %}</h3>
+      <h3>{% trans "Ups, looks like you have done something you weren't supposed to do. If this error occurs again and you don't know why, please contact me." %}</h3>
       </div>
   </div>
 

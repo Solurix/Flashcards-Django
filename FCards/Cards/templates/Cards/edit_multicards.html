@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-Edit MultiCards
+{% trans 'Edit MultiCards' %}
 {% endblock %}
 
 {% block styles %}
@@ -21,10 +22,10 @@ $('.collapse').on('show.bs.collapse', function () {
 {% endblock %}
 
 {% block nav_buttons %}
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
-<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">Learn</a>
-<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">Edit Set</a>
-<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">Add MultiCard</button>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
+<a class="btn btn-outline-light" href="{% url 'learn' set_id=folder.id %}">{% trans 'Learn' %}</a>
+<a class="btn btn-outline-warning" href="{% url 'edit_folder' set_id=folder.id %}">{% trans 'Edit Set' %}</a>
+<button type="button" class="btn btn-outline-success" data-toggle="modal" data-target="#staticBackdrop">{% trans 'Add MultiCard' %}</button>
 {% endblock nav_buttons %}
 
 {% block body %}
@@ -32,9 +33,9 @@ $('.collapse').on('show.bs.collapse', function () {
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
     <div class="text-dark">
-    <h1>Here are your MultiCards in {{folder.name}}.</h1>
+    <h1>{% blocktrans with name=folder.name %}Here are your MultiCards in {{name}}.{% endblocktrans %}</h1>
     <p class="lead">{{ folder.comment }}</p>
-    <a class="btn btn-outline-dark" href="{% url 'edit_all_multicards' set_id=folder.id %}">You can change view to edit all you cards at once here.</a>
+    <a class="btn btn-outline-dark" href="{% url 'edit_all_multicards' set_id=folder.id %}">{% trans 'You can change view to edit all you cards at once here.' %}</a>
     </div>
   </div>
 </div>
@@ -74,10 +75,10 @@ $('.collapse').on('show.bs.collapse', function () {
             <tr class="table-active">
                 <td style="width: 1%" class="hiddenRow text-center"><div id="a{{multicard.id}}" class="collapse">
                     <br/>
-                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="Word">W</a></span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="Pronunciation">P</a></span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="Synonym">S</a></span></p>
-                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="Comment">C</a></span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="{% trans 'Word' %}">{% trans 'W' %}</a></span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="{% trans 'Pronunciation' %}">{% trans 'P' %}</a></span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="{% trans 'Synonym' %}">{% trans 'S' %}</a></span></p>
+                <p class="font-weight-bold"><span class="form-control-plaintext"><a data-toggle="tooltip" title="{% trans 'Comment' %}">{% trans 'C' %}</a></span></p>
                 </div></td>
               {% for k, v in langs %}
               {% get_card k multicard as card %}
@@ -85,16 +86,16 @@ $('.collapse').on('show.bs.collapse', function () {
               <div id="a{{multicard.id}}" class="collapse">
                   <br/>
                   <p>
-                    <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="Word" value="{{card.main}}">
+                    <input type="text" name="main{{k}}{{multicard.id}}" class="form-control" maxlength="50" required placeholder="{% trans 'Word' %}" value="{{card.main}}">
                   </p>
                   <p>
-                    <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Pronunciation" value="{{card.pronunciation}}">
+                    <input type="text" name="pronunciation{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="{% trans 'Pronunciation' %}" value="{{card.pronunciation}}">
                   </p>
                   <p>
-                    <input type="text" name="synonyms{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Synonym" value="{{card.synonyms}}">
+                    <input type="text" name="synonyms{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="{% trans 'Synonym' %}" value="{{card.synonyms}}">
                   </p>
                   <p>
-                    <input type="text" name="comment{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="Comment" value="{{card.comment}}">
+                    <input type="text" name="comment{{k}}{{multicard.id}}" class="form-control" maxlength="50" placeholder="{% trans 'Comment' %}" value="{{card.comment}}">
                   </p>
               </div>
               </td>
@@ -107,27 +108,27 @@ $('.collapse').on('show.bs.collapse', function () {
                         <div class="table">
                           <div class="row">
                             <div class="col-md">
-                              <p class="font-weight-bold"><span class="form-control-plaintext text-white">Comment</span>
-                              <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
+                              <p class="font-weight-bold"><span class="form-control-plaintext text-white">{% trans 'Comment' %}</span>
+                              <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="{% trans 'Comment for this MultiCard' %}" value="{{multicard.comment}}">
                             </p>
                             </div>
                             <div class="col-md">
-                              <p class="font-weight-bold"><span class="form-control-plaintext text-white">Definition</span>
-                                <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                              <p class="font-weight-bold"><span class="form-control-plaintext text-white">{% trans 'Definition' %}</span>
+                                <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="{% trans 'Definition for this MultiCard' %}" value="{{multicard.definition}}">
                             </p>
                             </div>
                           </div>
                           <div class="row">
                             <div class="col-md align-self-center">
-                              <input type="submit" class="btn btn-block btn-outline-warning" value="Save changes" data-toggle="tooltip" data-placement="bottom" title="To see changes refresh the page.">
+                              <input type="submit" class="btn btn-block btn-outline-warning" value="{% trans 'Save changes' %}" data-toggle="tooltip" data-placement="bottom" title="{% trans 'To see the changes refresh the page.' %}">
                             </div>
                             <form></form>
                             <div class="col align-self-center">
-                              <a href="."><button type="button" class="btn btn-block btn-outline-info">Refresh</button></a>
+                              <a href="."><button type="button" class="btn btn-block btn-outline-info">{% trans 'Refresh' %}</button></a>
                             </div>
                             <div class="col align-self-center">
                               <form method="POST" action="{% url 'delete_multicards' set_id=folder.id m_card_id=multicard.id %}">{% csrf_token %}
-                                <input type="submit" class="btn btn-block btn-outline-danger mt-3" value="Delete">
+                                <input type="submit" class="btn btn-block btn-outline-danger mt-3" value="{% trans 'Delete' %}">
                               </form>
                             </div>
                           </div>

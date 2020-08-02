@@ -57,9 +57,9 @@
         {% for k, v in langs %}
         <td>
           {% if forloop.counter == 1 %}
-          <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="{% blocktrans %}{{k|upper}} word{% endblocktrans %}">
+          <input type="text" name="main{{k}}" class="form-control" maxlength="50" required placeholder="{% blocktrans with lang=k|upper %}{{lang}} word{% endblocktrans %}">
           {% else %}
-          <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} word{% endblocktrans %}">
+          <input type="text" name="main{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans with lang=k|upper %}{{lang}} word{% endblocktrans %}">
           {% endif %}
         </td>
         {% endfor %}
@@ -68,7 +68,7 @@
         <td><b>{% trans 'Pronunciation' %}</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} pronunciation{% endblocktrans %}">
+          <input type="text" name="pronunciation{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans with lang=k|upper %}{{lang}} pronunciation{% endblocktrans %}">
         </td>
         {% endfor %}
       </tr>
@@ -76,7 +76,7 @@
         <td><b>{% trans 'Synonym' %}</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} synonym{% endblocktrans %}">
+          <input type="text" name="synonyms{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans with lang=k|upper %}{{lang}} synonym{% endblocktrans %}">
         </td>
         {% endfor %}
       </tr>
@@ -84,7 +84,7 @@
         <td><b>{% trans 'Comment' %}</b></td>
         {% for k, v in langs %}
         <td>
-          <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans %}{{k|upper}} comment{% endblocktrans %}">
+          <input type="text" name="comment{{k}}" class="form-control" maxlength="50" placeholder="{% blocktrans with lang=k|upper %}{{lang}} comment{% endblocktrans %}">
         </td>
         {% endfor %}
       </tr>

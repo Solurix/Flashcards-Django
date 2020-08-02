@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block title %}
-No access
+{% trans 'No access' %}
 {% endblock title %}
 
 {% block styles %}
@@ -15,10 +16,10 @@ No access
       <br/>
       <br/>
       <br/>
-    <h3>This folder is currently being updated.</h3>
-<h5>Please wait for all automatic translations to finish before changing this folder.</h5>
+    <h3>{% trans 'This folder is currently being updated.' %}</h3>
+<h5>{% trans 'Please wait for all automatic translations to finish before changing this folder.' %}</h5>
     <br/>
-              <a class="btn btn-block btn-outline-light" href="{% url 'refresh_update' set_id=folder.id %}">Refresh</a>
+              <a class="btn btn-block btn-outline-light" href="{% url 'refresh_update' set_id=folder.id %}">{% trans 'Refresh' %}</a>
       <br/>
       <br/>
   </div>
