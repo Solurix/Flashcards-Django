@@ -106,7 +106,7 @@ msgstr ""
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29
 msgid "Cebuano"
-msgstr ""
+msgstr "cebuano"
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
 msgid "Chichewa"
@@ -501,7 +501,7 @@ msgstr "Nauka"
 #: Cards/templates/Cards/learn/learn.html:14
 #: Cards/templates/Cards/public_sets.html:54 templates/admin/index.html:38
 msgid "View"
-msgstr "Otwórz"
+msgstr "Wgląd"
 
 #: Cards/templates/Cards/add_many.html:14
 #: Cards/templates/Cards/add_multicard.html:15
@@ -585,8 +585,7 @@ msgstr "Tutaj możesz stworzyć nową MultiKartę dla %(name)s."
 
 #: Cards/templates/Cards/add_multicard.html:25
 msgid "Only one word of the first language is required. The rest is optional."
-msgstr ""
-"Tylko wyraz z pierwszego języka wymagana. Pozostałe pola są opcjonalne."
+msgstr "Tylko wyraz w pierwszym języku jest wymagany. Reszta jest opcjonalna."
 
 #: Cards/templates/Cards/add_multicard.html:26
 msgid "You can add many words at once here."
@@ -615,13 +614,13 @@ msgstr "Język"
 #: Cards/templates/Cards/edit_multicards.html:78
 #: Cards/templates/Cards/edit_multicards.html:89
 msgid "Word"
-msgstr "Słowo"
+msgstr "Wyraz"
 
 #: Cards/templates/Cards/add_multicard.html:60
 #: Cards/templates/Cards/add_multicard.html:62
 #, python-format
 msgid "%(lang)s word"
-msgstr ""
+msgstr "%(lang)s wyraz"
 
 #: Cards/templates/Cards/add_multicard.html:68
 #: Cards/templates/Cards/edit_multicards.html:79
@@ -631,10 +630,8 @@ msgid "Pronunciation"
 msgstr "Wymowa"
 
 #: Cards/templates/Cards/add_multicard.html:71
-#, fuzzy, python-format
-#| msgid "Pronunciation"
 msgid "%(lang)s pronunciation"
-msgstr "Wymowa"
+msgstr "%(lang)s wymowa" 
 
 #: Cards/templates/Cards/add_multicard.html:76
 #: Cards/templates/Cards/edit_multicards.html:80
@@ -646,12 +643,12 @@ msgstr "Synonim"
 #: Cards/templates/Cards/add_multicard.html:79
 #, python-format
 msgid "%(lang)s synonym"
-msgstr ""
+msgstr "%(lang)s synonim "
 
 #: Cards/templates/Cards/add_multicard.html:87
 #, python-format
 msgid "%(lang)s comment"
-msgstr ""
+msgstr "%(lang)s komentarz"
 
 #: Cards/templates/Cards/copy_set.html:5
 msgid "Copy set"
@@ -693,14 +690,13 @@ msgid "You can change the view back to single edit here."
 msgstr "Możesz zmienić widok spowrotem do pojedynczych edycji tutaj."
 
 #: Cards/templates/Cards/edit_multicards.html:38
-#, fuzzy
 #| msgid "You can add many words at once here."
 msgid "You can change view to edit all you cards at once here."
-msgstr "Możesz dodać wiele słów jednocześnie tutaj."
+msgstr "Możesz zmienić widok by dodać wiele słów jednocześnie tutaj."
 
 #: Cards/templates/Cards/edit_multicards.html:78
 msgid "W"
-msgstr ""
+msgstr "W"
 
 #: Cards/templates/Cards/edit_multicards.html:79
 msgid "P"
@@ -708,30 +704,28 @@ msgstr ""
 
 #: Cards/templates/Cards/edit_multicards.html:80
 msgid "S"
-msgstr ""
+msgstr "S"
 
 #: Cards/templates/Cards/edit_multicards.html:81
 msgid "C"
-msgstr ""
+msgstr "K"
 
 #: Cards/templates/Cards/edit_multicards.html:112
-#, fuzzy
-#| msgid "Create new MultiCard"
 msgid "Comment for this MultiCard"
-msgstr "Stwórz nowy zestaw"
+msgstr "Komentarz dla tej MultiKarty"
 
 #: Cards/templates/Cards/edit_multicards.html:117
 msgid "Definition for this MultiCard"
-msgstr ""
+msgstr "Definicja dla tej MultiKarty"
 
 #: Cards/templates/Cards/edit_multicards.html:123
 msgid "To see the changes refresh the page."
-msgstr ""
+msgstr "Odśwież stronę by zobaczyć zmiany."
 
 #: Cards/templates/Cards/edit_multicards.html:127
 #: Cards/templates/Cards/folder_being_updated.html:22
 msgid "Refresh"
-msgstr ""
+msgstr "Odśwież"
 
 #: Cards/templates/Cards/edit_multicards.html:131
 #: Cards/templates/Cards/index.html:69 Cards/templates/Cards/index.html:148
@@ -748,17 +742,17 @@ msgstr "Pierwszy język zestawu nie może zostać zmieniony."
 
 #: Cards/templates/Cards/folder_being_updated.html:5
 msgid "No access"
-msgstr ""
+msgstr "Brak dostępu"
 
 #: Cards/templates/Cards/folder_being_updated.html:19
 msgid "This folder is currently being updated."
-msgstr ""
+msgstr "Ten zestaw jest aktualnie uaktualniany."
 
 #: Cards/templates/Cards/folder_being_updated.html:20
 msgid ""
 "Please wait for all automatic translations to finish before changing this "
 "folder."
-msgstr ""
+msgstr "Poczekaj na uzupełnienie się wszystkich automatyczncyh tłumaczeń przed zmianami."
 
 #: Cards/templates/Cards/index.html:5
 #, python-format
@@ -801,30 +795,21 @@ msgid "Edit"
 msgstr "Edytuj"
 
 #: Cards/templates/Cards/index.html:109
-#, fuzzy
-#| msgid ""
-#| "Page needs to be refreshed to see the changes.\n"
-#| "                If new translations doesn't seem to appear, Click me."
 msgid ""
 "Page needs to be refreshed to see the changes. If new translations does not "
 "seem to appear, Click me."
 msgstr ""
 "By zobaczyć zmiany, strona musi zostać odświeżona.\n"
-"                Jeżeli nowe tłumaczenia wydają się nie pojawiać, kliknij "
-"tutaj."
+"                Jeżeli nowe tłumaczenia wydają się nie pojawiać, kliknij tutaj."
 
 #: Cards/templates/Cards/index.html:109
 #: Cards/templates/Cards/public_sets.html:92
 #: Cards/templates/Cards/view_set.html:81
 #: Cards/templates/Cards/view_set_public.html:60
 msgid "loading..."
-msgstr ""
+msgstr "ładowanie..."
 
 #: Cards/templates/Cards/index.html:111
-#, fuzzy
-#| msgid ""
-#| "Looks like a translation error have occurred.\n"
-#| "                Click me to repeat translation process."
 msgid ""
 "Looks like a translation error have occurred. Click me to repeat translation "
 "process."
@@ -834,7 +819,7 @@ msgstr ""
 
 #: Cards/templates/Cards/index.html:111
 msgid "Translation error"
-msgstr ""
+msgstr "Błąd tłumaczenia"
 
 #: Cards/templates/Cards/index.html:129
 msgid "There are no cards in this set."
@@ -855,7 +840,7 @@ msgstr "Anuluj"
 
 #: Cards/templates/Cards/learn/learn.html:25
 msgid "Choose how would you like to learn."
-msgstr ""
+msgstr "Wybierz jak chciałbyś się uczyć."
 
 #: Cards/templates/Cards/learn/learn.html:26
 msgid ""
@@ -866,19 +851,17 @@ msgstr ""
 #: Cards/templates/Cards/learn/learn.html:32
 #: Cards/templates/Cards/view_set.html:48
 msgid "Write"
-msgstr ""
+msgstr "Pisanie"
 
 #: Cards/templates/Cards/learn/learn.html:33
 #: Cards/templates/Cards/view_set.html:51
-#, fuzzy
-#| msgid "Multi-FlashCards"
 msgid "Flashcards"
-msgstr "Mutli-Fiszki"
+msgstr "Fiszki"
 
 #: Cards/templates/Cards/learn/learn.html:35
 #: Cards/templates/Cards/view_set.html:55
 msgid "You do not have enough MultiCards in this set to start learning."
-msgstr ""
+msgstr "Nie masz dosyć MultiKart w tym zestawie by rozpocząć naukę."
 
 #: Cards/templates/Cards/learn/learn.html:36
 #: Cards/templates/Cards/view_set.html:56
