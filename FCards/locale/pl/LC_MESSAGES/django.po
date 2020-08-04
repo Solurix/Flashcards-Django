@@ -870,39 +870,35 @@ msgstr ""
 
 #: Cards/templates/Cards/learn/learn_write.html:5
 msgid "Learn by writing"
-msgstr ""
+msgstr "Nauka poprzez pisanie"
 
 #: Cards/templates/Cards/learn/learn_write.html:20
 msgid "Write translations"
-msgstr ""
+msgstr "Napisz tłumaczenie"
 
 #: Cards/templates/Cards/learn/learn_write.html:34
-#, fuzzy
-#| msgid "Your account"
 msgid "Your answer"
-msgstr "Twój komentarz"
+msgstr "Twoja odpowiedź"
 
 #: Cards/templates/Cards/learn/learn_write.html:35
 msgid "Correct answer"
-msgstr ""
+msgstr "Prawidłowa odpowiedź"
 
 #: Cards/templates/Cards/learn/learn_write.html:36
 msgid "Progress"
-msgstr ""
+msgstr "Postęp"
 
 #: Cards/templates/Cards/learn/learn_write.html:80
 msgid "Write translation below"
-msgstr ""
+msgstr "Napisz tłumaczenia poniżej"
 
 #: Cards/templates/Cards/learn/learn_write.html:97
 msgid "Next"
-msgstr ""
+msgstr "Następny"
 
 #: Cards/templates/Cards/public_sets.html:36
-#, fuzzy
-#| msgid "Public sets"
 msgid "Here are public sets."
-msgstr "Zestawy publiczne"
+msgstr "Tutaj są zestawy publiczne"
 
 #: Cards/templates/Cards/public_sets.html:37
 #, fuzzy
@@ -912,83 +908,68 @@ msgstr "Kliknij na zestaw by zobaczyć szczegóły."
 
 #: Cards/templates/Cards/public_sets.html:55
 #: Cards/templates/Cards/view_set_public.html:25
-#, fuzzy
-#| msgid "Copy set"
 msgid "Copy Set"
-msgstr "Skopiuj zestaw"
+msgstr "Skopiuj Zestaw"
 
 #: Cards/templates/Cards/public_sets.html:63
 msgid "Author:"
-msgstr ""
+msgstr "Autor"
 
 #: Cards/templates/Cards/public_sets.html:103
 #: Cards/templates/Cards/view_set.html:120
 #: Cards/templates/Cards/view_set_public.html:98
-#, fuzzy
-#| msgid "There are no cards in this set."
 msgid "There are no cards for this set."
 msgstr "Brak kart w tym zestawie."
 
 #: Cards/templates/Cards/view_set.html:95
 msgid "Progress:"
-msgstr ""
+msgstr "Postęp:"
 
 #: Cards/templates/Cards/view_set.html:100
-#, fuzzy
-#| msgid "Pronunciation"
 msgid "Pronunciation:"
-msgstr "Wymowa"
+msgstr "Wymowa:"
 
 #: Cards/templates/Cards/view_set.html:103
-#, fuzzy
-#| msgid "Synonym"
 msgid "Synonym:"
-msgstr "Synonim"
+msgstr "Synonim:"
 
 #: Cards/templates/Cards/view_set.html:106
-#, fuzzy
-#| msgid "Definition"
 msgid "Definition:"
-msgstr "Definicja"
+msgstr "Definicja:"
 
 #: Cards/templates/Cards/view_set.html:109
-#, fuzzy
-#| msgid "Comment"
 msgid "Comment:"
-msgstr "Komentarz"
+msgstr "Komentarz:"
 
 #: Cards/templates/Cards/view_set.html:127
 msgid "Reset Progress"
-msgstr ""
+msgstr "Zresetuj postęp"
 
 #: Cards/templates/Cards/view_set.html:131
 msgid "Make private"
-msgstr ""
+msgstr "Zmień na prywatny"
 
 #: Cards/templates/Cards/view_set.html:133
 msgid "Make public"
-msgstr ""
+msgstr "Zmień na publiczny"
 
 #: Cards/templates/Cards/view_set.html:137
-#, fuzzy
-#| msgid "Delete"
 msgid "Delete set"
-msgstr "Usuń"
+msgstr "Usuń zestaw"
 
 #: Cards/templates/Cards/view_set.html:149
 #, python-format
 msgid "Delete %(folder)s?"
-msgstr ""
+msgstr "Usunąć %(folder)s? "
 
 #: Cards/templates/Cards/view_set.html:155
-#, fuzzy, python-format
-#| msgid "Are you sure you want to delete set "
+#,, python-format
 msgid "Are you sure you want to delete set \"%(folder)s\"?"
-msgstr "Czy na pewno chcesz usunąć ten zestaw?"
+msgstr "Czy na pewno chcesz usunąć ten zestaw \"%(folder)s\"?"
 
 #: Cards/templates/Cards/view_set.html:160
 msgid "Yes, delete it."
-msgstr ""
+msgstr "Tak, usuń."
 
 #: Cards/templates/Cards/view_set.html:162
 #: accounts/templates/accounts/overview.html:110
@@ -997,7 +978,7 @@ msgstr "Zamknij"
 
 #: Cards/templates/Cards/view_set_public.html:75
 msgid "Auto-translated"
-msgstr ""
+msgstr "Auto-tłumaczenie"
 
 #: Cards/templates/base.html:39
 msgid "Feedback"
@@ -1018,7 +999,7 @@ msgstr ""
 
 #: Cards/templates/base.html:62
 msgid "Write here and press [Enter]."
-msgstr "Napisz tutaj i kliknij [Enter]."
+msgstr "Napisz tutaj"
 
 #: Cards/templates/base.html:73
 msgid "Home"
@@ -1168,17 +1149,19 @@ msgstr "Jak się tutaj dostałeś, hm?"
 
 #: accounts/templates/errors/500.html:4
 msgid "Server error"
-msgstr ""
+msgstr "Błąd serwera"
 
 #: accounts/templates/errors/500.html:15
 msgid "Error 500: Server error"
-msgstr ""
+msgstr "Błąd 500: Błąd serwera"
 
 #: accounts/templates/errors/500.html:18
 msgid ""
 "Ups, looks like you have done something you weren't supposed to do. If this "
 "error occurs again and you don't know why, please contact me."
 msgstr ""
+"UPS, wygląda no to, że zrobiłeś coś czego nie przewidziałem."
+"Jeżeli ten błąd wystąpi ponownie i nie wiesz dlaczego, napisz do mnie."
 
 #: accounts/templates/registration/logged_out.html:5
 msgid "Logged out"
@@ -1222,11 +1205,11 @@ msgstr "Zapomniałeś hasła? Kliknij tutaj."
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "Your password has been set. You may go ahead and"
-msgstr ""
+msgstr "Twoje hasło zostało ustawione. Możesz się "
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "log in"
-msgstr ""
+msgstr "zalogować"
 
 #: accounts/templates/registration/password_reset_confirm.html:17
 msgid ""
@@ -1327,16 +1310,15 @@ msgstr "Powtórz hasło"
 
 #: accounts/templates/registration/sign_up.html:68
 msgid "Your password can’t be too similar to your other personal information."
-msgstr ""
-"Hasło nie może być zbyt podobne do Twoich pozostałych danych osobowych."
+msgstr "Hasło nie może być zbyt podobne do Twoich pozostałych danych osobowych."
 
 #: accounts/templates/registration/sign_up.html:69
 msgid "Your password must contain at least 8 characters."
-msgstr "Haslo musi zawierać przynajmniej 8 znaków."
+msgstr "Hasło musi zawierać przynajmniej 8 znaków."
 
 #: accounts/templates/registration/sign_up.html:70
 msgid "Your password can’t be a commonly used password."
-msgstr "Haslo nie może być powszechnie używanym hasłem."
+msgstr "Hasło nie może być powszechnie używanym hasłem."
 
 #: accounts/templates/registration/sign_up.html:71
 msgid "Your password can’t be entirely numeric."
