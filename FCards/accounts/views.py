@@ -50,6 +50,17 @@ def delete_account(request):
     user.save()
     return redirect('home')
 
+@login_required
+def navbar_collapsed(request):
+    user = request.user
+    if user.profile.navbar_collapsed:
+        user.profile.navbar_collapsed = False
+    else:
+        user.profile.navbar_collapsed = True
+    user.profile.save()
+    print('success')
+    return HttpResponse(status=204)
+
 
 def sign_up(request):
     if request.method == 'POST':

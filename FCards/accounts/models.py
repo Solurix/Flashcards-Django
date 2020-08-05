@@ -8,6 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.TextField(max_length=500, blank=True)
     confirmed = models.BooleanField(default=False)
+    navbar_collapsed = models.BooleanField(default=False)
 
 
 class Feedback(models.Model):

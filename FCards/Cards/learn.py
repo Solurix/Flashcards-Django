@@ -1,13 +1,15 @@
+from django.http import HttpResponse
 from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from .models import CardFolder, MultiCard, Card
 import random as rd
+from datetime import datetime, timedelta
 
 
 @login_required
 def learn(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
-    enough = len(folder.multicard_set.all()) > 2
+    enough = len(folder.multicard_set.all()) > 3
     context = {'folder': folder, 'enough': enough}
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
@@ -110,41 +112,26 @@ def flashcards(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return render(request, 'Cards/no_access.html')
-    length = len(folder.get_langs())
+    # length = len(folder.get_langs())
     lang_keys = folder.get_langs(item='key')
     lang_full = folder.get_langs(item='value')
-
-    if length == 2:
-        return flashcards_2(request, folder, lang_keys, lang_full)
-    else:
-        return render(request, 'Cards/learn/under_production.html')
-    # elif length == 3:
-    #     flashcards_3(request, folder, lang_keys, lang_full)
-    # else:
-    #     flashcards_4(request, folder, lang_keys, lang_full)
-
-
-def flashcards_2(request, folder, lang_keys, lang_full):
-
     context = {
-        'previous': False,
         'folder': folder,
         "lang_keys": lang_keys,
         'lang_full': lang_full,
-        'reverse': False,
-        'back_color': 'blue',
-        'front_color': 'green',
         # front, back, mcard_id,
     }
 
     if request.method == "POST":
-        previous_back = Card.objects.get(id=request.POST['card_id'])
-        context['previous'] = previous_back
-        progress = request.POST['progress']
-        if progress == 'Delete this MultiCard':
+        submit = request.POST['progress']
+        if submit == 'Delete this MultiCard':
             multicard = MultiCard.objects.get(id=request.POST['multicard_id'])
             multicard.delete()
+            return redirect(request.META['HTTP_REFERER'])
         else:
+            card_no = request.POST['card_no']
+            card_id = request.POST['card' + str(card_no)]
+            card = Card.objects.get(id=card_id)
             choices = {
                 'Easily!': (40, 20),
                 'Yes': (25, 12),
@@ -154,36 +141,86 @@ def flashcards_2(request, folder, lang_keys, lang_full):
                 'I have already mastered it!': (100, 100),
                 'Reset my progress on this.': (-100, 1),
             }
-            score_priority = choices[progress]
-            previous_back.add_score_flashcards(score_priority)
+            score_priority = choices[submit]
+            card.add_score_flashcards(score_priority)
+            return HttpResponse(status=204)
 
-    multicards = MultiCard.objects.filter(cards_folder=folder, mastered=False).order_by('priority', 'score')
-    if context['previous']:
-        multicards = multicards.exclude(id=request.POST['multicard_id'])
+    time_threshold = datetime.now() - timedelta(minutes=1)
+    print(time_threshold)
+    multicards = MultiCard.objects.filter(cards_folder=folder, mastered=False,
+                                          last_studied__lt=time_threshold).order_by('priority', 'score')
     multicard = multicards.first()
+
     if multicard is None:
         return render(request, 'Cards/learn/no_cards_to_learn.html', context)
-    front = Card.objects.get(multi_card=multicard, language=lang_keys[0])
-    back = Card.objects.get(multi_card=multicard, language=lang_keys[1])
-    if front.score < back.score:
-        front, back = back, front
-        context["reverse"] = True
-        context['back_color'] = 'green'
-        context['front_color'] = 'blue'
-    context['front'] = front
-    context['back'] = back
-    context['multicard_id'] = multicard.id
-    return render(request, 'Cards/learn/learn_flashcards_2.html', context)
+
+    cards = []
+    for lang in lang_keys:
+        cards.append(Card.objects.get(multi_card=multicard, language=lang))
+
+    cards.sort(key=lambda x: x.score, reverse=True)
+    print(cards)
+    count = len(cards)
+    context['multicard'] = multicard
+    context['cards'] = cards
+    context['no'] = count
+    angle = 360 / count
+    angles = []
+    for i in range(count):
+        angles.append(int(i * angle))
+    context['angles'] = angles
+    context['special'] = 400
+
+    return render(request, 'Cards/learn/learn_flashcards.html', context)
 
 
+# def flashcards_2(request, folder, lang_keys, lang_full):
+#     context = {
+#         'previous': False,
+#         'folder': folder,
+#         "lang_keys": lang_keys,
+#         'lang_full': lang_full,
+#         'reverse': False,
+#         'back_color': 'blue',
+#         'front_color': 'green',
+#         # front, back, mcard_id,
+#     }
+#
+#     if request.method == "POST":
+#         previous_back = Card.objects.get(id=request.POST['card_id'])
+#         context['previous'] = previous_back
+#         progress = request.POST['progress']
+#         if progress == 'Delete this MultiCard':
+#             multicard = MultiCard.objects.get(id=request.POST['multicard_id'])
+#             multicard.delete()
+#         else:
+#             choices = {
+#                 'Easily!': (40, 20),
+#                 'Yes': (25, 12),
+#                 'Barely': (8, 9),
+#                 'Almost': (1, 6),
+#                 'Nope': (-30, 2),
+#                 'I have already mastered it!': (100, 100),
+#                 'Reset my progress on this.': (-100, 1),
+#             }
+#             score_priority = choices[progress]
+#             previous_back.add_score_flashcards(score_priority)
+#
+#     multicards = MultiCard.objects.filter(cards_folder=folder, mastered=False).order_by('priority', 'score')
+#     if context['previous']:
+#         multicards = multicards.exclude(id=request.POST['multicard_id'])
+#     multicard = multicards.first()
+#     if multicard is None:
+#         return render(request, 'Cards/learn/no_cards_to_learn.html', context)
+#     front = Card.objects.get(multi_card=multicard, language=lang_keys[0])
+#     back = Card.objects.get(multi_card=multicard, language=lang_keys[1])
+#     if front.score < back.score:
+#         front, back = back, front
+#         context["reverse"] = True
+#         context['back_color'] = 'green'
+#         context['front_color'] = 'blue'
+#     context['front'] = front
+#     context['back'] = back
+#     context['multicard_id'] = multicard.id
+#     return render(request, 'Cards/learn/learn_flashcards_2.html', context)
 
-def flashcards_3(request, folder, lang_keys, lang_full):
-    return render(request, 'Cards/learn/learn_flashcards_3.html', 'context')
-
-
-def flashcards_4(request, folder, lang_keys, lang_full):
-    return render(request, 'Cards/learn/learn_flashcards_4.html', 'context')
-
-# https://3dtransforms.desandro.com/3d-transform-functions
-# TODO add buttons to score
-# TODO modify model function for scoring

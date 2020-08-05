@@ -1,0 +1,275 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load get_obj %}
+
+{% block title %}
+{{folder.name}}
+{% endblock %}
+
+{% block styles %}
+<style>
+* { box-sizing: border-box; }
+
+body { font-family: sans-serif; }
+
+.scene {
+  border: 0px solid #CCC;
+  margin: 40px 0;
+  position: relative;
+  width: 110%;
+  max-width: 500px;
+  height: 300px;
+  margin: 40px auto;
+  perspective: 320px;
+}
+
+.carousel {
+  width: 90%;
+  height: 100%;
+  position: absolute;
+  transform: translateZ(-{{special}}px);
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.carousel__cell {
+  position: absolute;
+  width: 100%;
+  min-width: 200px;
+  height: 100%;
+  left: 0px;
+  top: 0px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  border: 2px solid black;
+  line-height: 150%;
+  font-size: 28px;
+  font-weight: ;
+  color: white;
+  text-align: center;
+}
+
+{% for card in cards %}
+.carousel__cell:nth-child(3n+{{forloop.counter}}) { background: hsla( 275, 100%, 20%, 0.95); }
+{% endfor %}
+
+{% for angle in angles %}
+.carousel__cell:nth-child({{forloop.counter}}) { transform: rotateY(  {{angle}}deg) translateZ({{special}}px); }
+{% endfor %}
+
+
+
+
+
+
+
+
+
+
+
+
+</style>
+{% endblock %}
+{% block nav_buttons %}
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
+
+{% endblock nav_buttons %}
+
+{% block body %}
+<div class="p-3 mb-2 bg-dark text-white">
+  <div class="progress my-2">
+    <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
+         id="progressbar"
+         style="width: {{cards.0.score}}%;" aria-valuenow="{{cards.0.score}}" aria-valuemin="0" aria-valuemax="100">
+      <b id="score_text">{{cards.0.score}}%</b>
+    </div>
+  </div>
+  <div class="card-deck">
+    <div class="card text-white bg-dark px-5" style="min-width: 260px;">
+      <div class="scene my-1">
+        <div class="carousel">
+          {% for card in cards %}
+          <div class="carousel__cell">{{card.main}}</div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="card text-white bg-dark" style="min-width: 260px;">
+      <div class="row">
+        <div class="col">
+          <input type="button" class="previous-button btn btn-outline-light btn-block"
+                 value="{% with cards|last as last %}⇦ {{last.language|get_lang}}{% endwith %}">
+
+        </div>
+        <div class="col">
+          <input type="button" class="next-button btn btn-outline-light btn-block"
+                 value="{{cards.1.language|get_lang}} ⇨">
+        </div>
+      </div>
+
+      <div id="scores" style="display:none;" class="answer_list">
+        <form method="POST" action=".">{% csrf_token %}
+          {% for card in cards %}
+          <input type="hidden" name="card{{forloop.counter0}}" value="{{card.id}}"/>
+          {% endfor %}
+
+          <input type="hidden" name="multicard_id" value="{{multicard_id}}"/>
+          <input type="hidden" value="0" name="card_no" id="card_no">
+
+          <label class="py-1">Did you get that?</label><br>
+          <div class="row row-cols-3">
+            <div class="col">
+              <input type="submit" class="btn btn-block px-1 my-1 btn-outline-success" name="progress"
+                     value="Easily!" onclick="hide(0)">
+            </div>
+            <div class="col">
+              <input type="submit" onclick="hide(1)" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress"
+                     value="Yes">
+            </div>
+            <div class="col">
+              <input type="submit" onclick="hide(2)" class="btn btn-block px-1 my-1 btn-outline-info" name="progress"
+                     value="Barely">
+            </div>
+            <div class="col">
+              <input type="submit" onclick="hide(3)" class="btn btn-block px-1 my-1 btn-outline-warning" name="progress"
+                     value="Almost">
+            </div>
+            <div class="col">
+              <input type="submit" onclick="hide(4)" class="btn btn-block px-1 my-1 btn-outline-danger" name="progress"
+                     value="Nope">
+            </div>
+            <div class="col">
+              <button id="btnGroupDrop1" type="button"
+                      class="btn btn-block px-1 my-1 btn-outline-light dropdown-toggle"
+                      data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Other
+              </button>
+              <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="btnGroupDrop1">
+                <input type="submit" class="dropdown-item" onclick="hide(5)" name="progress"
+                       value="I have already mastered it!">
+                <div class="dropdown-divider"></div>
+                <input type="submit" class="dropdown-item" onclick="hide(6)" name="progress"
+                       value="Reset my progress on this.">
+                <div class="dropdown-divider"></div>
+                <input type="submit" class="dropdown-item" name="progress" value="Delete this MultiCard">
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+      <div id="result">
+        <br>
+        <p id="result_text"></p>
+        {% for card in cards %}
+        <div id="detail{{forloop.counter0}}" style="display:none;">
+          <p>{% if card.comment %}{% trans 'Comment:' %} {{card.comment}}</p>{% endif %}
+          <p>{% if card.pronunciation %}{% trans 'Pronunciation:' %} {{card.pronunciation}}</p>{% endif %}
+          <p>{% if card.synonym %}{% trans 'Synonym:' %} {{card.synonym}}</p>{% endif %}
+        </div>
+        {% endfor %}
+        <div id="next" style="display:none;">
+          <button onClick="window.location.reload();" class="btn btn-outline-success btn-block">Next MultiCard</button>
+        </div>
+        <p id="greeting_text">
+          {% blocktrans %}You see the card in one language. Think about the translation before moving to next language.{% endblocktrans %}
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+var carousel = document.querySelector('.carousel');
+var cellCount = {{no}};
+var selectedIndex = 0;
+var answered = 0;
+var answered_cards = [];
+var langs = [];
+var progresses = [];
+{% for card in cards %}
+langs.push("{{card.language|get_lang}}");
+progresses.push({{card.score}});
+{% endfor %}
+var next_count = 0;
+
+function rotateCarousel() {
+  var angle = selectedIndex / cellCount * -360;
+  carousel.style.transform = 'translateZ(-{{special}}px) rotateY(' + angle + 'deg)';
+}
+
+function hide(nr) {
+  document.getElementById('scores').style.display = "none";
+  answered ++;
+  if (answered == {{no}}) {
+    document.getElementById('next').style.display = "block";
+  }
+  document.getElementById('result').style.display = "block";
+  document.getElementById('result_text').innerHTML = {% blocktrans %}"Good job! Keep going! " + String({{no}} - answered) + " left."{% endblocktrans %};
+  answered_cards.push(String(next_count));
+  document.getElementById('detail'+String(next_count)).style.display = "block";
+  }
+
+function change_display() {
+    var i;
+    for (i = 0; i < {{no}}; i++) {
+      document.getElementById('detail'+String(i)).style.display = "none";
+    }
+  document.getElementById('greeting_text').style.display = "none";
+  document.getElementById('result_text').innerHTML = ""
+  document.getElementById('card_no').value = next_count;
+  document.getElementById('progressbar').value = progresses[next_count];
+  document.getElementById('progressbar').style.width = String(progresses[next_count])+"%";
+  document.getElementById('score_text').innerHTML = progresses[next_count]+"%";
+
+  if (answered_cards.includes(String(next_count))) {
+    document.getElementById('scores').style.display = "none";
+    document.getElementById('detail'+String(next_count)).style.display = "block";
+    document.getElementById('result_text').innerHTML = "{% trans 'You have already answered this question, keep going!' %}"
+  } else {
+    document.getElementById('scores').style.display = "block";
+    document.getElementById('detail'+String(next_count)).style.display = "none";
+  }}
+
+var prevButton = document.querySelector('.previous-button');
+prevButton.addEventListener( 'click', function() {
+  selectedIndex--;
+  rotateCarousel();
+
+  next_count --;
+  if (next_count < 0 ){
+  next_count = ({{no}} -1);
+  };
+  nextButton.value = langs[(next_count + 1) % {{no}}]+" ⇨";
+  prevButton.value = "⇦ "+langs[(next_count + {{no}} -1) % {{no}}];
+  change_display();
+});
+
+var nextButton = document.querySelector('.next-button');
+nextButton.addEventListener( 'click', function() {
+  selectedIndex++;
+  rotateCarousel();
+
+  next_count ++;
+  if (next_count > ({{no}} -1)){
+  next_count = 0;
+  };
+  nextButton.value = langs[(next_count + 1) % {{no}}]+" ⇨";
+  prevButton.value = "⇦ "+langs[(next_count + {{no}} -1) % {{no}}];
+  change_display();
+});
+
+
+
+
+
+
+
+
+
+
+
+</script>
+{% endblock %}

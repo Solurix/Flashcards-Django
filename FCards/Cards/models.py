@@ -1,6 +1,7 @@
 from django.db import models
 from . import langcodes
 from django.contrib.auth.models import User
+from datetime import datetime
 # from googletrans import Translator
 # from django.db.models import F
 
@@ -68,6 +69,7 @@ class MultiCard(models.Model):
     mastered = models.BooleanField(default=False)
     priority = models.SmallIntegerField(default=10)
     being_edited = models.BooleanField(default=False)
+    last_studied = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return str(self.id)
@@ -155,6 +157,7 @@ class Card(models.Model):
         # MultiCard.objects.filter(cards_folder=self.cards_folder).update(priority=F('priority') - 1)
         if self.multi_card.priority < 2:
             self.multi_card.priority = 2
+        self.multi_card.last_studied = datetime.now()
         self.multi_card.save()
         self.save()
 

@@ -5,7 +5,7 @@
 <head>
     <!-- Meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="initial-scale=1, shrink-to-fit=no">
 
     <title>
         {% block title %}
@@ -36,7 +36,7 @@
     <div class="bg-dark p-4">
       <div class="row">
         <div class="col">
-          <h5 class="text-white h4">{% trans 'Feedback' %}</h5>
+          <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">{% trans 'Log out' %}</button></a>
         </div>
         <div class="ml-auto" style="max-width: 300px;">
           <form action="{% url 'change_language' %}" method="post">
@@ -55,6 +55,7 @@
           </form>
         </div>
         </div>
+      <h5 class="text-white h4">{% trans 'Feedback' %}</h5>
       <span class="text-muted">{% trans "Hello, " %}{{user.username}}.</span><br/>
       <span class="text-muted">{% trans "Do you have some brilliant idea what could appear here? Do you have some suggestions to change in the website or found a bug? I would be glad to hear from you!" %}</span>
       <form method="post" action="{% url 'opinion' %}">{% csrf_token %}
@@ -67,7 +68,7 @@
       <b>↑</b>
     </button>
   </div>
-<div class="collapse show" id="navbar">
+<div class="{% if user.profile.navbar_collapsed %}collapse{% else %}collapse show{% endif %}" id="navbar">
 <nav class="navbar navbar-dark bg-dark ">
 
     <a href="{% url 'home' %}"><button type="button" class="btn btn-outline-success my-1">{% trans 'Home' %}</button></a>
@@ -75,22 +76,23 @@
     {% block nav_buttons %}
     {% endblock nav_buttons %}
 
-    <a href="{% url 'logout' %}"><button type="button" class="btn btn-outline-danger">{% trans 'Log out' %}</button></a>
-
     <div class="btn-group-vertical">
     <a type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent,#navbar" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-      <b>{%trans '↓ Feedback' %}</b></a>
-    <a type="button" data-toggle="collapse" data-target="#navbar,#navbar2" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
-      <b>{%trans '↑ Collapse' %}</b></a>
+      <b>{%trans '↓ Expand' %}</b></a>
+      <a href="{% url 'navbar_collapsed' %}">
+    <div style="color: white;" data-toggle="collapse" data-target="#navbar,#navbar2" aria-controls="navbarToggleExternalContent" aria-expanded="true" aria-label="Toggle navigation">
+      <b>{%trans '↑ Collapse' %}</b></div></a>
     </div>
 </nav>
   </div>
 </div>
 <div class="fixed-top">
-  <div class="collapse" id="navbar2">
-    <button class="btn btn-sm btn-block btn-dark my-n2" data-toggle="collapse" data-target="#navbar,#navbar2">
-      <b>↓</b>
+  <div class="{% if user.profile.navbar_collapsed %}collapse show{% else %}collapse{% endif %}" id="navbar2">
+     <a href="{% url 'navbar_collapsed' %}">
+    <button class="btn btn-sm btn-block btn-dark my-n2" data-toggle="collapse"  data-target="#navbar,#navbar2">
+     <b>↓</b>
     </button>
+       </a>
   </div>
 </div>
 
