@@ -157,8 +157,8 @@ $('.collapse').on('show.bs.collapse', function () {
           {% endif %}
         </div>
         <div class="modal-footer">
-          <form method="POST" action="/cards/delete_set/{{folder.id}}/">{% csrf_token %}
-            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
+          <form method="POST" action="{% url 'delete_folder' set_id=folder.id %}">{% csrf_token %}
+            <input type="submit" class="btn btn-danger" value="{% trans 'Yes, delete it.' %}"/>
           </form>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans "Abort" %}</button>
         </div>

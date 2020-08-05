@@ -43,7 +43,6 @@ def edit_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
     if folder.user != request.user:
         return redirect('/no_access/')
-    print(folder.being_edited)
     if folder.being_edited:
         return render(request, 'Cards/folder_being_updated.html', {'folder': folder})
 
@@ -66,7 +65,6 @@ def edit_folder(request, set_id):
 @login_required
 def copy_folder(request, set_id):
     folder = get_object_or_404(CardFolder, id=set_id)
-
     if request.method == 'POST':
         form = FolderForm(request.POST or None, instance=folder)
         if form.is_valid():

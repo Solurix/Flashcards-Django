@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-02 13:46+0900\n"
+"POT-Creation-Date: 2020-08-05 14:35+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -630,8 +630,9 @@ msgid "Pronunciation"
 msgstr "Wymowa"
 
 #: Cards/templates/Cards/add_multicard.html:71
+#, python-format
 msgid "%(lang)s pronunciation"
-msgstr "%(lang)s wymowa" 
+msgstr "%(lang)s wymowa"
 
 #: Cards/templates/Cards/add_multicard.html:76
 #: Cards/templates/Cards/edit_multicards.html:80
@@ -690,7 +691,6 @@ msgid "You can change the view back to single edit here."
 msgstr "Możesz zmienić widok spowrotem do pojedynczych edycji tutaj."
 
 #: Cards/templates/Cards/edit_multicards.html:38
-#| msgid "You can add many words at once here."
 msgid "You can change view to edit all you cards at once here."
 msgstr "Możesz zmienić widok by dodać wiele słów jednocześnie tutaj."
 
@@ -752,7 +752,9 @@ msgstr "Ten zestaw jest aktualnie uaktualniany."
 msgid ""
 "Please wait for all automatic translations to finish before changing this "
 "folder."
-msgstr "Poczekaj na uzupełnienie się wszystkich automatyczncyh tłumaczeń przed zmianami."
+msgstr ""
+"Poczekaj na uzupełnienie się wszystkich automatyczncyh tłumaczeń przed "
+"zmianami."
 
 #: Cards/templates/Cards/index.html:5
 #, python-format
@@ -800,7 +802,8 @@ msgid ""
 "seem to appear, Click me."
 msgstr ""
 "By zobaczyć zmiany, strona musi zostać odświeżona.\n"
-"                Jeżeli nowe tłumaczenia wydają się nie pojawiać, kliknij tutaj."
+"                Jeżeli nowe tłumaczenia wydają się nie pojawiać, kliknij "
+"tutaj."
 
 #: Cards/templates/Cards/index.html:109
 #: Cards/templates/Cards/public_sets.html:92
@@ -963,7 +966,7 @@ msgid "Delete %(folder)s?"
 msgstr "Usunąć %(folder)s? "
 
 #: Cards/templates/Cards/view_set.html:155
-#,, python-format
+#, python-format
 msgid "Are you sure you want to delete set \"%(folder)s\"?"
 msgstr "Czy na pewno chcesz usunąć ten zestaw \"%(folder)s\"?"
 
@@ -980,15 +983,15 @@ msgstr "Zamknij"
 msgid "Auto-translated"
 msgstr "Auto-tłumaczenie"
 
-#: Cards/templates/base.html:39
+#: Cards/templates/base.html:58
 msgid "Feedback"
 msgstr ""
 
-#: Cards/templates/base.html:58
+#: Cards/templates/base.html:77
 msgid "Hello, "
 msgstr "Cześć,"
 
-#: Cards/templates/base.html:59
+#: Cards/templates/base.html:78
 msgid ""
 "Do you have some brilliant idea what could appear here? Do you have some "
 "suggestions to change in the website or found a bug? I would be glad to hear "
@@ -997,27 +1000,27 @@ msgstr ""
 "Masz pomysł, co by można było tutaj umieścić? Znalazłeś błędy? Uważasz, że "
 "lepiej by było coś zmienić? Chętnie o tym usłyszę! Napisz do mnie!"
 
-#: Cards/templates/base.html:62
+#: Cards/templates/base.html:81
 msgid "Write here and press [Enter]."
 msgstr "Napisz tutaj"
 
-#: Cards/templates/base.html:73
+#: Cards/templates/base.html:92
 msgid "Home"
 msgstr "Strona główna"
 
-#: Cards/templates/base.html:78
+#: Cards/templates/base.html:97
 msgid "Log out"
 msgstr "Wyloguj"
 
-#: Cards/templates/base.html:82
+#: Cards/templates/base.html:101
 msgid "↓ Feedback"
 msgstr ""
 
-#: Cards/templates/base.html:84
+#: Cards/templates/base.html:103
 msgid "↑ Collapse"
 msgstr "↑ Zwiń"
 
-#: Cards/templates/base.html:109 accounts/templates/base2.html:61
+#: Cards/templates/base.html:128 accounts/templates/base2.html:61
 msgid ""
 "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
 "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
@@ -1027,11 +1030,11 @@ msgstr ""
 "użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Dowiedz się więcej</a>"
 
-#: Cards/templates/base.html:112 accounts/templates/base2.html:64
+#: Cards/templates/base.html:131 accounts/templates/base2.html:64
 msgid "I agree"
 msgstr "Wyrażam zgodę"
 
-#: Cards/templates/base.html:156
+#: Cards/templates/base.html:175
 msgid ""
 "© 2020 Copyright:<br/>\n"
 "    Website: Bartosz Lulka<br/>\n"
@@ -1160,8 +1163,8 @@ msgid ""
 "Ups, looks like you have done something you weren't supposed to do. If this "
 "error occurs again and you don't know why, please contact me."
 msgstr ""
-"UPS, wygląda no to, że zrobiłeś coś czego nie przewidziałem."
-"Jeżeli ten błąd wystąpi ponownie i nie wiesz dlaczego, napisz do mnie."
+"UPS, wygląda no to, że zrobiłeś coś czego nie przewidziałem.Jeżeli ten błąd "
+"wystąpi ponownie i nie wiesz dlaczego, napisz do mnie."
 
 #: accounts/templates/registration/logged_out.html:5
 msgid "Logged out"
@@ -1310,7 +1313,8 @@ msgstr "Powtórz hasło"
 
 #: accounts/templates/registration/sign_up.html:68
 msgid "Your password can’t be too similar to your other personal information."
-msgstr "Hasło nie może być zbyt podobne do Twoich pozostałych danych osobowych."
+msgstr ""
+"Hasło nie może być zbyt podobne do Twoich pozostałych danych osobowych."
 
 #: accounts/templates/registration/sign_up.html:69
 msgid "Your password must contain at least 8 characters."
