@@ -185,15 +185,15 @@ body { font-family: sans-serif; }
 var carousel = document.querySelector('.carousel');
 var cellCount = {{no}};
 var selectedIndex = 0;
-var answered = 0;
-var answered_cards = [];
+var answered = 1;
+var answered_cards = ["0"];
 var langs = [];
 var progresses = [];
 {% for card in cards %}
 langs.push("{{card.language|get_lang}}");
 progresses.push({{card.score}});
 {% endfor %}
-var next_count = 0;
+var current = 0;
 
 function rotateCarousel() {
   var angle = selectedIndex / cellCount * -360;
@@ -208,8 +208,8 @@ function hide(nr) {
   }
   document.getElementById('result').style.display = "block";
   document.getElementById('result_text').innerHTML = {% blocktrans %}"Good job! Keep going! " + String({{no}} - answered) + " left."{% endblocktrans %};
-  answered_cards.push(String(next_count));
-  document.getElementById('detail'+String(next_count)).style.display = "block";
+  answered_cards.push(String(current));
+  document.getElementById('detail'+String(current)).style.display = "block";
   }
 
 function change_display() {
@@ -219,18 +219,22 @@ function change_display() {
     }
   document.getElementById('greeting_text').style.display = "none";
   document.getElementById('result_text').innerHTML = ""
-  document.getElementById('card_no').value = next_count;
-  document.getElementById('progressbar').value = progresses[next_count];
-  document.getElementById('progressbar').style.width = String(progresses[next_count])+"%";
-  document.getElementById('score_text').innerHTML = progresses[next_count]+"%";
+  document.getElementById('card_no').value = current;
+  document.getElementById('progressbar').value = progresses[current];
+  document.getElementById('progressbar').style.width = String(progresses[current])+"%";
+  document.getElementById('score_text').innerHTML = progresses[current]+"%";
 
-  if (answered_cards.includes(String(next_count))) {
+  if (answered_cards.includes(String(current))) {
     document.getElementById('scores').style.display = "none";
-    document.getElementById('detail'+String(next_count)).style.display = "block";
-    document.getElementById('result_text').innerHTML = "{% trans 'You have already answered this question, keep going!' %}"
+    document.getElementById('detail'+String(current)).style.display = "block";
+    if (current = "0") {
+      document.getElementById('result_text').innerHTML = "{% trans 'This is the first language this time. Are you able to translate it to all other languages?' %}";
+    } else {
+      document.getElementById('result_text').innerHTML = "{% trans 'You have already answered this question, keep going!' %}";
+    }
   } else {
     document.getElementById('scores').style.display = "block";
-    document.getElementById('detail'+String(next_count)).style.display = "none";
+    document.getElementById('detail'+String(current)).style.display = "none";
   }}
 
 var prevButton = document.querySelector('.previous-button');
@@ -238,12 +242,12 @@ prevButton.addEventListener( 'click', function() {
   selectedIndex--;
   rotateCarousel();
 
-  next_count --;
-  if (next_count < 0 ){
-  next_count = ({{no}} -1);
+  current --;
+  if (current < 0 ){
+  current = ({{no}} -1);
   };
-  nextButton.value = langs[(next_count + 1) % {{no}}]+" ⇨";
-  prevButton.value = "⇦ "+langs[(next_count + {{no}} -1) % {{no}}];
+  nextButton.value = langs[(current + 1) % {{no}}]+" ⇨";
+  prevButton.value = "⇦ "+langs[(current + {{no}} -1) % {{no}}];
   change_display();
 });
 
@@ -252,12 +256,12 @@ nextButton.addEventListener( 'click', function() {
   selectedIndex++;
   rotateCarousel();
 
-  next_count ++;
-  if (next_count > ({{no}} -1)){
-  next_count = 0;
+  current ++;
+  if (current > ({{no}} -1)){
+  current = 0;
   };
-  nextButton.value = langs[(next_count + 1) % {{no}}]+" ⇨";
-  prevButton.value = "⇦ "+langs[(next_count + {{no}} -1) % {{no}}];
+  nextButton.value = langs[(current + 1) % {{no}}]+" ⇨";
+  prevButton.value = "⇦ "+langs[(current + {{no}} -1) % {{no}}];
   change_display();
 });
 

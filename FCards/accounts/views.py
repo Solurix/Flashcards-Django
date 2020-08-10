@@ -33,7 +33,6 @@ def error500(request):
     return render(request, 'errors/500.html', status=500)
 
 
-
 @login_required
 def overview(request):
     details = {
@@ -49,6 +48,7 @@ def delete_account(request):
     user.is_active = False
     user.save()
     return redirect('home')
+
 
 @login_required
 def navbar_collapsed(request):
@@ -194,11 +194,10 @@ def change_language(request):
     from django.conf import settings
     response = HttpResponseRedirect('/')
     if request.method == 'POST':
-        langs = {'English': "en", "Polski": "pl", "日本語": "jp"}
+        langs = {'English': "en", "Polski": "pl", "日本語": "ja"}
         language = langs[request.POST.get('language')]
-        print(language)
         current_site = request.POST.get('url')
-        languages = ("en", "jp", "pl")  # add codes for new translations here
+        languages = ("en", "ja", "pl")  # add codes for new translations here
         # as long as there won't be language codes longer than two letters, it will work
         if current_site[1:3] in languages:
             current_site = current_site[3:]

@@ -124,6 +124,6 @@ LOGIN_REDIRECT_URL = 'home'
 
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.gmail.com'
-EMAIL_HOST_USER = 'bartosz.adam.lulka@gmail.com'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'username'
+EMAIL_HOST_PASSWORD = 'userpassword'
 EMAIL_PORT = 587

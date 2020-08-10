@@ -18,6 +18,7 @@ from django.urls import include, path
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls import handler404, handler500
 
+
 urlpatterns = i18n_patterns(
     path('admin/', admin.site.urls),
     path('cards/', include('Cards.urls')),
