@@ -1,4 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
@@ -8,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-10 21:32+0900\n"
+"POT-Creation-Date: 2020-08-12 13:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,39 +18,39 @@ msgstr ""
 
 #: Cards/forms.py:13
 msgid "Name for the set"
-msgstr ""
+msgstr "このセット用名前"
 
 #: Cards/forms.py:22
 msgid "Set name"
-msgstr ""
+msgstr "セット名"
 
 #: Cards/forms.py:23
 msgid "1st language"
-msgstr ""
+msgstr "第一言語"
 
 #: Cards/forms.py:24
 msgid "2nd language"
-msgstr ""
+msgstr "第二言語"
 
 #: Cards/forms.py:25
 msgid "3rd language"
-msgstr ""
+msgstr "第三言語"
 
 #: Cards/forms.py:26
 msgid "4th language"
-msgstr ""
+msgstr "第四言語"
 
 #: Cards/forms.py:27
 msgid "5th language"
-msgstr ""
+msgstr "第五言語"
 
 #: Cards/forms.py:28
 msgid "Your comment"
-msgstr ""
+msgstr "あなたのコメント"
 
 #: Cards/forms.py:53
 msgid "Every language must be different."
-msgstr ""
+msgstr "すべての言語は異なっている必要があります。"
 
 #: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
 msgid "Afrikaans"
@@ -103,23 +102,23 @@ msgstr ""
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29
 msgid "Cebuano"
-msgstr ""
+msgstr "セブアノ語"
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
 msgid "Chichewa"
-msgstr ""
+msgstr "チチェワ語"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
 msgid "Chinese (simplified)"
-msgstr ""
+msgstr "中国語（簡体字）"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
 msgid "Chinese (traditional)"
-msgstr ""
+msgstr "中国語（繁体）"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
 msgid "Corsican"
-msgstr ""
+msgstr "コルシカ語"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:31 Cards/langcodes.py:54
 msgid "Croatian"
@@ -475,7 +474,7 @@ msgstr ""
 
 #: Cards/langcodes.py:26
 msgid "OFF"
-msgstr ""
+msgstr "無"
 
 #: Cards/templates/Cards/add_many.html:12
 #: Cards/templates/Cards/add_multicard.html:13
@@ -488,7 +487,7 @@ msgstr ""
 #: Cards/templates/Cards/view_set.html:25
 #: Cards/templates/Cards/view_set.html:44
 msgid "Learn"
-msgstr ""
+msgstr "勉強"
 
 #: Cards/templates/Cards/add_many.html:13
 #: Cards/templates/Cards/add_multicard.html:14
@@ -498,7 +497,7 @@ msgstr ""
 #: Cards/templates/Cards/learn/learn.html:14
 #: Cards/templates/Cards/public_sets.html:54 templates/admin/index.html:38
 msgid "View"
-msgstr ""
+msgstr "一覧"
 
 #: Cards/templates/Cards/add_many.html:14
 #: Cards/templates/Cards/add_multicard.html:15
@@ -508,7 +507,7 @@ msgstr ""
 #: Cards/templates/Cards/learn/learn.html:16
 #: Cards/templates/Cards/view_set.html:27
 msgid "Edit MultiCards"
-msgstr ""
+msgstr "マルチカード編集"
 
 #: Cards/templates/Cards/add_many.html:15
 #: Cards/templates/Cards/add_multicard.html:16
@@ -517,29 +516,29 @@ msgstr ""
 #: Cards/templates/Cards/learn/learn.html:17
 #: Cards/templates/Cards/view_set.html:28
 msgid "Edit Set"
-msgstr ""
+msgstr "セット編集"
 
 #: Cards/templates/Cards/add_many.html:22
 msgid "Create many MultiCards at once"
-msgstr ""
+msgstr "複数のマルチカード作成"
 
 #: Cards/templates/Cards/add_many.html:23
 #, python-format
 msgid "Here you can create new MultiCards for %(name)s."
-msgstr ""
+msgstr "ここは %(name)s　の為に新マルチカードを作成できます。"
 
 #: Cards/templates/Cards/add_many.html:24
 msgid "Insert words or sentences and divide them by character of your choice."
-msgstr ""
+msgstr "単語や文章を挿入し、選択した文字で分割します。"
 
 #: Cards/templates/Cards/add_many.html:25
 msgid "You can add multicard with all details here."
-msgstr ""
+msgstr "ここですべての詳細を含むマルチカードを追加できます。"
 
 #: Cards/templates/Cards/add_many.html:42
 #: Cards/templates/Cards/add_mcards_modal.html:22
 msgid "Text separator"
-msgstr ""
+msgstr "テキスト区切り"
 
 #: Cards/templates/Cards/add_many.html:46
 #: Cards/templates/Cards/add_mcards_modal.html:25
@@ -549,46 +548,49 @@ msgid ""
 "words will be divided by spaces).\n"
 "Example: dad*mom*I like bananas*monday"
 msgstr ""
+"カードを作りたい言葉を記入してください。\n"
+"選択した区切りで分割してください。例：　父*母*祖父　と　祖母*今日は月曜日で"
+"す。"
 
 #: Cards/templates/Cards/add_many.html:49
 #: Cards/templates/Cards/add_mcards_modal.html:28
 #: Cards/templates/Cards/add_multicard.html:94
 #: Cards/templates/Cards/add_set.html:42
 msgid "Create"
-msgstr ""
+msgstr "作成"
 
 #: Cards/templates/Cards/add_mcards_modal.html:7
 msgid "Add Multicards"
-msgstr ""
+msgstr "マルチカード追加"
 
 #: Cards/templates/Cards/add_multicard.html:5
 #: Cards/templates/Cards/add_set.html:5 Cards/templates/Cards/index.html:26
 #: Cards/templates/Cards/public_sets.html:26
 msgid "New set"
-msgstr ""
+msgstr "新セット"
 
 #: Cards/templates/Cards/add_multicard.html:23
 msgid "Create new MultiCard"
-msgstr ""
+msgstr "マルチカード追加"
 
 #: Cards/templates/Cards/add_multicard.html:24
 #, python-format
 msgid "Here you can create new MultiCard for %(name)s."
-msgstr ""
+msgstr "ここは %(name)s の為に新マルチカードを追加できます。"
 
 #: Cards/templates/Cards/add_multicard.html:25
 msgid "Only one word of the first language is required. The rest is optional."
-msgstr ""
+msgstr "第一言語の単語のみが必要です。 残りはオプションです。"
 
 #: Cards/templates/Cards/add_multicard.html:26
 msgid "You can add many words at once here."
-msgstr ""
+msgstr "ここは複数の単語を同時に追加可能"
 
 #: Cards/templates/Cards/add_multicard.html:37
 #: Cards/templates/Cards/edit_multicards.html:116
 #: Cards/templates/Cards/view_set_public.html:84
 msgid "Definition"
-msgstr ""
+msgstr "定義"
 
 #: Cards/templates/Cards/add_multicard.html:45
 #: Cards/templates/Cards/add_multicard.html:84
@@ -597,95 +599,95 @@ msgstr ""
 #: Cards/templates/Cards/edit_multicards.html:111
 #: Cards/templates/Cards/view_set_public.html:87
 msgid "Comment"
-msgstr ""
+msgstr "コメント"
 
 #: Cards/templates/Cards/add_multicard.html:51
 msgid "Language"
-msgstr ""
+msgstr "言語"
 
 #: Cards/templates/Cards/add_multicard.html:56
 #: Cards/templates/Cards/edit_multicards.html:78
 #: Cards/templates/Cards/edit_multicards.html:89
 msgid "Word"
-msgstr ""
+msgstr "単語"
 
 #: Cards/templates/Cards/add_multicard.html:60
 #: Cards/templates/Cards/add_multicard.html:62
 #, python-format
 msgid "%(lang)s word"
-msgstr ""
+msgstr "%(lang)s の単語"
 
 #: Cards/templates/Cards/add_multicard.html:68
 #: Cards/templates/Cards/edit_multicards.html:79
 #: Cards/templates/Cards/edit_multicards.html:92
 #: Cards/templates/Cards/view_set_public.html:78
 msgid "Pronunciation"
-msgstr ""
+msgstr "発音"
 
 #: Cards/templates/Cards/add_multicard.html:71
 #, python-format
 msgid "%(lang)s pronunciation"
-msgstr ""
+msgstr "%(lang)s の発音"
 
 #: Cards/templates/Cards/add_multicard.html:76
 #: Cards/templates/Cards/edit_multicards.html:80
 #: Cards/templates/Cards/edit_multicards.html:95
 #: Cards/templates/Cards/view_set_public.html:81
 msgid "Synonym"
-msgstr ""
+msgstr "同意語"
 
 #: Cards/templates/Cards/add_multicard.html:79
 #, python-format
 msgid "%(lang)s synonym"
-msgstr ""
+msgstr "%(lang)s の同意語"
 
 #: Cards/templates/Cards/add_multicard.html:87
 #, python-format
 msgid "%(lang)s comment"
-msgstr ""
+msgstr "%(lang)s のコメント"
 
 #: Cards/templates/Cards/copy_set.html:5
 msgid "Copy set"
-msgstr ""
+msgstr "セットをコピー"
 
 #: Cards/templates/Cards/copy_set.html:42 Cards/templates/Cards/index.html:68
 msgid "Copy"
-msgstr ""
+msgstr "コピー"
 
 #: Cards/templates/Cards/edit_all_multicards.html:28
 #: Cards/templates/Cards/edit_multicards.html:28
 #: Cards/templates/Cards/edit_set.html:16 Cards/templates/Cards/index.html:65
 #: Cards/templates/Cards/learn/learn.html:15
-#: Cards/templates/Cards/learn/learn.html:37
+#: Cards/templates/Cards/learn/learn.html:36
 #: Cards/templates/Cards/view_set.html:26
 #: Cards/templates/Cards/view_set.html:57
 msgid "Add MultiCard"
-msgstr ""
+msgstr "マルチカード追加"
 
 #: Cards/templates/Cards/edit_all_multicards.html:29
 #: Cards/templates/Cards/edit_multicards.html:123
 #: Cards/templates/Cards/edit_set.html:59
 #: accounts/templates/accounts/overview.html:132
 msgid "Save changes"
-msgstr ""
+msgstr "保存"
 
 #: Cards/templates/Cards/edit_all_multicards.html:37
 #: Cards/templates/Cards/edit_multicards.html:36
 #, python-format
 msgid "Here are your MultiCards in %(name)s."
-msgstr ""
+msgstr "ここは %(name)s のマルチカード"
 
 #: Cards/templates/Cards/edit_all_multicards.html:39
 msgid "Use CTRL+F to quickly find your cards."
-msgstr ""
+msgstr "CTRL + Fを使用したら、カードをすばやく見つけます。"
 
 #: Cards/templates/Cards/edit_all_multicards.html:40
 msgid "You can change the view back to single edit here."
-msgstr ""
+msgstr "ここで、ビューを単一の編集に戻すことができます。"
 
 #: Cards/templates/Cards/edit_multicards.html:38
 msgid "You can change view to edit all you cards at once here."
-msgstr ""
+msgstr "ここで、ビューを複数の編集に変更できます。"
 
 #: Cards/templates/Cards/edit_multicards.html:78
 msgid "W"
@@ -705,182 +707,179 @@ msgstr ""
 
 #: Cards/templates/Cards/edit_multicards.html:112
 msgid "Comment for this MultiCard"
-msgstr ""
+msgstr "マルチカード用コメント"
 
 #: Cards/templates/Cards/edit_multicards.html:117
 msgid "Definition for this MultiCard"
-msgstr ""
+msgstr "マルチカード用定義"
 
 #: Cards/templates/Cards/edit_multicards.html:123
 msgid "To see the changes refresh the page."
-msgstr ""
+msgstr "変更を確認するには、ページを更新してください。"
 
 #: Cards/templates/Cards/edit_multicards.html:127
 #: Cards/templates/Cards/folder_being_updated.html:22
 msgid "Refresh"
-msgstr ""
+msgstr "更新"
 
 #: Cards/templates/Cards/edit_multicards.html:131
 #: Cards/templates/Cards/index.html:69 Cards/templates/Cards/index.html:148
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: Cards/templates/Cards/edit_set.html:6
 msgid "Edit set"
-msgstr ""
+msgstr "セット編集"
 
 #: Cards/templates/Cards/edit_set.html:47
 msgid "Folder's first language cannot be changed."
-msgstr ""
+msgstr "セットの第一言語は変更できません。"
 
 #: Cards/templates/Cards/folder_being_updated.html:5
 msgid "No access"
-msgstr ""
+msgstr "アクセス制限"
 
 #: Cards/templates/Cards/folder_being_updated.html:19
-msgid "This folder is currently being updated."
+msgid "This Set is currently being updated."
 msgstr ""
 
 #: Cards/templates/Cards/folder_being_updated.html:20
 msgid ""
 "Please wait for all automatic translations to finish before changing this "
-"folder."
+"Set."
 msgstr ""
 
 #: Cards/templates/Cards/index.html:5
 #, python-format
 msgid " Welcome %(user)s "
-msgstr ""
+msgstr "ようこそ、%(user)s"
 
 #: Cards/templates/Cards/index.html:24
 #: Cards/templates/Cards/public_sets.html:24
 msgid "Account"
-msgstr ""
+msgstr "アカウント"
 
 #: Cards/templates/Cards/index.html:25 Cards/templates/Cards/public_sets.html:4
 #: Cards/templates/Cards/public_sets.html:25
 #: Cards/templates/Cards/view_set_public.html:26
 msgid "Public sets"
-msgstr ""
+msgstr "公開セット"
 
 #: Cards/templates/Cards/index.html:35
 msgid "Here are your sets to study, "
-msgstr ""
+msgstr "ここはあなたの勉強用セット"
 
 #: Cards/templates/Cards/index.html:36
 msgid "Click on the set name to view its details."
-msgstr ""
+msgstr "セット名をクリックし、詳細を見る"
 
 #: Cards/templates/Cards/index.html:38
 msgid "Here will appear your CardSets, "
-msgstr ""
+msgstr "ここにあなたのセットが表示されます。"
 
 #: Cards/templates/Cards/index.html:40
 msgid "Create a new set"
-msgstr ""
+msgstr "新セット作成"
 
 #: Cards/templates/Cards/index.html:41
 msgid "or copy from public ones."
-msgstr ""
+msgstr "公開セットをコピー"
 
 #: Cards/templates/Cards/index.html:67
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: Cards/templates/Cards/index.html:109
 msgid ""
 "Page needs to be refreshed to see the changes. If new translations does not "
 "seem to appear, Click me."
 msgstr ""
+"変更を確認するには、ページを更新する必要があります。新しい翻訳が表示されない"
+"場合は、ここをクリックしてください。"
 
 #: Cards/templates/Cards/index.html:109
 #: Cards/templates/Cards/public_sets.html:92
 #: Cards/templates/Cards/view_set.html:81
 #: Cards/templates/Cards/view_set_public.html:60
 msgid "loading..."
-msgstr ""
+msgstr "ローディング"
 
 #: Cards/templates/Cards/index.html:111
 msgid ""
 "Looks like a translation error have occurred. Click me to repeat translation "
 "process."
-msgstr ""
+msgstr "翻訳エラーが発生したようです。クリックすると再翻訳します。"
 
 #: Cards/templates/Cards/index.html:111
 msgid "Translation error"
-msgstr ""
+msgstr "翻訳エラー"
 
 #: Cards/templates/Cards/index.html:129
 msgid "There are no cards in this set."
-msgstr ""
+msgstr "このセットにはカードがありません。"
 
 #: Cards/templates/Cards/index.html:154
 msgid "Are you sure you want to delete set "
-msgstr ""
+msgstr "セットを削除しますか。"
 
 #: Cards/templates/Cards/index.html:156 Cards/templates/Cards/view_set.html:156
 #, python-format
 msgid "This set consists of %(length)s MultiCards."
-msgstr ""
+msgstr "このセットには %(length)s のマルチカードがあります。"
 
 #: Cards/templates/Cards/index.html:161 Cards/templates/Cards/view_set.html:160
+#: accounts/templates/accounts/overview.html:108
 msgid "Yes, delete it."
-msgstr ""
+msgstr "はい、削除する。"
 
 #: Cards/templates/Cards/index.html:163
 msgid "Abort"
-msgstr ""
+msgstr "キャンセル"
 
 #: Cards/templates/Cards/learn/learn.html:25
 msgid "Choose how would you like to learn."
-msgstr ""
+msgstr "勉強方法選んでください。"
 
-#: Cards/templates/Cards/learn/learn.html:26
-msgid ""
-"Flashcards are available only for sets with two languages. Other options are "
-"under development."
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn.html:32
+#: Cards/templates/Cards/learn/learn.html:31
 #: Cards/templates/Cards/view_set.html:48
 msgid "Write"
-msgstr ""
+msgstr "書く"
 
-#: Cards/templates/Cards/learn/learn.html:33
+#: Cards/templates/Cards/learn/learn.html:32
 #: Cards/templates/Cards/view_set.html:51
 msgid "Flashcards"
-msgstr ""
+msgstr "フラッシュカード"
 
-#: Cards/templates/Cards/learn/learn.html:35
+#: Cards/templates/Cards/learn/learn.html:34
 #: Cards/templates/Cards/view_set.html:55
 msgid "You do not have enough MultiCards in this set to start learning."
-msgstr ""
+msgstr "このセットには、学習を開始するのに十分なマルチカードがありません。"
 
-#: Cards/templates/Cards/learn/learn.html:36
+#: Cards/templates/Cards/learn/learn.html:35
 #: Cards/templates/Cards/view_set.html:56
 msgid "Please create at least three MultiCards."
-msgstr ""
+msgstr "少なくとも三つのマルチカードを作成してください。"
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:168
 #: Cards/templates/Cards/view_set.html:109
 msgid "Comment:"
-msgstr ""
+msgstr "コメント："
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:169
 #: Cards/templates/Cards/view_set.html:100
 msgid "Pronunciation:"
-msgstr ""
+msgstr "発音："
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:170
 #: Cards/templates/Cards/view_set.html:103
 msgid "Synonym:"
-msgstr ""
+msgstr "同意語："
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:177
 msgid ""
 "You see the card in one language. Think about the translation before moving "
 "to next language."
-msgstr ""
+msgstr "今、一つの言語の単語が見えます。回す前に翻訳を考えてください。"
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:210
 #, python-format
@@ -891,117 +890,117 @@ msgstr ""
 msgid ""
 "This is the first language this time. Are you able to translate it to all "
 "other languages?"
-msgstr ""
+msgstr "これが今回の第一言語です。他の言語に翻訳できますか。"
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:233
 msgid "You have already answered this question, keep going!"
-msgstr ""
+msgstr "回答済！次へ進んでください。"
 
 #: Cards/templates/Cards/learn/learn_write.html:5
 msgid "Learn by writing"
-msgstr ""
+msgstr "書くことで学ぶ"
 
 #: Cards/templates/Cards/learn/learn_write.html:20
 msgid "Write translations"
-msgstr ""
+msgstr "翻訳を書く"
 
 #: Cards/templates/Cards/learn/learn_write.html:34
 msgid "Your answer"
-msgstr ""
+msgstr "答え"
 
 #: Cards/templates/Cards/learn/learn_write.html:35
 msgid "Correct answer"
-msgstr ""
+msgstr "正解"
 
 #: Cards/templates/Cards/learn/learn_write.html:36
 msgid "Progress"
-msgstr ""
+msgstr "進歩"
 
 #: Cards/templates/Cards/learn/learn_write.html:80
 msgid "Write translation below"
-msgstr ""
+msgstr "下に翻訳を書く"
 
 #: Cards/templates/Cards/learn/learn_write.html:97
 msgid "Next"
-msgstr ""
+msgstr "次"
 
 #: Cards/templates/Cards/public_sets.html:36
 msgid "Here are public sets."
-msgstr ""
+msgstr "ここは公開のセットがあります。"
 
 #: Cards/templates/Cards/public_sets.html:37
 msgid "Click on the set name to view its details and copy it."
-msgstr ""
+msgstr "セット名をクリックし、詳細を見るか、コピーできます。"
 
 #: Cards/templates/Cards/public_sets.html:55
 #: Cards/templates/Cards/view_set_public.html:25
 msgid "Copy Set"
-msgstr ""
+msgstr "セットをコピー"
 
 #: Cards/templates/Cards/public_sets.html:63
 msgid "Author:"
-msgstr ""
+msgstr "作成者"
 
 #: Cards/templates/Cards/public_sets.html:103
 #: Cards/templates/Cards/view_set.html:120
 #: Cards/templates/Cards/view_set_public.html:98
 msgid "There are no cards for this set."
-msgstr ""
+msgstr "このセットにはカードがありません。"
 
 #: Cards/templates/Cards/view_set.html:95
 msgid "Progress:"
-msgstr ""
+msgstr "進歩："
 
 #: Cards/templates/Cards/view_set.html:106
 msgid "Definition:"
-msgstr ""
+msgstr "定義："
 
 #: Cards/templates/Cards/view_set.html:127
 msgid "Reset Progress"
-msgstr ""
+msgstr "進歩リセット"
 
 #: Cards/templates/Cards/view_set.html:131
 msgid "Make private"
-msgstr ""
+msgstr "非公開にする"
 
 #: Cards/templates/Cards/view_set.html:133
 msgid "Make public"
-msgstr ""
+msgstr "公開にする"
 
 #: Cards/templates/Cards/view_set.html:137
 msgid "Delete set"
-msgstr ""
+msgstr "セットを削除"
 
 #: Cards/templates/Cards/view_set.html:149
 #, python-format
 msgid "Delete %(folder)s?"
-msgstr ""
+msgstr "%(folder)s　の削除"
 
 #: Cards/templates/Cards/view_set.html:155
 #, python-format
 msgid "Are you sure you want to delete set \"%(folder)s\"?"
-msgstr ""
+msgstr "%(folder)s　を削除しますか。"
 
 #: Cards/templates/Cards/view_set.html:162
 #: accounts/templates/accounts/overview.html:110
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 #: Cards/templates/Cards/view_set_public.html:75
 msgid "Auto-translated"
-msgstr ""
+msgstr "自動翻訳"
 
 #: Cards/templates/base.html:42
 msgid "Log out"
-msgstr ""
+msgstr "ログアウト"
 
 #: Cards/templates/base.html:61
 msgid "Feedback"
-msgstr ""
+msgstr "フィードバック"
 
 #: Cards/templates/base.html:62
 msgid "Hello, "
-msgstr ""
+msgstr "こんにちは、"
 
 #: Cards/templates/base.html:63
 msgid ""
@@ -1009,22 +1008,24 @@ msgid ""
 "suggestions to change in the website or found a bug? I would be glad to hear "
 "from you!"
 msgstr ""
+"バグか翻訳ミスを見つけましたら、ここで書いたら大変助かります。また、何かを変"
+"更するアイデアがありあましたら教えてください。"
 
 #: Cards/templates/base.html:66
 msgid "Write here and press [Enter]."
-msgstr ""
+msgstr "ここに書いてください。"
 
 #: Cards/templates/base.html:77
 msgid "Home"
-msgstr ""
+msgstr "ホーム"
 
 #: Cards/templates/base.html:84
 msgid "↓ Expand"
-msgstr ""
+msgstr "</b>↓ 敷く<b>"
 
 #: Cards/templates/base.html:87
 msgid "↑ Collapse"
-msgstr ""
+msgstr "</b>↑ 畳む<b>"
 
 #: Cards/templates/base.html:114 accounts/templates/base2.html:61
 msgid ""
@@ -1032,10 +1033,12 @@ msgid ""
 "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Learn more</a>"
 msgstr ""
+"このウェブサイトはクッキーを使います。 <a href=\"https://cookiesandyou.com/"
+"\" target=\"_blank\">詳細</a>"
 
 #: Cards/templates/base.html:117 accounts/templates/base2.html:64
 msgid "I agree"
-msgstr ""
+msgstr "同意する"
 
 #: Cards/templates/base.html:161
 msgid ""
@@ -1048,86 +1051,102 @@ msgid ""
 "  Contact: bartosz.adam.lulka@gmail.com"
 msgstr ""
 
+#: accounts/templates/acc_active_email.html:3
+#, python-format
+msgid ""
+"Hi, %(name)s,\n"
+"Thank you for creating account on Multi-FlashCards.\n"
+"I hope this website will help you with your studies.\n"
+"If there is anything you would like to tell me, just respond to this mail. I "
+"will get back to you as soon as I can.\n"
+"Please click on the link to confirm your address email,"
+msgstr ""
+"%(name)s さん\n"
+"マルチフラッシュカードにご登録頂き、誠にありがとうございます。\n"
+"このウェブサイトがお勉強に役立つことを願っています。\n"
+"何か私に伝えたいことがあれば、このメールに返信してください。\n"
+"下のリンクをクリックしたら、メールアドレスを確認します。"
+
 #: accounts/templates/accounts/overview.html:5
 msgid "Your account"
-msgstr ""
+msgstr "アカウント"
 
 #: accounts/templates/accounts/overview.html:37
 #: accounts/templates/registration/sign_up.html:34
 #: accounts/templates/registration/sign_up.html:36
 msgid "Username"
-msgstr ""
+msgstr "ユーザー名"
 
 #: accounts/templates/accounts/overview.html:39
 #: accounts/templates/registration/sign_up.html:41
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: accounts/templates/accounts/overview.html:39
 #: accounts/templates/accounts/overview.html:41
 #: accounts/templates/accounts/overview.html:154
 #: accounts/templates/accounts/overview.html:186 templates/admin/index.html:40
 msgid "Change"
-msgstr ""
+msgstr "変更"
 
 #: accounts/templates/accounts/overview.html:41
 msgid "Address e-mail"
-msgstr ""
+msgstr "メールアドレス"
 
 #: accounts/templates/accounts/overview.html:43
 msgid "Confirmed"
-msgstr ""
+msgstr "確認済"
 
 #: accounts/templates/accounts/overview.html:45
 msgid "Not confirmed"
-msgstr ""
+msgstr "未確認"
 
 #: accounts/templates/accounts/overview.html:52
 msgid "Delete account"
-msgstr ""
+msgstr "アカウントを削除"
 
 #: accounts/templates/accounts/overview.html:55
 #: accounts/templates/accounts/overview.html:122
 #: accounts/templates/registration/password_reset_confirm.html:9
 #: accounts/templates/registration/password_reset_confirm.html:13
 msgid "Change password"
-msgstr ""
+msgstr "パスワード変更"
 
 #: accounts/templates/accounts/overview.html:62
 msgid "About you"
-msgstr ""
+msgstr "あなたについて"
 
 #: accounts/templates/accounts/overview.html:65
 msgid "Under development"
-msgstr ""
+msgstr "開発中"
 
 #: accounts/templates/accounts/overview.html:73
 msgid "Your suggestions:"
-msgstr ""
+msgstr "あなたのフィードバック"
 
 #: accounts/templates/accounts/overview.html:98
 msgid "Delete account?"
-msgstr ""
+msgstr "アカウントを削除"
 
 #: accounts/templates/accounts/overview.html:104
 msgid "Are you sure you want to delete your account?"
-msgstr ""
+msgstr "アカウントを削除しますか。"
 
 #: accounts/templates/accounts/overview.html:145
 msgid "Change email address"
-msgstr ""
+msgstr "メールアドレス変更"
 
 #: accounts/templates/accounts/overview.html:158
 msgid "Confirmation e-mail will be sent to you."
-msgstr ""
+msgstr "確認メールが送信される。"
 
 #: accounts/templates/accounts/overview.html:170
 msgid "Change your name"
-msgstr ""
+msgstr "名前変更"
 
 #: accounts/templates/accounts/overview.html:211
 msgid "Confirmation email sent."
-msgstr ""
+msgstr "確認メールを送信しました。"
 
 #: accounts/templates/base2.html:87
 msgid ""
@@ -1167,19 +1186,23 @@ msgstr ""
 
 #: accounts/templates/registration/logged_out.html:5
 msgid "Logged out"
-msgstr ""
+msgstr "ログアウト済"
 
 #: accounts/templates/registration/logged_out.html:16
 msgid "You have been logged out."
-msgstr ""
+msgstr "ログアウトしました。"
 
 #: accounts/templates/registration/logged_out.html:17
 msgid "Click here to log in again."
-msgstr ""
+msgstr "再度ログインするには、ここをクリックしてください。"
+
+#: accounts/templates/registration/login.html:4
+msgid "Log in"
+msgstr "ログイン"
 
 #: accounts/templates/registration/login.html:20
 msgid "Multi-FlashCards"
-msgstr ""
+msgstr "マルチフラッシュカード"
 
 #: accounts/templates/registration/login.html:23
 msgid ""
@@ -1189,27 +1212,30 @@ msgid ""
 "        <br/>Create your own sets or copy some from others, adjust your "
 "languages and start learning!"
 msgstr ""
+"マルチフラッシュカードは複数の言語が同時に勉強できるところです。多言語のカー"
+"ドの作成をサポートし、そのカードを勉強する方法を与えます。<br/>新しいセットを"
+"作るか、他人からコピーして勉強開始！"
 
 #: accounts/templates/registration/login.html:30
 #: accounts/templates/registration/login.html:42
 msgid "Login"
-msgstr ""
+msgstr "ログイン"
 
 #: accounts/templates/registration/login.html:42
 msgid " or sign up"
-msgstr ""
+msgstr "サインアップ"
 
 #: accounts/templates/registration/login.html:43
 msgid "Forgot you password? Click here."
-msgstr ""
+msgstr "パスワードを忘れましたか。"
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "Your password has been set. You may go ahead and"
-msgstr ""
+msgstr "パスワードが変更しますた。ログインできます。"
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "log in"
-msgstr ""
+msgstr "ログイン"
 
 #: accounts/templates/registration/password_reset_confirm.html:17
 msgid ""
@@ -1237,72 +1263,76 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"To initiate the password reset process for your %(user.get_username)s Multi-"
-"Flashcards Account,\n"
+"To initiate the password reset process for your %(name)s Multi-Flashcards "
+"account,\n"
 "click the link below:\n"
 msgstr ""
+"\n"
+"マルチフラッシュカードの %(name)s のパスワードを変更するなら、下のリンクをク"
+"リックしてください。\n"
 
 #: accounts/templates/registration/password_reset_email.html:9
 msgid ""
 "If clicking the link above doesn't work, please copy and paste the URL in a "
-"new browser\n"
-"window instead.\n"
+"new browser window instead.\n"
 "\n"
 "Sincerely,\n"
 "Bartosz Lulka"
-msgstr ""
+msgstr "リンクをクリック出来ない場合、アドレスバーにコピペして下さい。\n \n"
+"バルトシュ・ルルカ \n"
+"Bartosz Lulka"
 
 #: accounts/templates/registration/password_reset_form.html:6
 #: accounts/templates/registration/password_reset_form.html:14
 msgid "Reset password"
-msgstr ""
+msgstr "パスワードのリセット"
 
 #: accounts/templates/registration/password_reset_form.html:20
 msgid "Submit"
-msgstr ""
+msgstr "送信"
 
 #: accounts/templates/registration/password_reset_form.html:22
 msgid "Return to login page."
-msgstr ""
+msgstr "ログインページへ戻る"
 
 #: accounts/templates/registration/sign_up.html:5
 #: accounts/templates/registration/sign_up.html:74
 msgid "Sign Up"
-msgstr ""
+msgstr "サインアップ"
 
 #: accounts/templates/registration/sign_up.html:34
 #: accounts/templates/registration/sign_up.html:52
 #: accounts/templates/registration/sign_up.html:59
 msgid "Required"
-msgstr ""
+msgstr "必須"
 
 #: accounts/templates/registration/sign_up.html:41
 msgid "Optional"
-msgstr ""
+msgstr "任意"
 
 #: accounts/templates/registration/sign_up.html:43
 msgid "First Name"
-msgstr ""
+msgstr "下の名前"
 
 #: accounts/templates/registration/sign_up.html:46
 msgid "Last Name"
-msgstr ""
+msgstr "苗字"
 
 #: accounts/templates/registration/sign_up.html:52
 msgid "Email:"
-msgstr ""
+msgstr "メールアドレス"
 
 #: accounts/templates/registration/sign_up.html:54
 msgid "Your email address"
-msgstr ""
+msgstr "メールアドレス"
 
 #: accounts/templates/registration/sign_up.html:59
 msgid "Password:"
-msgstr ""
+msgstr "パスワード："
 
 #: accounts/templates/registration/sign_up.html:61
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
 #: accounts/templates/registration/sign_up.html:64
 msgid "Password confirmation"
@@ -1314,7 +1344,7 @@ msgstr ""
 
 #: accounts/templates/registration/sign_up.html:69
 msgid "Your password must contain at least 8 characters."
-msgstr ""
+msgstr "パスワードは8文字以上にする必要があります。"
 
 #: accounts/templates/registration/sign_up.html:70
 msgid "Your password can’t be a commonly used password."
@@ -1326,7 +1356,7 @@ msgstr ""
 
 #: accounts/templates/registration/sign_up.html:75
 msgid "Already have an account? Log in here."
-msgstr ""
+msgstr "すでにアカウントを持ちですか。ここにログインできます。"
 
 #: templates/admin/base_site.html:3
 msgid "Django site admin"
@@ -1360,3 +1390,6 @@ msgstr ""
 #: templates/admin/index.html:78
 msgid "Unknown content"
 msgstr ""
+
+#~ msgid "Activation link"
+#~ msgstr "アクティベーションリンク"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-05 14:35+0900\n"
+"POT-Creation-Date: 2020-08-12 13:16+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -560,7 +560,7 @@ msgstr ""
 #: Cards/templates/Cards/add_many.html:49
 #: Cards/templates/Cards/add_mcards_modal.html:28
 #: Cards/templates/Cards/add_multicard.html:94
-#: Cards/templates/Cards/add_set.html:43
+#: Cards/templates/Cards/add_set.html:42
 msgid "Create"
 msgstr "Stwórz"
 
@@ -655,7 +655,7 @@ msgstr "%(lang)s komentarz"
 msgid "Copy set"
 msgstr "Skopiuj zestaw"
 
-#: Cards/templates/Cards/copy_set.html:9 Cards/templates/Cards/index.html:68
+#: Cards/templates/Cards/copy_set.html:42 Cards/templates/Cards/index.html:68
 msgid "Copy"
 msgstr "Skopiuj"
 
@@ -663,7 +663,7 @@ msgstr "Skopiuj"
 #: Cards/templates/Cards/edit_multicards.html:28
 #: Cards/templates/Cards/edit_set.html:16 Cards/templates/Cards/index.html:65
 #: Cards/templates/Cards/learn/learn.html:15
-#: Cards/templates/Cards/learn/learn.html:37
+#: Cards/templates/Cards/learn/learn.html:36
 #: Cards/templates/Cards/view_set.html:26
 #: Cards/templates/Cards/view_set.html:57
 msgid "Add MultiCard"
@@ -745,13 +745,19 @@ msgid "No access"
 msgstr "Brak dostępu"
 
 #: Cards/templates/Cards/folder_being_updated.html:19
-msgid "This folder is currently being updated."
+#, fuzzy
+#| msgid "This folder is currently being updated."
+msgid "This Set is currently being updated."
 msgstr "Ten zestaw jest aktualnie uaktualniany."
 
 #: Cards/templates/Cards/folder_being_updated.html:20
+#, fuzzy
+#| msgid ""
+#| "Please wait for all automatic translations to finish before changing this "
+#| "folder."
 msgid ""
 "Please wait for all automatic translations to finish before changing this "
-"folder."
+"Set."
 msgstr ""
 "Poczekaj na uzupełnienie się wszystkich automatyczncyh tłumaczeń przed "
 "zmianami."
@@ -837,6 +843,11 @@ msgstr "Czy na pewno chcesz usunąć ten zestaw?"
 msgid "This set consists of %(length)s MultiCards."
 msgstr "Ten zestaw zawiera %(length)s MultiKart."
 
+#: Cards/templates/Cards/index.html:161 Cards/templates/Cards/view_set.html:160
+#: accounts/templates/accounts/overview.html:108
+msgid "Yes, delete it."
+msgstr "Tak, usuń."
+
 #: Cards/templates/Cards/index.html:163
 msgid "Abort"
 msgstr "Anuluj"
@@ -845,30 +856,60 @@ msgstr "Anuluj"
 msgid "Choose how would you like to learn."
 msgstr "Wybierz jak chciałbyś się uczyć."
 
-#: Cards/templates/Cards/learn/learn.html:26
-msgid ""
-"Flashcards are available only for sets with two languages. Other options are "
-"under development."
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn.html:32
+#: Cards/templates/Cards/learn/learn.html:31
 #: Cards/templates/Cards/view_set.html:48
 msgid "Write"
 msgstr "Pisanie"
 
-#: Cards/templates/Cards/learn/learn.html:33
+#: Cards/templates/Cards/learn/learn.html:32
 #: Cards/templates/Cards/view_set.html:51
 msgid "Flashcards"
 msgstr "Fiszki"
 
-#: Cards/templates/Cards/learn/learn.html:35
+#: Cards/templates/Cards/learn/learn.html:34
 #: Cards/templates/Cards/view_set.html:55
 msgid "You do not have enough MultiCards in this set to start learning."
 msgstr "Nie masz dosyć MultiKart w tym zestawie by rozpocząć naukę."
 
-#: Cards/templates/Cards/learn/learn.html:36
+#: Cards/templates/Cards/learn/learn.html:35
 #: Cards/templates/Cards/view_set.html:56
 msgid "Please create at least three MultiCards."
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:168
+#: Cards/templates/Cards/view_set.html:109
+msgid "Comment:"
+msgstr "Komentarz:"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:169
+#: Cards/templates/Cards/view_set.html:100
+msgid "Pronunciation:"
+msgstr "Wymowa:"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:170
+#: Cards/templates/Cards/view_set.html:103
+msgid "Synonym:"
+msgstr "Synonim:"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:177
+msgid ""
+"You see the card in one language. Think about the translation before moving "
+"to next language."
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:210
+#, python-format
+msgid "\"Good job! Keep going! \" + String(%(no)s - answered) + \" left.\""
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:231
+msgid ""
+"This is the first language this time. Are you able to translate it to all "
+"other languages?"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:233
+msgid "You have already answered this question, keep going!"
 msgstr ""
 
 #: Cards/templates/Cards/learn/learn_write.html:5
@@ -928,21 +969,9 @@ msgstr "Brak kart w tym zestawie."
 msgid "Progress:"
 msgstr "Postęp:"
 
-#: Cards/templates/Cards/view_set.html:100
-msgid "Pronunciation:"
-msgstr "Wymowa:"
-
-#: Cards/templates/Cards/view_set.html:103
-msgid "Synonym:"
-msgstr "Synonim:"
-
 #: Cards/templates/Cards/view_set.html:106
 msgid "Definition:"
 msgstr "Definicja:"
-
-#: Cards/templates/Cards/view_set.html:109
-msgid "Comment:"
-msgstr "Komentarz:"
 
 #: Cards/templates/Cards/view_set.html:127
 msgid "Reset Progress"
@@ -970,10 +999,6 @@ msgstr "Usunąć %(folder)s? "
 msgid "Are you sure you want to delete set \"%(folder)s\"?"
 msgstr "Czy na pewno chcesz usunąć ten zestaw \"%(folder)s\"?"
 
-#: Cards/templates/Cards/view_set.html:160
-msgid "Yes, delete it."
-msgstr "Tak, usuń."
-
 #: Cards/templates/Cards/view_set.html:162
 #: accounts/templates/accounts/overview.html:110
 msgid "Close"
@@ -983,15 +1008,19 @@ msgstr "Zamknij"
 msgid "Auto-translated"
 msgstr "Auto-tłumaczenie"
 
-#: Cards/templates/base.html:58
+#: Cards/templates/base.html:42
+msgid "Log out"
+msgstr "Wyloguj"
+
+#: Cards/templates/base.html:61
 msgid "Feedback"
 msgstr ""
 
-#: Cards/templates/base.html:77
+#: Cards/templates/base.html:62
 msgid "Hello, "
 msgstr "Cześć,"
 
-#: Cards/templates/base.html:78
+#: Cards/templates/base.html:63
 msgid ""
 "Do you have some brilliant idea what could appear here? Do you have some "
 "suggestions to change in the website or found a bug? I would be glad to hear "
@@ -1000,27 +1029,23 @@ msgstr ""
 "Masz pomysł, co by można było tutaj umieścić? Znalazłeś błędy? Uważasz, że "
 "lepiej by było coś zmienić? Chętnie o tym usłyszę! Napisz do mnie!"
 
-#: Cards/templates/base.html:81
+#: Cards/templates/base.html:66
 msgid "Write here and press [Enter]."
 msgstr "Napisz tutaj"
 
-#: Cards/templates/base.html:92
+#: Cards/templates/base.html:77
 msgid "Home"
 msgstr "Strona główna"
 
-#: Cards/templates/base.html:97
-msgid "Log out"
-msgstr "Wyloguj"
-
-#: Cards/templates/base.html:101
-msgid "↓ Feedback"
+#: Cards/templates/base.html:84
+msgid "↓ Expand"
 msgstr ""
 
-#: Cards/templates/base.html:103
+#: Cards/templates/base.html:87
 msgid "↑ Collapse"
 msgstr "↑ Zwiń"
 
-#: Cards/templates/base.html:128 accounts/templates/base2.html:61
+#: Cards/templates/base.html:114 accounts/templates/base2.html:61
 msgid ""
 "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
 "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
@@ -1030,11 +1055,11 @@ msgstr ""
 "użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Dowiedz się więcej</a>"
 
-#: Cards/templates/base.html:131 accounts/templates/base2.html:64
+#: Cards/templates/base.html:117 accounts/templates/base2.html:64
 msgid "I agree"
 msgstr "Wyrażam zgodę"
 
-#: Cards/templates/base.html:175
+#: Cards/templates/base.html:161
 msgid ""
 "© 2020 Copyright:<br/>\n"
 "    Website: Bartosz Lulka<br/>\n"
@@ -1043,6 +1068,17 @@ msgid ""
 "    Run on Django<br/>\n"
 "  <br/>\n"
 "  Contact: bartosz.adam.lulka@gmail.com"
+msgstr ""
+
+#: accounts/templates/acc_active_email.html:3
+#, python-format
+msgid ""
+"Hi, %(name)s,\n"
+"Thank you for creating account on Multi-FlashCards.\n"
+"I hope this website will help you with your studies.\n"
+"If there is anything you would like to tell me, just respond to this mail. I "
+"will get back to you as soon as I can.\n"
+"Please click on the link to confirm your address email,"
 msgstr ""
 
 #: accounts/templates/accounts/overview.html:5
@@ -1178,6 +1214,12 @@ msgstr "Zostałeś wylogowany."
 msgid "Click here to log in again."
 msgstr "Kliknij tutaj by zalogować się ponownie."
 
+#: accounts/templates/registration/login.html:4
+#, fuzzy
+#| msgid "log in"
+msgid "Log in"
+msgstr "zalogować"
+
 #: accounts/templates/registration/login.html:20
 msgid "Multi-FlashCards"
 msgstr "Mutli-Fiszki"
@@ -1240,16 +1282,15 @@ msgstr ""
 #, python-format
 msgid ""
 "\n"
-"To initiate the password reset process for your %(user.get_username)s Multi-"
-"Flashcards Account,\n"
+"To initiate the password reset process for your %(name)s Multi-Flashcards "
+"account,\n"
 "click the link below:\n"
 msgstr ""
 
 #: accounts/templates/registration/password_reset_email.html:9
 msgid ""
 "If clicking the link above doesn't work, please copy and paste the URL in a "
-"new browser\n"
-"window instead.\n"
+"new browser window instead.\n"
 "\n"
 "Sincerely,\n"
 "Bartosz Lulka"

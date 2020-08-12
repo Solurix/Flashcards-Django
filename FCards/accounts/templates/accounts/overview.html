@@ -105,7 +105,7 @@
         </div>
         <div class="modal-footer">
           <form method="POST" action="{% url 'delete_account' %}">{% csrf_token %}
-            <input type="submit" class="btn btn-danger" value="Yes, delete it."/>
+            <input type="submit" class="btn btn-danger" value="{% trans 'Yes, delete it.' %}"/>
           </form>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>
         </div>

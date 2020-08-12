@@ -1,6 +1,9 @@
 {% load i18n %}
 {% autoescape off %}
-Hi {{ user.username }},
-Please click on the link to confirm your registration,
+{% blocktrans with name=user.username %}Hi, {{ name }},
+Thank you for creating account on Multi-FlashCards.
+I hope this website will help you with your studies.
+If there is anything you would like to tell me, just respond to this mail. I will get back to you as soon as I can.
+Please click on the link to confirm your address email,{% endblocktrans %}
 http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
 {% endautoescape %}
