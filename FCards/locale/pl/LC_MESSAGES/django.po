@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 23:02+0900\n"
+"POT-Creation-Date: 2020-08-13 23:08+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -239,7 +239,7 @@ msgid "Dutch"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
-#: Cards/templates/Cards/demo/demo_flashcards.html:197
+#: Cards/templates/Cards/demo/demo_flashcards.html:195
 #: Cards/templates/Cards/demo/demo_new_set.html:53
 #: Cards/templates/Cards/demo/demo_new_set.html:245
 #: Cards/templates/Cards/demo/demo_new_set.html:441
@@ -321,7 +321,7 @@ msgstr ""
 
 #: Cards/langcodes.py:10 Cards/langcodes.py:33 Cards/langcodes.py:56
 #: Cards/templates/Cards/demo/demo_flashcards.html:85
-#: Cards/templates/Cards/demo/demo_flashcards.html:206
+#: Cards/templates/Cards/demo/demo_flashcards.html:204
 #: Cards/templates/Cards/demo/demo_new_set.html:69
 #: Cards/templates/Cards/demo/demo_new_set.html:261
 #: Cards/templates/Cards/demo/demo_new_set.html:457
@@ -446,7 +446,7 @@ msgid "Italian"
 msgstr ""
 
 #: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
-#: Cards/templates/Cards/demo/demo_flashcards.html:203
+#: Cards/templates/Cards/demo/demo_flashcards.html:201
 #: Cards/templates/Cards/demo/demo_new_set.html:93
 #: Cards/templates/Cards/demo/demo_new_set.html:285
 #: Cards/templates/Cards/demo/demo_new_set.html:481
@@ -681,7 +681,7 @@ msgstr ""
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
 #: Cards/templates/Cards/demo/demo_flashcards.html:90
-#: Cards/templates/Cards/demo/demo_flashcards.html:200
+#: Cards/templates/Cards/demo/demo_flashcards.html:198
 #: Cards/templates/Cards/demo/demo_new_set.html:143
 #: Cards/templates/Cards/demo/demo_new_set.html:335
 #: Cards/templates/Cards/demo/demo_new_set.html:531
@@ -1052,7 +1052,6 @@ msgstr ""
 #: Cards/templates/Cards/add_mcards_modal.html:28
 #: Cards/templates/Cards/add_multicard.html:94
 #: Cards/templates/Cards/add_set.html:42
-#: Cards/templates/Cards/demo/demo_flashcards.html:164
 #: Cards/templates/Cards/demo/demo_new_set.html:995
 #: Cards/templates/Cards/demo/welcome.html:62
 #: Cards/templates/Cards/demo/welcome.html:179
@@ -1163,7 +1162,7 @@ msgid "%(lang)s word"
 msgstr "%(lang)s wyraz"
 
 #: Cards/templates/Cards/add_multicard.html:68
-#: Cards/templates/Cards/demo/demo_flashcards.html:165
+#: Cards/templates/Cards/demo/demo_flashcards.html:163
 #: Cards/templates/Cards/demo/demo_view.html:96
 #: Cards/templates/Cards/demo/demo_view.html:187
 #: Cards/templates/Cards/demo/demo_view.html:278
@@ -1276,32 +1275,32 @@ msgstr "Zresetuj postęp"
 msgid "Delete this MultiCard"
 msgstr "Komentarz dla tej MultiKarty"
 
-#: Cards/templates/Cards/demo/demo_flashcards.html:177
+#: Cards/templates/Cards/demo/demo_flashcards.html:175
 #: Cards/templates/Cards/demo/demo_write.html:169
 #: Cards/templates/Cards/learn/learn_flashcards.html:173
 #: Cards/templates/Cards/learn/learn_write.html:97
 msgid "Next"
 msgstr "Następny"
 
-#: Cards/templates/Cards/demo/demo_flashcards.html:181
+#: Cards/templates/Cards/demo/demo_flashcards.html:179
 #: Cards/templates/Cards/learn/learn_flashcards.html:176
 msgid ""
 "You see the card in one language. Think about the translation before moving "
 "to next language."
 msgstr ""
 
-#: Cards/templates/Cards/demo/demo_flashcards.html:223
+#: Cards/templates/Cards/demo/demo_flashcards.html:221
 msgid "\"Good job! Keep going! \" + String(4 - answered) + \" left.\""
 msgstr ""
 
-#: Cards/templates/Cards/demo/demo_flashcards.html:244
+#: Cards/templates/Cards/demo/demo_flashcards.html:242
 #: Cards/templates/Cards/learn/learn_flashcards.html:230
 msgid ""
 "This is the first language this time. Are you able to translate it to all "
 "other languages?"
 msgstr ""
 
-#: Cards/templates/Cards/demo/demo_flashcards.html:246
+#: Cards/templates/Cards/demo/demo_flashcards.html:244
 #: Cards/templates/Cards/learn/learn_flashcards.html:232
 msgid "You have already answered this question, keep going!"
 msgstr ""
@@ -1994,7 +1993,7 @@ msgid "Forgot you password? Click here."
 msgstr "Zapomniałeś hasła? Kliknij tutaj."
 
 #: accounts/templates/registration/login.html:74
-msgid "For more insight, take a look at below introduction."
+msgid "For more insight, take a look at introduction below."
 msgstr ""
 
 #: accounts/templates/registration/login.html:76
