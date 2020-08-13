@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 15:04+0900\n"
+"POT-Creation-Date: 2020-08-13 23:02+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,35 +20,35 @@ msgstr ""
 "%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
-#: Cards/forms.py:13
+#: Cards/forms.py:13 Cards/templates/Cards/demo/demo_new_set.html:7
 msgid "Name for the set"
 msgstr "Nazwa dla zestawu"
 
-#: Cards/forms.py:22
+#: Cards/forms.py:22 Cards/templates/Cards/demo/demo_new_set.html:6
 msgid "Set name"
 msgstr "Nazwa zestawu"
 
-#: Cards/forms.py:23
+#: Cards/forms.py:23 Cards/templates/Cards/demo/demo_new_set.html:13
 msgid "1st language"
 msgstr "1. język"
 
-#: Cards/forms.py:24
+#: Cards/forms.py:24 Cards/templates/Cards/demo/demo_new_set.html:205
 msgid "2nd language"
 msgstr "2. język"
 
-#: Cards/forms.py:25
+#: Cards/forms.py:25 Cards/templates/Cards/demo/demo_new_set.html:397
 msgid "3rd language"
 msgstr "3. język"
 
-#: Cards/forms.py:26
+#: Cards/forms.py:26 Cards/templates/Cards/demo/demo_new_set.html:593
 msgid "4th language"
 msgstr "4. język"
 
-#: Cards/forms.py:27
+#: Cards/forms.py:27 Cards/templates/Cards/demo/demo_new_set.html:789
 msgid "5th language"
 msgstr "5. język"
 
-#: Cards/forms.py:28
+#: Cards/forms.py:28 Cards/templates/Cards/demo/demo_new_set.html:985
 msgid "Your comment"
 msgstr "Twój komentarz"
 
@@ -57,10 +57,20 @@ msgid "Every language must be different."
 msgstr "Każdy język musi być inny."
 
 #: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+#: Cards/templates/Cards/demo/demo_new_set.html:15
+#: Cards/templates/Cards/demo/demo_new_set.html:207
+#: Cards/templates/Cards/demo/demo_new_set.html:401
+#: Cards/templates/Cards/demo/demo_new_set.html:597
+#: Cards/templates/Cards/demo/demo_new_set.html:793
 msgid "Afrikaans"
 msgstr ""
 
 #: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+#: Cards/templates/Cards/demo/demo_new_set.html:17
+#: Cards/templates/Cards/demo/demo_new_set.html:209
+#: Cards/templates/Cards/demo/demo_new_set.html:403
+#: Cards/templates/Cards/demo/demo_new_set.html:599
+#: Cards/templates/Cards/demo/demo_new_set.html:795
 msgid "Albanian"
 msgstr ""
 
@@ -69,98 +79,221 @@ msgid "Amharic"
 msgstr ""
 
 #: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+#: Cards/templates/Cards/demo/demo_new_set.html:19
+#: Cards/templates/Cards/demo/demo_new_set.html:211
+#: Cards/templates/Cards/demo/demo_new_set.html:405
+#: Cards/templates/Cards/demo/demo_new_set.html:601
+#: Cards/templates/Cards/demo/demo_new_set.html:797
 msgid "Arabic"
 msgstr ""
 
 #: Cards/langcodes.py:4 Cards/langcodes.py:27 Cards/langcodes.py:50
+#: Cards/templates/Cards/demo/demo_new_set.html:21
+#: Cards/templates/Cards/demo/demo_new_set.html:213
+#: Cards/templates/Cards/demo/demo_new_set.html:407
+#: Cards/templates/Cards/demo/demo_new_set.html:603
+#: Cards/templates/Cards/demo/demo_new_set.html:799
 msgid "Armenian"
 msgstr ""
 
 #: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+#: Cards/templates/Cards/demo/demo_new_set.html:23
+#: Cards/templates/Cards/demo/demo_new_set.html:215
+#: Cards/templates/Cards/demo/demo_new_set.html:409
+#: Cards/templates/Cards/demo/demo_new_set.html:605
+#: Cards/templates/Cards/demo/demo_new_set.html:801
 msgid "Azerbaijani"
 msgstr ""
 
 #: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+#: Cards/templates/Cards/demo/demo_new_set.html:25
+#: Cards/templates/Cards/demo/demo_new_set.html:217
+#: Cards/templates/Cards/demo/demo_new_set.html:411
+#: Cards/templates/Cards/demo/demo_new_set.html:607
+#: Cards/templates/Cards/demo/demo_new_set.html:803
 msgid "Basque"
 msgstr ""
 
 #: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+#: Cards/templates/Cards/demo/demo_new_set.html:27
+#: Cards/templates/Cards/demo/demo_new_set.html:219
+#: Cards/templates/Cards/demo/demo_new_set.html:413
+#: Cards/templates/Cards/demo/demo_new_set.html:609
+#: Cards/templates/Cards/demo/demo_new_set.html:805
 msgid "Belarusian"
 msgstr ""
 
 #: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+#: Cards/templates/Cards/demo/demo_new_set.html:29
+#: Cards/templates/Cards/demo/demo_new_set.html:221
+#: Cards/templates/Cards/demo/demo_new_set.html:415
+#: Cards/templates/Cards/demo/demo_new_set.html:611
+#: Cards/templates/Cards/demo/demo_new_set.html:807
 msgid "Bengali"
 msgstr ""
 
 #: Cards/langcodes.py:5 Cards/langcodes.py:28 Cards/langcodes.py:51
+#: Cards/templates/Cards/demo/demo_new_set.html:31
+#: Cards/templates/Cards/demo/demo_new_set.html:223
+#: Cards/templates/Cards/demo/demo_new_set.html:417
+#: Cards/templates/Cards/demo/demo_new_set.html:613
+#: Cards/templates/Cards/demo/demo_new_set.html:809
 msgid "Bosnian"
 msgstr ""
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
+#: Cards/templates/Cards/demo/demo_new_set.html:33
+#: Cards/templates/Cards/demo/demo_new_set.html:225
+#: Cards/templates/Cards/demo/demo_new_set.html:419
+#: Cards/templates/Cards/demo/demo_new_set.html:615
+#: Cards/templates/Cards/demo/demo_new_set.html:811
 msgid "Bulgarian"
 msgstr ""
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
+#: Cards/templates/Cards/demo/demo_new_set.html:35
+#: Cards/templates/Cards/demo/demo_new_set.html:227
+#: Cards/templates/Cards/demo/demo_new_set.html:421
+#: Cards/templates/Cards/demo/demo_new_set.html:617
+#: Cards/templates/Cards/demo/demo_new_set.html:813
 msgid "Catalan"
 msgstr ""
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29
+#: Cards/templates/Cards/demo/demo_new_set.html:423
+#: Cards/templates/Cards/demo/demo_new_set.html:619
+#: Cards/templates/Cards/demo/demo_new_set.html:815
 msgid "Cebuano"
 msgstr "cebuano"
 
 #: Cards/langcodes.py:6 Cards/langcodes.py:29 Cards/langcodes.py:52
+#: Cards/templates/Cards/demo/demo_new_set.html:37
+#: Cards/templates/Cards/demo/demo_new_set.html:229
+#: Cards/templates/Cards/demo/demo_new_set.html:425
+#: Cards/templates/Cards/demo/demo_new_set.html:621
+#: Cards/templates/Cards/demo/demo_new_set.html:817
 msgid "Chichewa"
 msgstr "cziczewa"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
+#: Cards/templates/Cards/demo/demo_new_set.html:39
+#: Cards/templates/Cards/demo/demo_new_set.html:231
+#: Cards/templates/Cards/demo/demo_new_set.html:427
+#: Cards/templates/Cards/demo/demo_new_set.html:623
+#: Cards/templates/Cards/demo/demo_new_set.html:819
 msgid "Chinese (simplified)"
 msgstr "chiński (uproszczony)"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
+#: Cards/templates/Cards/demo/demo_new_set.html:41
+#: Cards/templates/Cards/demo/demo_new_set.html:233
+#: Cards/templates/Cards/demo/demo_new_set.html:429
+#: Cards/templates/Cards/demo/demo_new_set.html:625
+#: Cards/templates/Cards/demo/demo_new_set.html:821
 msgid "Chinese (traditional)"
 msgstr "chiński (tradycyjny)"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:30 Cards/langcodes.py:53
+#: Cards/templates/Cards/demo/demo_new_set.html:43
+#: Cards/templates/Cards/demo/demo_new_set.html:235
+#: Cards/templates/Cards/demo/demo_new_set.html:431
+#: Cards/templates/Cards/demo/demo_new_set.html:627
+#: Cards/templates/Cards/demo/demo_new_set.html:823
 msgid "Corsican"
 msgstr "korsykański"
 
 #: Cards/langcodes.py:7 Cards/langcodes.py:31 Cards/langcodes.py:54
+#: Cards/templates/Cards/demo/demo_new_set.html:45
+#: Cards/templates/Cards/demo/demo_new_set.html:237
+#: Cards/templates/Cards/demo/demo_new_set.html:433
+#: Cards/templates/Cards/demo/demo_new_set.html:629
+#: Cards/templates/Cards/demo/demo_new_set.html:825
 msgid "Croatian"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+#: Cards/templates/Cards/demo/demo_new_set.html:47
+#: Cards/templates/Cards/demo/demo_new_set.html:239
+#: Cards/templates/Cards/demo/demo_new_set.html:435
+#: Cards/templates/Cards/demo/demo_new_set.html:631
+#: Cards/templates/Cards/demo/demo_new_set.html:827
 msgid "Czech"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+#: Cards/templates/Cards/demo/demo_new_set.html:49
+#: Cards/templates/Cards/demo/demo_new_set.html:241
+#: Cards/templates/Cards/demo/demo_new_set.html:437
+#: Cards/templates/Cards/demo/demo_new_set.html:633
+#: Cards/templates/Cards/demo/demo_new_set.html:829
 msgid "Danish"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+#: Cards/templates/Cards/demo/demo_new_set.html:51
+#: Cards/templates/Cards/demo/demo_new_set.html:243
+#: Cards/templates/Cards/demo/demo_new_set.html:439
+#: Cards/templates/Cards/demo/demo_new_set.html:635
+#: Cards/templates/Cards/demo/demo_new_set.html:831
 msgid "Dutch"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:31 Cards/langcodes.py:54
+#: Cards/templates/Cards/demo/demo_flashcards.html:197
+#: Cards/templates/Cards/demo/demo_new_set.html:53
+#: Cards/templates/Cards/demo/demo_new_set.html:245
+#: Cards/templates/Cards/demo/demo_new_set.html:441
+#: Cards/templates/Cards/demo/demo_new_set.html:637
+#: Cards/templates/Cards/demo/demo_new_set.html:833
+#: Cards/templates/Cards/demo/demo_write.html:27
+#: Cards/templates/Cards/demo/demo_write.html:118
+#: Cards/templates/Cards/demo/welcome.html:193
+#: accounts/templates/registration/login.html:217
 msgid "English"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:32 Cards/langcodes.py:55
+#: Cards/templates/Cards/demo/demo_new_set.html:55
+#: Cards/templates/Cards/demo/demo_new_set.html:247
+#: Cards/templates/Cards/demo/demo_new_set.html:443
+#: Cards/templates/Cards/demo/demo_new_set.html:639
+#: Cards/templates/Cards/demo/demo_new_set.html:835
 msgid "Esperanto"
 msgstr ""
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:32 Cards/langcodes.py:55
+#: Cards/templates/Cards/demo/demo_new_set.html:57
+#: Cards/templates/Cards/demo/demo_new_set.html:249
+#: Cards/templates/Cards/demo/demo_new_set.html:445
+#: Cards/templates/Cards/demo/demo_new_set.html:641
+#: Cards/templates/Cards/demo/demo_new_set.html:837
 msgid "Estonian"
 msgstr ""
 
 #: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
+#: Cards/templates/Cards/demo/demo_new_set.html:59
+#: Cards/templates/Cards/demo/demo_new_set.html:251
+#: Cards/templates/Cards/demo/demo_new_set.html:447
+#: Cards/templates/Cards/demo/demo_new_set.html:643
+#: Cards/templates/Cards/demo/demo_new_set.html:839
 msgid "Filipino"
 msgstr "filipiński"
 
 #: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
+#: Cards/templates/Cards/demo/demo_new_set.html:61
+#: Cards/templates/Cards/demo/demo_new_set.html:253
+#: Cards/templates/Cards/demo/demo_new_set.html:449
+#: Cards/templates/Cards/demo/demo_new_set.html:645
+#: Cards/templates/Cards/demo/demo_new_set.html:841
 msgid "Finnish"
 msgstr ""
 
 #: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
+#: Cards/templates/Cards/demo/demo_new_set.html:63
+#: Cards/templates/Cards/demo/demo_new_set.html:255
+#: Cards/templates/Cards/demo/demo_new_set.html:451
+#: Cards/templates/Cards/demo/demo_new_set.html:647
+#: Cards/templates/Cards/demo/demo_new_set.html:843
 msgid "French"
 msgstr ""
 
@@ -169,26 +302,62 @@ msgid "Frisian"
 msgstr ""
 
 #: Cards/langcodes.py:9 Cards/langcodes.py:33 Cards/langcodes.py:56
+#: Cards/templates/Cards/demo/demo_new_set.html:65
+#: Cards/templates/Cards/demo/demo_new_set.html:257
+#: Cards/templates/Cards/demo/demo_new_set.html:453
+#: Cards/templates/Cards/demo/demo_new_set.html:649
+#: Cards/templates/Cards/demo/demo_new_set.html:845
 msgid "Galician"
 msgstr ""
 
 #: Cards/langcodes.py:9 Cards/langcodes.py:33 Cards/langcodes.py:56
+#: Cards/templates/Cards/demo/demo_new_set.html:67
+#: Cards/templates/Cards/demo/demo_new_set.html:259
+#: Cards/templates/Cards/demo/demo_new_set.html:455
+#: Cards/templates/Cards/demo/demo_new_set.html:651
+#: Cards/templates/Cards/demo/demo_new_set.html:847
 msgid "Georgian"
 msgstr ""
 
 #: Cards/langcodes.py:10 Cards/langcodes.py:33 Cards/langcodes.py:56
+#: Cards/templates/Cards/demo/demo_flashcards.html:85
+#: Cards/templates/Cards/demo/demo_flashcards.html:206
+#: Cards/templates/Cards/demo/demo_new_set.html:69
+#: Cards/templates/Cards/demo/demo_new_set.html:261
+#: Cards/templates/Cards/demo/demo_new_set.html:457
+#: Cards/templates/Cards/demo/demo_new_set.html:653
+#: Cards/templates/Cards/demo/demo_new_set.html:849
+#: Cards/templates/Cards/demo/demo_write.html:83
+#: Cards/templates/Cards/demo/demo_write.html:154
+#: Cards/templates/Cards/demo/welcome.html:196
+#: accounts/templates/registration/login.html:220
 msgid "German"
 msgstr ""
 
 #: Cards/langcodes.py:10 Cards/langcodes.py:33 Cards/langcodes.py:56
+#: Cards/templates/Cards/demo/demo_new_set.html:71
+#: Cards/templates/Cards/demo/demo_new_set.html:263
+#: Cards/templates/Cards/demo/demo_new_set.html:459
+#: Cards/templates/Cards/demo/demo_new_set.html:655
+#: Cards/templates/Cards/demo/demo_new_set.html:851
 msgid "Greek"
 msgstr ""
 
 #: Cards/langcodes.py:10 Cards/langcodes.py:34 Cards/langcodes.py:57
+#: Cards/templates/Cards/demo/demo_new_set.html:73
+#: Cards/templates/Cards/demo/demo_new_set.html:265
+#: Cards/templates/Cards/demo/demo_new_set.html:461
+#: Cards/templates/Cards/demo/demo_new_set.html:657
+#: Cards/templates/Cards/demo/demo_new_set.html:853
 msgid "Gujarati"
 msgstr "gudżarati"
 
 #: Cards/langcodes.py:10 Cards/langcodes.py:34 Cards/langcodes.py:57
+#: Cards/templates/Cards/demo/demo_new_set.html:75
+#: Cards/templates/Cards/demo/demo_new_set.html:267
+#: Cards/templates/Cards/demo/demo_new_set.html:463
+#: Cards/templates/Cards/demo/demo_new_set.html:659
+#: Cards/templates/Cards/demo/demo_new_set.html:855
 msgid "Haitian creole"
 msgstr "kreolski haitański"
 
@@ -197,14 +366,29 @@ msgid "Hausa"
 msgstr ""
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:34 Cards/langcodes.py:57
+#: Cards/templates/Cards/demo/demo_new_set.html:77
+#: Cards/templates/Cards/demo/demo_new_set.html:269
+#: Cards/templates/Cards/demo/demo_new_set.html:465
+#: Cards/templates/Cards/demo/demo_new_set.html:661
+#: Cards/templates/Cards/demo/demo_new_set.html:857
 msgid "Hawaiian"
 msgstr "hawajski"
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:34 Cards/langcodes.py:57
+#: Cards/templates/Cards/demo/demo_new_set.html:79
+#: Cards/templates/Cards/demo/demo_new_set.html:271
+#: Cards/templates/Cards/demo/demo_new_set.html:467
+#: Cards/templates/Cards/demo/demo_new_set.html:663
+#: Cards/templates/Cards/demo/demo_new_set.html:859
 msgid "Hebrew"
 msgstr ""
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:35 Cards/langcodes.py:58
+#: Cards/templates/Cards/demo/demo_new_set.html:81
+#: Cards/templates/Cards/demo/demo_new_set.html:273
+#: Cards/templates/Cards/demo/demo_new_set.html:469
+#: Cards/templates/Cards/demo/demo_new_set.html:665
+#: Cards/templates/Cards/demo/demo_new_set.html:861
 msgid "Hindi"
 msgstr ""
 
@@ -213,10 +397,20 @@ msgid "Hmong"
 msgstr ""
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:35 Cards/langcodes.py:58
+#: Cards/templates/Cards/demo/demo_new_set.html:83
+#: Cards/templates/Cards/demo/demo_new_set.html:275
+#: Cards/templates/Cards/demo/demo_new_set.html:471
+#: Cards/templates/Cards/demo/demo_new_set.html:667
+#: Cards/templates/Cards/demo/demo_new_set.html:863
 msgid "Hungarian"
 msgstr ""
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:35 Cards/langcodes.py:58
+#: Cards/templates/Cards/demo/demo_new_set.html:85
+#: Cards/templates/Cards/demo/demo_new_set.html:277
+#: Cards/templates/Cards/demo/demo_new_set.html:473
+#: Cards/templates/Cards/demo/demo_new_set.html:669
+#: Cards/templates/Cards/demo/demo_new_set.html:865
 msgid "Icelandic"
 msgstr ""
 
@@ -225,86 +419,196 @@ msgid "Igbo"
 msgstr ""
 
 #: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+#: Cards/templates/Cards/demo/demo_new_set.html:87
+#: Cards/templates/Cards/demo/demo_new_set.html:279
+#: Cards/templates/Cards/demo/demo_new_set.html:475
+#: Cards/templates/Cards/demo/demo_new_set.html:671
+#: Cards/templates/Cards/demo/demo_new_set.html:867
 msgid "Indonesian"
 msgstr ""
 
 #: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+#: Cards/templates/Cards/demo/demo_new_set.html:89
+#: Cards/templates/Cards/demo/demo_new_set.html:281
+#: Cards/templates/Cards/demo/demo_new_set.html:477
+#: Cards/templates/Cards/demo/demo_new_set.html:673
+#: Cards/templates/Cards/demo/demo_new_set.html:869
 msgid "Irish"
 msgstr ""
 
 #: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+#: Cards/templates/Cards/demo/demo_new_set.html:91
+#: Cards/templates/Cards/demo/demo_new_set.html:283
+#: Cards/templates/Cards/demo/demo_new_set.html:479
+#: Cards/templates/Cards/demo/demo_new_set.html:675
+#: Cards/templates/Cards/demo/demo_new_set.html:871
 msgid "Italian"
 msgstr ""
 
 #: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+#: Cards/templates/Cards/demo/demo_flashcards.html:203
+#: Cards/templates/Cards/demo/demo_new_set.html:93
+#: Cards/templates/Cards/demo/demo_new_set.html:285
+#: Cards/templates/Cards/demo/demo_new_set.html:481
+#: Cards/templates/Cards/demo/demo_new_set.html:677
+#: Cards/templates/Cards/demo/demo_new_set.html:873
+#: Cards/templates/Cards/demo/demo_write.html:63
+#: Cards/templates/Cards/demo/demo_write.html:142
+#: Cards/templates/Cards/demo/welcome.html:195
+#: accounts/templates/registration/login.html:219
 msgid "Japanese"
 msgstr ""
 
 #: Cards/langcodes.py:12 Cards/langcodes.py:36 Cards/langcodes.py:59
+#: Cards/templates/Cards/demo/demo_new_set.html:95
+#: Cards/templates/Cards/demo/demo_new_set.html:287
+#: Cards/templates/Cards/demo/demo_new_set.html:483
+#: Cards/templates/Cards/demo/demo_new_set.html:679
+#: Cards/templates/Cards/demo/demo_new_set.html:875
 msgid "Javanese"
 msgstr "jawajski"
 
 #: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+#: Cards/templates/Cards/demo/demo_new_set.html:97
+#: Cards/templates/Cards/demo/demo_new_set.html:289
+#: Cards/templates/Cards/demo/demo_new_set.html:485
+#: Cards/templates/Cards/demo/demo_new_set.html:681
+#: Cards/templates/Cards/demo/demo_new_set.html:877
 msgid "Kannada"
 msgstr ""
 
 #: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+#: Cards/templates/Cards/demo/demo_new_set.html:99
+#: Cards/templates/Cards/demo/demo_new_set.html:291
+#: Cards/templates/Cards/demo/demo_new_set.html:487
+#: Cards/templates/Cards/demo/demo_new_set.html:683
+#: Cards/templates/Cards/demo/demo_new_set.html:879
 msgid "Kazakh"
 msgstr ""
 
 #: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+#: Cards/templates/Cards/demo/demo_new_set.html:101
+#: Cards/templates/Cards/demo/demo_new_set.html:293
+#: Cards/templates/Cards/demo/demo_new_set.html:489
+#: Cards/templates/Cards/demo/demo_new_set.html:685
+#: Cards/templates/Cards/demo/demo_new_set.html:881
 msgid "Khmer"
 msgstr ""
 
 #: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+#: Cards/templates/Cards/demo/demo_new_set.html:103
+#: Cards/templates/Cards/demo/demo_new_set.html:295
+#: Cards/templates/Cards/demo/demo_new_set.html:491
+#: Cards/templates/Cards/demo/demo_new_set.html:687
+#: Cards/templates/Cards/demo/demo_new_set.html:883
 msgid "Korean"
 msgstr ""
 
 #: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
+#: Cards/templates/Cards/demo/demo_new_set.html:105
+#: Cards/templates/Cards/demo/demo_new_set.html:297
+#: Cards/templates/Cards/demo/demo_new_set.html:493
+#: Cards/templates/Cards/demo/demo_new_set.html:689
+#: Cards/templates/Cards/demo/demo_new_set.html:885
 msgid "Kurdish (kurmanji)"
 msgstr "kurdyjski (kurmandżi)"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+#: Cards/templates/Cards/demo/demo_new_set.html:107
+#: Cards/templates/Cards/demo/demo_new_set.html:299
+#: Cards/templates/Cards/demo/demo_new_set.html:495
+#: Cards/templates/Cards/demo/demo_new_set.html:691
+#: Cards/templates/Cards/demo/demo_new_set.html:887
 msgid "Kyrgyz"
 msgstr "kirgiski"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+#: Cards/templates/Cards/demo/demo_new_set.html:109
+#: Cards/templates/Cards/demo/demo_new_set.html:301
+#: Cards/templates/Cards/demo/demo_new_set.html:497
+#: Cards/templates/Cards/demo/demo_new_set.html:693
+#: Cards/templates/Cards/demo/demo_new_set.html:889
 msgid "Lao"
 msgstr "laotański"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+#: Cards/templates/Cards/demo/demo_new_set.html:111
+#: Cards/templates/Cards/demo/demo_new_set.html:303
+#: Cards/templates/Cards/demo/demo_new_set.html:499
+#: Cards/templates/Cards/demo/demo_new_set.html:695
+#: Cards/templates/Cards/demo/demo_new_set.html:891
 msgid "Latin"
 msgstr "łaciński"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+#: Cards/templates/Cards/demo/demo_new_set.html:113
+#: Cards/templates/Cards/demo/demo_new_set.html:305
+#: Cards/templates/Cards/demo/demo_new_set.html:501
+#: Cards/templates/Cards/demo/demo_new_set.html:697
+#: Cards/templates/Cards/demo/demo_new_set.html:893
 msgid "Latvian"
 msgstr ""
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
+#: Cards/templates/Cards/demo/demo_new_set.html:115
+#: Cards/templates/Cards/demo/demo_new_set.html:307
+#: Cards/templates/Cards/demo/demo_new_set.html:503
+#: Cards/templates/Cards/demo/demo_new_set.html:699
+#: Cards/templates/Cards/demo/demo_new_set.html:895
 msgid "Lithuanian"
 msgstr ""
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:39 Cards/langcodes.py:62
+#: Cards/templates/Cards/demo/demo_new_set.html:117
+#: Cards/templates/Cards/demo/demo_new_set.html:309
+#: Cards/templates/Cards/demo/demo_new_set.html:505
+#: Cards/templates/Cards/demo/demo_new_set.html:701
+#: Cards/templates/Cards/demo/demo_new_set.html:897
 msgid "Luxembourgish"
 msgstr ""
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+#: Cards/templates/Cards/demo/demo_new_set.html:119
+#: Cards/templates/Cards/demo/demo_new_set.html:311
+#: Cards/templates/Cards/demo/demo_new_set.html:507
+#: Cards/templates/Cards/demo/demo_new_set.html:703
+#: Cards/templates/Cards/demo/demo_new_set.html:899
 msgid "Macedonian"
 msgstr ""
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+#: Cards/templates/Cards/demo/demo_new_set.html:121
+#: Cards/templates/Cards/demo/demo_new_set.html:313
+#: Cards/templates/Cards/demo/demo_new_set.html:509
+#: Cards/templates/Cards/demo/demo_new_set.html:705
+#: Cards/templates/Cards/demo/demo_new_set.html:901
 msgid "Malagasy"
 msgstr "malgaski"
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+#: Cards/templates/Cards/demo/demo_new_set.html:123
+#: Cards/templates/Cards/demo/demo_new_set.html:315
+#: Cards/templates/Cards/demo/demo_new_set.html:511
+#: Cards/templates/Cards/demo/demo_new_set.html:707
+#: Cards/templates/Cards/demo/demo_new_set.html:903
 msgid "Malay"
 msgstr "malajski"
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
+#: Cards/templates/Cards/demo/demo_new_set.html:125
+#: Cards/templates/Cards/demo/demo_new_set.html:317
+#: Cards/templates/Cards/demo/demo_new_set.html:513
+#: Cards/templates/Cards/demo/demo_new_set.html:709
+#: Cards/templates/Cards/demo/demo_new_set.html:905
 msgid "Malayalam"
 msgstr ""
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:40 Cards/langcodes.py:63
+#: Cards/templates/Cards/demo/demo_new_set.html:127
+#: Cards/templates/Cards/demo/demo_new_set.html:319
+#: Cards/templates/Cards/demo/demo_new_set.html:515
+#: Cards/templates/Cards/demo/demo_new_set.html:711
+#: Cards/templates/Cards/demo/demo_new_set.html:907
 msgid "Maltese"
 msgstr "maltański "
 
@@ -313,50 +617,116 @@ msgid "Maori"
 msgstr ""
 
 #: Cards/langcodes.py:16 Cards/langcodes.py:40 Cards/langcodes.py:63
+#: Cards/templates/Cards/demo/demo_new_set.html:129
+#: Cards/templates/Cards/demo/demo_new_set.html:321
+#: Cards/templates/Cards/demo/demo_new_set.html:517
+#: Cards/templates/Cards/demo/demo_new_set.html:713
+#: Cards/templates/Cards/demo/demo_new_set.html:909
 msgid "Marathi"
 msgstr ""
 
 #: Cards/langcodes.py:16 Cards/langcodes.py:40 Cards/langcodes.py:63
+#: Cards/templates/Cards/demo/demo_new_set.html:131
+#: Cards/templates/Cards/demo/demo_new_set.html:323
+#: Cards/templates/Cards/demo/demo_new_set.html:519
+#: Cards/templates/Cards/demo/demo_new_set.html:715
+#: Cards/templates/Cards/demo/demo_new_set.html:911
 msgid "Mongolian"
 msgstr ""
 
 #: Cards/langcodes.py:16 Cards/langcodes.py:40 Cards/langcodes.py:63
+#: Cards/templates/Cards/demo/demo_new_set.html:133
+#: Cards/templates/Cards/demo/demo_new_set.html:325
+#: Cards/templates/Cards/demo/demo_new_set.html:521
+#: Cards/templates/Cards/demo/demo_new_set.html:717
+#: Cards/templates/Cards/demo/demo_new_set.html:913
 msgid "Myanmar (burmese)"
 msgstr "birmański"
 
 #: Cards/langcodes.py:16 Cards/langcodes.py:41 Cards/langcodes.py:64
+#: Cards/templates/Cards/demo/demo_new_set.html:135
+#: Cards/templates/Cards/demo/demo_new_set.html:327
+#: Cards/templates/Cards/demo/demo_new_set.html:523
+#: Cards/templates/Cards/demo/demo_new_set.html:719
+#: Cards/templates/Cards/demo/demo_new_set.html:915
 msgid "Nepali"
 msgstr ""
 
 #: Cards/langcodes.py:16 Cards/langcodes.py:41 Cards/langcodes.py:64
+#: Cards/templates/Cards/demo/demo_new_set.html:137
+#: Cards/templates/Cards/demo/demo_new_set.html:329
+#: Cards/templates/Cards/demo/demo_new_set.html:525
+#: Cards/templates/Cards/demo/demo_new_set.html:721
+#: Cards/templates/Cards/demo/demo_new_set.html:917
 msgid "Norwegian"
 msgstr "norweski"
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:41 Cards/langcodes.py:64
+#: Cards/templates/Cards/demo/demo_new_set.html:139
+#: Cards/templates/Cards/demo/demo_new_set.html:331
+#: Cards/templates/Cards/demo/demo_new_set.html:527
+#: Cards/templates/Cards/demo/demo_new_set.html:723
+#: Cards/templates/Cards/demo/demo_new_set.html:919
 msgid "Pashto"
 msgstr "pasztuński"
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:41 Cards/langcodes.py:64
+#: Cards/templates/Cards/demo/demo_new_set.html:141
+#: Cards/templates/Cards/demo/demo_new_set.html:333
+#: Cards/templates/Cards/demo/demo_new_set.html:529
+#: Cards/templates/Cards/demo/demo_new_set.html:725
+#: Cards/templates/Cards/demo/demo_new_set.html:921
 msgid "Persian"
 msgstr ""
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
+#: Cards/templates/Cards/demo/demo_flashcards.html:90
+#: Cards/templates/Cards/demo/demo_flashcards.html:200
+#: Cards/templates/Cards/demo/demo_new_set.html:143
+#: Cards/templates/Cards/demo/demo_new_set.html:335
+#: Cards/templates/Cards/demo/demo_new_set.html:531
+#: Cards/templates/Cards/demo/demo_new_set.html:727
+#: Cards/templates/Cards/demo/demo_new_set.html:923
+#: Cards/templates/Cards/demo/demo_write.html:47
+#: Cards/templates/Cards/demo/demo_write.html:130
+#: Cards/templates/Cards/demo/welcome.html:194
+#: accounts/templates/registration/login.html:218
 msgid "Polish"
 msgstr ""
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
+#: Cards/templates/Cards/demo/demo_new_set.html:145
+#: Cards/templates/Cards/demo/demo_new_set.html:337
+#: Cards/templates/Cards/demo/demo_new_set.html:533
+#: Cards/templates/Cards/demo/demo_new_set.html:729
+#: Cards/templates/Cards/demo/demo_new_set.html:925
 msgid "Portuguese"
 msgstr ""
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:42 Cards/langcodes.py:65
+#: Cards/templates/Cards/demo/demo_new_set.html:147
+#: Cards/templates/Cards/demo/demo_new_set.html:339
+#: Cards/templates/Cards/demo/demo_new_set.html:535
+#: Cards/templates/Cards/demo/demo_new_set.html:731
+#: Cards/templates/Cards/demo/demo_new_set.html:927
 msgid "Punjabi"
 msgstr ""
 
 #: Cards/langcodes.py:18 Cards/langcodes.py:42 Cards/langcodes.py:65
+#: Cards/templates/Cards/demo/demo_new_set.html:149
+#: Cards/templates/Cards/demo/demo_new_set.html:341
+#: Cards/templates/Cards/demo/demo_new_set.html:537
+#: Cards/templates/Cards/demo/demo_new_set.html:733
+#: Cards/templates/Cards/demo/demo_new_set.html:929
 msgid "Romanian"
 msgstr ""
 
 #: Cards/langcodes.py:18 Cards/langcodes.py:42 Cards/langcodes.py:65
+#: Cards/templates/Cards/demo/demo_new_set.html:151
+#: Cards/templates/Cards/demo/demo_new_set.html:343
+#: Cards/templates/Cards/demo/demo_new_set.html:539
+#: Cards/templates/Cards/demo/demo_new_set.html:735
+#: Cards/templates/Cards/demo/demo_new_set.html:931
 msgid "Russian"
 msgstr ""
 
@@ -365,14 +735,29 @@ msgid "Samoan"
 msgstr ""
 
 #: Cards/langcodes.py:18 Cards/langcodes.py:43 Cards/langcodes.py:66
+#: Cards/templates/Cards/demo/demo_new_set.html:153
+#: Cards/templates/Cards/demo/demo_new_set.html:345
+#: Cards/templates/Cards/demo/demo_new_set.html:541
+#: Cards/templates/Cards/demo/demo_new_set.html:737
+#: Cards/templates/Cards/demo/demo_new_set.html:933
 msgid "Scots gaelic"
 msgstr "gaelicki szkocki"
 
 #: Cards/langcodes.py:18 Cards/langcodes.py:43 Cards/langcodes.py:66
+#: Cards/templates/Cards/demo/demo_new_set.html:155
+#: Cards/templates/Cards/demo/demo_new_set.html:347
+#: Cards/templates/Cards/demo/demo_new_set.html:543
+#: Cards/templates/Cards/demo/demo_new_set.html:739
+#: Cards/templates/Cards/demo/demo_new_set.html:935
 msgid "Serbian"
 msgstr ""
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:43 Cards/langcodes.py:66
+#: Cards/templates/Cards/demo/demo_new_set.html:157
+#: Cards/templates/Cards/demo/demo_new_set.html:349
+#: Cards/templates/Cards/demo/demo_new_set.html:545
+#: Cards/templates/Cards/demo/demo_new_set.html:741
+#: Cards/templates/Cards/demo/demo_new_set.html:937
 msgid "Sesotho"
 msgstr "sotho"
 
@@ -381,82 +766,182 @@ msgid "Shona"
 msgstr ""
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+#: Cards/templates/Cards/demo/demo_new_set.html:159
+#: Cards/templates/Cards/demo/demo_new_set.html:351
+#: Cards/templates/Cards/demo/demo_new_set.html:547
+#: Cards/templates/Cards/demo/demo_new_set.html:743
+#: Cards/templates/Cards/demo/demo_new_set.html:939
 msgid "Sindhi"
 msgstr "sindhi"
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+#: Cards/templates/Cards/demo/demo_new_set.html:161
+#: Cards/templates/Cards/demo/demo_new_set.html:353
+#: Cards/templates/Cards/demo/demo_new_set.html:549
+#: Cards/templates/Cards/demo/demo_new_set.html:745
+#: Cards/templates/Cards/demo/demo_new_set.html:941
 msgid "Sinhala"
 msgstr "sinhala"
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+#: Cards/templates/Cards/demo/demo_new_set.html:163
+#: Cards/templates/Cards/demo/demo_new_set.html:355
+#: Cards/templates/Cards/demo/demo_new_set.html:551
+#: Cards/templates/Cards/demo/demo_new_set.html:747
+#: Cards/templates/Cards/demo/demo_new_set.html:943
 msgid "Slovak"
 msgstr ""
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
+#: Cards/templates/Cards/demo/demo_new_set.html:165
+#: Cards/templates/Cards/demo/demo_new_set.html:357
+#: Cards/templates/Cards/demo/demo_new_set.html:553
+#: Cards/templates/Cards/demo/demo_new_set.html:749
+#: Cards/templates/Cards/demo/demo_new_set.html:945
 msgid "Slovenian"
 msgstr ""
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:44 Cards/langcodes.py:67
+#: Cards/templates/Cards/demo/demo_new_set.html:167
+#: Cards/templates/Cards/demo/demo_new_set.html:359
+#: Cards/templates/Cards/demo/demo_new_set.html:555
+#: Cards/templates/Cards/demo/demo_new_set.html:751
+#: Cards/templates/Cards/demo/demo_new_set.html:947
 msgid "Somali"
 msgstr "somali"
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+#: Cards/templates/Cards/demo/demo_new_set.html:169
+#: Cards/templates/Cards/demo/demo_new_set.html:361
+#: Cards/templates/Cards/demo/demo_new_set.html:557
+#: Cards/templates/Cards/demo/demo_new_set.html:753
+#: Cards/templates/Cards/demo/demo_new_set.html:949
 msgid "Spanish"
 msgstr ""
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+#: Cards/templates/Cards/demo/demo_new_set.html:171
+#: Cards/templates/Cards/demo/demo_new_set.html:363
+#: Cards/templates/Cards/demo/demo_new_set.html:559
+#: Cards/templates/Cards/demo/demo_new_set.html:755
+#: Cards/templates/Cards/demo/demo_new_set.html:951
 msgid "Sundanese"
 msgstr "sundajski"
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+#: Cards/templates/Cards/demo/demo_new_set.html:173
+#: Cards/templates/Cards/demo/demo_new_set.html:365
+#: Cards/templates/Cards/demo/demo_new_set.html:561
+#: Cards/templates/Cards/demo/demo_new_set.html:757
+#: Cards/templates/Cards/demo/demo_new_set.html:953
 msgid "Swahili"
 msgstr ""
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+#: Cards/templates/Cards/demo/demo_new_set.html:175
+#: Cards/templates/Cards/demo/demo_new_set.html:367
+#: Cards/templates/Cards/demo/demo_new_set.html:563
+#: Cards/templates/Cards/demo/demo_new_set.html:759
+#: Cards/templates/Cards/demo/demo_new_set.html:955
 msgid "Swedish"
 msgstr ""
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
+#: Cards/templates/Cards/demo/demo_new_set.html:177
+#: Cards/templates/Cards/demo/demo_new_set.html:369
+#: Cards/templates/Cards/demo/demo_new_set.html:565
+#: Cards/templates/Cards/demo/demo_new_set.html:761
+#: Cards/templates/Cards/demo/demo_new_set.html:957
 msgid "Tajik"
 msgstr "tadżycki"
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+#: Cards/templates/Cards/demo/demo_new_set.html:179
+#: Cards/templates/Cards/demo/demo_new_set.html:371
+#: Cards/templates/Cards/demo/demo_new_set.html:567
+#: Cards/templates/Cards/demo/demo_new_set.html:763
+#: Cards/templates/Cards/demo/demo_new_set.html:959
 msgid "Tamil"
 msgstr ""
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+#: Cards/templates/Cards/demo/demo_new_set.html:181
+#: Cards/templates/Cards/demo/demo_new_set.html:373
+#: Cards/templates/Cards/demo/demo_new_set.html:569
+#: Cards/templates/Cards/demo/demo_new_set.html:765
+#: Cards/templates/Cards/demo/demo_new_set.html:961
 msgid "Telugu"
 msgstr ""
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+#: Cards/templates/Cards/demo/demo_new_set.html:183
+#: Cards/templates/Cards/demo/demo_new_set.html:375
+#: Cards/templates/Cards/demo/demo_new_set.html:571
+#: Cards/templates/Cards/demo/demo_new_set.html:767
+#: Cards/templates/Cards/demo/demo_new_set.html:963
 msgid "Thai"
 msgstr ""
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+#: Cards/templates/Cards/demo/demo_new_set.html:185
+#: Cards/templates/Cards/demo/demo_new_set.html:377
+#: Cards/templates/Cards/demo/demo_new_set.html:573
+#: Cards/templates/Cards/demo/demo_new_set.html:769
+#: Cards/templates/Cards/demo/demo_new_set.html:965
 msgid "Turkish"
 msgstr ""
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+#: Cards/templates/Cards/demo/demo_new_set.html:187
+#: Cards/templates/Cards/demo/demo_new_set.html:379
+#: Cards/templates/Cards/demo/demo_new_set.html:575
+#: Cards/templates/Cards/demo/demo_new_set.html:771
+#: Cards/templates/Cards/demo/demo_new_set.html:967
 msgid "Ukrainian"
 msgstr ""
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
+#: Cards/templates/Cards/demo/demo_new_set.html:189
+#: Cards/templates/Cards/demo/demo_new_set.html:381
+#: Cards/templates/Cards/demo/demo_new_set.html:577
+#: Cards/templates/Cards/demo/demo_new_set.html:773
+#: Cards/templates/Cards/demo/demo_new_set.html:969
 msgid "Urdu"
 msgstr ""
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+#: Cards/templates/Cards/demo/demo_new_set.html:191
+#: Cards/templates/Cards/demo/demo_new_set.html:383
+#: Cards/templates/Cards/demo/demo_new_set.html:579
+#: Cards/templates/Cards/demo/demo_new_set.html:775
+#: Cards/templates/Cards/demo/demo_new_set.html:971
 msgid "Uyghur"
 msgstr "ujgurski"
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+#: Cards/templates/Cards/demo/demo_new_set.html:193
+#: Cards/templates/Cards/demo/demo_new_set.html:385
+#: Cards/templates/Cards/demo/demo_new_set.html:581
+#: Cards/templates/Cards/demo/demo_new_set.html:777
+#: Cards/templates/Cards/demo/demo_new_set.html:973
 msgid "Uzbek"
 msgstr ""
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+#: Cards/templates/Cards/demo/demo_new_set.html:195
+#: Cards/templates/Cards/demo/demo_new_set.html:387
+#: Cards/templates/Cards/demo/demo_new_set.html:583
+#: Cards/templates/Cards/demo/demo_new_set.html:779
+#: Cards/templates/Cards/demo/demo_new_set.html:975
 msgid "Vietnamese"
 msgstr "wietnamski"
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
+#: Cards/templates/Cards/demo/demo_new_set.html:197
+#: Cards/templates/Cards/demo/demo_new_set.html:389
+#: Cards/templates/Cards/demo/demo_new_set.html:585
+#: Cards/templates/Cards/demo/demo_new_set.html:781
+#: Cards/templates/Cards/demo/demo_new_set.html:977
 msgid "Welsh"
 msgstr ""
 
@@ -476,7 +961,9 @@ msgstr ""
 msgid "Zulu"
 msgstr ""
 
-#: Cards/langcodes.py:26
+#: Cards/langcodes.py:26 Cards/templates/Cards/demo/demo_new_set.html:399
+#: Cards/templates/Cards/demo/demo_new_set.html:595
+#: Cards/templates/Cards/demo/demo_new_set.html:791
 msgid "OFF"
 msgstr " - "
 
@@ -499,7 +986,9 @@ msgstr "Nauka"
 #: Cards/templates/Cards/edit_multicards.html:25
 #: Cards/templates/Cards/edit_set.html:15 Cards/templates/Cards/index.html:64
 #: Cards/templates/Cards/learn/learn.html:14
-#: Cards/templates/Cards/public_sets.html:54 templates/admin/index.html:38
+#: Cards/templates/Cards/learn/learn_flashcards.html:75
+#: Cards/templates/Cards/public_sets.html:54
+#: Cards/templates/learn_flashcards_2.html:61 templates/admin/index.html:38
 msgid "View"
 msgstr "Wgląd"
 
@@ -542,6 +1031,7 @@ msgstr "Możesz dodać MultiKartę ze wszystkimi szczegółami tutaj."
 
 #: Cards/templates/Cards/add_many.html:42
 #: Cards/templates/Cards/add_mcards_modal.html:22
+#: accounts/templates/registration/login.html:224
 msgid "Text separator"
 msgstr "Separator tekstu"
 
@@ -562,6 +1052,13 @@ msgstr ""
 #: Cards/templates/Cards/add_mcards_modal.html:28
 #: Cards/templates/Cards/add_multicard.html:94
 #: Cards/templates/Cards/add_set.html:42
+#: Cards/templates/Cards/demo/demo_flashcards.html:164
+#: Cards/templates/Cards/demo/demo_new_set.html:995
+#: Cards/templates/Cards/demo/welcome.html:62
+#: Cards/templates/Cards/demo/welcome.html:179
+#: Cards/templates/Cards/demo/welcome.html:207
+#: accounts/templates/registration/login.html:203
+#: accounts/templates/registration/login.html:232
 msgid "Create"
 msgstr "Stwórz"
 
@@ -593,39 +1090,69 @@ msgid "You can add many words at once here."
 msgstr "Możesz dodać wiele słów jednocześnie tutaj."
 
 #: Cards/templates/Cards/add_multicard.html:37
+#: Cards/templates/Cards/demo/welcome.html:81
 #: Cards/templates/Cards/edit_multicards.html:116
 #: Cards/templates/Cards/view_set_public.html:84
+#: accounts/templates/registration/login.html:105
 msgid "Definition"
 msgstr "Definicja"
 
 #: Cards/templates/Cards/add_multicard.html:40
+#: Cards/templates/Cards/demo/welcome.html:85
 #: Cards/templates/Cards/edit_all_multicards.html:112
 #: Cards/templates/Cards/edit_multicards.html:117
+#: accounts/templates/registration/login.html:109
 msgid "Definition for this MultiCard"
 msgstr "Definicja dla tej MultiKarty"
 
 #: Cards/templates/Cards/add_multicard.html:45
 #: Cards/templates/Cards/add_multicard.html:84
+#: Cards/templates/Cards/demo/welcome.html:90
+#: Cards/templates/Cards/demo/welcome.html:157
+#: Cards/templates/Cards/demo/welcome.html:160
+#: Cards/templates/Cards/demo/welcome.html:164
+#: Cards/templates/Cards/demo/welcome.html:168
+#: Cards/templates/Cards/demo/welcome.html:172
 #: Cards/templates/Cards/edit_multicards.html:81
 #: Cards/templates/Cards/edit_multicards.html:98
 #: Cards/templates/Cards/edit_multicards.html:111
 #: Cards/templates/Cards/view_set_public.html:87
+#: accounts/templates/registration/login.html:114
+#: accounts/templates/registration/login.html:181
+#: accounts/templates/registration/login.html:184
+#: accounts/templates/registration/login.html:188
+#: accounts/templates/registration/login.html:192
+#: accounts/templates/registration/login.html:196
 msgid "Comment"
 msgstr "Komentarz"
 
 #: Cards/templates/Cards/add_multicard.html:48
+#: Cards/templates/Cards/demo/welcome.html:94
 #: Cards/templates/Cards/edit_all_multicards.html:107
 #: Cards/templates/Cards/edit_multicards.html:112
+#: accounts/templates/registration/login.html:118
 msgid "Comment for this MultiCard"
 msgstr "Komentarz dla tej MultiKarty"
 
 #: Cards/templates/Cards/add_multicard.html:51
+#: Cards/templates/Cards/demo/welcome.html:97
+#: accounts/templates/registration/login.html:121
 msgid "Language"
 msgstr "Język"
 
 #: Cards/templates/Cards/add_multicard.html:56
+#: Cards/templates/Cards/demo/welcome.html:103
+#: Cards/templates/Cards/demo/welcome.html:106
+#: Cards/templates/Cards/demo/welcome.html:109
+#: Cards/templates/Cards/demo/welcome.html:112
+#: Cards/templates/Cards/demo/welcome.html:115
 #: Cards/templates/Cards/edit_multicards.html:78
 #: Cards/templates/Cards/edit_multicards.html:89
+#: accounts/templates/registration/login.html:127
+#: accounts/templates/registration/login.html:130
+#: accounts/templates/registration/login.html:133
+#: accounts/templates/registration/login.html:136
+#: accounts/templates/registration/login.html:139
 msgid "Word"
 msgstr "Wyraz"
 
@@ -636,9 +1163,25 @@ msgid "%(lang)s word"
 msgstr "%(lang)s wyraz"
 
 #: Cards/templates/Cards/add_multicard.html:68
+#: Cards/templates/Cards/demo/demo_flashcards.html:165
+#: Cards/templates/Cards/demo/demo_view.html:96
+#: Cards/templates/Cards/demo/demo_view.html:187
+#: Cards/templates/Cards/demo/demo_view.html:278
+#: Cards/templates/Cards/demo/demo_view.html:369
+#: Cards/templates/Cards/demo/demo_view.html:460
+#: Cards/templates/Cards/demo/welcome.html:119
+#: Cards/templates/Cards/demo/welcome.html:122
+#: Cards/templates/Cards/demo/welcome.html:126
+#: Cards/templates/Cards/demo/welcome.html:130
+#: Cards/templates/Cards/demo/welcome.html:134
 #: Cards/templates/Cards/edit_multicards.html:79
 #: Cards/templates/Cards/edit_multicards.html:92
 #: Cards/templates/Cards/view_set_public.html:78
+#: accounts/templates/registration/login.html:143
+#: accounts/templates/registration/login.html:146
+#: accounts/templates/registration/login.html:150
+#: accounts/templates/registration/login.html:154
+#: accounts/templates/registration/login.html:158
 msgid "Pronunciation"
 msgstr "Wymowa"
 
@@ -648,9 +1191,19 @@ msgid "%(lang)s pronunciation"
 msgstr "%(lang)s wymowa"
 
 #: Cards/templates/Cards/add_multicard.html:76
+#: Cards/templates/Cards/demo/welcome.html:138
+#: Cards/templates/Cards/demo/welcome.html:141
+#: Cards/templates/Cards/demo/welcome.html:145
+#: Cards/templates/Cards/demo/welcome.html:149
+#: Cards/templates/Cards/demo/welcome.html:153
 #: Cards/templates/Cards/edit_multicards.html:80
 #: Cards/templates/Cards/edit_multicards.html:95
 #: Cards/templates/Cards/view_set_public.html:81
+#: accounts/templates/registration/login.html:162
+#: accounts/templates/registration/login.html:165
+#: accounts/templates/registration/login.html:169
+#: accounts/templates/registration/login.html:173
+#: accounts/templates/registration/login.html:177
 msgid "Synonym"
 msgstr "Synonim"
 
@@ -671,6 +1224,195 @@ msgstr "Skopiuj zestaw"
 #: Cards/templates/Cards/copy_set.html:42 Cards/templates/Cards/index.html:68
 msgid "Copy"
 msgstr "Skopiuj"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:105
+#: Cards/templates/Cards/learn/learn_flashcards.html:121
+#, fuzzy
+#| msgid "How did you get here, huh?"
+msgid "Did you get that?"
+msgstr "Jak się tutaj dostałeś, hm?"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:109
+#: Cards/templates/Cards/learn/learn_flashcards.html:125
+msgid "Easily!"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:116
+#: Cards/templates/Cards/learn/learn_flashcards.html:132
+msgid "Barely"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:120
+#: Cards/templates/Cards/learn/learn_flashcards.html:136
+msgid "Almost"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:124
+#: Cards/templates/Cards/learn/learn_flashcards.html:140
+msgid "Nope"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:130
+#: Cards/templates/Cards/learn/learn_flashcards.html:146
+msgid "Other"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:134
+#: Cards/templates/Cards/learn/learn_flashcards.html:150
+msgid "I have already mastered it!"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:137
+#: Cards/templates/Cards/learn/learn_flashcards.html:153
+#, fuzzy
+#| msgid "Reset Progress"
+msgid "Reset my progress on this."
+msgstr "Zresetuj postęp"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:139
+#: Cards/templates/Cards/learn/learn_flashcards.html:155
+#, fuzzy
+#| msgid "Comment for this MultiCard"
+msgid "Delete this MultiCard"
+msgstr "Komentarz dla tej MultiKarty"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:177
+#: Cards/templates/Cards/demo/demo_write.html:169
+#: Cards/templates/Cards/learn/learn_flashcards.html:173
+#: Cards/templates/Cards/learn/learn_write.html:97
+msgid "Next"
+msgstr "Następny"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:181
+#: Cards/templates/Cards/learn/learn_flashcards.html:176
+msgid ""
+"You see the card in one language. Think about the translation before moving "
+"to next language."
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:223
+msgid "\"Good job! Keep going! \" + String(4 - answered) + \" left.\""
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:244
+#: Cards/templates/Cards/learn/learn_flashcards.html:230
+msgid ""
+"This is the first language this time. Are you able to translate it to all "
+"other languages?"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:246
+#: Cards/templates/Cards/learn/learn_flashcards.html:232
+msgid "You have already answered this question, keep going!"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_new_set.html:995
+msgid "It's just a demo!"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_view.html:9
+#: Cards/templates/Cards/demo/welcome.html:98
+#: accounts/templates/registration/login.html:122
+msgid "ENGLISH"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_view.html:13
+#: Cards/templates/Cards/demo/welcome.html:99
+#: accounts/templates/registration/login.html:123
+msgid "POLISH"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_view.html:17
+#: Cards/templates/Cards/demo/welcome.html:100
+#: accounts/templates/registration/login.html:124
+msgid "JAPANESE"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_view.html:21
+#: Cards/templates/Cards/demo/welcome.html:101
+#: accounts/templates/registration/login.html:125
+msgid "GERMAN"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_view.html:67
+#: Cards/templates/Cards/demo/demo_view.html:78
+#: Cards/templates/Cards/demo/demo_view.html:91
+#: Cards/templates/Cards/demo/demo_view.html:107
+#: Cards/templates/Cards/demo/demo_view.html:158
+#: Cards/templates/Cards/demo/demo_view.html:169
+#: Cards/templates/Cards/demo/demo_view.html:182
+#: Cards/templates/Cards/demo/demo_view.html:198
+#: Cards/templates/Cards/demo/demo_view.html:249
+#: Cards/templates/Cards/demo/demo_view.html:260
+#: Cards/templates/Cards/demo/demo_view.html:273
+#: Cards/templates/Cards/demo/demo_view.html:289
+#: Cards/templates/Cards/demo/demo_view.html:340
+#: Cards/templates/Cards/demo/demo_view.html:351
+#: Cards/templates/Cards/demo/demo_view.html:364
+#: Cards/templates/Cards/demo/demo_view.html:380
+#: Cards/templates/Cards/demo/demo_view.html:431
+#: Cards/templates/Cards/demo/demo_view.html:442
+#: Cards/templates/Cards/demo/demo_view.html:455
+#: Cards/templates/Cards/demo/demo_view.html:471
+#: Cards/templates/Cards/demo/demo_write.html:21
+#: Cards/templates/Cards/learn/learn_write.html:36
+msgid "Progress"
+msgstr "Postęp"
+
+#: Cards/templates/Cards/demo/demo_view.html:80
+#: Cards/templates/Cards/demo/demo_view.html:93
+#: Cards/templates/Cards/demo/demo_view.html:109
+#: Cards/templates/Cards/demo/demo_view.html:171
+#: Cards/templates/Cards/demo/demo_view.html:184
+#: Cards/templates/Cards/demo/demo_view.html:200
+#: Cards/templates/Cards/demo/demo_view.html:262
+#: Cards/templates/Cards/demo/demo_view.html:275
+#: Cards/templates/Cards/demo/demo_view.html:291
+#: Cards/templates/Cards/demo/demo_view.html:353
+#: Cards/templates/Cards/demo/demo_view.html:366
+#: Cards/templates/Cards/demo/demo_view.html:382
+#: Cards/templates/Cards/demo/demo_view.html:444
+#: Cards/templates/Cards/demo/demo_view.html:457
+#: Cards/templates/Cards/demo/demo_view.html:473
+#: Cards/templates/Cards/view_set_public.html:75
+msgid "Auto-translated"
+msgstr "Auto-tłumaczenie"
+
+#: Cards/templates/Cards/demo/demo_write.html:19
+#: Cards/templates/Cards/learn/learn_write.html:34
+msgid "Your answer"
+msgstr "Twoja odpowiedź"
+
+#: Cards/templates/Cards/demo/demo_write.html:20
+#: Cards/templates/Cards/learn/learn_write.html:35
+msgid "Correct answer"
+msgstr "Prawidłowa odpowiedź"
+
+#: Cards/templates/Cards/demo/demo_write.html:112
+#: Cards/templates/Cards/learn/learn_write.html:80
+msgid "Write translation below"
+msgstr "Napisz tłumaczenia poniżej"
+
+#: Cards/templates/Cards/demo/welcome.html:4
+msgid "Demo"
+msgstr ""
+
+#: Cards/templates/Cards/demo/welcome.html:27
+#: accounts/templates/registration/login.html:4
+#: accounts/templates/registration/login.html:30
+msgid "Multi-FlashCards"
+msgstr "Mutli-Fiszki"
+
+#: Cards/templates/Cards/demo/welcome.html:31
+msgid "Welcome to the demonstration"
+msgstr ""
+
+#: Cards/templates/Cards/demo/welcome.html:245
+#: accounts/templates/registration/login.html:270
+#, fuzzy
+#| msgid "Sign Up"
+msgid "Sign up"
+msgstr "Rejestracja"
 
 #: Cards/templates/Cards/edit_all_multicards.html:28
 #: Cards/templates/Cards/edit_multicards.html:28
@@ -866,6 +1608,7 @@ msgstr "Pisanie"
 
 #: Cards/templates/Cards/learn/learn.html:32
 #: Cards/templates/Cards/view_set.html:51
+#: accounts/templates/registration/login.html:256
 msgid "Flashcards"
 msgstr "Fiszki"
 
@@ -879,51 +1622,9 @@ msgstr "Nie masz dosyć MultiKart w tym zestawie by rozpocząć naukę."
 msgid "Please create at least three MultiCards."
 msgstr ""
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:121
-#, fuzzy
-#| msgid "How did you get here, huh?"
-msgid "Did you get that?"
-msgstr "Jak się tutaj dostałeś, hm?"
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:125
-msgid "Easily!"
-msgstr ""
-
 #: Cards/templates/Cards/learn/learn_flashcards.html:128
 msgid "Yes!"
 msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:132
-msgid "Barely"
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:136
-msgid "Almost"
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:140
-msgid "Nope"
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:146
-msgid "Other"
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:150
-msgid "I have already mastered it!"
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:153
-#, fuzzy
-#| msgid "Reset Progress"
-msgid "Reset my progress on this."
-msgstr "Zresetuj postęp"
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:155
-#, fuzzy
-#| msgid "Comment for this MultiCard"
-msgid "Delete this MultiCard"
-msgstr "Komentarz dla tej MultiKarty"
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:167
 #: Cards/templates/Cards/view_set.html:109
@@ -940,30 +1641,9 @@ msgstr "Wymowa:"
 msgid "Synonym:"
 msgstr "Synonim:"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:173
-#: Cards/templates/Cards/learn/learn_write.html:97
-msgid "Next"
-msgstr "Następny"
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:176
-msgid ""
-"You see the card in one language. Think about the translation before moving "
-"to next language."
-msgstr ""
-
 #: Cards/templates/Cards/learn/learn_flashcards.html:209
 #, python-format
 msgid "\"Good job! Keep going! \" + String(%(no)s - answered) + \" left.\""
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:230
-msgid ""
-"This is the first language this time. Are you able to translate it to all "
-"other languages?"
-msgstr ""
-
-#: Cards/templates/Cards/learn/learn_flashcards.html:232
-msgid "You have already answered this question, keep going!"
 msgstr ""
 
 #: Cards/templates/Cards/learn/learn_write.html:5
@@ -973,22 +1653,6 @@ msgstr "Nauka poprzez pisanie"
 #: Cards/templates/Cards/learn/learn_write.html:20
 msgid "Write translations"
 msgstr "Napisz tłumaczenie"
-
-#: Cards/templates/Cards/learn/learn_write.html:34
-msgid "Your answer"
-msgstr "Twoja odpowiedź"
-
-#: Cards/templates/Cards/learn/learn_write.html:35
-msgid "Correct answer"
-msgstr "Prawidłowa odpowiedź"
-
-#: Cards/templates/Cards/learn/learn_write.html:36
-msgid "Progress"
-msgstr "Postęp"
-
-#: Cards/templates/Cards/learn/learn_write.html:80
-msgid "Write translation below"
-msgstr "Napisz tłumaczenia poniżej"
 
 #: Cards/templates/Cards/public_sets.html:36
 msgid "Here are public sets."
@@ -1054,10 +1718,6 @@ msgstr "Czy na pewno chcesz usunąć ten zestaw \"%(folder)s\"?"
 msgid "Close"
 msgstr "Zamknij"
 
-#: Cards/templates/Cards/view_set_public.html:75
-msgid "Auto-translated"
-msgstr "Auto-tłumaczenie"
-
 #: Cards/templates/base.html:42
 msgid "Log out"
 msgstr "Wyloguj"
@@ -1101,7 +1761,7 @@ msgstr ""
 msgid "↑ Collapse"
 msgstr "↑ Zwiń"
 
-#: Cards/templates/base.html:114 accounts/templates/base2.html:61
+#: Cards/templates/base.html:114
 msgid ""
 "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
 "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
@@ -1111,7 +1771,7 @@ msgstr ""
 "użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Dowiedz się więcej</a>"
 
-#: Cards/templates/base.html:117 accounts/templates/base2.html:64
+#: Cards/templates/base.html:117 accounts/templates/base2.html:67
 msgid "I agree"
 msgstr "Wyrażam zgodę"
 
@@ -1218,14 +1878,30 @@ msgstr "Zmień swoje imię"
 msgid "Confirmation email sent."
 msgstr "Wiadomość wysłana."
 
-#: accounts/templates/base2.html:87
+#: accounts/templates/base2.html:63
+#, fuzzy
+#| msgid ""
+#| "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
+#| "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
+#| "\"_blank\">Learn more</a>"
+msgid ""
+"<b>Do you like cookies?</b> We use cookies to ensure you get the best "
+"experience on our website. <a\n"
+"          href=\"https://cookiesandyou.com/\" target=\"_blank\">Learn more</"
+"a>"
+msgstr ""
+"<b>Lubisz ciasteczka?</b> Używamy ciasteczka by zapewnić Ci wygodę "
+"użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
+"\"_blank\">Dowiedz się więcej</a>"
+
+#: accounts/templates/base2.html:99
 msgid ""
 "© 2020 Copyright:<br/>\n"
-"            Website: Bartosz Lulka<br/>\n"
-"            Auto translations: Google Translate<br/>\n"
-"            Style: Bootstrap<br/>\n"
-"            Run on Django<br/><br/>\n"
-"            Contact: bartosz.adam.lulka@gmail.com"
+"          Website: Bartosz Lulka<br/>\n"
+"          Auto translations: Google Translate<br/>\n"
+"          Style: Bootstrap<br/>\n"
+"          Run on Django<br/><br/>\n"
+"          Contact: bartosz.adam.lulka@gmail.com"
 msgstr ""
 
 #: accounts/templates/errors/404.html:4
@@ -1270,39 +1946,117 @@ msgstr "Zostałeś wylogowany."
 msgid "Click here to log in again."
 msgstr "Kliknij tutaj by zalogować się ponownie."
 
-#: accounts/templates/registration/login.html:4
+#: accounts/templates/registration/login.html:35
 #, fuzzy
-#| msgid "log in"
-msgid "Log in"
-msgstr "zalogować"
-
-#: accounts/templates/registration/login.html:20
-msgid "Multi-FlashCards"
+#| msgid "Multi-FlashCards"
+msgid "What is Multi-FlashCards?"
 msgstr "Mutli-Fiszki"
 
-#: accounts/templates/registration/login.html:23
+#: accounts/templates/registration/login.html:36
 msgid ""
-"Multi-FlashCards is a place for those who learn few languages at once.\n"
-"        <br/>It helps to create multi-language cards and provides ways to "
-"efficiently memorize them.\n"
-"        <br/>Create your own sets or copy some from others, adjust your "
-"languages and start learning!"
+"Multi-FlashCards is a website that help in learning few languages at once."
 msgstr ""
 
-#: accounts/templates/registration/login.html:30
+#: accounts/templates/registration/login.html:38
+msgid "How does it help?"
+msgstr ""
+
+#: accounts/templates/registration/login.html:39
+msgid "It provides tools to quickly create Sets of words and then study them."
+msgstr ""
+
+#: accounts/templates/registration/login.html:41
+#, fuzzy
+#| msgid "How did you get here, huh?"
+msgid "How do you start?"
+msgstr "Jak się tutaj dostałeś, hm?"
+
 #: accounts/templates/registration/login.html:42
+msgid ""
+"Just make an account, create a new set or copy one from the public ones and "
+"you can start\n"
+"          learning."
+msgstr ""
+
+#: accounts/templates/registration/login.html:51
+#: accounts/templates/registration/login.html:63
 msgid "Login"
 msgstr "Zaloguj się"
 
-#: accounts/templates/registration/login.html:42
+#: accounts/templates/registration/login.html:64
 #, fuzzy
 #| msgid " or sign up."
 msgid " or sign up"
 msgstr " lub zarejestruj."
 
-#: accounts/templates/registration/login.html:43
+#: accounts/templates/registration/login.html:65
 msgid "Forgot you password? Click here."
 msgstr "Zapomniałeś hasła? Kliknij tutaj."
+
+#: accounts/templates/registration/login.html:74
+msgid "For more insight, take a look at below introduction."
+msgstr ""
+
+#: accounts/templates/registration/login.html:76
+msgid ""
+"This website was created to help with simultaneous learning of few languages "
+"(between two and five) by\n"
+"      providing tools to create and study multilingual Cards - MultiCards."
+msgstr ""
+
+#: accounts/templates/registration/login.html:78
+msgid "Below you will see some of the key elements of this website."
+msgstr ""
+
+#: accounts/templates/registration/login.html:87
+#, fuzzy
+#| msgid "Create a new set"
+msgid "Create your Set"
+msgstr "Stwórz nowy zestaw"
+
+#: accounts/templates/registration/login.html:88
+msgid "You can specify up to five languages you want to learn."
+msgstr ""
+
+#: accounts/templates/registration/login.html:99
+msgid "After creating a Set, you can add MultiCards to it."
+msgstr ""
+
+#: accounts/templates/registration/login.html:211
+#, fuzzy
+#| msgid "Create many MultiCards at once"
+msgid "You can also create many MultiCards at once."
+msgstr "Stwórz wiele MultiKart jednocześnie."
+
+#: accounts/templates/registration/login.html:243
+msgid "Take a look at what you have created"
+msgstr ""
+
+#: accounts/templates/registration/login.html:244
+msgid "All words you put are auto-translated to other languages you specified."
+msgstr ""
+
+#: accounts/templates/registration/login.html:245
+msgid "By using Google Translate Api"
+msgstr ""
+
+#: accounts/templates/registration/login.html:254
+msgid "Now, you can start learning"
+msgstr ""
+
+#: accounts/templates/registration/login.html:255
+msgid "You have two options to choose from: Writing and Flashcards."
+msgstr ""
+
+#: accounts/templates/registration/login.html:260
+#, fuzzy
+#| msgid "Write"
+msgid "Writing"
+msgstr "Pisanie"
+
+#: accounts/templates/registration/login.html:269
+msgid "Make an account and start learning right now!"
+msgstr ""
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "Your password has been set. You may go ahead and"
@@ -1457,6 +2211,11 @@ msgstr ""
 #: templates/admin/index.html:78
 msgid "Unknown content"
 msgstr ""
+
+#, fuzzy
+#~| msgid "log in"
+#~ msgid "Log in"
+#~ msgstr "zalogować"
 
 #~ msgid "Write here and press [Enter]."
 #~ msgstr "Napisz tutaj"

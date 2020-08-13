@@ -87,6 +87,8 @@ def add_many_translate(new_langs, word, language, m_card, folder):
                 'pronunciation': "",
                 'automated': True}
 
+        if translation.pronunciation and translation.pronunciation != word:
+            data['pronunciation'] = translation.pronunciation.capitalize()
         # Repeat if failed
         if not data['main']:
             translation = Translator().translate(text=word, src=language, dest=lang)

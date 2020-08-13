@@ -1,0 +1,176 @@
+{% load i18n %}
+<style>
+  span { color: #ffffff };
+
+</style>
+<h5 style="text-align:center;"></h5>
+<h5 style="text-align:center;"></h5>
+<div class="row justify-content-center">
+  <div class="col-auto">
+    <div class="container">
+      <div class="row">
+
+
+        <div class="col-xs-6">
+          <div class="table-responsive">
+            <table class="table table-responsive text-white">
+              <tr>
+                <td></td>
+                <td>{% trans 'Your answer' %}</td>
+                <td>{% trans 'Correct answer' %}</td>
+                <td>{% trans 'Progress' %}</td>
+              </tr>
+
+              <tr>
+                <td class="align-middle">
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'English' %}</span></p>
+                </td>
+
+
+                <td colspan="1" class="align-middle">
+                  <p style="color:#009900">Street</p>
+                </td>
+
+                <td class="align-middle">
+                  <p style="color:#009900">Street</p>
+                </td>
+
+                <td class="align-middle">
+                  30 %
+                </td>
+              </tr>
+
+              <tr>
+                <td class="align-middle">
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'Polish' %}</span></p>
+                </td>
+
+                <td></td>
+                <td class="align-middle">
+                  <p>Ulica</p>
+                </td>
+
+                <td class="align-middle">
+                  45 %
+                </td>
+              </tr>
+
+              <tr>
+                <td class="align-middle">
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'Japanese' %}</span></p>
+                </td>
+
+
+                <td colspan="1" class="align-middle">
+                  <p style="color:#009900">通り</p>
+                </td>
+
+                <td class="align-middle">
+                  <p style="color:#009900">通り</p>
+                </td>
+
+                <td class="align-middle">
+                  90 %
+                </td>
+              </tr>
+
+              <tr>
+                <td class="align-middle">
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'German' %}</span></p>
+                </td>
+
+
+                <td class="align-middle">
+                  <p style="color:#ff0000">straze</p>
+                </td>
+
+                <td class="align-middle">
+                  <p style="color:#009900">Straße</p>
+                </td>
+
+                <td class="align-middle">
+                  53 %
+                </td>
+              </tr>
+
+
+            </table>
+          </div>
+        </div>
+
+
+        <div class="col-xs-6">
+          <div class="table-responsive">
+            <input type="hidden" name="multicard_id" value="525"/>
+            <table class="table table-responsive text-white">
+              <tr>
+                <td></td>
+                <td>{% trans 'Write translation below' %}</td>
+              </tr>
+
+              <tr>
+                <td>
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'English' %}</span></p>
+                </td>
+                <td class="align-middle">
+
+                  <input type="text" name="answeren" value="Big City" autocomplete="off" class="form-control" maxlength="50">
+
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'Polish' %}</span></p>
+                </td>
+                <td class="align-middle">
+
+                  <p>Duże miasto</p>
+
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'Japanese' %}</span></p>
+                </td>
+                <td class="align-middle">
+
+                  <input type="text" name="answerja" value="大都市" autocomplete="off" class="form-control" maxlength="50">
+
+                </td>
+              </tr>
+
+              <tr>
+                <td>
+                  <p class="font-weight-bold"><span
+                          class="form-control-plaintext text-white">{% trans 'German' %}</span></p>
+                </td>
+                <td class="align-middle">
+
+                  <input type="text" name="answerde" autocomplete="off" class="form-control" maxlength="50">
+
+                </td>
+              </tr>
+
+            </table>
+            </div>
+          </div>
+        </div>
+    </div>
+            <button type="button" data-placement="top" class="btn btn-outline-primary btn-block" data-toggle="popover"
+                    data-content="It's just a demo!">{% trans 'Next' %}
+            </button>
+
+
+
+
+  </div>
+</div>

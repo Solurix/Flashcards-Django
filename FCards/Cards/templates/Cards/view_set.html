@@ -156,7 +156,7 @@ $('.collapse').on('show.bs.collapse', function () {
           <p>{% blocktrans with length=folder.multicard_set.all|length %}This set consists of {{length}} MultiCards.{% endblocktrans %}</p>
         </div>
         <div class="modal-footer">
-          <form method="POST" action="/cards/delete_set/{{folder.id}}/">{% csrf_token %}
+          <form method="POST" action="{% url 'delete_folder' set_id=folder.id %}">{% csrf_token %}
             <input type="submit" class="btn btn-danger" value="{% trans 'Yes, delete it.' %}"/>
           </form>
           <button type="button" class="btn btn-secondary" data-dismiss="modal">{% trans 'Close' %}</button>

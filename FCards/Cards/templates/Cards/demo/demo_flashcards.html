@@ -1,12 +1,4 @@
-{% extends "base.html" %}
 {% load i18n %}
-{% load get_obj %}
-
-{% block title %}
-{{folder.name}}
-{% endblock %}
-
-{% block styles %}
 <style>
 * { box-sizing: border-box; }
 
@@ -27,7 +19,7 @@ body { font-family: sans-serif; }
   width: 90%;
   height: 100%;
   position: absolute;
-  transform: translateZ(-{{special}}px);
+  transform: translateZ(-400px);
   transform-style: preserve-3d;
   transition: transform 1s;
 }
@@ -50,48 +42,38 @@ body { font-family: sans-serif; }
   text-align: center;
 }
 
-{% for card in cards %}
-.carousel__cell:nth-child(3n+{{forloop.counter}}) { background: hsla( 275, 100%, 20%, 0.95); }
-{% endfor %}
+.carousel__cell:nth-child(3n+1) { background: hsla( 275, 100%, 20%, 0.95); }
+.carousel__cell:nth-child(3n+2) { background: hsla( 275, 100%, 20%, 0.95); }
+.carousel__cell:nth-child(3n+3) { background: hsla( 275, 100%, 20%, 0.95); }
+.carousel__cell:nth-child(3n+4) { background: hsla( 275, 100%, 20%, 0.95); }
 
-{% for angle in angles %}
-.carousel__cell:nth-child({{forloop.counter}}) { transform: rotateY(  {{angle}}deg) translateZ({{special}}px); }
-{% endfor %}
-
-
-
-
-
-
-
-
-
-
-
-
+.carousel__cell:nth-child(1) { transform: rotateY(  0deg) translateZ(400px); }
+.carousel__cell:nth-child(2) { transform: rotateY(  90deg) translateZ(400px); }
+.carousel__cell:nth-child(3) { transform: rotateY(  180deg) translateZ(400px); }
+.carousel__cell:nth-child(4) { transform: rotateY(  270deg) translateZ(400px); }
 </style>
-{% endblock %}
-{% block nav_buttons %}
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
 
-{% endblock nav_buttons %}
-
-{% block body %}
 <div class="p-3 mb-2 bg-dark text-white">
   <div class="progress my-2">
     <div class="progress-bar bg-success progress-bar-striped progress-bar-animated" role="progressbar"
          id="progressbar"
-         style="width: {{cards.0.score}}%;" aria-valuenow="{{cards.0.score}}" aria-valuemin="0" aria-valuemax="100">
-      <b id="score_text">{{cards.0.score}}%</b>
+         style="width: 90%;" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+      <b id="score_text">90%</b>
     </div>
   </div>
   <div class="card-deck">
     <div class="card text-white bg-dark px-5" style="min-width: 260px;">
       <div class="scene my-1">
         <div class="carousel">
-          {% for card in cards %}
-          <div class="carousel__cell">{{card.main}}</div>
-          {% endfor %}
+          
+          <div class="carousel__cell">Street</div>
+          
+          <div class="carousel__cell">Ulica</div>
+          
+          <div class="carousel__cell">通り</div>
+          
+          <div class="carousel__cell">Straße</div>
+          
         </div>
       </div>
     </div>
@@ -100,44 +82,46 @@ body { font-family: sans-serif; }
       <div class="row">
         <div class="col">
           <input type="button" class="previous-button btn btn-outline-light btn-block"
-                 value="{% with cards|last as last %}⇦ {{last.language|get_lang}}{% endwith %}">
+                 value="⇦ {% trans 'German' %}">
 
         </div>
         <div class="col">
           <input type="button" class="next-button btn btn-outline-light btn-block"
-                 value="{{cards.1.language|get_lang}} ⇨">
+                 value="{% trans 'Polish' %} ⇨">
         </div>
       </div>
 
       <div id="scores" style="display:none;" class="answer_list">
-        <form method="POST" action=".">{% csrf_token %}
-          {% for card in cards %}
-          <input type="hidden" name="card{{forloop.counter0}}" value="{{card.id}}"/>
-          {% endfor %}
 
-          <input type="hidden" name="multicard_id" value="{{multicard.id}}"/>
+          <input type="hidden" name="card0" value="34378"/>
+          <input type="hidden" name="card1" value="34386"/>
+          <input type="hidden" name="card2" value="34391"/>
+          <input type="hidden" name="card3" value="34400"/>
+          
+
+          <input type="hidden" name="multicard_id" value="523"/>
           <input type="hidden" value="0" name="card_no" id="card_no">
 
           <label class="py-1">{% trans 'Did you get that?' %}</label><br>
           <div class="row row-cols-3">
             <div class="col">
-              <button type="submit" onclick="hide(0)" class="btn btn-block px-1 my-1 btn-outline-success" name="progress"
-                      value="c0">{% trans "Easily!" %}</button>
+              <button onclick="hide(0)" class="btn btn-block px-1 my-1 btn-outline-success" name="progress"
+                      value="c0">{% trans 'Easily!' %}</button>
             </div>
             <div class="col">
-              <button type="submit" onclick="hide(1)" value="c1" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress">{% trans "Yes!" %}</button>
+              <button onclick="hide(1)" value="c1" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress">Yes!</button>
             </div>
             <div class="col">
-              <button type="submit" onclick="hide(2)" class="btn btn-block px-1 my-1 btn-outline-info" name="progress"
-                      value="c2">{% trans "Barely" %}</button>
+              <button onclick="hide(2)" class="btn btn-block px-1 my-1 btn-outline-info" name="progress"
+                      value="c2">{% trans 'Barely' %}</button>
             </div>
             <div class="col">
-              <button type="submit" onclick="hide(3)" class="btn btn-block px-1 my-1 btn-outline-warning" name="progress"
-                      value="c3">{% trans "Almost" %}</button>
+              <button onclick="hide(3)" class="btn btn-block px-1 my-1 btn-outline-warning" name="progress"
+                      value="c3">{% trans 'Almost' %}</button>
             </div>
             <div class="col">
-              <button type="submit" onclick="hide(4)" class="btn btn-block px-1 my-1 btn-outline-danger" name="progress"
-                      value="c4">{% trans "Nope" %}</button>
+              <button onclick="hide(4)" class="btn btn-block px-1 my-1 btn-outline-danger" name="progress"
+                      value="c4">{% trans 'Nope' %}</button>
             </div>
             <div class="col">
               <button id="btnGroupDrop1" type="button"
@@ -146,34 +130,55 @@ body { font-family: sans-serif; }
                 {% trans 'Other' %}
               </button>
               <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="btnGroupDrop1">
-                <button type="submit" class="dropdown-item" onclick="hide(5)" name="progress"
-                        value="c5">{% trans "I have already mastered it!" %}</button>
+                <button class="dropdown-item" onclick="hide(5)" name="progress"
+                        value="c5">{% trans 'I have already mastered it!' %}</button>
                 <div class="dropdown-divider"></div>
-                <button type="submit" class="dropdown-item" onclick="hide(6)" name="progress"
-                        value="c6">{% trans "Reset my progress on this." %}</button>
+                <button class="dropdown-item" onclick="hide(6)" name="progress"
+                        value="c6">{% trans 'Reset my progress on this.' %}</button>
                 <div class="dropdown-divider"></div>
-                <button type="submit" class="dropdown-item" name="progress" value="c7">{% trans "Delete this MultiCard" %}</button>
+                <button class="dropdown-item" name="progress" value="c7">{% trans 'Delete this MultiCard' %}</button>
               </div>
             </div>
           </div>
 
-        </form>
       </div>
       <div id="result">
         <br>
         <p id="result_text"></p>
-        {% for card in cards %}
-        <div id="detail{{forloop.counter0}}" style="display:none;">
-          <p>{% if card.comment %}{% trans 'Comment:' %} {{card.comment}}</p>{% endif %}
-          <p>{% if card.pronunciation %}{% trans 'Pronunciation:' %} {{card.pronunciation}}</p>{% endif %}
-          <p>{% if card.synonym %}{% trans 'Synonym:' %} {{card.synonym}}</p>{% endif %}
+        
+        <div id="detail0" style="display:none;">
+          <p>
+          <p>
+          <p>
         </div>
-        {% endfor %}
+        
+        <div id="detail1" style="display:none;">
+          <p>
+          <p>
+          <p>
+        </div>
+        
+        <div id="detail2" style="display:none;">
+          <p>
+          <p><button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
+                data-content="It's just a demo!">{% trans 'Create' %}
+        </button>{% trans 'Pronunciation' %}: Tōri</p>
+          <p>
+        </div>
+        
+        <div id="detail3" style="display:none;">
+          <p>
+          <p>
+          <p>
+        </div>
+        
         <div id="next" style="display:none;">
-          <button onClick="window.location.reload();" class="btn btn-outline-success btn-block">{% trans 'Next' %}</button>
+          <button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
+                data-content="It's just a demo!">{% trans 'Next' %}
+        </button>
         </div>
         <p id="greeting_text">
-          {% blocktrans %}You see the card in one language. Think about the translation before moving to next language.{% endblocktrans %}
+          {% trans 'You see the card in one language. Think about the translation before moving to next language.' %}
         </p>
       </div>
     </div>
@@ -182,38 +187,47 @@ body { font-family: sans-serif; }
 
 <script>
 var carousel = document.querySelector('.carousel');
-var cellCount = {{no}};
+var cellCount = 4;
 var selectedIndex = 0;
 var answered = 1;
 var answered_cards = ["0"];
 var langs = [];
 var progresses = [];
-{% for card in cards %}
-langs.push("{{card.language|get_lang}}");
-progresses.push({{card.score}});
-{% endfor %}
+
+langs.push("{% trans 'English' %}");
+progresses.push(90);
+
+langs.push("{% trans 'Polish' %}");
+progresses.push(40);
+
+langs.push("{% trans 'Japanese' %}");
+progresses.push(25);
+
+langs.push("{% trans 'German' %}");
+progresses.push(8);
+
 var current = 0;
 
 function rotateCarousel() {
   var angle = selectedIndex / cellCount * -360;
-  carousel.style.transform = 'translateZ(-{{special}}px) rotateY(' + angle + 'deg)';
+  carousel.style.transform = 'translateZ(-400px) rotateY(' + angle + 'deg)';
 }
 
 function hide(nr) {
   document.getElementById('scores').style.display = "none";
   answered ++;
-  if (answered == {{no}}) {
+  if (answered == 4) {
     document.getElementById('next').style.display = "block";
   }
   document.getElementById('result').style.display = "block";
-  document.getElementById('result_text').innerHTML = {% blocktrans %}"Good job! Keep going! " + String({{no}} - answered) + " left."{% endblocktrans %};
+  document.getElementById('result_text').innerHTML = {% blocktrans %}"Good job! Keep going! " + String(4 - answered) + " left."{% endblocktrans %};
   answered_cards.push(String(current));
   document.getElementById('detail'+String(current)).style.display = "block";
   }
 
 function change_display() {
     var i;
-    for (i = 0; i < {{no}}; i++) {
+    for (i = 0; i < 4; i++) {
       document.getElementById('detail'+String(i)).style.display = "none";
     }
   document.getElementById('greeting_text').style.display = "none";
@@ -243,10 +257,10 @@ prevButton.addEventListener( 'click', function() {
 
   current --;
   if (current < 0 ){
-  current = ({{no}} -1);
+  current = (4 -1);
   };
-  nextButton.value = langs[(current + 1) % {{no}}]+" ⇨";
-  prevButton.value = "⇦ "+langs[(current + {{no}} -1) % {{no}}];
+  nextButton.value = langs[(current + 1) % 4]+" ⇨";
+  prevButton.value = "⇦ "+langs[(current + 4 -1) % 4];
   change_display();
 });
 
@@ -256,23 +270,12 @@ nextButton.addEventListener( 'click', function() {
   rotateCarousel();
 
   current ++;
-  if (current > ({{no}} -1)){
+  if (current > (4 -1)){
   current = 0;
   };
-  nextButton.value = langs[(current + 1) % {{no}}]+" ⇨";
-  prevButton.value = "⇦ "+langs[(current + {{no}} -1) % {{no}}];
+  nextButton.value = langs[(current + 1) % 4]+" ⇨";
+  prevButton.value = "⇦ "+langs[(current + 4 -1) % 4];
   change_display();
 });
 
-
-
-
-
-
-
-
-
-
-
 </script>
-{% endblock %}

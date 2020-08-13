@@ -3,48 +3,50 @@
 
 <html>
 <head>
-    <!-- Meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>
-        {% block title %}
-        {% endblock title %}
-    </title>
-    <link rel="shortcut icon" type="image/png" href="{% static 'Cards/icons/favicon.ico' %}"/>
-    {% block head %}
-    {% endblock head %}
+  <title>
+    {% block title %}
+    {% endblock title %}
+  </title>
+  <link rel="shortcut icon" type="image/png" href="{% static 'Cards/icons/favicon.ico' %}"/>
+  {% block head %}
+  {% endblock head %}
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <!-- cookiealert styles -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
-    {% block styles %}
-    {% endblock styles %}
+  <!-- cookiealert styles -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.css">
+  {% block styles %}
+  {% endblock styles %}
 
 </head>
 
 <body>
 <div class="p-3 mb-2 bg-secondary">
   <div class="row">
-    <div class="col">
+    <div class="col-sm">
       <a href="/" type="button" class="form-control bg-dark text-white border-0 text-center" style="max-width: 300px;">Home</a>
     </div>
-    <div class="col">
+    <div class="col-sm">
       <div class="ml-auto" style="max-width: 300px;">
         <form action="{% url 'change_language' %}" method="post">
           {% csrf_token %}
           <input hidden name="url" value="{{ request.path }}"/>
-          <button id="btnGroupDrop1" type="button" class="form-control bg-dark text-white border-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Language　・　言語　・　Język
+          <button id="btnGroupDrop1" type="button" class="form-control bg-dark text-white border-0"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Language　・　言語　・　Język
           </button>
           <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-              <input type="submit" class="dropdown-item" name="language" value="English">
-              <div class="dropdown-divider"></div>
-              <input type="submit" class="dropdown-item" name="language" value="Polski">
-              <div class="dropdown-divider"></div>
-              <input type="submit" class="dropdown-item" name="language" value="日本語">
+            <input type="submit" class="dropdown-item" name="language" value="English">
+            <div class="dropdown-divider"></div>
+            <input type="submit" class="dropdown-item" name="language" value="Polski">
+            <div class="dropdown-divider"></div>
+            <input type="submit" class="dropdown-item" name="language" value="日本語">
           </div>
         </form>
       </div>
@@ -52,25 +54,33 @@
   </div>
 
 
-    {% block body %}
-    {% endblock body %}
+  {% block body %}
+  {% endblock body %}
 
-    <!-- Optional JavaScript -->
-    <!-- START Bootstrap-Cookie-Alert -->
+  <!-- Optional JavaScript -->
+  <!-- START Bootstrap-Cookie-Alert -->
   <div class="alert text-center cookiealert" role="alert">
-      {% blocktrans %}<b>Do you like cookies?</b> We use cookies to ensure you get the best experience on our website. <a href="https://cookiesandyou.com/" target="_blank">Learn more</a>{% endblocktrans %}
+    {% blocktrans %}<b>Do you like cookies?</b> We use cookies to ensure you get the best experience on our website. <a
+          href="https://cookiesandyou.com/" target="_blank">Learn more</a>{% endblocktrans %}
 
-      <button type="button" class="btn btn-primary btn-sm acceptcookies">
-          {% trans 'I agree' %}
-      </button>
+    <button type="button" class="btn btn-primary btn-sm acceptcookies">
+      {% trans 'I agree' %}
+    </button>
   </div>
   <!-- END Bootstrap-Cookie-Alert -->
   <script src="https://cdn.jsdelivr.net/gh/Wruczek/Bootstrap-Cookie-Alert@gh-pages/cookiealert.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+          integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+          integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+          crossorigin="anonymous"></script>
 
+</div>
 </body>
 </div>
 <!-- Footer -->
@@ -81,27 +91,31 @@
     <div class="row">
       <div class="col-md">
         <h5>GitHub</h5>
-        <a href="https://github.com/Solurix/Flashcards-Django"><img src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="100" height="100"></a>
+        <a href="https://github.com/Solurix/Flashcards-Django"><img
+                src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" width="100"
+                height="100"></a>
       </div>
       <div class="col-md">
         <div class="footer-copyright text-center py-3">{% blocktrans %}© 2020 Copyright:<br/>
-            Website: Bartosz Lulka<br/>
-            Auto translations: Google Translate<br/>
-            Style: Bootstrap<br/>
-            Run on Django<br/><br/>
-            Contact: bartosz.adam.lulka@gmail.com{% endblocktrans %}
+          Website: Bartosz Lulka<br/>
+          Auto translations: Google Translate<br/>
+          Style: Bootstrap<br/>
+          Run on Django<br/><br/>
+          Contact: bartosz.adam.lulka@gmail.com{% endblocktrans %}
         </div>
       </div>
-
-
-
-
 
 
     </div>
     <!-- Grid row -->
 
   </div>
+  <script>
+    $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+  </script>
 
 </footer>
 <!-- Footer -->

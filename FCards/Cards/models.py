@@ -125,7 +125,7 @@ class Card(models.Model):
     def check_answer(self, word_to_check):
         word_to_check = word_to_check.capitalize()
         # If answer is correct
-        if word_to_check and (self.main in word_to_check or self.synonyms in word_to_check):
+        if word_to_check and (self.main in word_to_check or (self.synonyms and self.synonyms in word_to_check)):
             points = 20
             self.score += 20
             self.multi_card.score += 20

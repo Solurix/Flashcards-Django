@@ -13,7 +13,11 @@ def home(request):
 
 
 def demo_welcome(request):
-    return render(request, 'Cards/demo/welcome.html')
+    form = FolderForm(request.POST or None)
+    context = {
+        "folder_form": form
+    }
+    return render(request, 'Cards/demo/welcome.html', context)
 
 
 # region Folder

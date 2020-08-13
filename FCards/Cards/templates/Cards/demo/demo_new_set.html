@@ -1,0 +1,999 @@
+{% load i18n %}
+<div class="container">
+    <div class="row">
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_name">{% trans 'Set name' %}:</label></b>
+        <input type="text" name="name" class="form-control" placeholder="{% trans 'Name for the set' %}" maxlength="200" required id="id_name">
+
+      </div>
+
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_lang1">{% trans '1st language' %}</label></b>
+        <select name="lang1" class="form-control" id="id_lang1">
+  <option value="af">{% trans 'Afrikaans' %}</option>
+
+  <option value="sq">{% trans 'Albanian' %}</option>
+
+  <option value="ar">{% trans 'Arabic' %}</option>
+
+  <option value="hy">{% trans 'Armenian' %}</option>
+
+  <option value="az">{% trans 'Azerbaijani' %}</option>
+
+  <option value="eu">{% trans 'Basque' %}</option>
+
+  <option value="be">{% trans 'Belarusian' %}</option>
+
+  <option value="bn">{% trans 'Bengali' %}</option>
+
+  <option value="bs">{% trans 'Bosnian' %}</option>
+
+  <option value="bg">{% trans 'Bulgarian' %}</option>
+
+  <option value="ca">{% trans 'Catalan' %}</option>
+
+  <option value="ny">{% trans 'Chichewa' %}</option>
+
+  <option value="zh-cn">{% trans 'Chinese (simplified)' %}</option>
+
+  <option value="zh-tw">{% trans 'Chinese (traditional)' %}</option>
+
+  <option value="co">{% trans 'Corsican' %}</option>
+
+  <option value="hr">{% trans 'Croatian' %}</option>
+
+  <option value="cs">{% trans 'Czech' %}</option>
+
+  <option value="da">{% trans 'Danish' %}</option>
+
+  <option value="nl">{% trans 'Dutch' %}</option>
+
+  <option value="en" selected>{% trans 'English' %}</option>
+
+  <option value="eo">{% trans 'Esperanto' %}</option>
+
+  <option value="et">{% trans 'Estonian' %}</option>
+
+  <option value="tl">{% trans 'Filipino' %}</option>
+
+  <option value="fi">{% trans 'Finnish' %}</option>
+
+  <option value="fr">{% trans 'French' %}</option>
+
+  <option value="gl">{% trans 'Galician' %}</option>
+
+  <option value="ka">{% trans 'Georgian' %}</option>
+
+  <option value="de">{% trans 'German' %}</option>
+
+  <option value="el">{% trans 'Greek' %}</option>
+
+  <option value="gu">{% trans 'Gujarati' %}</option>
+
+  <option value="ht">{% trans 'Haitian creole' %}</option>
+
+  <option value="haw">{% trans 'Hawaiian' %}</option>
+
+  <option value="he">{% trans 'Hebrew' %}</option>
+
+  <option value="hi">{% trans 'Hindi' %}</option>
+
+  <option value="hu">{% trans 'Hungarian' %}</option>
+
+  <option value="is">{% trans 'Icelandic' %}</option>
+
+  <option value="id">{% trans 'Indonesian' %}</option>
+
+  <option value="ga">{% trans 'Irish' %}</option>
+
+  <option value="it">{% trans 'Italian' %}</option>
+
+  <option value="ja">{% trans 'Japanese' %}</option>
+
+  <option value="jw">{% trans 'Javanese' %}</option>
+
+  <option value="kn">{% trans 'Kannada' %}</option>
+
+  <option value="kk">{% trans 'Kazakh' %}</option>
+
+  <option value="km">{% trans 'Khmer' %}</option>
+
+  <option value="ko">{% trans 'Korean' %}</option>
+
+  <option value="ku">{% trans 'Kurdish (kurmanji)' %}</option>
+
+  <option value="ky">{% trans 'Kyrgyz' %}</option>
+
+  <option value="lo">{% trans 'Lao' %}</option>
+
+  <option value="la">{% trans 'Latin' %}</option>
+
+  <option value="lv">{% trans 'Latvian' %}</option>
+
+  <option value="lt">{% trans 'Lithuanian' %}</option>
+
+  <option value="lb">{% trans 'Luxembourgish' %}</option>
+
+  <option value="mk">{% trans 'Macedonian' %}</option>
+
+  <option value="mg">{% trans 'Malagasy' %}</option>
+
+  <option value="ms">{% trans 'Malay' %}</option>
+
+  <option value="ml">{% trans 'Malayalam' %}</option>
+
+  <option value="mt">{% trans 'Maltese' %}</option>
+
+  <option value="mr">{% trans 'Marathi' %}</option>
+
+  <option value="mn">{% trans 'Mongolian' %}</option>
+
+  <option value="my">{% trans 'Myanmar (burmese)' %}</option>
+
+  <option value="ne">{% trans 'Nepali' %}</option>
+
+  <option value="no">{% trans 'Norwegian' %}</option>
+
+  <option value="ps">{% trans 'Pashto' %}</option>
+
+  <option value="fa">{% trans 'Persian' %}</option>
+
+  <option value="pl">{% trans 'Polish' %}</option>
+
+  <option value="pt">{% trans 'Portuguese' %}</option>
+
+  <option value="pa">{% trans 'Punjabi' %}</option>
+
+  <option value="ro">{% trans 'Romanian' %}</option>
+
+  <option value="ru">{% trans 'Russian' %}</option>
+
+  <option value="gd">{% trans 'Scots gaelic' %}</option>
+
+  <option value="sr">{% trans 'Serbian' %}</option>
+
+  <option value="st">{% trans 'Sesotho' %}</option>
+
+  <option value="sd">{% trans 'Sindhi' %}</option>
+
+  <option value="si">{% trans 'Sinhala' %}</option>
+
+  <option value="sk">{% trans 'Slovak' %}</option>
+
+  <option value="sl">{% trans 'Slovenian' %}</option>
+
+  <option value="so">{% trans 'Somali' %}</option>
+
+  <option value="es">{% trans 'Spanish' %}</option>
+
+  <option value="su">{% trans 'Sundanese' %}</option>
+
+  <option value="sw">{% trans 'Swahili' %}</option>
+
+  <option value="sv">{% trans 'Swedish' %}</option>
+
+  <option value="tg">{% trans 'Tajik' %}</option>
+
+  <option value="ta">{% trans 'Tamil' %}</option>
+
+  <option value="te">{% trans 'Telugu' %}</option>
+
+  <option value="th">{% trans 'Thai' %}</option>
+
+  <option value="tr">{% trans 'Turkish' %}</option>
+
+  <option value="uk">{% trans 'Ukrainian' %}</option>
+
+  <option value="ur">{% trans 'Urdu' %}</option>
+
+  <option value="ug">{% trans 'Uyghur' %}</option>
+
+  <option value="uz">{% trans 'Uzbek' %}</option>
+
+  <option value="vi">{% trans 'Vietnamese' %}</option>
+
+  <option value="cy">{% trans 'Welsh' %}</option>
+
+</select>
+
+      </div>
+
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_lang2">{% trans '2nd language' %}</label></b>
+        <select name="lang2" class="form-control" id="id_lang2">
+  <option value="af">{% trans 'Afrikaans' %}</option>
+
+  <option value="sq">{% trans 'Albanian' %}</option>
+
+  <option value="ar">{% trans 'Arabic' %}</option>
+
+  <option value="hy">{% trans 'Armenian' %}</option>
+
+  <option value="az">{% trans 'Azerbaijani' %}</option>
+
+  <option value="eu">{% trans 'Basque' %}</option>
+
+  <option value="be">{% trans 'Belarusian' %}</option>
+
+  <option value="bn">{% trans 'Bengali' %}</option>
+
+  <option value="bs">{% trans 'Bosnian' %}</option>
+
+  <option value="bg">{% trans 'Bulgarian' %}</option>
+
+  <option value="ca">{% trans 'Catalan' %}</option>
+
+  <option value="ny">{% trans 'Chichewa' %}</option>
+
+  <option value="zh-cn">{% trans 'Chinese (simplified)' %}</option>
+
+  <option value="zh-tw">{% trans 'Chinese (traditional)' %}</option>
+
+  <option value="co">{% trans 'Corsican' %}</option>
+
+  <option value="hr">{% trans 'Croatian' %}</option>
+
+  <option value="cs">{% trans 'Czech' %}</option>
+
+  <option value="da">{% trans 'Danish' %}</option>
+
+  <option value="nl">{% trans 'Dutch' %}</option>
+
+  <option value="en">{% trans 'English' %}</option>
+
+  <option value="eo">{% trans 'Esperanto' %}</option>
+
+  <option value="et">{% trans 'Estonian' %}</option>
+
+  <option value="tl">{% trans 'Filipino' %}</option>
+
+  <option value="fi">{% trans 'Finnish' %}</option>
+
+  <option value="fr">{% trans 'French' %}</option>
+
+  <option value="gl">{% trans 'Galician' %}</option>
+
+  <option value="ka">{% trans 'Georgian' %}</option>
+
+  <option value="de">{% trans 'German' %}</option>
+
+  <option value="el">{% trans 'Greek' %}</option>
+
+  <option value="gu">{% trans 'Gujarati' %}</option>
+
+  <option value="ht">{% trans 'Haitian creole' %}</option>
+
+  <option value="haw">{% trans 'Hawaiian' %}</option>
+
+  <option value="he">{% trans 'Hebrew' %}</option>
+
+  <option value="hi">{% trans 'Hindi' %}</option>
+
+  <option value="hu">{% trans 'Hungarian' %}</option>
+
+  <option value="is">{% trans 'Icelandic' %}</option>
+
+  <option value="id">{% trans 'Indonesian' %}</option>
+
+  <option value="ga">{% trans 'Irish' %}</option>
+
+  <option value="it">{% trans 'Italian' %}</option>
+
+  <option value="ja">{% trans 'Japanese' %}</option>
+
+  <option value="jw">{% trans 'Javanese' %}</option>
+
+  <option value="kn">{% trans 'Kannada' %}</option>
+
+  <option value="kk">{% trans 'Kazakh' %}</option>
+
+  <option value="km">{% trans 'Khmer' %}</option>
+
+  <option value="ko">{% trans 'Korean' %}</option>
+
+  <option value="ku">{% trans 'Kurdish (kurmanji)' %}</option>
+
+  <option value="ky">{% trans 'Kyrgyz' %}</option>
+
+  <option value="lo">{% trans 'Lao' %}</option>
+
+  <option value="la">{% trans 'Latin' %}</option>
+
+  <option value="lv">{% trans 'Latvian' %}</option>
+
+  <option value="lt">{% trans 'Lithuanian' %}</option>
+
+  <option value="lb">{% trans 'Luxembourgish' %}</option>
+
+  <option value="mk">{% trans 'Macedonian' %}</option>
+
+  <option value="mg">{% trans 'Malagasy' %}</option>
+
+  <option value="ms">{% trans 'Malay' %}</option>
+
+  <option value="ml">{% trans 'Malayalam' %}</option>
+
+  <option value="mt">{% trans 'Maltese' %}</option>
+
+  <option value="mr">{% trans 'Marathi' %}</option>
+
+  <option value="mn">{% trans 'Mongolian' %}</option>
+
+  <option value="my">{% trans 'Myanmar (burmese)' %}</option>
+
+  <option value="ne">{% trans 'Nepali' %}</option>
+
+  <option value="no">{% trans 'Norwegian' %}</option>
+
+  <option value="ps">{% trans 'Pashto' %}</option>
+
+  <option value="fa">{% trans 'Persian' %}</option>
+
+  <option value="pl" selected>{% trans 'Polish' %}</option>
+
+  <option value="pt">{% trans 'Portuguese' %}</option>
+
+  <option value="pa">{% trans 'Punjabi' %}</option>
+
+  <option value="ro">{% trans 'Romanian' %}</option>
+
+  <option value="ru">{% trans 'Russian' %}</option>
+
+  <option value="gd">{% trans 'Scots gaelic' %}</option>
+
+  <option value="sr">{% trans 'Serbian' %}</option>
+
+  <option value="st">{% trans 'Sesotho' %}</option>
+
+  <option value="sd">{% trans 'Sindhi' %}</option>
+
+  <option value="si">{% trans 'Sinhala' %}</option>
+
+  <option value="sk">{% trans 'Slovak' %}</option>
+
+  <option value="sl">{% trans 'Slovenian' %}</option>
+
+  <option value="so">{% trans 'Somali' %}</option>
+
+  <option value="es">{% trans 'Spanish' %}</option>
+
+  <option value="su">{% trans 'Sundanese' %}</option>
+
+  <option value="sw">{% trans 'Swahili' %}</option>
+
+  <option value="sv">{% trans 'Swedish' %}</option>
+
+  <option value="tg">{% trans 'Tajik' %}</option>
+
+  <option value="ta">{% trans 'Tamil' %}</option>
+
+  <option value="te">{% trans 'Telugu' %}</option>
+
+  <option value="th">{% trans 'Thai' %}</option>
+
+  <option value="tr">{% trans 'Turkish' %}</option>
+
+  <option value="uk">{% trans 'Ukrainian' %}</option>
+
+  <option value="ur">{% trans 'Urdu' %}</option>
+
+  <option value="ug">{% trans 'Uyghur' %}</option>
+
+  <option value="uz">{% trans 'Uzbek' %}</option>
+
+  <option value="vi">{% trans 'Vietnamese' %}</option>
+
+  <option value="cy">{% trans 'Welsh' %}</option>
+
+</select>
+
+      </div>
+
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_lang3">{% trans '3rd language' %}</label></b>
+        <select name="lang3" class="form-control" id="id_lang3">{% trans '
+  <option value="">{% trans 'OFF' %}</option>
+
+  <option value="af">{% trans 'Afrikaans' %}</option>
+
+  <option value="sq">{% trans 'Albanian' %}</option>
+
+  <option value="ar">{% trans 'Arabic' %}</option>
+
+  <option value="hy">{% trans 'Armenian' %}</option>
+
+  <option value="az">{% trans 'Azerbaijani' %}</option>
+
+  <option value="eu">{% trans 'Basque' %}</option>
+
+  <option value="be">{% trans 'Belarusian' %}</option>
+
+  <option value="bn">{% trans 'Bengali' %}</option>
+
+  <option value="bs">{% trans 'Bosnian' %}</option>
+
+  <option value="bg">{% trans 'Bulgarian' %}</option>
+
+  <option value="ca">{% trans 'Catalan' %}</option>
+
+  <option value="ceb">{% trans 'Cebuano' %}</option>
+
+  <option value="ny">{% trans 'Chichewa' %}</option>
+
+  <option value="zh-cn">{% trans 'Chinese (simplified)' %}</option>
+
+  <option value="zh-tw">{% trans 'Chinese (traditional)' %}</option>
+
+  <option value="co">{% trans 'Corsican' %}</option>
+
+  <option value="hr">{% trans 'Croatian' %}</option>
+
+  <option value="cs">{% trans 'Czech' %}</option>
+
+  <option value="da">{% trans 'Danish' %}</option>
+
+  <option value="nl">{% trans 'Dutch' %}</option>
+
+  <option value="en">{% trans 'English' %}</option>
+
+  <option value="eo">{% trans 'Esperanto' %}</option>
+
+  <option value="et">{% trans 'Estonian' %}</option>
+
+  <option value="tl">{% trans 'Filipino' %}</option>
+
+  <option value="fi">{% trans 'Finnish' %}</option>
+
+  <option value="fr">{% trans 'French' %}</option>
+
+  <option value="gl">{% trans 'Galician' %}</option>
+
+  <option value="ka">{% trans 'Georgian' %}</option>
+
+  <option value="de">{% trans 'German' %}</option>
+
+  <option value="el">{% trans 'Greek' %}</option>
+
+  <option value="gu">{% trans 'Gujarati' %}</option>
+
+  <option value="ht">{% trans 'Haitian creole' %}</option>
+
+  <option value="haw">{% trans 'Hawaiian' %}</option>
+
+  <option value="he">{% trans 'Hebrew' %}</option>
+
+  <option value="hi">{% trans 'Hindi' %}</option>
+
+  <option value="hu">{% trans 'Hungarian' %}</option>
+
+  <option value="is">{% trans 'Icelandic' %}</option>
+
+  <option value="id">{% trans 'Indonesian' %}</option>
+
+  <option value="ga">{% trans 'Irish' %}</option>
+
+  <option value="it">{% trans 'Italian' %}</option>
+
+  <option value="ja" selected>{% trans 'Japanese' %}</option>
+
+  <option value="jw">{% trans 'Javanese' %}</option>
+
+  <option value="kn">{% trans 'Kannada' %}</option>
+
+  <option value="kk">{% trans 'Kazakh' %}</option>
+
+  <option value="km">{% trans 'Khmer' %}</option>
+
+  <option value="ko">{% trans 'Korean' %}</option>
+
+  <option value="ku">{% trans 'Kurdish (kurmanji)' %}</option>
+
+  <option value="ky">{% trans 'Kyrgyz' %}</option>
+
+  <option value="lo">{% trans 'Lao' %}</option>
+
+  <option value="la">{% trans 'Latin' %}</option>
+
+  <option value="lv">{% trans 'Latvian' %}</option>
+
+  <option value="lt">{% trans 'Lithuanian' %}</option>
+
+  <option value="lb">{% trans 'Luxembourgish' %}</option>
+
+  <option value="mk">{% trans 'Macedonian' %}</option>
+
+  <option value="mg">{% trans 'Malagasy' %}</option>
+
+  <option value="ms">{% trans 'Malay' %}</option>
+
+  <option value="ml">{% trans 'Malayalam' %}</option>
+
+  <option value="mt">{% trans 'Maltese' %}</option>
+
+  <option value="mr">{% trans 'Marathi' %}</option>
+
+  <option value="mn">{% trans 'Mongolian' %}</option>
+
+  <option value="my">{% trans 'Myanmar (burmese)' %}</option>
+
+  <option value="ne">{% trans 'Nepali' %}</option>
+
+  <option value="no">{% trans 'Norwegian' %}</option>
+
+  <option value="ps">{% trans 'Pashto' %}</option>
+
+  <option value="fa">{% trans 'Persian' %}</option>
+
+  <option value="pl">{% trans 'Polish' %}</option>
+
+  <option value="pt">{% trans 'Portuguese' %}</option>
+
+  <option value="pa">{% trans 'Punjabi' %}</option>
+
+  <option value="ro">{% trans 'Romanian' %}</option>
+
+  <option value="ru">{% trans 'Russian' %}</option>
+
+  <option value="gd">{% trans 'Scots gaelic' %}</option>
+
+  <option value="sr">{% trans 'Serbian' %}</option>
+
+  <option value="st">{% trans 'Sesotho' %}</option>
+
+  <option value="sd">{% trans 'Sindhi' %}</option>
+
+  <option value="si">{% trans 'Sinhala' %}</option>
+
+  <option value="sk">{% trans 'Slovak' %}</option>
+
+  <option value="sl">{% trans 'Slovenian' %}</option>
+
+  <option value="so">{% trans 'Somali' %}</option>
+
+  <option value="es">{% trans 'Spanish' %}</option>
+
+  <option value="su">{% trans 'Sundanese' %}</option>
+
+  <option value="sw">{% trans 'Swahili' %}</option>
+
+  <option value="sv">{% trans 'Swedish' %}</option>
+
+  <option value="tg">{% trans 'Tajik' %}</option>
+
+  <option value="ta">{% trans 'Tamil' %}</option>
+
+  <option value="te">{% trans 'Telugu' %}</option>
+
+  <option value="th">{% trans 'Thai' %}</option>
+
+  <option value="tr">{% trans 'Turkish' %}</option>
+
+  <option value="uk">{% trans 'Ukrainian' %}</option>
+
+  <option value="ur">{% trans 'Urdu' %}</option>
+
+  <option value="ug">{% trans 'Uyghur' %}</option>
+
+  <option value="uz">{% trans 'Uzbek' %}</option>
+
+  <option value="vi">{% trans 'Vietnamese' %}</option>
+
+  <option value="cy">{% trans 'Welsh' %}</option>
+
+</select>
+
+      </div>
+
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_lang4">{% trans '4th language' %}</label></b>
+        <select name="lang4" class="form-control" id="id_lang4">
+  <option value="" selected>{% trans 'OFF' %}</option>
+
+  <option value="af">{% trans 'Afrikaans' %}</option>
+
+  <option value="sq">{% trans 'Albanian' %}</option>
+
+  <option value="ar">{% trans 'Arabic' %}</option>
+
+  <option value="hy">{% trans 'Armenian' %}</option>
+
+  <option value="az">{% trans 'Azerbaijani' %}</option>
+
+  <option value="eu">{% trans 'Basque' %}</option>
+
+  <option value="be">{% trans 'Belarusian' %}</option>
+
+  <option value="bn">{% trans 'Bengali' %}</option>
+
+  <option value="bs">{% trans 'Bosnian' %}</option>
+
+  <option value="bg">{% trans 'Bulgarian' %}</option>
+
+  <option value="ca">{% trans 'Catalan' %}</option>
+
+  <option value="ceb">{% trans 'Cebuano' %}</option>
+
+  <option value="ny">{% trans 'Chichewa' %}</option>
+
+  <option value="zh-cn">{% trans 'Chinese (simplified)' %}</option>
+
+  <option value="zh-tw">{% trans 'Chinese (traditional)' %}</option>
+
+  <option value="co">{% trans 'Corsican' %}</option>
+
+  <option value="hr">{% trans 'Croatian' %}</option>
+
+  <option value="cs">{% trans 'Czech' %}</option>
+
+  <option value="da">{% trans 'Danish' %}</option>
+
+  <option value="nl">{% trans 'Dutch' %}</option>
+
+  <option value="en">{% trans 'English' %}</option>
+
+  <option value="eo">{% trans 'Esperanto' %}</option>
+
+  <option value="et">{% trans 'Estonian' %}</option>
+
+  <option value="tl">{% trans 'Filipino' %}</option>
+
+  <option value="fi">{% trans 'Finnish' %}</option>
+
+  <option value="fr">{% trans 'French' %}</option>
+
+  <option value="gl">{% trans 'Galician' %}</option>
+
+  <option value="ka">{% trans 'Georgian' %}</option>
+
+  <option value="de">{% trans 'German' %}</option>
+
+  <option value="el">{% trans 'Greek' %}</option>
+
+  <option value="gu">{% trans 'Gujarati' %}</option>
+
+  <option value="ht">{% trans 'Haitian creole' %}</option>
+
+  <option value="haw">{% trans 'Hawaiian' %}</option>
+
+  <option value="he">{% trans 'Hebrew' %}</option>
+
+  <option value="hi">{% trans 'Hindi' %}</option>
+
+  <option value="hu">{% trans 'Hungarian' %}</option>
+
+  <option value="is">{% trans 'Icelandic' %}</option>
+
+  <option value="id">{% trans 'Indonesian' %}</option>
+
+  <option value="ga">{% trans 'Irish' %}</option>
+
+  <option value="it">{% trans 'Italian' %}</option>
+
+  <option value="ja">{% trans 'Japanese' %}</option>
+
+  <option value="jw">{% trans 'Javanese' %}</option>
+
+  <option value="kn">{% trans 'Kannada' %}</option>
+
+  <option value="kk">{% trans 'Kazakh' %}</option>
+
+  <option value="km">{% trans 'Khmer' %}</option>
+
+  <option value="ko">{% trans 'Korean' %}</option>
+
+  <option value="ku">{% trans 'Kurdish (kurmanji)' %}</option>
+
+  <option value="ky">{% trans 'Kyrgyz' %}</option>
+
+  <option value="lo">{% trans 'Lao' %}</option>
+
+  <option value="la">{% trans 'Latin' %}</option>
+
+  <option value="lv">{% trans 'Latvian' %}</option>
+
+  <option value="lt">{% trans 'Lithuanian' %}</option>
+
+  <option value="lb">{% trans 'Luxembourgish' %}</option>
+
+  <option value="mk">{% trans 'Macedonian' %}</option>
+
+  <option value="mg">{% trans 'Malagasy' %}</option>
+
+  <option value="ms">{% trans 'Malay' %}</option>
+
+  <option value="ml">{% trans 'Malayalam' %}</option>
+
+  <option value="mt">{% trans 'Maltese' %}</option>
+
+  <option value="mr">{% trans 'Marathi' %}</option>
+
+  <option value="mn">{% trans 'Mongolian' %}</option>
+
+  <option value="my">{% trans 'Myanmar (burmese)' %}</option>
+
+  <option value="ne">{% trans 'Nepali' %}</option>
+
+  <option value="no">{% trans 'Norwegian' %}</option>
+
+  <option value="ps">{% trans 'Pashto' %}</option>
+
+  <option value="fa">{% trans 'Persian' %}</option>
+
+  <option value="pl">{% trans 'Polish' %}</option>
+
+  <option value="pt">{% trans 'Portuguese' %}</option>
+
+  <option value="pa">{% trans 'Punjabi' %}</option>
+
+  <option value="ro">{% trans 'Romanian' %}</option>
+
+  <option value="ru">{% trans 'Russian' %}</option>
+
+  <option value="gd">{% trans 'Scots gaelic' %}</option>
+
+  <option value="sr">{% trans 'Serbian' %}</option>
+
+  <option value="st">{% trans 'Sesotho' %}</option>
+
+  <option value="sd">{% trans 'Sindhi' %}</option>
+
+  <option value="si">{% trans 'Sinhala' %}</option>
+
+  <option value="sk">{% trans 'Slovak' %}</option>
+
+  <option value="sl">{% trans 'Slovenian' %}</option>
+
+  <option value="so">{% trans 'Somali' %}</option>
+
+  <option value="es" >{% trans 'Spanish' %}</option>
+
+  <option value="su">{% trans 'Sundanese' %}</option>
+
+  <option value="sw">{% trans 'Swahili' %}</option>
+
+  <option value="sv">{% trans 'Swedish' %}</option>
+
+  <option value="tg">{% trans 'Tajik' %}</option>
+
+  <option value="ta">{% trans 'Tamil' %}</option>
+
+  <option value="te">{% trans 'Telugu' %}</option>
+
+  <option value="th">{% trans 'Thai' %}</option>
+
+  <option value="tr">{% trans 'Turkish' %}</option>
+
+  <option value="uk">{% trans 'Ukrainian' %}</option>
+
+  <option value="ur">{% trans 'Urdu' %}</option>
+
+  <option value="ug">{% trans 'Uyghur' %}</option>
+
+  <option value="uz">{% trans 'Uzbek' %}</option>
+
+  <option value="vi">{% trans 'Vietnamese' %}</option>
+
+  <option value="cy">{% trans 'Welsh' %}</option>
+
+</select>
+
+      </div>
+
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_lang5">{% trans '5th language' %}</label></b>
+        <select name="lang5" class="form-control" id="id_lang5">
+  <option value="">{% trans 'OFF' %}</option>
+
+  <option value="af">{% trans 'Afrikaans' %}</option>
+
+  <option value="sq">{% trans 'Albanian' %}</option>
+
+  <option value="ar">{% trans 'Arabic' %}</option>
+
+  <option value="hy">{% trans 'Armenian' %}</option>
+
+  <option value="az">{% trans 'Azerbaijani' %}</option>
+
+  <option value="eu">{% trans 'Basque' %}</option>
+
+  <option value="be">{% trans 'Belarusian' %}</option>
+
+  <option value="bn">{% trans 'Bengali' %}</option>
+
+  <option value="bs">{% trans 'Bosnian' %}</option>
+
+  <option value="bg">{% trans 'Bulgarian' %}</option>
+
+  <option value="ca">{% trans 'Catalan' %}</option>
+
+  <option value="ceb">{% trans 'Cebuano' %}</option>
+
+  <option value="ny">{% trans 'Chichewa' %}</option>
+
+  <option value="zh-cn">{% trans 'Chinese (simplified)' %}</option>
+
+  <option value="zh-tw">{% trans 'Chinese (traditional)' %}</option>
+
+  <option value="co">{% trans 'Corsican' %}</option>
+
+  <option value="hr">{% trans 'Croatian' %}</option>
+
+  <option value="cs">{% trans 'Czech' %}</option>
+
+  <option value="da">{% trans 'Danish' %}</option>
+
+  <option value="nl">{% trans 'Dutch' %}</option>
+
+  <option value="en">{% trans 'English' %}</option>
+
+  <option value="eo">{% trans 'Esperanto' %}</option>
+
+  <option value="et">{% trans 'Estonian' %}</option>
+
+  <option value="tl">{% trans 'Filipino' %}</option>
+
+  <option value="fi">{% trans 'Finnish' %}</option>
+
+  <option value="fr">{% trans 'French' %}</option>
+
+  <option value="gl">{% trans 'Galician' %}</option>
+
+  <option value="ka">{% trans 'Georgian' %}</option>
+
+  <option value="de" selected>{% trans 'German' %}</option>
+
+  <option value="el">{% trans 'Greek' %}</option>
+
+  <option value="gu">{% trans 'Gujarati' %}</option>
+
+  <option value="ht">{% trans 'Haitian creole' %}</option>
+
+  <option value="haw">{% trans 'Hawaiian' %}</option>
+
+  <option value="he">{% trans 'Hebrew' %}</option>
+
+  <option value="hi">{% trans 'Hindi' %}</option>
+
+  <option value="hu">{% trans 'Hungarian' %}</option>
+
+  <option value="is">{% trans 'Icelandic' %}</option>
+
+  <option value="id">{% trans 'Indonesian' %}</option>
+
+  <option value="ga">{% trans 'Irish' %}</option>
+
+  <option value="it">{% trans 'Italian' %}</option>
+
+  <option value="ja">{% trans 'Japanese' %}</option>
+
+  <option value="jw">{% trans 'Javanese' %}</option>
+
+  <option value="kn">{% trans 'Kannada' %}</option>
+
+  <option value="kk">{% trans 'Kazakh' %}</option>
+
+  <option value="km">{% trans 'Khmer' %}</option>
+
+  <option value="ko">{% trans 'Korean' %}</option>
+
+  <option value="ku">{% trans 'Kurdish (kurmanji)' %}</option>
+
+  <option value="ky">{% trans 'Kyrgyz' %}</option>
+
+  <option value="lo">{% trans 'Lao' %}</option>
+
+  <option value="la">{% trans 'Latin' %}</option>
+
+  <option value="lv">{% trans 'Latvian' %}</option>
+
+  <option value="lt">{% trans 'Lithuanian' %}</option>
+
+  <option value="lb">{% trans 'Luxembourgish' %}</option>
+
+  <option value="mk">{% trans 'Macedonian' %}</option>
+
+  <option value="mg">{% trans 'Malagasy' %}</option>
+
+  <option value="ms">{% trans 'Malay' %}</option>
+
+  <option value="ml">{% trans 'Malayalam' %}</option>
+
+  <option value="mt">{% trans 'Maltese' %}</option>
+
+  <option value="mr">{% trans 'Marathi' %}</option>
+
+  <option value="mn">{% trans 'Mongolian' %}</option>
+
+  <option value="my">{% trans 'Myanmar (burmese)' %}</option>
+
+  <option value="ne">{% trans 'Nepali' %}</option>
+
+  <option value="no">{% trans 'Norwegian' %}</option>
+
+  <option value="ps">{% trans 'Pashto' %}</option>
+
+  <option value="fa">{% trans 'Persian' %}</option>
+
+  <option value="pl">{% trans 'Polish' %}</option>
+
+  <option value="pt">{% trans 'Portuguese' %}</option>
+
+  <option value="pa">{% trans 'Punjabi' %}</option>
+
+  <option value="ro">{% trans 'Romanian' %}</option>
+
+  <option value="ru">{% trans 'Russian' %}</option>
+
+  <option value="gd">{% trans 'Scots gaelic' %}</option>
+
+  <option value="sr">{% trans 'Serbian' %}</option>
+
+  <option value="st">{% trans 'Sesotho' %}</option>
+
+  <option value="sd">{% trans 'Sindhi' %}</option>
+
+  <option value="si">{% trans 'Sinhala' %}</option>
+
+  <option value="sk">{% trans 'Slovak' %}</option>
+
+  <option value="sl">{% trans 'Slovenian' %}</option>
+
+  <option value="so">{% trans 'Somali' %}</option>
+
+  <option value="es">{% trans 'Spanish' %}</option>
+
+  <option value="su">{% trans 'Sundanese' %}</option>
+
+  <option value="sw">{% trans 'Swahili' %}</option>
+
+  <option value="sv">{% trans 'Swedish' %}</option>
+
+  <option value="tg">{% trans 'Tajik' %}</option>
+
+  <option value="ta">{% trans 'Tamil' %}</option>
+
+  <option value="te">{% trans 'Telugu' %}</option>
+
+  <option value="th">{% trans 'Thai' %}</option>
+
+  <option value="tr">{% trans 'Turkish' %}</option>
+
+  <option value="uk">{% trans 'Ukrainian' %}</option>
+
+  <option value="ur">{% trans 'Urdu' %}</option>
+
+  <option value="ug">{% trans 'Uyghur' %}</option>
+
+  <option value="uz">{% trans 'Uzbek' %}</option>
+
+  <option value="vi">{% trans 'Vietnamese' %}</option>
+
+  <option value="cy">{% trans 'Welsh' %}</option>
+
+</select>
+
+      </div>
+
+
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b><label for="id_comment">{% trans 'Your comment' %}</label></b>
+        <textarea name="comment" cols="40" rows="1" class="form-control" maxlength="400" id="id_comment">
+</textarea>
+
+      </div>
+
+
+      <div class="col">
+        <br/>
+        <button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
+                data-content="{% trans "It's just a demo!" %}">{% trans 'Create' %}
+        </button>
+      </div>
+    </div>
+  </div>
