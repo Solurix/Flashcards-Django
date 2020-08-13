@@ -11,7 +11,6 @@
     {% block title %}
     {% endblock title %}
   </title>
-  <link rel="shortcut icon" type="image/png" href="{% static 'Cards/icons/favicon.ico' %}"/>
   {% block head %}
   {% endblock head %}
 
@@ -30,8 +29,8 @@
 <div class="p-3 mb-2 bg-secondary">
   <div class="row">
     <div class="col-sm">
-      <a href="/" type="button" class="form-control bg-dark text-white border-0 text-center" style="max-width: 300px;">Home</a>
-    </div>
+        <a href="{% url 'home' %}"> <img src="{% static 'accounts/logo.png' %}" alt="Multi Flash-Cards" style="max-width: 100%; max-height: 120px;">
+    </a></div>
     <div class="col-sm">
       <div class="ml-auto" style="max-width: 300px;">
         <form action="{% url 'change_language' %}" method="post">
