@@ -104,12 +104,12 @@ $('.collapse').on('show.bs.collapse', function () {
                 </div>
                   <div class="col-sm">
                     <p class="font-weight-bold"><span class="form-control-plaintext">Comment</span>
-                    <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="Comment for this MultiCard" value="{{multicard.comment}}">
+                    <input type="text" name="comment{{multicard.id}}" class="form-control" maxlength="400" placeholder="{% trans 'Comment for this MultiCard' %}" value="{{multicard.comment}}">
                   </p>
                   </div>
                   <div class="col-sm">
                     <p class="font-weight-bold"><span class="form-control-plaintext">Definition</span>
-                      <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="Definition for this MultiCard" value="{{multicard.definition}}">
+                      <input type="text" name="definition{{multicard.id}}" class="form-control" maxlength="400" placeholder="{% trans 'Definition for this MultiCard' %}" value="{{multicard.definition}}">
                   </p>
                   </div>
 

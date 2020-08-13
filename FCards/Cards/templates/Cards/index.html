@@ -32,7 +32,7 @@ $('.collapse').on('show.bs.collapse', function () {
   <div class="container">
     <div class="text-dark">
       {% if user.cardfolder_set.all %}
-        <h1>{% trans "Here are your sets to study, " %} {{ user }}.</h1>
+        <h1>{% blocktrans with user=user %}Here are your sets to study, {{ user }}. {% endblocktrans %}</h1>
         <p class="lead">{% trans "Click on the set name to view its details." %}</p>
       {% else %}
         <h1>{% trans "Here will appear your CardSets, " %}{{ user }}.</h1>
@@ -64,7 +64,7 @@ $('.collapse').on('show.bs.collapse', function () {
                     <a class="btn btn-sm btn-outline-info mb-1" href="{% url 'view_folder' set_id=folder.id %}">{% trans "View" %}</a>
                     <a class="btn btn-sm btn-outline-success mb-1" href="{% url 'add_multicard' set_id=folder.id %}">{% trans "Add MultiCard" %}</a>
                     <a class="btn btn-sm btn-outline-primary mb-1" href="{% url 'edit_multicards' set_id=folder.id %}">{% trans "Edit MultiCards" %}</a>
-                    <a class="btn btn-sm btn-outline-warning mb-1" href="{% url 'edit_folder' set_id=folder.id %}">{% trans "Edit" %} Set</a>
+                    <a class="btn btn-sm btn-outline-warning mb-1" href="{% url 'edit_folder' set_id=folder.id %}">{% trans "Edit Set" %}</a>
                     <a class="btn btn-sm btn-outline-secondary mb-1" href="{% url 'copy_folder' set_id=folder.id %}">{% trans "Copy" %}</a>
                     <button type="button" class="btn btn-sm btn-outline-danger mb-1" data-toggle="modal" data-target="#c{{folder.id}}">{% trans "Delete" %}</button>
                   </div>

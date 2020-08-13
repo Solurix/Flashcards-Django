@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 13:16+0900\n"
+"POT-Creation-Date: 2020-08-13 15:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -517,6 +517,7 @@ msgstr "Edytuj MutliKarty"
 #: Cards/templates/Cards/add_multicard.html:16
 #: Cards/templates/Cards/edit_all_multicards.html:27
 #: Cards/templates/Cards/edit_multicards.html:27
+#: Cards/templates/Cards/index.html:67
 #: Cards/templates/Cards/learn/learn.html:17
 #: Cards/templates/Cards/view_set.html:28
 msgid "Edit Set"
@@ -597,6 +598,12 @@ msgstr "Możesz dodać wiele słów jednocześnie tutaj."
 msgid "Definition"
 msgstr "Definicja"
 
+#: Cards/templates/Cards/add_multicard.html:40
+#: Cards/templates/Cards/edit_all_multicards.html:112
+#: Cards/templates/Cards/edit_multicards.html:117
+msgid "Definition for this MultiCard"
+msgstr "Definicja dla tej MultiKarty"
+
 #: Cards/templates/Cards/add_multicard.html:45
 #: Cards/templates/Cards/add_multicard.html:84
 #: Cards/templates/Cards/edit_multicards.html:81
@@ -605,6 +612,12 @@ msgstr "Definicja"
 #: Cards/templates/Cards/view_set_public.html:87
 msgid "Comment"
 msgstr "Komentarz"
+
+#: Cards/templates/Cards/add_multicard.html:48
+#: Cards/templates/Cards/edit_all_multicards.html:107
+#: Cards/templates/Cards/edit_multicards.html:112
+msgid "Comment for this MultiCard"
+msgstr "Komentarz dla tej MultiKarty"
 
 #: Cards/templates/Cards/add_multicard.html:51
 msgid "Language"
@@ -710,14 +723,6 @@ msgstr "S"
 msgid "C"
 msgstr "K"
 
-#: Cards/templates/Cards/edit_multicards.html:112
-msgid "Comment for this MultiCard"
-msgstr "Komentarz dla tej MultiKarty"
-
-#: Cards/templates/Cards/edit_multicards.html:117
-msgid "Definition for this MultiCard"
-msgstr "Definicja dla tej MultiKarty"
-
 #: Cards/templates/Cards/edit_multicards.html:123
 msgid "To see the changes refresh the page."
 msgstr "Odśwież stronę by zobaczyć zmiany."
@@ -779,7 +784,9 @@ msgid "Public sets"
 msgstr "Zestawy publiczne"
 
 #: Cards/templates/Cards/index.html:35
-msgid "Here are your sets to study, "
+#, fuzzy, python-format
+#| msgid "Here are your sets to study, "
+msgid "Here are your sets to study, %(user)s. "
 msgstr "Tutaj są twoje zestawy do nauki, "
 
 #: Cards/templates/Cards/index.html:36
@@ -797,10 +804,6 @@ msgstr "Stwórz nowy zestaw"
 #: Cards/templates/Cards/index.html:41
 msgid "or copy from public ones."
 msgstr "lub skopiuj z dostępnych publicznie."
-
-#: Cards/templates/Cards/index.html:67
-msgid "Edit"
-msgstr "Edytuj"
 
 #: Cards/templates/Cards/index.html:109
 msgid ""
@@ -876,39 +879,90 @@ msgstr "Nie masz dosyć MultiKart w tym zestawie by rozpocząć naukę."
 msgid "Please create at least three MultiCards."
 msgstr ""
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:168
+#: Cards/templates/Cards/learn/learn_flashcards.html:121
+#, fuzzy
+#| msgid "How did you get here, huh?"
+msgid "Did you get that?"
+msgstr "Jak się tutaj dostałeś, hm?"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:125
+msgid "Easily!"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:128
+msgid "Yes!"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:132
+msgid "Barely"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:136
+msgid "Almost"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:140
+msgid "Nope"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:146
+msgid "Other"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:150
+msgid "I have already mastered it!"
+msgstr ""
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:153
+#, fuzzy
+#| msgid "Reset Progress"
+msgid "Reset my progress on this."
+msgstr "Zresetuj postęp"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:155
+#, fuzzy
+#| msgid "Comment for this MultiCard"
+msgid "Delete this MultiCard"
+msgstr "Komentarz dla tej MultiKarty"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:167
 #: Cards/templates/Cards/view_set.html:109
 msgid "Comment:"
 msgstr "Komentarz:"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:169
+#: Cards/templates/Cards/learn/learn_flashcards.html:168
 #: Cards/templates/Cards/view_set.html:100
 msgid "Pronunciation:"
 msgstr "Wymowa:"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:170
+#: Cards/templates/Cards/learn/learn_flashcards.html:169
 #: Cards/templates/Cards/view_set.html:103
 msgid "Synonym:"
 msgstr "Synonim:"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:177
+#: Cards/templates/Cards/learn/learn_flashcards.html:173
+#: Cards/templates/Cards/learn/learn_write.html:97
+msgid "Next"
+msgstr "Następny"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:176
 msgid ""
 "You see the card in one language. Think about the translation before moving "
 "to next language."
 msgstr ""
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:210
+#: Cards/templates/Cards/learn/learn_flashcards.html:209
 #, python-format
 msgid "\"Good job! Keep going! \" + String(%(no)s - answered) + \" left.\""
 msgstr ""
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:231
+#: Cards/templates/Cards/learn/learn_flashcards.html:230
 msgid ""
 "This is the first language this time. Are you able to translate it to all "
 "other languages?"
 msgstr ""
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:233
+#: Cards/templates/Cards/learn/learn_flashcards.html:232
 msgid "You have already answered this question, keep going!"
 msgstr ""
 
@@ -935,10 +989,6 @@ msgstr "Postęp"
 #: Cards/templates/Cards/learn/learn_write.html:80
 msgid "Write translation below"
 msgstr "Napisz tłumaczenia poniżej"
-
-#: Cards/templates/Cards/learn/learn_write.html:97
-msgid "Next"
-msgstr "Następny"
 
 #: Cards/templates/Cards/public_sets.html:36
 msgid "Here are public sets."
@@ -1030,8 +1080,14 @@ msgstr ""
 "lepiej by było coś zmienić? Chętnie o tym usłyszę! Napisz do mnie!"
 
 #: Cards/templates/base.html:66
-msgid "Write here and press [Enter]."
-msgstr "Napisz tutaj"
+#, fuzzy
+#| msgid "Write"
+msgid "Write here"
+msgstr "Pisanie"
+
+#: Cards/templates/base.html:67
+msgid "Submit"
+msgstr "Wyślij"
 
 #: Cards/templates/base.html:77
 msgid "Home"
@@ -1301,10 +1357,6 @@ msgstr ""
 msgid "Reset password"
 msgstr "Zresetuj hasło."
 
-#: accounts/templates/registration/password_reset_form.html:20
-msgid "Submit"
-msgstr "Wyślij"
-
 #: accounts/templates/registration/password_reset_form.html:22
 msgid "Return to login page."
 msgstr "Powrót do strony logowania."
@@ -1405,3 +1457,14 @@ msgstr ""
 #: templates/admin/index.html:78
 msgid "Unknown content"
 msgstr ""
+
+#~ msgid "Write here and press [Enter]."
+#~ msgstr "Napisz tutaj"
+
+#, fuzzy
+#~| msgid "Edit MultiCards"
+#~ msgid "Next MultiCard"
+#~ msgstr "Edytuj MutliKarty"
+
+#~ msgid "Edit"
+#~ msgstr "Edytuj"

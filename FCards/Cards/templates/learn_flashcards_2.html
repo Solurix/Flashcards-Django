@@ -58,7 +58,7 @@ body { font-family: sans-serif; }
 </style>
 {% endblock %}
 {% block nav_buttons %}
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
 
 {% endblock nav_buttons %}
 

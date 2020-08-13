@@ -124,7 +124,7 @@ def flashcards(request, set_id):
 
     if request.method == "POST":
         submit = request.POST['progress']
-        if submit == 'Delete this MultiCard':
+        if submit == 'c7':
             multicard = MultiCard.objects.get(id=request.POST['multicard_id'])
             multicard.delete()
             return redirect(request.META['HTTP_REFERER'])
@@ -133,13 +133,13 @@ def flashcards(request, set_id):
             card_id = request.POST['card' + str(card_no)]
             card = Card.objects.get(id=card_id)
             choices = {
-                'Easily!': (40, 20),
-                'Yes': (25, 12),
-                'Barely': (8, 9),
-                'Almost': (1, 6),
-                'Nope': (-30, 2),
-                'I have already mastered it!': (100, 100),
-                'Reset my progress on this.': (-100, 1),
+                'c0': (40, 20),  # Easily!'
+                'c1': (25, 12),  # Yes
+                'c2': (8, 9),  # Barely
+                'c3': (1, 6),  # Almost
+                'c4': (-30, 2),  # Nope
+                'c5': (100, 100),  # I have already mastered it!
+                'c6': (-100, 1),  # Reset my progress on this.
             }
             score_priority = choices[submit]
             card.add_score_flashcards(score_priority)
@@ -172,7 +172,6 @@ def flashcards(request, set_id):
     context['special'] = 400
 
     return render(request, 'Cards/learn/learn_flashcards.html', context)
-
 
 # def flashcards_2(request, folder, lang_keys, lang_full):
 #     context = {
@@ -223,4 +222,3 @@ def flashcards(request, set_id):
 #     context['back'] = back
 #     context['multicard_id'] = multicard.id
 #     return render(request, 'Cards/learn/learn_flashcards_2.html', context)
-

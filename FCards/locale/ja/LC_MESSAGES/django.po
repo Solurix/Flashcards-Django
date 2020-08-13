@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-12 13:16+0900\n"
+"POT-Creation-Date: 2020-08-13 15:04+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -513,6 +513,7 @@ msgstr "マルチカード編集"
 #: Cards/templates/Cards/add_multicard.html:16
 #: Cards/templates/Cards/edit_all_multicards.html:27
 #: Cards/templates/Cards/edit_multicards.html:27
+#: Cards/templates/Cards/index.html:67
 #: Cards/templates/Cards/learn/learn.html:17
 #: Cards/templates/Cards/view_set.html:28
 msgid "Edit Set"
@@ -584,13 +585,19 @@ msgstr "第一言語の単語のみが必要です。 残りはオプション�
 
 #: Cards/templates/Cards/add_multicard.html:26
 msgid "You can add many words at once here."
-msgstr "ここは複数の単語を同時に追加可能"
+msgstr "複数単語の追加"
 
 #: Cards/templates/Cards/add_multicard.html:37
 #: Cards/templates/Cards/edit_multicards.html:116
 #: Cards/templates/Cards/view_set_public.html:84
 msgid "Definition"
 msgstr "定義"
+
+#: Cards/templates/Cards/add_multicard.html:40
+#: Cards/templates/Cards/edit_all_multicards.html:112
+#: Cards/templates/Cards/edit_multicards.html:117
+msgid "Definition for this MultiCard"
+msgstr "マルチカード用定義"
 
 #: Cards/templates/Cards/add_multicard.html:45
 #: Cards/templates/Cards/add_multicard.html:84
@@ -600,6 +607,12 @@ msgstr "定義"
 #: Cards/templates/Cards/view_set_public.html:87
 msgid "Comment"
 msgstr "コメント"
+
+#: Cards/templates/Cards/add_multicard.html:48
+#: Cards/templates/Cards/edit_all_multicards.html:107
+#: Cards/templates/Cards/edit_multicards.html:112
+msgid "Comment for this MultiCard"
+msgstr "マルチカード用コメント"
 
 #: Cards/templates/Cards/add_multicard.html:51
 msgid "Language"
@@ -683,11 +696,11 @@ msgstr "CTRL + Fを使用したら、カードをすばやく見つけます。"
 
 #: Cards/templates/Cards/edit_all_multicards.html:40
 msgid "You can change the view back to single edit here."
-msgstr "ここで、ビューを単一の編集に戻すことができます。"
+msgstr "単カード編集ビューに変更"
 
 #: Cards/templates/Cards/edit_multicards.html:38
 msgid "You can change view to edit all you cards at once here."
-msgstr "ここで、ビューを複数の編集に変更できます。"
+msgstr "全カード編集ビューに変更"
 
 #: Cards/templates/Cards/edit_multicards.html:78
 msgid "W"
@@ -704,14 +717,6 @@ msgstr ""
 #: Cards/templates/Cards/edit_multicards.html:81
 msgid "C"
 msgstr ""
-
-#: Cards/templates/Cards/edit_multicards.html:112
-msgid "Comment for this MultiCard"
-msgstr "マルチカード用コメント"
-
-#: Cards/templates/Cards/edit_multicards.html:117
-msgid "Definition for this MultiCard"
-msgstr "マルチカード用定義"
 
 #: Cards/templates/Cards/edit_multicards.html:123
 msgid "To see the changes refresh the page."
@@ -766,7 +771,9 @@ msgid "Public sets"
 msgstr "公開セット"
 
 #: Cards/templates/Cards/index.html:35
-msgid "Here are your sets to study, "
+#, fuzzy, python-format
+#| msgid "Here are your sets to study, "
+msgid "Here are your sets to study, %(user)s. "
 msgstr "ここはあなたの勉強用セット"
 
 #: Cards/templates/Cards/index.html:36
@@ -784,10 +791,6 @@ msgstr "新セット作成"
 #: Cards/templates/Cards/index.html:41
 msgid "or copy from public ones."
 msgstr "公開セットをコピー"
-
-#: Cards/templates/Cards/index.html:67
-msgid "Edit"
-msgstr "編集"
 
 #: Cards/templates/Cards/index.html:109
 msgid ""
@@ -838,12 +841,12 @@ msgstr "キャンセル"
 
 #: Cards/templates/Cards/learn/learn.html:25
 msgid "Choose how would you like to learn."
-msgstr "勉強方法選んでください。"
+msgstr "勉強方法を選んでください。"
 
 #: Cards/templates/Cards/learn/learn.html:31
 #: Cards/templates/Cards/view_set.html:48
 msgid "Write"
-msgstr "書く"
+msgstr "記入"
 
 #: Cards/templates/Cards/learn/learn.html:32
 #: Cards/templates/Cards/view_set.html:51
@@ -860,39 +863,84 @@ msgstr "このセットには、学習を開始するのに十分なマルチカ
 msgid "Please create at least three MultiCards."
 msgstr "少なくとも三つのマルチカードを作成してください。"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:168
+#: Cards/templates/Cards/learn/learn_flashcards.html:121
+msgid "Did you get that?"
+msgstr "翻訳はどうですか？出来ましたか？"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:125
+msgid "Easily!"
+msgstr "簡単"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:128
+msgid "Yes!"
+msgstr "はい"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:132
+msgid "Barely"
+msgstr "なんとなく"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:136
+msgid "Almost"
+msgstr "もう少しで"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:140
+msgid "Nope"
+msgstr "いいえ"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:146
+msgid "Other"
+msgstr "その他"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:150
+msgid "I have already mastered it!"
+msgstr "すでに暗記済"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:153
+msgid "Reset my progress on this."
+msgstr "進歩リセット"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:155
+msgid "Delete this MultiCard"
+msgstr "マルチカード削除"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:167
 #: Cards/templates/Cards/view_set.html:109
 msgid "Comment:"
 msgstr "コメント："
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:169
+#: Cards/templates/Cards/learn/learn_flashcards.html:168
 #: Cards/templates/Cards/view_set.html:100
 msgid "Pronunciation:"
 msgstr "発音："
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:170
+#: Cards/templates/Cards/learn/learn_flashcards.html:169
 #: Cards/templates/Cards/view_set.html:103
 msgid "Synonym:"
 msgstr "同意語："
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:177
+#: Cards/templates/Cards/learn/learn_flashcards.html:173
+#: Cards/templates/Cards/learn/learn_write.html:97
+msgid "Next"
+msgstr "次"
+
+#: Cards/templates/Cards/learn/learn_flashcards.html:176
 msgid ""
 "You see the card in one language. Think about the translation before moving "
 "to next language."
 msgstr "今、一つの言語の単語が見えます。回す前に翻訳を考えてください。"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:210
+#: Cards/templates/Cards/learn/learn_flashcards.html:209
 #, python-format
 msgid "\"Good job! Keep going! \" + String(%(no)s - answered) + \" left.\""
-msgstr ""
+msgstr "\"いいね！残り \" + String(%(no)s - answered)"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:231
+#: Cards/templates/Cards/learn/learn_flashcards.html:230
 msgid ""
 "This is the first language this time. Are you able to translate it to all "
 "other languages?"
 msgstr "これが今回の第一言語です。他の言語に翻訳できますか。"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:233
+#: Cards/templates/Cards/learn/learn_flashcards.html:232
 msgid "You have already answered this question, keep going!"
 msgstr "回答済！次へ進んでください。"
 
@@ -906,7 +954,7 @@ msgstr "翻訳を書く"
 
 #: Cards/templates/Cards/learn/learn_write.html:34
 msgid "Your answer"
-msgstr "答え"
+msgstr "回答"
 
 #: Cards/templates/Cards/learn/learn_write.html:35
 msgid "Correct answer"
@@ -920,17 +968,13 @@ msgstr "進歩"
 msgid "Write translation below"
 msgstr "下に翻訳を書く"
 
-#: Cards/templates/Cards/learn/learn_write.html:97
-msgid "Next"
-msgstr "次"
-
 #: Cards/templates/Cards/public_sets.html:36
 msgid "Here are public sets."
-msgstr "ここは公開のセットがあります。"
+msgstr "ここに公開セットが記載されています。"
 
 #: Cards/templates/Cards/public_sets.html:37
 msgid "Click on the set name to view its details and copy it."
-msgstr "セット名をクリックし、詳細を見るか、コピーできます。"
+msgstr "セット名をクリックすると、詳細閲覧またはコピーができます。"
 
 #: Cards/templates/Cards/public_sets.html:55
 #: Cards/templates/Cards/view_set_public.html:25
@@ -1012,8 +1056,12 @@ msgstr ""
 "更するアイデアがありあましたら教えてください。"
 
 #: Cards/templates/base.html:66
-msgid "Write here and press [Enter]."
-msgstr "ここに書いてください。"
+msgid "Write here"
+msgstr "ここに書いて下さい"
+
+#: Cards/templates/base.html:67
+msgid "Submit"
+msgstr "送信"
 
 #: Cards/templates/base.html:77
 msgid "Home"
@@ -1278,7 +1326,9 @@ msgid ""
 "\n"
 "Sincerely,\n"
 "Bartosz Lulka"
-msgstr "リンクをクリック出来ない場合、アドレスバーにコピペして下さい。\n \n"
+msgstr ""
+"リンクをクリック出来ない場合、アドレスバーにコピペして下さい。\n"
+" \n"
 "バルトシュ・ルルカ \n"
 "Bartosz Lulka"
 
@@ -1286,10 +1336,6 @@ msgstr "リンクをクリック出来ない場合、アドレスバーにコピ
 #: accounts/templates/registration/password_reset_form.html:14
 msgid "Reset password"
 msgstr "パスワードのリセット"
-
-#: accounts/templates/registration/password_reset_form.html:20
-msgid "Submit"
-msgstr "送信"
 
 #: accounts/templates/registration/password_reset_form.html:22
 msgid "Return to login page."
@@ -1390,6 +1436,16 @@ msgstr ""
 #: templates/admin/index.html:78
 msgid "Unknown content"
 msgstr ""
+
+#~ msgid "Write here and press [Enter]."
+#~ msgstr "ここに書いてください。"
+
+#, fuzzy
+#~ msgid "Next MultiCard"
+#~ msgstr "次のマルチカード"
+
+#~ msgid "Edit"
+#~ msgstr "編集"
 
 #~ msgid "Activation link"
 #~ msgstr "アクティベーションリンク"

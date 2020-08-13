@@ -12,6 +12,10 @@ def home(request):
     return redirect('/')
 
 
+def demo_welcome(request):
+    return render(request, 'Cards/demo/welcome.html')
+
+
 # region Folder
 
 @login_required
@@ -193,7 +197,9 @@ def add_many(request, set_id):
         new_langs.remove(language)
 
         for word in new_cards:
-            word = word.strip(" ,")
+            if word == "" or word == "　":
+                continue
+            word = word.strip(" ,　")
             m_card = MultiCard.objects.create(cards_folder=folder)
             m_card.save()
             word = word.capitalize()

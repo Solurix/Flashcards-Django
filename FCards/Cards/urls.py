@@ -23,4 +23,5 @@ urlpatterns = [
     path('refresh_update/<int:set_id>/', views.refresh_update, name='refresh_update'),
     path('repair_translations/<int:set_id>/', views.repair_translations, name='repair_translations'),
     path('public_sets/', views.public_sets, name='public_sets'),
+    path('demo/', views.demo_welcome, name='demo'),
 ]

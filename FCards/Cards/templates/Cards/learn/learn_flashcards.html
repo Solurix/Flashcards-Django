@@ -72,7 +72,7 @@ body { font-family: sans-serif; }
 </style>
 {% endblock %}
 {% block nav_buttons %}
-<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">View</a>
+<a class="btn btn-outline-info" href="{% url 'view_folder' set_id=folder.id %}">{% trans 'View' %}</a>
 
 {% endblock nav_buttons %}
 
@@ -115,45 +115,44 @@ body { font-family: sans-serif; }
           <input type="hidden" name="card{{forloop.counter0}}" value="{{card.id}}"/>
           {% endfor %}
 
-          <input type="hidden" name="multicard_id" value="{{multicard_id}}"/>
+          <input type="hidden" name="multicard_id" value="{{multicard.id}}"/>
           <input type="hidden" value="0" name="card_no" id="card_no">
 
-          <label class="py-1">Did you get that?</label><br>
+          <label class="py-1">{% trans 'Did you get that?' %}</label><br>
           <div class="row row-cols-3">
             <div class="col">
-              <input type="submit" class="btn btn-block px-1 my-1 btn-outline-success" name="progress"
-                     value="Easily!" onclick="hide(0)">
+              <button type="submit" onclick="hide(0)" class="btn btn-block px-1 my-1 btn-outline-success" name="progress"
+                      value="c0">{% trans "Easily!" %}</button>
             </div>
             <div class="col">
-              <input type="submit" onclick="hide(1)" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress"
-                     value="Yes">
+              <button type="submit" onclick="hide(1)" value="c1" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress">{% trans "Yes!" %}</button>
             </div>
             <div class="col">
-              <input type="submit" onclick="hide(2)" class="btn btn-block px-1 my-1 btn-outline-info" name="progress"
-                     value="Barely">
+              <button type="submit" onclick="hide(2)" class="btn btn-block px-1 my-1 btn-outline-info" name="progress"
+                      value="c2">{% trans "Barely" %}</button>
             </div>
             <div class="col">
-              <input type="submit" onclick="hide(3)" class="btn btn-block px-1 my-1 btn-outline-warning" name="progress"
-                     value="Almost">
+              <button type="submit" onclick="hide(3)" class="btn btn-block px-1 my-1 btn-outline-warning" name="progress"
+                      value="c3">{% trans "Almost" %}</button>
             </div>
             <div class="col">
-              <input type="submit" onclick="hide(4)" class="btn btn-block px-1 my-1 btn-outline-danger" name="progress"
-                     value="Nope">
+              <button type="submit" onclick="hide(4)" class="btn btn-block px-1 my-1 btn-outline-danger" name="progress"
+                      value="c4">{% trans "Nope" %}</button>
             </div>
             <div class="col">
               <button id="btnGroupDrop1" type="button"
                       class="btn btn-block px-1 my-1 btn-outline-light dropdown-toggle"
                       data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Other
+                {% trans 'Other' %}
               </button>
               <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg-left" aria-labelledby="btnGroupDrop1">
-                <input type="submit" class="dropdown-item" onclick="hide(5)" name="progress"
-                       value="I have already mastered it!">
+                <button type="submit" class="dropdown-item" onclick="hide(5)" name="progress"
+                        value="c5">{% trans "I have already mastered it!" %}</button>
                 <div class="dropdown-divider"></div>
-                <input type="submit" class="dropdown-item" onclick="hide(6)" name="progress"
-                       value="Reset my progress on this.">
+                <button type="submit" class="dropdown-item" onclick="hide(6)" name="progress"
+                        value="c6">{% trans "Reset my progress on this." %}</button>
                 <div class="dropdown-divider"></div>
-                <input type="submit" class="dropdown-item" name="progress" value="Delete this MultiCard">
+                <button type="submit" class="dropdown-item" name="progress" value="c7">{% trans "Delete this MultiCard" %}</button>
               </div>
             </div>
           </div>
@@ -171,7 +170,7 @@ body { font-family: sans-serif; }
         </div>
         {% endfor %}
         <div id="next" style="display:none;">
-          <button onClick="window.location.reload();" class="btn btn-outline-success btn-block">Next MultiCard</button>
+          <button onClick="window.location.reload();" class="btn btn-outline-success btn-block">{% trans 'Next' %}</button>
         </div>
         <p id="greeting_text">
           {% blocktrans %}You see the card in one language. Think about the translation before moving to next language.{% endblocktrans %}
