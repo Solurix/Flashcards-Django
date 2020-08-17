@@ -1,4 +1,4 @@
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Copyright (C) 2020 Bartosz Lulka
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
@@ -273,7 +273,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:643
 #: Cards/templates/Cards/demo/demo_new_set.html:839
 msgid "Filipino"
-msgstr ""
+msgstr "フィリピン語"
 
 #: Cards/langcodes.py:9 Cards/langcodes.py:32 Cards/langcodes.py:55
 #: Cards/templates/Cards/demo/demo_new_set.html:61
@@ -346,7 +346,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:657
 #: Cards/templates/Cards/demo/demo_new_set.html:853
 msgid "Gujarati"
-msgstr ""
+msgstr "グジャラート語"
 
 #: Cards/langcodes.py:10 Cards/langcodes.py:34 Cards/langcodes.py:57
 #: Cards/templates/Cards/demo/demo_new_set.html:75
@@ -355,11 +355,11 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:659
 #: Cards/templates/Cards/demo/demo_new_set.html:855
 msgid "Haitian creole"
-msgstr ""
+msgstr "ハイチのクレオール語"
 
 #: Cards/langcodes.py:10
 msgid "Hausa"
-msgstr ""
+msgstr "ハウサ語"
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:34 Cards/langcodes.py:57
 #: Cards/templates/Cards/demo/demo_new_set.html:77
@@ -368,7 +368,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:661
 #: Cards/templates/Cards/demo/demo_new_set.html:857
 msgid "Hawaiian"
-msgstr ""
+msgstr "ハワイ語"
 
 #: Cards/langcodes.py:11 Cards/langcodes.py:34 Cards/langcodes.py:57
 #: Cards/templates/Cards/demo/demo_new_set.html:79
@@ -462,7 +462,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:679
 #: Cards/templates/Cards/demo/demo_new_set.html:875
 msgid "Javanese"
-msgstr ""
+msgstr "ジャワ語"
 
 #: Cards/langcodes.py:13 Cards/langcodes.py:37 Cards/langcodes.py:60
 #: Cards/templates/Cards/demo/demo_new_set.html:97
@@ -507,7 +507,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:689
 #: Cards/templates/Cards/demo/demo_new_set.html:885
 msgid "Kurdish (kurmanji)"
-msgstr ""
+msgstr "クルド語"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
 #: Cards/templates/Cards/demo/demo_new_set.html:107
@@ -516,7 +516,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:691
 #: Cards/templates/Cards/demo/demo_new_set.html:887
 msgid "Kyrgyz"
-msgstr ""
+msgstr "キルギス語"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
 #: Cards/templates/Cards/demo/demo_new_set.html:109
@@ -525,7 +525,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:693
 #: Cards/templates/Cards/demo/demo_new_set.html:889
 msgid "Lao"
-msgstr ""
+msgstr "ラオス語"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
 #: Cards/templates/Cards/demo/demo_new_set.html:111
@@ -534,7 +534,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:695
 #: Cards/templates/Cards/demo/demo_new_set.html:891
 msgid "Latin"
-msgstr ""
+msgstr "ラテン語"
 
 #: Cards/langcodes.py:14 Cards/langcodes.py:38 Cards/langcodes.py:61
 #: Cards/templates/Cards/demo/demo_new_set.html:113
@@ -579,7 +579,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:705
 #: Cards/templates/Cards/demo/demo_new_set.html:901
 msgid "Malagasy"
-msgstr ""
+msgstr "マダガスカル語"
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
 #: Cards/templates/Cards/demo/demo_new_set.html:123
@@ -588,7 +588,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:707
 #: Cards/templates/Cards/demo/demo_new_set.html:903
 msgid "Malay"
-msgstr ""
+msgstr "マレー語"
 
 #: Cards/langcodes.py:15 Cards/langcodes.py:39 Cards/langcodes.py:62
 #: Cards/templates/Cards/demo/demo_new_set.html:125
@@ -606,7 +606,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:711
 #: Cards/templates/Cards/demo/demo_new_set.html:907
 msgid "Maltese"
-msgstr ""
+msgstr "マルタ語"
 
 #: Cards/langcodes.py:15
 msgid "Maori"
@@ -637,7 +637,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:717
 #: Cards/templates/Cards/demo/demo_new_set.html:913
 msgid "Myanmar (burmese)"
-msgstr ""
+msgstr "ミャンマー語"
 
 #: Cards/langcodes.py:16 Cards/langcodes.py:41 Cards/langcodes.py:64
 #: Cards/templates/Cards/demo/demo_new_set.html:135
@@ -655,7 +655,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:721
 #: Cards/templates/Cards/demo/demo_new_set.html:917
 msgid "Norwegian"
-msgstr ""
+msgstr "ノルウェー語"
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:41 Cards/langcodes.py:64
 #: Cards/templates/Cards/demo/demo_new_set.html:139
@@ -664,7 +664,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:723
 #: Cards/templates/Cards/demo/demo_new_set.html:919
 msgid "Pashto"
-msgstr ""
+msgstr "パシュトゥー語"
 
 #: Cards/langcodes.py:17 Cards/langcodes.py:41 Cards/langcodes.py:64
 #: Cards/templates/Cards/demo/demo_new_set.html:141
@@ -737,7 +737,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:737
 #: Cards/templates/Cards/demo/demo_new_set.html:933
 msgid "Scots gaelic"
-msgstr ""
+msgstr "スコットランドゲール語"
 
 #: Cards/langcodes.py:18 Cards/langcodes.py:43 Cards/langcodes.py:66
 #: Cards/templates/Cards/demo/demo_new_set.html:155
@@ -755,7 +755,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:741
 #: Cards/templates/Cards/demo/demo_new_set.html:937
 msgid "Sesotho"
-msgstr ""
+msgstr "セソト語"
 
 #: Cards/langcodes.py:19
 msgid "Shona"
@@ -768,7 +768,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:743
 #: Cards/templates/Cards/demo/demo_new_set.html:939
 msgid "Sindhi"
-msgstr ""
+msgstr "シンド語"
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
 #: Cards/templates/Cards/demo/demo_new_set.html:161
@@ -777,7 +777,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:745
 #: Cards/templates/Cards/demo/demo_new_set.html:941
 msgid "Sinhala"
-msgstr ""
+msgstr "シンハラ語"
 
 #: Cards/langcodes.py:19 Cards/langcodes.py:44 Cards/langcodes.py:67
 #: Cards/templates/Cards/demo/demo_new_set.html:163
@@ -804,7 +804,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:751
 #: Cards/templates/Cards/demo/demo_new_set.html:947
 msgid "Somali"
-msgstr ""
+msgstr "ソマリ語"
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
 #: Cards/templates/Cards/demo/demo_new_set.html:169
@@ -822,7 +822,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:755
 #: Cards/templates/Cards/demo/demo_new_set.html:951
 msgid "Sundanese"
-msgstr ""
+msgstr "スンダ語"
 
 #: Cards/langcodes.py:20 Cards/langcodes.py:45 Cards/langcodes.py:68
 #: Cards/templates/Cards/demo/demo_new_set.html:173
@@ -849,7 +849,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:761
 #: Cards/templates/Cards/demo/demo_new_set.html:957
 msgid "Tajik"
-msgstr ""
+msgstr "タジク語"
 
 #: Cards/langcodes.py:21 Cards/langcodes.py:46 Cards/langcodes.py:69
 #: Cards/templates/Cards/demo/demo_new_set.html:179
@@ -912,7 +912,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:775
 #: Cards/templates/Cards/demo/demo_new_set.html:971
 msgid "Uyghur"
-msgstr ""
+msgstr "ウイグル語"
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
 #: Cards/templates/Cards/demo/demo_new_set.html:193
@@ -921,7 +921,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_new_set.html:777
 #: Cards/templates/Cards/demo/demo_new_set.html:973
 msgid "Uzbek"
-msgstr ""
+msgstr "ウズベク語"
 
 #: Cards/langcodes.py:22 Cards/langcodes.py:47 Cards/langcodes.py:70
 #: Cards/templates/Cards/demo/demo_new_set.html:195
@@ -1279,10 +1279,8 @@ msgid ""
 msgstr "今、一つの言語の単語が見えます。回す前に翻訳を考えてください。"
 
 #: Cards/templates/Cards/demo/demo_flashcards.html:221
-#, fuzzy
-#| msgid "\"Good job! Keep going! \" + String(%(no)s - answered) + \" left.\""
 msgid "\"Good job! Keep going! \" + String(4 - answered) + \" left.\""
-msgstr "\"いいね！残り \" + String(%(no)s - answered)"
+msgstr "\"いいね！残り \" + String(4 - answered)"
 
 #: Cards/templates/Cards/demo/demo_flashcards.html:242
 #: Cards/templates/Cards/learn/learn_flashcards.html:230
@@ -1298,31 +1296,31 @@ msgstr "回答済！次へ進んでください。"
 
 #: Cards/templates/Cards/demo/demo_new_set.html:995
 msgid "It's just a demo!"
-msgstr ""
+msgstr "デモンストレーションです！"
 
 #: Cards/templates/Cards/demo/demo_view.html:9
 #: Cards/templates/Cards/demo/welcome.html:98
 #: accounts/templates/registration/login.html:122
 msgid "ENGLISH"
-msgstr ""
+msgstr "英語"
 
 #: Cards/templates/Cards/demo/demo_view.html:13
 #: Cards/templates/Cards/demo/welcome.html:99
 #: accounts/templates/registration/login.html:123
 msgid "POLISH"
-msgstr ""
+msgstr "ポーランド語"
 
 #: Cards/templates/Cards/demo/demo_view.html:17
 #: Cards/templates/Cards/demo/welcome.html:100
 #: accounts/templates/registration/login.html:124
 msgid "JAPANESE"
-msgstr ""
+msgstr "日本語"
 
 #: Cards/templates/Cards/demo/demo_view.html:21
 #: Cards/templates/Cards/demo/welcome.html:101
 #: accounts/templates/registration/login.html:125
 msgid "GERMAN"
-msgstr ""
+msgstr "ドイツ語"
 
 #: Cards/templates/Cards/demo/demo_view.html:67
 #: Cards/templates/Cards/demo/demo_view.html:78
@@ -1385,7 +1383,7 @@ msgstr "下に翻訳を書く"
 
 #: Cards/templates/Cards/demo/welcome.html:4
 msgid "Demo"
-msgstr ""
+msgstr "デモンストレーション"
 
 #: Cards/templates/Cards/demo/welcome.html:27
 #: accounts/templates/registration/login.html:4
@@ -1395,12 +1393,10 @@ msgstr "マルチフラッシュカード"
 
 #: Cards/templates/Cards/demo/welcome.html:31
 msgid "Welcome to the demonstration"
-msgstr ""
+msgstr "デモンストレーション"
 
 #: Cards/templates/Cards/demo/welcome.html:245
 #: accounts/templates/registration/login.html:270
-#, fuzzy
-#| msgid "Sign Up"
 msgid "Sign up"
 msgstr "サインアップ"
 
@@ -1508,10 +1504,9 @@ msgid "Public sets"
 msgstr "公開セット"
 
 #: Cards/templates/Cards/index.html:35
-#, fuzzy, python-format
-#| msgid "Here are your sets to study, "
+#, python-format
 msgid "Here are your sets to study, %(user)s. "
-msgstr "ここはあなたの勉強用セット"
+msgstr "%(user)s　さん、ここはあなたの勉強用セットがあります。"
 
 #: Cards/templates/Cards/index.html:36
 msgid "Click on the set name to view its details."
@@ -1858,11 +1853,6 @@ msgid "Confirmation email sent."
 msgstr "確認メールを送信しました。"
 
 #: accounts/templates/base2.html:63
-#, fuzzy
-#| msgid ""
-#| "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
-#| "experience on our website. <a href=\"https://cookiesandyou.com/\" target="
-#| "\"_blank\">Learn more</a>"
 msgid ""
 "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
 "experience on our website. <a\n"
@@ -1881,32 +1871,38 @@ msgid ""
 "          Run on Django<br/><br/>\n"
 "          Contact: bartosz.adam.lulka@gmail.com"
 msgstr ""
+"© 2020 Copyright:<br/>\n"
+"          ウェブサイト: Bartosz Lulka<br/>\n"
+"          自動翻訳: Google Translate<br/>\n"
+"          スタイル: Bootstrap<br/>\n"
+"          Webフレームワーク: Django<br/><br/>\n"
+"          連絡先: bartosz.adam.lulka@gmail.com"
 
 #: accounts/templates/errors/404.html:4
 msgid "Page not found"
-msgstr ""
+msgstr "ページが見つかりません"
 
 #: accounts/templates/errors/404.html:15
 msgid "Error 404: Page not found."
-msgstr ""
+msgstr "エラー404ページが見つかりません。"
 
 #: accounts/templates/errors/404.html:18
 msgid "How did you get here, huh?"
-msgstr ""
+msgstr "どうやってここに来ましたのかな"
 
 #: accounts/templates/errors/500.html:4
 msgid "Server error"
-msgstr ""
+msgstr "サーバーエラー"
 
 #: accounts/templates/errors/500.html:15
 msgid "Error 500: Server error"
-msgstr ""
+msgstr "エラー500：サーバーエラー"
 
 #: accounts/templates/errors/500.html:18
 msgid ""
 "Ups, looks like you have done something you weren't supposed to do. If this "
 "error occurs again and you don't know why, please contact me."
-msgstr ""
+msgstr "あらあら、創造しなかったエラーが出ました。もし、また出たら、ご連絡いただければ幸いです。"
 
 #: accounts/templates/registration/logged_out.html:5
 msgid "Logged out"
@@ -1921,27 +1917,25 @@ msgid "Click here to log in again."
 msgstr "再度ログインするには、ここをクリックしてください。"
 
 #: accounts/templates/registration/login.html:35
-#, fuzzy
-#| msgid "Multi-FlashCards"
 msgid "What is Multi-FlashCards?"
-msgstr "マルチフラッシュカード"
+msgstr "マルチフラッシュカードとは何"
 
 #: accounts/templates/registration/login.html:36
 msgid ""
 "Multi-FlashCards is a website that help in learning few languages at once."
-msgstr ""
+msgstr "マルチフラッシュカードは複数の言語の勉強に手伝いするウェブサイトです。"
 
 #: accounts/templates/registration/login.html:38
 msgid "How does it help?"
-msgstr ""
+msgstr "どのように手伝いする？"
 
 #: accounts/templates/registration/login.html:39
 msgid "It provides tools to quickly create Sets of words and then study them."
-msgstr ""
+msgstr "カードのセットを素早く作成できる機能や勉強の仕方を備えます。"
 
 #: accounts/templates/registration/login.html:41
 msgid "How do you start?"
-msgstr ""
+msgstr "どうやって始まるの？"
 
 #: accounts/templates/registration/login.html:42
 msgid ""
@@ -1949,6 +1943,7 @@ msgid ""
 "you can start\n"
 "          learning."
 msgstr ""
+"アカウントを作成し、新しいセットを作るか、パブリックからコピーしたら、勉強をスタート出来ます。"
 
 #: accounts/templates/registration/login.html:51
 #: accounts/templates/registration/login.html:63
@@ -1965,68 +1960,63 @@ msgstr "パスワードを忘れましたか。"
 
 #: accounts/templates/registration/login.html:74
 msgid "For more insight, take a look at introduction below."
-msgstr ""
+msgstr "詳細については、以下の概要をご覧ください。"
 
 #: accounts/templates/registration/login.html:76
 msgid ""
 "This website was created to help with simultaneous learning of few languages "
 "(between two and five) by\n"
 "      providing tools to create and study multilingual Cards - MultiCards."
-msgstr ""
+msgstr "このウェブサイトは複数の言語を同時に勉強したい人のために作られました。"
+"複数の言語（2つから5つまで）が入ってるカード、マルチカードの作成機能があります。"
 
 #: accounts/templates/registration/login.html:78
 msgid "Below you will see some of the key elements of this website."
-msgstr ""
+msgstr "以下に、このウェブサイトの主要な要素のいくつかを示します。"
 
 #: accounts/templates/registration/login.html:87
-#, fuzzy
-#| msgid "Create a new set"
 msgid "Create your Set"
 msgstr "新セット作成"
 
 #: accounts/templates/registration/login.html:88
 msgid "You can specify up to five languages you want to learn."
-msgstr ""
+msgstr "学習したい言語を5つまで指定できます。"
 
 #: accounts/templates/registration/login.html:99
 msgid "After creating a Set, you can add MultiCards to it."
-msgstr ""
+msgstr "セットを作成したら、それにマルチカードを追加できます。"
 
 #: accounts/templates/registration/login.html:211
-#, fuzzy
-#| msgid "Create many MultiCards at once"
 msgid "You can also create many MultiCards at once."
-msgstr "複数のマルチカード作成"
+msgstr "複数のマルチカードも作成出来ます。"
 
 #: accounts/templates/registration/login.html:243
 msgid "Take a look at what you have created"
-msgstr ""
+msgstr "作成したものを見てみましょう。"
 
 #: accounts/templates/registration/login.html:244
 msgid "All words you put are auto-translated to other languages you specified."
-msgstr ""
+msgstr "入力したすべての単語は、指定した他の言語に自動翻訳されます。"
 
 #: accounts/templates/registration/login.html:245
 msgid "By using Google Translate Api"
-msgstr ""
+msgstr "Google翻訳APIを使用します。"
 
 #: accounts/templates/registration/login.html:254
 msgid "Now, you can start learning"
-msgstr ""
+msgstr "これで、学習を開始できます。"
 
 #: accounts/templates/registration/login.html:255
 msgid "You have two options to choose from: Writing and Flashcards."
-msgstr ""
+msgstr "勉強方法は2つあります。ライティングとフラッシュカードです。"
 
 #: accounts/templates/registration/login.html:260
-#, fuzzy
-#| msgid "Write"
 msgid "Writing"
-msgstr "記入"
+msgstr "ライティング"
 
 #: accounts/templates/registration/login.html:269
 msgid "Make an account and start learning right now!"
-msgstr ""
+msgstr "アカウントを作成して、今すぐ学習を始めましょう！"
 
 #: accounts/templates/registration/password_reset_complete.html:8
 msgid "Your password has been set. You may go ahead and"
@@ -2041,7 +2031,8 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.\n"
 "      Please request a new password reset."
-msgstr ""
+msgstr "パスワードリセットリンクは、おそらく既に使用されているため、無効でした。"
+"新しいパスワードのリセットをリクエストしてください。"
 
 #: accounts/templates/registration/password_reset_done.html:7
 msgid ""
@@ -2057,6 +2048,14 @@ msgid ""
 "    and check your spam folder.\n"
 "  </p>\n"
 msgstr ""
+"\n"
+"  <p>\n"
+"入力したメールアドレスでアカウントが存在する場合は、パスワードを設定する手順をメールで送信しました。"
+" 間もなく届きます。\n"
+"  </p>\n"
+"  <p>\n"
+"メールが届かない場合は、登録したアドレスを入力していることを確認し、迷惑メールフォルダを確認してください。"
+"  </p>\n"
 
 #: accounts/templates/registration/password_reset_email.html:3
 #, python-format
@@ -2067,7 +2066,7 @@ msgid ""
 "click the link below:\n"
 msgstr ""
 "\n"
-"マルチフラッシュカードの %(name)s のパスワードを変更するなら、下のリンクをク"
+"%(name)s のマルチフラッシュカードのパスワードを変更するなら、下のリンクをク"
 "リックしてください。\n"
 
 #: accounts/templates/registration/password_reset_email.html:9
