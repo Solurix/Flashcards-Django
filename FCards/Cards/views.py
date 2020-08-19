@@ -37,8 +37,9 @@ def add_folder(request):
     form = FolderForm(request.POST or None)
     if form.is_valid():
         if request.method == "POST":
-            CardFolder.objects.create(user=request.user, **form.cleaned_data)
-            return redirect('/')
+            folder = CardFolder.objects.create(user=request.user, **form.cleaned_data)
+            enough = len(folder.multicard_set.all()) > 2
+            return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
 
     context = {
         "form": form
@@ -63,7 +64,8 @@ def edit_folder(request, set_id):
             t = Thread(target=edit_folder_translate, args=[folder])
             t.setDaemon(False)
             t.start()
-            return redirect('/')
+            enough = len(folder.multicard_set.all()) > 2
+            return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
 
     else:
         form = FolderForm(instance=folder)
@@ -108,7 +110,8 @@ def copy_folder(request, set_id):
             t = Thread(target=edit_folder_translate, args=[new_folder])
             t.setDaemon(False)
             t.start()
-            return redirect('/')
+            enough = len(folder.multicard_set.all()) > 2
+            return render(request, 'Cards/view_set.html', {'folder': new_folder, 'enough': enough})
 
     else:
         form = FolderForm(instance=folder)
@@ -164,8 +167,9 @@ def add_multicard(request, set_id):
             t = Thread(target=add_multicard_translate, args=[langs, request, m_card, folder])
             t.setDaemon(False)
             t.start()
-        return redirect(request.META['HTTP_REFERER'])
-
+        # return redirect(f'/cards/add_multicard/{folder.id}/')
+        enough = len(folder.multicard_set.all()) > 2
+        return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
     return render(request, 'Cards/add_multicard.html', context)
 
 
@@ -213,7 +217,8 @@ def add_many(request, set_id):
             t = Thread(target=add_many_translate, args=[new_langs, word, language, m_card, folder])
             t.setDaemon(False)
             t.start()
-        return redirect(request.META['HTTP_REFERER'])
+        enough = len(folder.multicard_set.all()) > 2
+        return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
 
     return render(request, 'Cards/add_many.html', context)
 
