@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 14:52+0900\n"
+"POT-Creation-Date: 2020-08-19 18:20+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -246,7 +246,7 @@ msgstr ""
 #: Cards/templates/Cards/demo/welcome.html:193
 #: accounts/templates/registration/login.html:217
 msgid "English"
-msgstr ""
+msgstr "英語"
 
 #: Cards/langcodes.py:8 Cards/langcodes.py:32 Cards/langcodes.py:55
 #: Cards/templates/Cards/demo/demo_new_set.html:55
@@ -1061,10 +1061,9 @@ msgid "Add Multicards"
 msgstr "マルチカード追加"
 
 #: Cards/templates/Cards/add_multicard.html:5
-#: Cards/templates/Cards/add_set.html:5 Cards/templates/Cards/index.html:26
-#: Cards/templates/Cards/public_sets.html:26
-msgid "New set"
-msgstr "新セット"
+#, fuzzy
+msgid "New MultiCard"
+msgstr "次のマルチカード"
 
 #: Cards/templates/Cards/add_multicard.html:23
 msgid "Create new MultiCard"
@@ -1211,6 +1210,11 @@ msgstr "%(lang)s の同意語"
 msgid "%(lang)s comment"
 msgstr "%(lang)s のコメント"
 
+#: Cards/templates/Cards/add_set.html:5 Cards/templates/Cards/index.html:26
+#: Cards/templates/Cards/public_sets.html:26
+msgid "New set"
+msgstr "新セット"
+
 #: Cards/templates/Cards/copy_set.html:5
 msgid "Copy set"
 msgstr "セットをコピー"
@@ -1228,6 +1232,11 @@ msgstr "翻訳はどうですか？出来ましたか？"
 #: Cards/templates/Cards/learn/learn_flashcards.html:125
 msgid "Easily!"
 msgstr "簡単"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:112
+#: Cards/templates/Cards/learn/learn_flashcards.html:128
+msgid "Yes!"
+msgstr "はい"
 
 #: Cards/templates/Cards/demo/demo_flashcards.html:116
 #: Cards/templates/Cards/learn/learn_flashcards.html:132
@@ -1265,6 +1274,14 @@ msgid "Delete this MultiCard"
 msgstr "マルチカード削除"
 
 #: Cards/templates/Cards/demo/demo_flashcards.html:175
+#: Cards/templates/Cards/demo/demo_new_set.html:995
+#: Cards/templates/Cards/demo/demo_write.html:169
+#: accounts/templates/registration/login.html:203
+#: accounts/templates/registration/login.html:232
+msgid "It's just a demo!"
+msgstr "デモンストレーションです！"
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:175
 #: Cards/templates/Cards/demo/demo_write.html:169
 #: Cards/templates/Cards/learn/learn_flashcards.html:173
 #: Cards/templates/Cards/learn/learn_write.html:97
@@ -1293,10 +1310,6 @@ msgstr "これが今回の第一言語です。他の言語に翻訳できます
 #: Cards/templates/Cards/learn/learn_flashcards.html:232
 msgid "You have already answered this question, keep going!"
 msgstr "回答済！次へ進んでください。"
-
-#: Cards/templates/Cards/demo/demo_new_set.html:995
-msgid "It's just a demo!"
-msgstr "デモンストレーションです！"
 
 #: Cards/templates/Cards/demo/demo_view.html:9
 #: Cards/templates/Cards/demo/welcome.html:98
@@ -1524,7 +1537,7 @@ msgstr "新セット作成"
 msgid "or copy from public ones."
 msgstr "公開セットをコピー"
 
-#: Cards/templates/Cards/index.html:109
+#: Cards/templates/Cards/index.html:109 Cards/templates/Cards/view_set.html:81
 msgid ""
 "Page needs to be refreshed to see the changes. If new translations does not "
 "seem to appear, Click me."
@@ -1539,13 +1552,13 @@ msgstr ""
 msgid "loading..."
 msgstr "ローディング"
 
-#: Cards/templates/Cards/index.html:111
+#: Cards/templates/Cards/index.html:111 Cards/templates/Cards/view_set.html:83
 msgid ""
 "Looks like a translation error have occurred. Click me to repeat translation "
 "process."
 msgstr "翻訳エラーが発生したようです。クリックすると再翻訳します。"
 
-#: Cards/templates/Cards/index.html:111
+#: Cards/templates/Cards/index.html:111 Cards/templates/Cards/view_set.html:83
 msgid "Translation error"
 msgstr "翻訳エラー"
 
@@ -1557,12 +1570,12 @@ msgstr "このセットにはカードがありません。"
 msgid "Are you sure you want to delete set "
 msgstr "セットを削除しますか。"
 
-#: Cards/templates/Cards/index.html:156 Cards/templates/Cards/view_set.html:156
+#: Cards/templates/Cards/index.html:156 Cards/templates/Cards/view_set.html:158
 #, python-format
 msgid "This set consists of %(length)s MultiCards."
 msgstr "このセットには %(length)s のマルチカードがあります。"
 
-#: Cards/templates/Cards/index.html:161 Cards/templates/Cards/view_set.html:160
+#: Cards/templates/Cards/index.html:161 Cards/templates/Cards/view_set.html:162
 #: accounts/templates/accounts/overview.html:108
 msgid "Yes, delete it."
 msgstr "はい、削除する。"
@@ -1596,22 +1609,18 @@ msgstr "このセットには、学習を開始するのに十分なマルチカ
 msgid "Please create at least three MultiCards."
 msgstr "少なくとも三つのマルチカードを作成してください。"
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:128
-msgid "Yes!"
-msgstr "はい"
-
 #: Cards/templates/Cards/learn/learn_flashcards.html:167
-#: Cards/templates/Cards/view_set.html:109
+#: Cards/templates/Cards/view_set.html:111
 msgid "Comment:"
 msgstr "コメント："
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:168
-#: Cards/templates/Cards/view_set.html:100
+#: Cards/templates/Cards/view_set.html:102
 msgid "Pronunciation:"
 msgstr "発音："
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:169
-#: Cards/templates/Cards/view_set.html:103
+#: Cards/templates/Cards/view_set.html:105
 msgid "Synonym:"
 msgstr "同意語："
 
@@ -1646,46 +1655,46 @@ msgid "Author:"
 msgstr "作成者"
 
 #: Cards/templates/Cards/public_sets.html:103
-#: Cards/templates/Cards/view_set.html:120
+#: Cards/templates/Cards/view_set.html:122
 #: Cards/templates/Cards/view_set_public.html:98
 msgid "There are no cards for this set."
 msgstr "このセットにはカードがありません。"
 
-#: Cards/templates/Cards/view_set.html:95
+#: Cards/templates/Cards/view_set.html:97
 msgid "Progress:"
 msgstr "進歩："
 
-#: Cards/templates/Cards/view_set.html:106
+#: Cards/templates/Cards/view_set.html:108
 msgid "Definition:"
 msgstr "定義："
 
-#: Cards/templates/Cards/view_set.html:127
+#: Cards/templates/Cards/view_set.html:129
 msgid "Reset Progress"
 msgstr "進歩リセット"
 
-#: Cards/templates/Cards/view_set.html:131
+#: Cards/templates/Cards/view_set.html:133
 msgid "Make private"
 msgstr "非公開にする"
 
-#: Cards/templates/Cards/view_set.html:133
+#: Cards/templates/Cards/view_set.html:135
 msgid "Make public"
 msgstr "公開にする"
 
-#: Cards/templates/Cards/view_set.html:137
+#: Cards/templates/Cards/view_set.html:139
 msgid "Delete set"
 msgstr "セットを削除"
 
-#: Cards/templates/Cards/view_set.html:149
+#: Cards/templates/Cards/view_set.html:151
 #, python-format
 msgid "Delete %(folder)s?"
 msgstr "%(folder)s　の削除"
 
-#: Cards/templates/Cards/view_set.html:155
+#: Cards/templates/Cards/view_set.html:157
 #, python-format
 msgid "Are you sure you want to delete set \"%(folder)s\"?"
 msgstr "%(folder)s　を削除しますか。"
 
-#: Cards/templates/Cards/view_set.html:162
+#: Cards/templates/Cards/view_set.html:164
 #: accounts/templates/accounts/overview.html:110
 msgid "Close"
 msgstr "閉じる"
@@ -2209,10 +2218,6 @@ msgstr ""
 
 #~ msgid "Write here and press [Enter]."
 #~ msgstr "ここに書いてください。"
-
-#, fuzzy
-#~ msgid "Next MultiCard"
-#~ msgstr "次のマルチカード"
 
 #~ msgid "Edit"
 #~ msgstr "編集"

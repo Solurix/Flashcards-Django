@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 14:52+0900\n"
+"POT-Creation-Date: 2020-08-19 18:20+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1066,10 +1066,10 @@ msgid "Add Multicards"
 msgstr "Dodaj MultiKartę"
 
 #: Cards/templates/Cards/add_multicard.html:5
-#: Cards/templates/Cards/add_set.html:5 Cards/templates/Cards/index.html:26
-#: Cards/templates/Cards/public_sets.html:26
-msgid "New set"
-msgstr "Nowy zestaw"
+#, fuzzy
+#| msgid "Edit MultiCards"
+msgid "New MultiCard"
+msgstr "Edytuj MutliKarty"
 
 #: Cards/templates/Cards/add_multicard.html:23
 msgid "Create new MultiCard"
@@ -1216,6 +1216,11 @@ msgstr "%(lang)s synonim "
 msgid "%(lang)s comment"
 msgstr "%(lang)s komentarz"
 
+#: Cards/templates/Cards/add_set.html:5 Cards/templates/Cards/index.html:26
+#: Cards/templates/Cards/public_sets.html:26
+msgid "New set"
+msgstr "Nowy zestaw"
+
 #: Cards/templates/Cards/copy_set.html:5
 msgid "Copy set"
 msgstr "Skopiuj zestaw"
@@ -1234,6 +1239,11 @@ msgstr "Jak się tutaj dostałeś, hm?"
 #: Cards/templates/Cards/demo/demo_flashcards.html:109
 #: Cards/templates/Cards/learn/learn_flashcards.html:125
 msgid "Easily!"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:112
+#: Cards/templates/Cards/learn/learn_flashcards.html:128
+msgid "Yes!"
 msgstr ""
 
 #: Cards/templates/Cards/demo/demo_flashcards.html:116
@@ -1276,6 +1286,14 @@ msgid "Delete this MultiCard"
 msgstr "Komentarz dla tej MultiKarty"
 
 #: Cards/templates/Cards/demo/demo_flashcards.html:175
+#: Cards/templates/Cards/demo/demo_new_set.html:995
+#: Cards/templates/Cards/demo/demo_write.html:169
+#: accounts/templates/registration/login.html:203
+#: accounts/templates/registration/login.html:232
+msgid "It's just a demo!"
+msgstr ""
+
+#: Cards/templates/Cards/demo/demo_flashcards.html:175
 #: Cards/templates/Cards/demo/demo_write.html:169
 #: Cards/templates/Cards/learn/learn_flashcards.html:173
 #: Cards/templates/Cards/learn/learn_write.html:97
@@ -1303,10 +1321,6 @@ msgstr ""
 #: Cards/templates/Cards/demo/demo_flashcards.html:244
 #: Cards/templates/Cards/learn/learn_flashcards.html:232
 msgid "You have already answered this question, keep going!"
-msgstr ""
-
-#: Cards/templates/Cards/demo/demo_new_set.html:995
-msgid "It's just a demo!"
 msgstr ""
 
 #: Cards/templates/Cards/demo/demo_view.html:9
@@ -1546,7 +1560,7 @@ msgstr "Stwórz nowy zestaw"
 msgid "or copy from public ones."
 msgstr "lub skopiuj z dostępnych publicznie."
 
-#: Cards/templates/Cards/index.html:109
+#: Cards/templates/Cards/index.html:109 Cards/templates/Cards/view_set.html:81
 msgid ""
 "Page needs to be refreshed to see the changes. If new translations does not "
 "seem to appear, Click me."
@@ -1562,7 +1576,7 @@ msgstr ""
 msgid "loading..."
 msgstr "ładowanie..."
 
-#: Cards/templates/Cards/index.html:111
+#: Cards/templates/Cards/index.html:111 Cards/templates/Cards/view_set.html:83
 msgid ""
 "Looks like a translation error have occurred. Click me to repeat translation "
 "process."
@@ -1570,7 +1584,7 @@ msgstr ""
 "Wygląda na to, że wystąpił błąd podczas tłumaczenia.\n"
 "                Kliknij tutaj by powtórzyć proces."
 
-#: Cards/templates/Cards/index.html:111
+#: Cards/templates/Cards/index.html:111 Cards/templates/Cards/view_set.html:83
 msgid "Translation error"
 msgstr "Błąd tłumaczenia"
 
@@ -1582,12 +1596,12 @@ msgstr "Brak kart w tym zestawie."
 msgid "Are you sure you want to delete set "
 msgstr "Czy na pewno chcesz usunąć ten zestaw?"
 
-#: Cards/templates/Cards/index.html:156 Cards/templates/Cards/view_set.html:156
+#: Cards/templates/Cards/index.html:156 Cards/templates/Cards/view_set.html:158
 #, python-format
 msgid "This set consists of %(length)s MultiCards."
 msgstr "Ten zestaw zawiera %(length)s MultiKart."
 
-#: Cards/templates/Cards/index.html:161 Cards/templates/Cards/view_set.html:160
+#: Cards/templates/Cards/index.html:161 Cards/templates/Cards/view_set.html:162
 #: accounts/templates/accounts/overview.html:108
 msgid "Yes, delete it."
 msgstr "Tak, usuń."
@@ -1621,22 +1635,18 @@ msgstr "Nie masz dosyć MultiKart w tym zestawie by rozpocząć naukę."
 msgid "Please create at least three MultiCards."
 msgstr ""
 
-#: Cards/templates/Cards/learn/learn_flashcards.html:128
-msgid "Yes!"
-msgstr ""
-
 #: Cards/templates/Cards/learn/learn_flashcards.html:167
-#: Cards/templates/Cards/view_set.html:109
+#: Cards/templates/Cards/view_set.html:111
 msgid "Comment:"
 msgstr "Komentarz:"
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:168
-#: Cards/templates/Cards/view_set.html:100
+#: Cards/templates/Cards/view_set.html:102
 msgid "Pronunciation:"
 msgstr "Wymowa:"
 
 #: Cards/templates/Cards/learn/learn_flashcards.html:169
-#: Cards/templates/Cards/view_set.html:103
+#: Cards/templates/Cards/view_set.html:105
 msgid "Synonym:"
 msgstr "Synonim:"
 
@@ -1673,46 +1683,46 @@ msgid "Author:"
 msgstr "Autor"
 
 #: Cards/templates/Cards/public_sets.html:103
-#: Cards/templates/Cards/view_set.html:120
+#: Cards/templates/Cards/view_set.html:122
 #: Cards/templates/Cards/view_set_public.html:98
 msgid "There are no cards for this set."
 msgstr "Brak kart w tym zestawie."
 
-#: Cards/templates/Cards/view_set.html:95
+#: Cards/templates/Cards/view_set.html:97
 msgid "Progress:"
 msgstr "Postęp:"
 
-#: Cards/templates/Cards/view_set.html:106
+#: Cards/templates/Cards/view_set.html:108
 msgid "Definition:"
 msgstr "Definicja:"
 
-#: Cards/templates/Cards/view_set.html:127
+#: Cards/templates/Cards/view_set.html:129
 msgid "Reset Progress"
 msgstr "Zresetuj postęp"
 
-#: Cards/templates/Cards/view_set.html:131
+#: Cards/templates/Cards/view_set.html:133
 msgid "Make private"
 msgstr "Zmień na prywatny"
 
-#: Cards/templates/Cards/view_set.html:133
+#: Cards/templates/Cards/view_set.html:135
 msgid "Make public"
 msgstr "Zmień na publiczny"
 
-#: Cards/templates/Cards/view_set.html:137
+#: Cards/templates/Cards/view_set.html:139
 msgid "Delete set"
 msgstr "Usuń zestaw"
 
-#: Cards/templates/Cards/view_set.html:149
+#: Cards/templates/Cards/view_set.html:151
 #, python-format
 msgid "Delete %(folder)s?"
 msgstr "Usunąć %(folder)s? "
 
-#: Cards/templates/Cards/view_set.html:155
+#: Cards/templates/Cards/view_set.html:157
 #, python-format
 msgid "Are you sure you want to delete set \"%(folder)s\"?"
 msgstr "Czy na pewno chcesz usunąć ten zestaw \"%(folder)s\"?"
 
-#: Cards/templates/Cards/view_set.html:162
+#: Cards/templates/Cards/view_set.html:164
 #: accounts/templates/accounts/overview.html:110
 msgid "Close"
 msgstr "Zamknij"
@@ -2219,11 +2229,6 @@ msgstr ""
 
 #~ msgid "Write here and press [Enter]."
 #~ msgstr "Napisz tutaj"
-
-#, fuzzy
-#~| msgid "Edit MultiCards"
-#~ msgid "Next MultiCard"
-#~ msgstr "Edytuj MutliKarty"
 
 #~ msgid "Edit"
 #~ msgstr "Edytuj"
