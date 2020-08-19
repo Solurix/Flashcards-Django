@@ -78,10 +78,12 @@ $('.collapse').on('show.bs.collapse', function () {
 
           <td>
               {% if not card.main %}
-              <b>{% trans 'loading...' %}</b>
-              {% else %}
-                <b>{{ card.main }}</b>
-              {% endif %}
+                <a href="{% url 'repair_translations' set_id=folder.id %}" data-toggle="tooltip" title='{% trans "Page needs to be refreshed to see the changes. If new translations does not seem to appear, Click me." %}'>{% trans 'loading...' %}</a>
+                {% elif card.main == 'Translation error' %}
+                <a href="{% url 'repair_translations' set_id=folder.id %}" data-toggle="tooltip" title="{% trans 'Looks like a translation error have occurred. Click me to repeat translation process.' %}">{% trans 'Translation error' %}</a>
+                {% else %}
+                  <b>{{ card.main }}</b>
+                {% endif %}
           </td>
         {% endfor %}
       </tr>

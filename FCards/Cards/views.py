@@ -110,8 +110,8 @@ def copy_folder(request, set_id):
             t = Thread(target=edit_folder_translate, args=[new_folder])
             t.setDaemon(False)
             t.start()
-            enough = len(folder.multicard_set.all()) > 2
-            return render(request, 'Cards/view_set.html', {'folder': new_folder, 'enough': enough})
+            # return redirect('Cards/view_set.html', {'folder': new_folder})
+            return redirect(f'/cards/view_set/{new_folder.id}/')
 
     else:
         form = FolderForm(instance=folder)
@@ -168,8 +168,7 @@ def add_multicard(request, set_id):
             t.setDaemon(False)
             t.start()
         # return redirect(f'/cards/add_multicard/{folder.id}/')
-        enough = len(folder.multicard_set.all()) > 2
-        return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
+        return redirect(f'/cards/view_set/{folder.id}/')
     return render(request, 'Cards/add_multicard.html', context)
 
 
@@ -217,8 +216,7 @@ def add_many(request, set_id):
             t = Thread(target=add_many_translate, args=[new_langs, word, language, m_card, folder])
             t.setDaemon(False)
             t.start()
-        enough = len(folder.multicard_set.all()) > 2
-        return render(request, 'Cards/view_set.html', {'folder': folder, 'enough': enough})
+        return redirect(f'/cards/view_set/{folder.id}/')
 
     return render(request, 'Cards/add_many.html', context)
 
@@ -376,7 +374,7 @@ def repair_translations(request, set_id):
     t.setDaemon(False)
     t.start()
     # TODO add message that translations are in work
-    return redirect(request.META['HTTP_REFERER'])
+    return redirect(f'/cards/view_set/{folder.id}/')
 
 # endregion
 
