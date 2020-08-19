@@ -109,7 +109,7 @@ body { font-family: sans-serif; }
                       value="c0">{% trans 'Easily!' %}</button>
             </div>
             <div class="col">
-              <button onclick="hide(1)" value="c1" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress">Yes!</button>
+              <button onclick="hide(1)" value="c1" class="btn btn-block px-1 my-1 btn-outline-primary" name="progress">{% trans 'Yes!' %}</button>
             </div>
             <div class="col">
               <button onclick="hide(2)" class="btn btn-block px-1 my-1 btn-outline-info" name="progress"
@@ -160,7 +160,7 @@ body { font-family: sans-serif; }
         
         <div id="detail2" style="display:none;">
           <p>
-          <p><{% trans 'Pronunciation' %}: Tōri</p>
+          <p>{% trans 'Pronunciation' %}: Tōri</p>
           <p>
         </div>
         
@@ -172,7 +172,7 @@ body { font-family: sans-serif; }
         
         <div id="next" style="display:none;">
           <button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
-                data-content="It's just a demo!">{% trans 'Next' %}
+                data-content="{% trans "It's just a demo!" %}">{% trans 'Next' %}
         </button>
         </div>
         <p id="greeting_text">

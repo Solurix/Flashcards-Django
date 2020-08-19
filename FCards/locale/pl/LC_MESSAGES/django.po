@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 23:08+0900\n"
+"POT-Creation-Date: 2020-08-19 14:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: Bartosz Lulka <bartosz.adam.lulka@gmail.com>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1745,6 +1745,7 @@ msgid "Write here"
 msgstr "Pisanie"
 
 #: Cards/templates/base.html:67
+#: accounts/templates/registration/password_reset_form.html:20
 msgid "Submit"
 msgstr "Wyślij"
 
@@ -1770,7 +1771,7 @@ msgstr ""
 "użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Dowiedz się więcej</a>"
 
-#: Cards/templates/base.html:117 accounts/templates/base2.html:67
+#: Cards/templates/base.html:117 accounts/templates/base2.html:66
 msgid "I agree"
 msgstr "Wyrażam zgodę"
 
@@ -1877,7 +1878,7 @@ msgstr "Zmień swoje imię"
 msgid "Confirmation email sent."
 msgstr "Wiadomość wysłana."
 
-#: accounts/templates/base2.html:63
+#: accounts/templates/base2.html:62
 #, fuzzy
 #| msgid ""
 #| "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
@@ -1893,7 +1894,7 @@ msgstr ""
 "użytkowania tej storny. <a href=\"https://cookiesandyou.com/\" target="
 "\"_blank\">Dowiedz się więcej</a>"
 
-#: accounts/templates/base2.html:99
+#: accounts/templates/base2.html:98
 msgid ""
 "© 2020 Copyright:<br/>\n"
 "          Website: Bartosz Lulka<br/>\n"

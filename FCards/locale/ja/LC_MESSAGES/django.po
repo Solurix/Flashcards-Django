@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-13 23:08+0900\n"
+"POT-Creation-Date: 2020-08-19 14:52+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1716,6 +1716,7 @@ msgid "Write here"
 msgstr "ここに書いて下さい"
 
 #: Cards/templates/base.html:67
+#: accounts/templates/registration/password_reset_form.html:20
 msgid "Submit"
 msgstr "送信"
 
@@ -1740,7 +1741,7 @@ msgstr ""
 "このウェブサイトはクッキーを使います。 <a href=\"https://cookiesandyou.com/"
 "\" target=\"_blank\">詳細</a>"
 
-#: Cards/templates/base.html:117 accounts/templates/base2.html:67
+#: Cards/templates/base.html:117 accounts/templates/base2.html:66
 msgid "I agree"
 msgstr "同意する"
 
@@ -1852,7 +1853,7 @@ msgstr "名前変更"
 msgid "Confirmation email sent."
 msgstr "確認メールを送信しました。"
 
-#: accounts/templates/base2.html:63
+#: accounts/templates/base2.html:62
 msgid ""
 "<b>Do you like cookies?</b> We use cookies to ensure you get the best "
 "experience on our website. <a\n"
@@ -1862,7 +1863,7 @@ msgstr ""
 "このウェブサイトはクッキーを使います。 <a href=\"https://cookiesandyou.com/"
 "\" target=\"_blank\">詳細</a>"
 
-#: accounts/templates/base2.html:99
+#: accounts/templates/base2.html:98
 msgid ""
 "© 2020 Copyright:<br/>\n"
 "          Website: Bartosz Lulka<br/>\n"
@@ -1902,7 +1903,9 @@ msgstr "エラー500：サーバーエラー"
 msgid ""
 "Ups, looks like you have done something you weren't supposed to do. If this "
 "error occurs again and you don't know why, please contact me."
-msgstr "あらあら、創造しなかったエラーが出ました。もし、また出たら、ご連絡いただければ幸いです。"
+msgstr ""
+"あらあら、創造しなかったエラーが出ました。もし、また出たら、ご連絡いただけれ"
+"ば幸いです。"
 
 #: accounts/templates/registration/logged_out.html:5
 msgid "Logged out"
@@ -1943,7 +1946,8 @@ msgid ""
 "you can start\n"
 "          learning."
 msgstr ""
-"アカウントを作成し、新しいセットを作るか、パブリックからコピーしたら、勉強をスタート出来ます。"
+"アカウントを作成し、新しいセットを作るか、パブリックからコピーしたら、勉強を"
+"スタート出来ます。"
 
 #: accounts/templates/registration/login.html:51
 #: accounts/templates/registration/login.html:63
@@ -1967,8 +1971,9 @@ msgid ""
 "This website was created to help with simultaneous learning of few languages "
 "(between two and five) by\n"
 "      providing tools to create and study multilingual Cards - MultiCards."
-msgstr "このウェブサイトは複数の言語を同時に勉強したい人のために作られました。"
-"複数の言語（2つから5つまで）が入ってるカード、マルチカードの作成機能があります。"
+msgstr ""
+"このウェブサイトは複数の言語を同時に勉強したい人のために作られました。複数の"
+"言語（2つから5つまで）が入ってるカード、マルチカードの作成機能があります。"
 
 #: accounts/templates/registration/login.html:78
 msgid "Below you will see some of the key elements of this website."
@@ -2031,8 +2036,9 @@ msgid ""
 "The password reset link was invalid, possibly because it has already been "
 "used.\n"
 "      Please request a new password reset."
-msgstr "パスワードリセットリンクは、おそらく既に使用されているため、無効でした。"
-"新しいパスワードのリセットをリクエストしてください。"
+msgstr ""
+"パスワードリセットリンクは、おそらく既に使用されているため、無効でした。新し"
+"いパスワードのリセットをリクエストしてください。"
 
 #: accounts/templates/registration/password_reset_done.html:7
 msgid ""
@@ -2050,12 +2056,12 @@ msgid ""
 msgstr ""
 "\n"
 "  <p>\n"
-"入力したメールアドレスでアカウントが存在する場合は、パスワードを設定する手順をメールで送信しました。"
-" 間もなく届きます。\n"
+"入力したメールアドレスでアカウントが存在する場合は、パスワードを設定する手順"
+"をメールで送信しました。 間もなく届きます。\n"
 "  </p>\n"
 "  <p>\n"
-"メールが届かない場合は、登録したアドレスを入力していることを確認し、迷惑メールフォルダを確認してください。"
-"  </p>\n"
+"メールが届かない場合は、登録したアドレスを入力していることを確認し、迷惑メー"
+"ルフォルダを確認してください。  </p>\n"
 
 #: accounts/templates/registration/password_reset_email.html:3
 #, python-format

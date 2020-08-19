@@ -1,7 +1,7 @@
 {% extends "base2.html" %}
 {% load i18n %}
 {% block title %}
-{% trans 'Multi-FlashCards' %}
+{% trans 'Demo' %}
 {% endblock title %}
 
 {% block styles %}
@@ -10,99 +10,75 @@
 .hiddenRow {
     padding: 0 !important;
 }
-
-
 </style>
 <script>
 $('.collapse').on('show.bs.collapse', function () {
     $('.collapse.in').collapse('hide');
 });
-
-
 </script>
+
 {% endblock styles %}
 
 {% block body %}
 
 
-<div class="p-3 mb-2 bg-dark text-white">
-  <div class="card-header text-center">
+<div class="p-3 mb-2 bg-dark text-white text-center">
+  <div class="card-header">
     <h1>{% trans "Multi-FlashCards" %}</h1>
   </div>
-  <div class="card-deck">
-    <div class="card text-white bg-dark">
-      <div class="card-body">
-        <h3>{% trans 'What is Multi-FlashCards?' %}</h3>
-        <li>{% trans 'Multi-FlashCards is a website that help in learning few languages at once.' %}</li>
-        <br>
-        <h3>{% trans 'How does it help?' %}</h3>
-        <li>{% trans 'It provides tools to quickly create Sets of words and then study them.' %}</li>
-        <br>
-        <h3>{% trans 'How do you start?' %}</h3>
-        <li>{% blocktrans %}Just make an account, create a new set or copy one from the public ones and you can start
-          learning.{% endblocktrans %}
-        </li>
+  <div class="card p-2 bg-dark text-white text-center">
 
+    <h2>{% trans "Welcome to the demonstration" %}</h2>
 
+    <p>This website was created to help with simultaneous learning of few languages (between two and five) by providing
+      tools to create and study multilingual Card - MultiCards.</p>
+    <p>This demonstration will show key you some of the elements of this website.</p>
+  </div>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <div class="card p-2 bg-dark text-white text-center">
+    <h3>Create your Set</h3>
+    You can specify up to five languages you want to learn.
+
+  <div class="container">
+    <div class="row">
+      {% for field in folder_form %}
+      <div class="col-md-4 col-lg-3 col-sm-4 col-xs-6">
+        <b>{{ field.label_tag }}</b>
+        {{ field }}
+        {% if field.help_text %}
+        <p class="help">{{ field.help_text|safe }}</p>
+        {% endif %}
       </div>
-    </div>
-    <div class="card text-white bg-dark">
-      <div class="card-header">
-        {% trans "Login" %}
-      </div>
-      <div class="card-body">
-        <form class="form-horizontal form" name="LoginForm" method="post">
-          {% csrf_token %}
-          {% if next %}
-          <input type="hidden" name="next" value="{{ next }}"/>
-          {% endif %}
-          {{ form|crispy }}
-          <div class="control-group">
-            <div class="controls">
-              <br>
-              <button type="submit" class="btn btn-outline-success">{% trans "Login" %}</button>
-              <a href="{% url 'sign-up' %}" class="btn btn-outline-secondary">{% trans " or sign up" %}</a>
-              <br><br><a href="{% url 'password_reset' %}">{% trans "Forgot you password? Click here." %}</a>
 
-            </div>
-          </div>
-        </form>
+      {% endfor %}
+      <div class="col">
+        <br/>
+        <button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
+                data-content="It's just a demo!">{% trans 'Create' %}
+        </button>
       </div>
     </div>
   </div>
-  <div class="card p-2 bg-dark text-white text-center"><br>
-    <h2>{% trans 'For more insight, take a look at introduction below.' %}</h2>
 
-    <p>{% blocktrans %}This website was created to help with simultaneous learning of few languages (between two and five) by
-      providing tools to create and study multilingual Cards - MultiCards.{% endblocktrans %}</p>
-    <p>{% trans 'Below you will see some of the key elements of this website.' %}</p>
   </div>
 
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+    <br/>
+    <br/>
+    <br/>
+    <br/>
   <div class="card p-2 bg-dark text-white text-center">
-    <h3>{% trans 'Create your Set' %}</h3>
-    {% trans 'You can specify up to five languages you want to learn.' %}
-
-
-    {% include 'Cards/demo/demo_new_set.html' %}
-  </div>
-
-  <br/>
-  <br/>
-  <br/>
-  <br/>
-  <div class="card p-2 bg-dark text-white text-center">
-    <h3>{% trans 'After creating a Set, you can add MultiCards to it.' %}</h3>
+    <h3>After creating a Set, you can add MultiCards to it.</h3>
 
     <div class="table-responsive">
-      <table class="table text-white">
+      <table class="table-sm text-white">
         <tr>
           <td>
-            <p style="min-width: 5ch"><b>{% trans 'Definition' %}</b></p>
+            <p><b>{% trans 'Definition' %}</b>
           </td>
           <td colspan="4">
             <input type="text" name="comment" class="form-control" maxlength="400"
@@ -111,7 +87,7 @@ $('.collapse').on('show.bs.collapse', function () {
         </tr>
         <tr>
           <td>
-            <p><b>{% trans 'Comment' %}</b></p>
+            <p><b>{% trans 'Comment' %}</b>
           </td>
           <td colspan="4">
             <input type="text" name="definition" class="form-control" maxlength="400"
@@ -200,49 +176,48 @@ $('.collapse').on('show.bs.collapse', function () {
     </div>
     <br/>
     <button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
-            data-content="{% trans "It's just a demo!" %}">{% trans 'Create' %}
-    </button>
+                data-content="It's just a demo!">{% trans 'Create' %}
+        </button>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
   <div class="card p-2 bg-dark text-white text-center">
-    <h3>{% trans 'You can also create many MultiCards at once.' %}</h3>
+    <h3>You can also add multiple words at once.</h3>
     <div class="text-dark">
-      <div class="table-responsive-xl">
-        <div class="input-group mb-3">
-          <div class="input-group-prepend">
-            <select class="custom-select" name="language">
-              <option class="dropdown-item" value=en>{% trans 'English' %}</option>
-              <option class="dropdown-item" value=pl>{% trans 'Polish' %}</option>
-              <option class="dropdown-item" value=ja>{% trans 'Japanese' %}</option>
-              <option class="dropdown-item" value=de>{% trans 'German' %}</option>
-            </select>
-          </div>
-          <input type="text" name="separator" class="form-control" maxlength="10" value=";"
-                 placeholder="{% trans 'Text separator' %}">
+        <div class="table-responsive-xl">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+                <select class="custom-select" name="language">
+                        <option class="dropdown-item" value=en>{% trans 'English' %}</option>
+                        <option class="dropdown-item" value=pl>{% trans 'Polish' %}</option>
+                        <option class="dropdown-item" value=ja>{% trans 'Japanese' %}</option>
+                        <option class="dropdown-item" value=de>{% trans 'German' %}</option>
+                 </select>
+            </div>
+        <input type="text" name="separator" class="form-control" maxlength="10" value=";" placeholder="Text separator">
         </div>
 
-        <textarea name="for_translate" cols="40" rows="3" class="form-control" maxlength="400"
-                  required placeholder="Write or paste words/sentences from which you want to create cards.
+            <textarea name="for_translate" cols="40" rows="3" class="form-control" maxlength="400"
+            required placeholder="Write or paste words/sentences from which you want to create cards.
 Divide them by separator of your choice (if you won't provide separator, words will be divided by spaces).
 Example: dad*mom*I like bananas*monday">Street;Building;Big City;Car;Space shuttle</textarea>
-        <button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
-                data-content="{% trans "It's just a demo!" %}">{% trans 'Create' %}
+<button type="button" data-placement="top" class="btn btn-outline-success btn-block" data-toggle="popover"
+                data-content="It's just a demo!">{% trans 'Create' %}
         </button>
-      </div>
+        </div>
     </div>
   </div>
-  <br>
-  <br>
-  <br>
-  <br>
-  <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
   <div class="card p-2 bg-dark text-white text-center">
-    <h3>{% trans 'Take a look at what you have created' %}</h3>
-    <h5>{% trans 'All words you put are auto-translated to other languages you specified.' %}</h5>
-    <h6>{% trans 'By using Google Translate Api' %}</h6>
+    <h3>Take a look at what you have created</h3>
+    <h5>All words you put are auto-translated to other languages you specified.</h5>
+    <h6>By using Google Translate Api</h6>
     {% include 'Cards/demo/demo_view.html' %}
   </div>
   <br>
@@ -251,13 +226,13 @@ Example: dad*mom*I like bananas*monday">Street;Building;Big City;Car;Space shutt
   <br>
   <br>
   <div class="card p-2 bg-dark text-white text-center">
-    <h2>{% trans 'Now, you can start learning' %}</h2>
-    <h4>{% trans 'You have two options to choose from: Writing and Flashcards.' %}</h4>
-    <h3>{% trans 'Flashcards' %}</h3><br>
+    <h3>Now, you can start learning</h3>
+    <h4>You have two options to choose from: Writing and Flashcards.</h4>
+    <h3>Flashcards</h3><br>
     {% include 'Cards/demo/demo_flashcards.html' %}
     <br>
     <br>
-    <h3>{% trans 'Writing' %}</h3>
+    <h3>Writing</h3>
     {% include 'Cards/demo/demo_write.html' %}
   </div>
   <br>
@@ -266,7 +241,7 @@ Example: dad*mom*I like bananas*monday">Street;Building;Big City;Car;Space shutt
   <br>
   <br>
   <div class="card p-2 bg-dark text-white text-center">
-    <h2>{% trans 'Make an account and start learning right now!' %}</h2>
+    <h2>Make an account and start learning right now!</h2>
     <a href="{% url 'sign-up' %}" class="btn btn-lg btn-outline-light">{% trans "Sign up" %}</a>
   </div>
   <br>
@@ -274,8 +249,8 @@ Example: dad*mom*I like bananas*monday">Street;Building;Big City;Car;Space shutt
   <br>
   <br>
   <br>
-
 </div>
+
 
 
 {% endblock body %}
