@@ -14,6 +14,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from .forms import SignUpForm
 from .tokens import account_activation_token
 from .models import Feedback
+from Cards.views import copy_folder
+
 
 
 @login_required
@@ -91,6 +93,22 @@ def sign_up(request):
     else:
         form = SignUpForm()
     return render(request, 'registration/sign_up.html', {'form': form})
+
+def guest(request):
+    x = 0
+    usernames = User.objects.values_list('username', flat=True)
+    emails = User.objects.values_list('email', flat=True)
+    while True:
+        username = "Guest " + str(x)
+        email = username + "@demo.com"
+        if username in usernames or email in emails:
+            x += 1
+        else:
+            password = "password" + str(x)
+            User.objects.create_user(username, email, password)
+            user = authenticate(username=username, password=password)
+            login(request, user)
+            return redirect('home')
 
 
 def activate(request, uidb64, token):

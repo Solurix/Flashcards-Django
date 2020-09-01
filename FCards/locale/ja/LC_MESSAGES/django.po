@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-19 18:20+0900\n"
+"POT-Creation-Date: 2020-09-01 13:48+0900\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1409,7 +1409,7 @@ msgid "Welcome to the demonstration"
 msgstr "デモンストレーション"
 
 #: Cards/templates/Cards/demo/welcome.html:245
-#: accounts/templates/registration/login.html:270
+#: accounts/templates/registration/login.html:276
 msgid "Sign up"
 msgstr "サインアップ"
 
@@ -2028,7 +2028,15 @@ msgstr "勉強方法は2つあります。ライティングとフラッシュ�
 msgid "Writing"
 msgstr "ライティング"
 
+#: accounts/templates/registration/login.html:268
+msgid "Try the website as a Guest"
+msgstr "ゲストとしてウェブサイトを試してみる"
+
 #: accounts/templates/registration/login.html:269
+msgid "Try out!"
+msgstr "試してみる！"
+
+#: accounts/templates/registration/login.html:275
 msgid "Make an account and start learning right now!"
 msgstr "アカウントを作成して、今すぐ学習を始めましょう！"
 
